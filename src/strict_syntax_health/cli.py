@@ -15,6 +15,7 @@ from rich.table import Table
 PIPELINES_URL = "https://nf-co.re/pipelines.json"
 PIPELINES_JSON_PATH = Path("pipelines.json")
 PIPELINES_DIR = Path("pipelines")
+LINT_RESULTS_DIR = Path("lint_results")
 README_PATH = Path("README.md")
 HISTORY_PATH = Path("history.json")
 ERRORS_CHART_PATH = Path("errors_chart.png")
@@ -86,8 +87,25 @@ def clone_pipeline(pipeline: dict) -> Path:
     return repo_path
 
 
+def get_nextflow_version() -> str:
+    """Get the current nextflow version."""
+    result = subprocess.run(
+        ["nextflow", "-version"],
+        capture_output=True,
+        text=True,
+    )
+    # Parse version from output like "nextflow version 24.10.0.5928"
+    for line in result.stdout.split("\n"):
+        if "version" in line.lower():
+            parts = line.split()
+            for i, part in enumerate(parts):
+                if part.lower() == "version" and i + 1 < len(parts):
+                    return parts[i + 1]
+    return "unknown"
+
+
 def lint_pipeline(repo_path: Path) -> dict:
-    """Run nextflow lint on a pipeline."""
+    """Run nextflow lint on a pipeline (JSON output for parsing)."""
     result = subprocess.run(
         ["nextflow", "lint", ".", "-o", "json"],
         cwd=repo_path,
@@ -108,6 +126,27 @@ def lint_pipeline(repo_path: Path) -> dict:
         return {"summary": {"errors": 0}, "errors": [], "warnings": [], "parse_error": True}
 
 
+def lint_pipeline_text(repo_path: Path, pipeline_name: str) -> None:
+    """Run nextflow lint on a pipeline and save text output to file."""
+    LINT_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    output_file = LINT_RESULTS_DIR / f"{pipeline_name}_lint.txt"
+
+    result = subprocess.run(
+        ["nextflow", "lint", "."],
+        cwd=repo_path,
+        capture_output=True,
+        text=True,
+    )
+
+    # Combine stdout and stderr for full output
+    output = result.stdout
+    if result.stderr:
+        output += "\n" + result.stderr
+
+    output_file.write_text(output)
+    console.print(f"  Saved lint output to {output_file}")
+
+
 def run_lint(pipelines: list[dict]) -> list[dict]:
     """Clone and lint all pipelines."""
     results = []
@@ -118,6 +157,7 @@ def run_lint(pipelines: list[dict]) -> list[dict]:
         try:
             repo_path = clone_pipeline(pipeline)
             lint_result = lint_pipeline(repo_path)
+            lint_pipeline_text(repo_path, pipeline["name"])
 
             results.append(
                 {
@@ -299,7 +339,7 @@ def generate_charts(history: list[dict]) -> None:
     )
 
 
-def generate_readme(results: list[dict], include_chart: bool = False) -> str:
+def generate_readme(results: list[dict], include_chart: bool = False, nextflow_version: str = "unknown") -> str:
     """Generate README content with results."""
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
@@ -316,6 +356,8 @@ def generate_readme(results: list[dict], include_chart: bool = False) -> str:
         "This repository tracks the health of nf-core pipelines with respect to Nextflow's strict syntax linting.",
         "",
         f"**Last updated:** {now}",
+        "",
+        f"**Nextflow version:** {nextflow_version}",
         "",
         f"**Total:** {parse_error_count} parse errors, {total_errors} errors, "
         f"{total_warnings} warnings across {len(results)} pipelines",
@@ -342,8 +384,8 @@ def generate_readme(results: list[dict], include_chart: bool = False) -> str:
         [
             "## Results",
             "",
-            "| Pipeline | Parse Error | Errors | Warnings |",
-            "|----------|:-----------:|-------:|---------:|",
+            "| Pipeline | Parse Error | Errors | Warnings | Lint Output |",
+            "|----------|:-----------:|-------:|---------:|:-----------:|",
         ]
     )
 
@@ -362,7 +404,8 @@ def generate_readme(results: list[dict], include_chart: bool = False) -> str:
             warning_str = str(warnings)
 
         name_link = f"[{result['name']}]({result['html_url']})"
-        lines.append(f"| {name_link} | {parse_error_str} | {error_str} | {warning_str} |")
+        lint_file_link = f"[View]({LINT_RESULTS_DIR}/{result['name']}_lint.txt)"
+        lines.append(f"| {name_link} | {parse_error_str} | {error_str} | {warning_str} | {lint_file_link} |")
 
     lines.extend(
         [
@@ -405,6 +448,10 @@ def main(update_readme: bool, update_pipelines: bool, pipeline: tuple[str, ...])
     if update_pipelines:
         update_pipelines_json()
 
+    # Get nextflow version
+    nextflow_version = get_nextflow_version()
+    console.print(f"Using Nextflow version: {nextflow_version}")
+
     pipelines = load_pipelines()
 
     if pipeline:
@@ -426,7 +473,7 @@ def main(update_readme: bool, update_pipelines: bool, pipeline: tuple[str, ...])
         include_chart = True
 
     if update_readme:
-        readme_content = generate_readme(results, include_chart=include_chart)
+        readme_content = generate_readme(results, include_chart=include_chart, nextflow_version=nextflow_version)
         README_PATH.write_text(readme_content)
         console.print(f"\n[green]Updated {README_PATH}[/green]")
 
