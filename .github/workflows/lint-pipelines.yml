@@ -33,8 +33,10 @@ jobs:
       - name: Run linting
         run: strict-syntax-health --update-pipelines --update-readme
 
-      - name: Format README with Prettier
-        run: npx prettier --write README.md
+      - name: Run pre-commit on all files to fix formatting
+        run: |
+          pip install pre-commit
+          pre-commit run --all-files || true
 
       - name: Commit and push changes
         run: |
