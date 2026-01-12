@@ -24,8 +24,8 @@ console = Console()
 
 
 def _sort_results(results: list[dict]) -> list[dict]:
-    """Sort results by errors (descending), then warnings (descending)."""
-    return sorted(results, key=lambda x: (-x["errors"], -x["warnings"]))
+    """Sort results by parse_error last, then errors (ascending), then warnings (ascending)."""
+    return sorted(results, key=lambda x: (x.get("parse_error", False), x["errors"], x["warnings"]))
 
 
 def update_pipelines_json() -> None:
@@ -98,12 +98,14 @@ def lint_pipeline(repo_path: Path) -> dict:
     # nextflow lint returns non-zero exit code if there are errors
     # but we still want to parse the output
     try:
-        return json.loads(result.stdout)
+        lint_result = json.loads(result.stdout)
+        lint_result["parse_error"] = False
+        return lint_result
     except json.JSONDecodeError:
         console.print(f"[red]Failed to parse lint output for {repo_path.name}[/red]")
         console.print(f"stdout: {result.stdout}")
         console.print(f"stderr: {result.stderr}")
-        return {"summary": {"errors": -1}, "errors": [], "warnings": []}
+        return {"summary": {"errors": 0}, "errors": [], "warnings": [], "parse_error": True}
 
 
 def run_lint(pipelines: list[dict]) -> list[dict]:
@@ -124,6 +126,7 @@ def run_lint(pipelines: list[dict]) -> list[dict]:
                     "html_url": pipeline["html_url"],
                     "errors": lint_result.get("summary", {}).get("errors", 0),
                     "warnings": len(lint_result.get("warnings", [])),
+                    "parse_error": lint_result.get("parse_error", False),
                     "lint_details": lint_result,
                 }
             )
@@ -134,8 +137,9 @@ def run_lint(pipelines: list[dict]) -> list[dict]:
                     "name": pipeline["name"],
                     "full_name": pipeline["full_name"],
                     "html_url": pipeline["html_url"],
-                    "errors": -1,
-                    "warnings": -1,
+                    "errors": 0,
+                    "warnings": 0,
+                    "parse_error": True,
                     "lint_details": {},
                 }
             )
@@ -147,6 +151,7 @@ def display_results(results: list[dict]) -> None:
     """Display results in a rich table."""
     table = Table(title="nf-core Pipeline Strict Syntax Health")
     table.add_column("Pipeline", style="cyan")
+    table.add_column("Parse Error", justify="right")
     table.add_column("Errors", justify="right")
     table.add_column("Warnings", justify="right")
 
@@ -154,24 +159,31 @@ def display_results(results: list[dict]) -> None:
 
     total_errors = 0
     total_warnings = 0
+    total_parse_errors = 0
 
     for result in sorted_results:
         errors = result["errors"]
         warnings = result["warnings"]
+        parse_error = result.get("parse_error", False)
 
-        if errors == -1:
-            error_str = "[red]FAILED[/red]"
-            warning_str = "[red]FAILED[/red]"
+        if parse_error:
+            total_parse_errors += 1
+            parse_error_str = "[red]Yes[/red]"
+            error_str = "-"
+            warning_str = "-"
         else:
             total_errors += errors
             total_warnings += warnings
+            parse_error_str = "[green]No[/green]"
             error_str = f"[red]{errors}[/red]" if errors > 0 else "[green]0[/green]"
             warning_str = f"[yellow]{warnings}[/yellow]" if warnings > 0 else "[green]0[/green]"
 
-        table.add_row(result["name"], error_str, warning_str)
+        table.add_row(result["name"], parse_error_str, error_str, warning_str)
 
     console.print(table)
-    console.print(f"\n[bold]Total: {total_errors} errors, {total_warnings} warnings[/bold]")
+    console.print(
+        f"\n[bold]Total: {total_parse_errors} parse errors, {total_errors} errors, {total_warnings} warnings[/bold]"
+    )
 
 
 def load_history() -> list[dict]:
@@ -192,11 +204,13 @@ def update_history(results: list[dict]) -> list[dict]:
     history = load_history()
 
     # Calculate categories for this run
-    valid_results = [r for r in results if r["errors"] >= 0]
+    valid_results = [r for r in results if not r.get("parse_error", False)]
+    parse_error_results = [r for r in results if r.get("parse_error", False)]
 
     entry = {
         "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-        "total_pipelines": len(valid_results),
+        "total_pipelines": len(results),
+        "parse_errors": len(parse_error_results),
         "errors_zero": sum(1 for r in valid_results if r["errors"] == 0),
         "errors_low": sum(1 for r in valid_results if 0 < r["errors"] <= 5),
         "errors_high": sum(1 for r in valid_results if r["errors"] > 5),
@@ -267,6 +281,7 @@ def generate_charts(history: list[dict]) -> None:
             ([h["errors_zero"] for h in history], "No errors", "#2ecc71", "rgba(46, 204, 113, 0.7)"),
             ([h["errors_low"] for h in history], "1-5 errors", "#f39c12", "rgba(243, 156, 18, 0.7)"),
             ([h["errors_high"] for h in history], ">5 errors", "#e74c3c", "rgba(231, 76, 60, 0.7)"),
+            ([h.get("parse_errors", 0) for h in history], "Parse errors", "#8e44ad", "rgba(142, 68, 173, 0.7)"),
         ],
         "Errors Over Time",
         ERRORS_CHART_PATH,
@@ -290,8 +305,10 @@ def generate_readme(results: list[dict], include_chart: bool = False) -> str:
 
     sorted_results = _sort_results(results)
 
-    total_errors = sum(r["errors"] for r in results if r["errors"] >= 0)
-    total_warnings = sum(r["warnings"] for r in results if r["warnings"] >= 0)
+    valid_results = [r for r in results if not r.get("parse_error", False)]
+    parse_error_count = sum(1 for r in results if r.get("parse_error", False))
+    total_errors = sum(r["errors"] for r in valid_results)
+    total_warnings = sum(r["warnings"] for r in valid_results)
 
     lines = [
         "# nf-core Strict Syntax Health Report",
@@ -300,7 +317,8 @@ def generate_readme(results: list[dict], include_chart: bool = False) -> str:
         "",
         f"**Last updated:** {now}",
         "",
-        f"**Total:** {total_errors} errors, {total_warnings} warnings across {len(results)} pipelines",
+        f"**Total:** {parse_error_count} parse errors, {total_errors} errors, "
+        f"{total_warnings} warnings across {len(results)} pipelines",
         "",
     ]
 
@@ -324,24 +342,27 @@ def generate_readme(results: list[dict], include_chart: bool = False) -> str:
         [
             "## Results",
             "",
-            "| Pipeline | Errors | Warnings |",
-            "|----------|-------:|--------:|",
+            "| Pipeline | Parse Error | Errors | Warnings |",
+            "|----------|:-----------:|-------:|---------:|",
         ]
     )
 
     for result in sorted_results:
         errors = result["errors"]
         warnings = result["warnings"]
+        parse_error = result.get("parse_error", False)
 
-        if errors == -1:
-            error_str = "FAILED"
-            warning_str = "FAILED"
+        if parse_error:
+            parse_error_str = "Yes"
+            error_str = "-"
+            warning_str = "-"
         else:
+            parse_error_str = "No"
             error_str = str(errors)
             warning_str = str(warnings)
 
         name_link = f"[{result['name']}]({result['html_url']})"
-        lines.append(f"| {name_link} | {error_str} | {warning_str} |")
+        lines.append(f"| {name_link} | {parse_error_str} | {error_str} | {warning_str} |")
 
     lines.extend(
         [
@@ -351,6 +372,8 @@ def generate_readme(results: list[dict], include_chart: bool = False) -> str:
             "This report is generated weekly by running `nextflow lint` on each nf-core pipeline.",
             "The linting checks for strict syntax compliance in Nextflow DSL2 code.",
             "",
+            "- **Parse errors** indicate pipelines where `nextflow lint` could not run at all, "
+            "typically due to syntax errors that prevent Nextflow from parsing the pipeline code",
             "- **Errors** indicate syntax issues that will cause problems in future Nextflow versions",
             "- **Warnings** indicate deprecated patterns that should be updated",
             "",
