@@ -333,6 +333,7 @@ def generate_charts(history: list[dict]) -> None:
             ([h["warnings_zero"] for h in history], "No warnings", "#1abc9c", "rgba(26, 188, 156, 0.7)"),
             ([h["warnings_low"] for h in history], "1-20 warnings", "#3498db", "rgba(52, 152, 219, 0.7)"),
             ([h["warnings_high"] for h in history], ">20 warnings", "#9b59b6", "rgba(155, 89, 182, 0.7)"),
+            ([h.get("parse_errors", 0) for h in history], "Parse errors", "#8e44ad", "rgba(142, 68, 173, 0.7)"),
         ],
         "Warnings Over Time",
         WARNINGS_CHART_PATH,
