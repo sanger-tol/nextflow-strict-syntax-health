@@ -2,9 +2,19 @@
 
 This repository tracks the health of nf-core pipelines with respect to Nextflow's strict syntax linting.
 
-**Last updated:** 2026-01-12 16:01:50 UTC
+**Last updated:** 2026-01-12 16:08:39 UTC
 
 **Total:** 7 errors, 17 warnings across 1 pipelines
+
+## Trends
+
+### Errors
+
+![Errors Chart](errors_chart.png)
+
+### Warnings
+
+![Warnings Chart](warnings_chart.png)
 
 ## Results
 

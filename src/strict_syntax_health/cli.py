@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import httpx
+import plotly.graph_objects as go
 import rich_click as click
 from rich.console import Console
 from rich.table import Table
@@ -15,6 +16,9 @@ PIPELINES_URL = "https://nf-co.re/pipelines.json"
 PIPELINES_JSON_PATH = Path("pipelines.json")
 PIPELINES_DIR = Path("pipelines")
 README_PATH = Path("README.md")
+HISTORY_PATH = Path("history.json")
+ERRORS_CHART_PATH = Path("errors_chart.png")
+WARNINGS_CHART_PATH = Path("warnings_chart.png")
 
 console = Console()
 
@@ -166,7 +170,184 @@ def display_results(results: list[dict]) -> None:
     console.print(f"\n[bold]Total: {total_errors} errors, {total_warnings} warnings[/bold]")
 
 
-def generate_readme(results: list[dict]) -> str:
+def load_history() -> list[dict]:
+    """Load historical results from the history file."""
+    if HISTORY_PATH.exists():
+        return json.loads(HISTORY_PATH.read_text())
+    return []
+
+
+def save_history(history: list[dict]) -> None:
+    """Save historical results to the history file."""
+    HISTORY_PATH.write_text(json.dumps(history, indent=2))
+    console.print(f"Updated {HISTORY_PATH}")
+
+
+def update_history(results: list[dict]) -> list[dict]:
+    """Add current results to history and return updated history."""
+    history = load_history()
+
+    # Calculate categories for this run
+    valid_results = [r for r in results if r["errors"] >= 0]
+
+    entry = {
+        "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "total_pipelines": len(valid_results),
+        "errors_zero": sum(1 for r in valid_results if r["errors"] == 0),
+        "errors_low": sum(1 for r in valid_results if 0 < r["errors"] <= 5),
+        "errors_high": sum(1 for r in valid_results if r["errors"] > 5),
+        "warnings_zero": sum(1 for r in valid_results if r["warnings"] == 0),
+        "warnings_low": sum(1 for r in valid_results if 0 < r["warnings"] <= 20),
+        "warnings_high": sum(1 for r in valid_results if r["warnings"] > 20),
+    }
+
+    # Check if we already have an entry for today and update it, otherwise append
+    today = entry["date"]
+    for i, h in enumerate(history):
+        if h["date"] == today:
+            history[i] = entry
+            break
+    else:
+        history.append(entry)
+
+    save_history(history)
+    return history
+
+
+def generate_charts(history: list[dict]) -> None:
+    """Generate charts showing pipeline health over time."""
+    if len(history) < 1:
+        console.print("[yellow]Not enough history to generate charts[/yellow]")
+        return
+
+    dates = [h["date"] for h in history]
+
+    # Errors chart
+    errors_fig = go.Figure()
+    errors_fig.add_trace(
+        go.Scatter(
+            x=dates,
+            y=[h["errors_zero"] for h in history],
+            name="No errors",
+            fill="tozeroy",
+            mode="lines",
+            line={"width": 0.5, "color": "#2ecc71"},
+            fillcolor="rgba(46, 204, 113, 0.7)",
+            stackgroup="errors",
+        )
+    )
+    errors_fig.add_trace(
+        go.Scatter(
+            x=dates,
+            y=[h["errors_low"] for h in history],
+            name="1-5 errors",
+            fill="tonexty",
+            mode="lines",
+            line={"width": 0.5, "color": "#f39c12"},
+            fillcolor="rgba(243, 156, 18, 0.7)",
+            stackgroup="errors",
+        )
+    )
+    errors_fig.add_trace(
+        go.Scatter(
+            x=dates,
+            y=[h["errors_high"] for h in history],
+            name=">5 errors",
+            fill="tonexty",
+            mode="lines",
+            line={"width": 0.5, "color": "#e74c3c"},
+            fillcolor="rgba(231, 76, 60, 0.7)",
+            stackgroup="errors",
+        )
+    )
+    errors_fig.update_layout(
+        title={
+            "text": "Errors Over Time",
+            "x": 0.5,
+            "xanchor": "center",
+            "font": {"size": 20},
+        },
+        xaxis_title="Date",
+        yaxis_title="Number of Pipelines",
+        legend={
+            "orientation": "h",
+            "yanchor": "bottom",
+            "y": 1.02,
+            "xanchor": "center",
+            "x": 0.5,
+        },
+        template="plotly_white",
+        hovermode="x unified",
+        width=1000,
+        height=500,
+    )
+    errors_fig.write_image(str(ERRORS_CHART_PATH), scale=2)
+    console.print(f"Generated {ERRORS_CHART_PATH}")
+
+    # Warnings chart (blue tones to differentiate from errors)
+    warnings_fig = go.Figure()
+    warnings_fig.add_trace(
+        go.Scatter(
+            x=dates,
+            y=[h["warnings_zero"] for h in history],
+            name="No warnings",
+            fill="tozeroy",
+            mode="lines",
+            line={"width": 0.5, "color": "#1abc9c"},
+            fillcolor="rgba(26, 188, 156, 0.7)",
+            stackgroup="warnings",
+        )
+    )
+    warnings_fig.add_trace(
+        go.Scatter(
+            x=dates,
+            y=[h["warnings_low"] for h in history],
+            name="1-20 warnings",
+            fill="tonexty",
+            mode="lines",
+            line={"width": 0.5, "color": "#3498db"},
+            fillcolor="rgba(52, 152, 219, 0.7)",
+            stackgroup="warnings",
+        )
+    )
+    warnings_fig.add_trace(
+        go.Scatter(
+            x=dates,
+            y=[h["warnings_high"] for h in history],
+            name=">20 warnings",
+            fill="tonexty",
+            mode="lines",
+            line={"width": 0.5, "color": "#9b59b6"},
+            fillcolor="rgba(155, 89, 182, 0.7)",
+            stackgroup="warnings",
+        )
+    )
+    warnings_fig.update_layout(
+        title={
+            "text": "Warnings Over Time",
+            "x": 0.5,
+            "xanchor": "center",
+            "font": {"size": 20},
+        },
+        xaxis_title="Date",
+        yaxis_title="Number of Pipelines",
+        legend={
+            "orientation": "h",
+            "yanchor": "bottom",
+            "y": 1.02,
+            "xanchor": "center",
+            "x": 0.5,
+        },
+        template="plotly_white",
+        hovermode="x unified",
+        width=1000,
+        height=500,
+    )
+    warnings_fig.write_image(str(WARNINGS_CHART_PATH), scale=2)
+    console.print(f"Generated {WARNINGS_CHART_PATH}")
+
+
+def generate_readme(results: list[dict], include_chart: bool = False) -> str:
     """Generate README content with results."""
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
@@ -184,11 +365,32 @@ def generate_readme(results: list[dict]) -> str:
         "",
         f"**Total:** {total_errors} errors, {total_warnings} warnings across {len(results)} pipelines",
         "",
-        "## Results",
-        "",
-        "| Pipeline | Errors | Warnings |",
-        "|----------|-------:|--------:|",
     ]
+
+    if include_chart and ERRORS_CHART_PATH.exists() and WARNINGS_CHART_PATH.exists():
+        lines.extend(
+            [
+                "## Trends",
+                "",
+                "### Errors",
+                "",
+                f"![Errors Chart]({ERRORS_CHART_PATH})",
+                "",
+                "### Warnings",
+                "",
+                f"![Warnings Chart]({WARNINGS_CHART_PATH})",
+                "",
+            ]
+        )
+
+    lines.extend(
+        [
+            "## Results",
+            "",
+            "| Pipeline | Errors | Warnings |",
+            "|----------|-------:|--------:|",
+        ]
+    )
 
     for result in sorted_results:
         errors = result["errors"]
@@ -256,8 +458,15 @@ def main(update_readme: bool, update_pipelines: bool, pipeline: tuple[str, ...])
     results = run_lint(pipelines)
     display_results(results)
 
+    # Update history and generate charts (only when not filtering pipelines)
+    include_chart = False
+    if not pipeline:
+        history = update_history(results)
+        generate_charts(history)
+        include_chart = True
+
     if update_readme:
-        readme_content = generate_readme(results)
+        readme_content = generate_readme(results, include_chart=include_chart)
         README_PATH.write_text(readme_content)
         console.print(f"\n[green]Updated {README_PATH}[/green]")
 

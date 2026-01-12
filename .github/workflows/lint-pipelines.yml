@@ -37,6 +37,6 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.md pipelines.json
+          git add README.md pipelines.json history.json errors_chart.png warnings_chart.png
           git diff --staged --quiet || git commit -m "Update lint results [skip ci]"
           git push
