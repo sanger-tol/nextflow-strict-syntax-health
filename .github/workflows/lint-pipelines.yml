@@ -35,10 +35,22 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install Nextflow
-        uses: nf-core/setup-nextflow@v2
+      - name: Clone Nextflow
+        run: git clone --depth 1 https://github.com/nextflow-io/nextflow.git nextflow-src
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
         with:
-          version: "latest-edge"
+          distribution: "temurin"
+          java-version: "21"
+
+      - name: Build Nextflow
+        run: |
+          cd nextflow-src
+          make pack
+
+      - name: Add Nextflow to PATH
+        run: echo "${{ github.workspace }}/nextflow-src/build/releases" >> $GITHUB_PATH
 
       - name: Install dependencies
         run: pip install .

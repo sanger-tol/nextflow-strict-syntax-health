@@ -131,7 +131,7 @@ def get_nextflow_version() -> str:
 def lint_pipeline(repo_path: Path) -> dict:
     """Run nextflow lint on a pipeline (JSON output for parsing)."""
     result = subprocess.run(
-        ["nextflow", "lint", "-exclude", ".git,.nf-test,nf-test.config", ".", "-o", "json"],
+        ["nextflow", "lint", ".", "-o", "json"],
         cwd=repo_path,
         capture_output=True,
         text=True,
@@ -156,7 +156,7 @@ def lint_pipeline_text(repo_path: Path, pipeline_name: str) -> None:
     output_file = LINT_RESULTS_DIR / f"{pipeline_name}_lint.txt"
 
     result = subprocess.run(
-        ["nextflow", "lint", "-exclude", ".git,.nf-test,nf-test.config", "."],
+        ["nextflow", "lint", "."],
         cwd=repo_path,
         capture_output=True,
         text=True,
@@ -468,6 +468,12 @@ def generate_readme(results: list[dict], include_chart: bool = False, nextflow_v
             "```bash",
             "nextflow lint .",
             "```",
+            "",
+            "> **Note:** Until [this fix](https://github.com/nextflow-io/nextflow/pull/6716) is included "
+            "in a Nextflow edge release, you may need to exclude nf-test files manually:",
+            "> ```bash",
+            '> nextflow lint . -exclude ".git,.nf-test,nf-test.config"',
+            "> ```",
             "",
             "See the [strict syntax documentation](https://www.nextflow.io/docs/latest/strict-syntax.html) "
             "for more information about the rules being checked.",
