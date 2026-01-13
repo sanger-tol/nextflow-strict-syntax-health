@@ -41,9 +41,9 @@ jobs:
           COMMIT=$(git ls-remote https://github.com/nextflow-io/nextflow.git HEAD | cut -f1)
           echo "sha=$COMMIT" >> $GITHUB_OUTPUT
 
-      - name: Cache Nextflow build
+      - name: Restore Nextflow build cache
         id: cache-nextflow
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: nextflow-src/build/releases
           key: nextflow-build-${{ steps.nf-commit.outputs.sha }}
@@ -56,6 +56,7 @@ jobs:
           java-version: "21"
 
       - name: Clone and build Nextflow
+        id: build-nextflow
         if: steps.cache-nextflow.outputs.cache-hit != 'true'
         run: |
           git clone --depth 1 https://github.com/nextflow-io/nextflow.git nextflow-src
@@ -64,6 +65,13 @@ jobs:
 
           # Create nextflow alias (binary has versioned name like nextflow-X.Y.Z-dist)
           ln -s build/releases/nextflow-*-dist build/releases/nextflow
+
+      - name: Save Nextflow build cache
+        if: steps.cache-nextflow.outputs.cache-hit != 'true' && steps.build-nextflow.outcome == 'success' && always()
+        uses: actions/cache/save@v4
+        with:
+          path: nextflow-src/build/releases
+          key: nextflow-build-${{ steps.nf-commit.outputs.sha }}
 
       - name: Add Nextflow to PATH
         run: |
