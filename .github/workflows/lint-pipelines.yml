@@ -78,8 +78,8 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           tree -L 3
-          ls -l nextflow-src/build/releases"
-          echo nextflow-src/build/releases" >> $GITHUB_PATH
+          ls -la nextflow-src/build/releases/
+          echo "${{ github.workspace }}/nextflow-src/build/releases" >> $GITHUB_PATH
 
       - name: Install dependencies
         run: pip install .
