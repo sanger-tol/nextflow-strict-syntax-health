@@ -25,11 +25,11 @@
     "date": "2026-01-13",
     "total_pipelines": 129,
     "parse_errors": 4,
-    "errors_zero": 13,
+    "errors_zero": 14,
     "errors_low": 12,
-    "errors_high": 100,
+    "errors_high": 99,
     "warnings_zero": 6,
-    "warnings_low": 21,
-    "warnings_high": 98
+    "warnings_low": 22,
+    "warnings_high": 97
   }
 ]
