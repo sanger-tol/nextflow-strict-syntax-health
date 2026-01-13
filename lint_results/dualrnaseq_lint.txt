@@ -1,73 +1,288 @@
 Linting Nextflow code..
+Linting: conf/test_sa.config
+Linting: conf/test_local.config
+Linting: conf/igenomes_ignored.config
 Linting: conf/base.config
+Linting: conf/test_star_htseq.config
+Linting: conf/modules.config
 Linting: conf/test_full.config
 Linting: conf/test.config
-Linting: conf/genomes.config
+Linting: conf/test_ab.config
+Linting: conf/igenomes.config
+Linting: conf/test_all.config
 Linting: nextflow.config
+Linting: workflows/dualrnaseq.nf
+Linting: subworkflows/local/salmon_alignment_based/main.nf
+Linting: subworkflows/local/prepare_host_transcriptome/main.nf
+Linting: subworkflows/local/prepare_pathogen_transcriptome/main.nf
+Linting: subworkflows/local/utils_nfcore_dualrnaseq_pipeline/main.nf
+Linting: subworkflows/local/prepare_reference_files/main.nf
+Linting: subworkflows/local/star_htseq/main.nf
+Linting: subworkflows/local/salmon_selective_alignment/main.nf
+Linting: subworkflows/nf-core/utils_nfcore_pipeline/main.nf
+Linting: subworkflows/nf-core/utils_nfcore_pipeline/tests/nextflow.config
+Linting: subworkflows/nf-core/utils_nextflow_pipeline/main.nf
+Linting: subworkflows/nf-core/utils_nextflow_pipeline/tests/nextflow.config
+Linting: subworkflows/nf-core/utils_nfschema_plugin/main.nf
+Linting: subworkflows/nf-core/utils_nfschema_plugin/tests/nextflow.config
 Linting: main.nf
-Error main.nf:717:39: Unexpected input: 'into'
-│ 717 |     file 'software_versions_mqc.yaml' into ch_software_versions_yaml
-╰     |                                       ^
+Linting: modules/local/collate_processed_reads/main.nf
+Linting: modules/local/combine_quantification_results_salmon/main.nf
+Linting: modules/local/extract_processed_reads/main.nf
+Linting: modules/local/tximport/main.nf
+Linting: modules/local/extract_annotations/main.nf
+Linting: modules/local/combine_quantification_results_hts/main.nf
+Linting: modules/local/combine_files/main.nf
+Linting: modules/local/create_transcriptome_fasta/main.nf
+Linting: modules/local/replace_gene_feature/main.nf
+Linting: modules/local/star_align_transcripts/main.nf
+Linting: modules/local/star_align_genome/main.nf
+Linting: modules/local/create_transcriptome_fasta_gffread/main.nf
+Linting: modules/local/replace_attribute/main.nf
+Linting: modules/local/salmon_split_table/main.nf
+Linting: modules/local/htseq_count/main.nf
+Linting: modules/nf-core/star/genomegenerate/main.nf
+Linting: modules/nf-core/star/align/main.nf
+Linting: modules/nf-core/htseq/count/main.nf
+Linting: modules/nf-core/fastqc/main.nf
+Linting: modules/nf-core/cutadapt/main.nf
+Linting: modules/nf-core/multiqc/main.nf
+Linting: modules/nf-core/multiqc/tests/nextflow.config
+Linting: modules/nf-core/salmon/quant/main.nf
+Linting: modules/nf-core/salmon/index/main.nf
+Linting: modules/nf-core/custom/dumpsoftwareversions/main.nf
+Linting: modules/nf-core/unzipfiles/main.nf
+
+Warn  modules/local/combine_files/main.nf:14:9: Variable was declared but not used
+│  14 |     def args = task.ext.args ?: ''
+╰     |         ^^^^
 
 
-Error conf/base.config:14:12: `check_max` is not defined
-│  14 |   cpus = { check_max( 2 * task.attempt, 'cpus' ) }
-╰     |            ^^^^^^^^^
-
-Error conf/base.config:15:14: `check_max` is not defined
-│  15 |   memory = { check_max( 10.GB * task.attempt, 'memory' ) }
-╰     |              ^^^^^^^^^
-
-Error conf/base.config:16:12: `check_max` is not defined
-│  16 |   time = { check_max( 4.h * task.attempt, 'time' ) }
-╰     |            ^^^^^^^^^
-
-Error conf/base.config:25:14: `check_max` is not defined
-│  25 |     cpus = { check_max( 2 * task.attempt, 'cpus' ) }
-╰     |              ^^^^^^^^^
-
-Error conf/base.config:26:16: `check_max` is not defined
-│  26 |     memory = { check_max( 14.GB * task.attempt, 'memory' ) }
-╰     |                ^^^^^^^^^
-
-Error conf/base.config:27:14: `check_max` is not defined
-│  27 |     time = { check_max( 6.h * task.attempt, 'time' ) }
-╰     |              ^^^^^^^^^
-
-Error conf/base.config:30:14: `check_max` is not defined
-│  30 |     cpus = { check_max( 15 * task.attempt, 'cpus' ) }
-╰     |              ^^^^^^^^^
-
-Error conf/base.config:31:16: `check_max` is not defined
-│  31 |     memory = { check_max( 30.GB * task.attempt, 'memory' ) }
-╰     |                ^^^^^^^^^
-
-Error conf/base.config:32:14: `check_max` is not defined
-│  32 |     time = { check_max( 8.h * task.attempt, 'time' ) }
-╰     |              ^^^^^^^^^
-
-Error conf/base.config:35:14: `check_max` is not defined
-│  35 |     cpus = { check_max( 20 * task.attempt, 'cpus' ) }
-╰     |              ^^^^^^^^^
-
-Error conf/base.config:36:16: `check_max` is not defined
-│  36 |     memory = { check_max( 30.GB * task.attempt, 'memory' ) }
-╰     |                ^^^^^^^^^
-
-Error conf/base.config:37:14: `check_max` is not defined
-│  37 |     time = { check_max( 10.h * task.attempt, 'time' ) }
-╰     |              ^^^^^^^^^
-
-Error conf/base.config:40:14: `check_max` is not defined
-│  40 |     time = { check_max( 20.h * task.attempt, 'time' ) }
-╰     |              ^^^^^^^^^
+Warn  modules/local/combine_quantification_results_salmon/main.nf:15:9: Variable was declared but not used
+│  15 |     def args = task.ext.args ?: ''
+╰     |         ^^^^
 
 
-Error nextflow.config:196:3: Unexpected input: 'includeConfig'
-│ 196 |   includeConfig 'conf/genomes.config'
-╰     |   ^
+
+
+
+Warn  modules/local/salmon_split_table/main.nf:18:9: Variable was declared but not used
+│  18 |     def args = task.ext.args ?: ''
+╰     |         ^^^^
+
+
+
+
+Warn  modules/local/tximport/main.nf:21:9: Variable was declared but not used
+│  21 |     def args = task.ext.args ?: ''
+╰     |         ^^^^
+
+Warn  modules/local/tximport/main.nf:22:5: Variable was declared but not used
+│  22 |     prefix = task.ext.prefix ?: "${meta.id}"
+╰     |     ^^^^^^
+
+
+Warn  modules/nf-core/custom/dumpsoftwareversions/main.nf:22:9: Variable was declared but not used
+│  22 |     def args = task.ext.args ?: ''
+╰     |         ^^^^
+
+
+
+
+
+
+
+
+
+
+
+Warn  subworkflows/local/prepare_pathogen_transcriptome/main.nf:12:18: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  12 |     parameters = Channel.value(
+╰     |                  ^^^^^^^
+
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:58:43: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  58 |     ch_combined_pathogen_host_gff_htseq = Channel.empty()
+╰     |                                           ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:59:43: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  59 |     ch_extracted_annotations_host_htseq = Channel.empty()
+╰     |                                           ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:60:45: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  60 |     ch_extract_annotations_pathogen_htseq = Channel.empty()
+╰     |                                             ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:61:37: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  61 |     ch_combined_fasta_transcripts = Channel.empty()
+╰     |                                     ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:62:42: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  62 |     ch_host_fasta_transcripts_unzipped = Channel.empty()
+╰     |                                          ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:63:46: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  63 |     ch_pathogen_fasta_transcripts_unzipped = Channel.empty()
+╰     |                                              ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:77:32: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  77 |     ch_gene_feature_pathogen = Channel.value(pathogenFeaturesList)
+╰     |                                ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:83:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  83 |     ch_gene_feature_host = Channel.value(hostFeaturesList)
+╰     |                            ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:93:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  93 |     ch_host_fasta_genome = Channel.value(file(host_fasta_genome, check
+╰     |                            ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:94:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  94 |     ch_host_gff = Channel.value(file(host_gff, checkIfExists: true))
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:95:23: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  95 |     ch_pathogen_gff = Channel.value(file(pathogen_gff, checkIfExists: 
+╰     |                       ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:96:32: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  96 |     ch_pathogen_fasta_genome = Channel.value(file(pathogen_fasta_genom
+╰     |                                ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:157:73: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 157 | rams.host_fasta_transcripts ? Channel.value(file(params.host_fasta_tra
+╰     |                               ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:157:147: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 157 | params.host_fasta_transcripts, checkIfExists: true)) : Channel.empty()
+╰     |                                                        ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:181:81: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 181 | .pathogen_fasta_transcripts ? Channel.value(file(params.pathogen_fasta
+╰     |                               ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:181:159: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 181 | ms.pathogen_fasta_transcripts, checkIfExists: true)) : Channel.empty()
+╰     |                                                        ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:383:116: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 383 | FILES_PATHOGEN_HOST_GFF.out : Channel.empty() // 'host_pathogen_transc
+╰     |                               ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:384:128: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 384 | HOST_SALMON.out.annotations : Channel.empty() // extracted_annotations
+╰     |                               ^^^^^^^
+
+Warn  subworkflows/local/prepare_reference_files/main.nf:385:132: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 385 | OGEN_SALMON.out.annotations : Channel.empty() // extracted_annotations
+╰     |                               ^^^^^^^
+
+
+Warn  subworkflows/local/salmon_alignment_based/main.nf:24:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  24 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/salmon_alignment_based/main.nf:82:50: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  82 |     input_files = SALMON_QUANT.out.results.map { it[1] }.collect()
+╰     |                                                  ^^
+
+Warn  subworkflows/local/salmon_alignment_based/main.nf:87:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  87 |         Channel.value("both"),
+╰     |         ^^^^^^^
+
+Warn  subworkflows/local/salmon_alignment_based/main.nf:96:36: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  96 |         .map { [[id: "combined"], [it]] }
+╰     |                                    ^^
+
+
+Warn  subworkflows/local/salmon_selective_alignment/main.nf:21:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  21 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/salmon_selective_alignment/main.nf:64:50: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  64 |     input_files = SALMON_QUANT.out.results.map { it[1] }.collect()
+╰     |                                                  ^^
+
+Warn  subworkflows/local/salmon_selective_alignment/main.nf:69:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  69 |         Channel.value("both"),
+╰     |         ^^^^^^^
+
+Warn  subworkflows/local/salmon_selective_alignment/main.nf:78:36: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  78 |         .map { [[id: "combined"], [it]] }
+╰     |                                    ^^
+
+
+Warn  subworkflows/local/star_htseq/main.nf:13:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  13 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+
+Warn  subworkflows/local/utils_nfcore_dualrnaseq_pipeline/main.nf:30:5: Parameter was not used -- prefix with `_` to suppress warning
+│  30 |     monochrome_logs   // boolean: Do not use coloured log outputs
+╰     |     ^^^^^^^^^^^^^^^
+
+Warn  subworkflows/local/utils_nfcore_dualrnaseq_pipeline/main.nf:33:5: Parameter was not used -- prefix with `_` to suppress warning
+│  33 |     input             //  string: Path to input samplesheet
+╰     |     ^^^^^
+
+Warn  subworkflows/local/utils_nfcore_dualrnaseq_pipeline/main.nf:37:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  37 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/utils_nfcore_dualrnaseq_pipeline/main.nf:74:5: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  74 |     Channel.fromList(samplesheetToList(params.input, "${projectDir}/as
+╰     |     ^^^^^^^
+
+
+
+Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 101 | mYAML(version) }.unique().mix(Channel.of(workflowVersionToYAML()))
+╰     |                               ^^^^^^^
+
+
+Warn  workflows/dualrnaseq.nf:44:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  44 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  workflows/dualrnaseq.nf:45:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  45 |     ch_multiqc_files = Channel.empty()
+╰     |                        ^^^^^^^
+
+Warn  workflows/dualrnaseq.nf:50:25: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  50 |     ch_multiqc_config = Channel.fromPath("${projectDir}/assets/multiqc
+╰     |                         ^^^^^^^
+
+Warn  workflows/dualrnaseq.nf:51:56: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  51 |     ch_multiqc_custom_config = params.multiqc_config ? Channel.fromPat
+╰     |                                                        ^^^^^^^
+
+Warn  workflows/dualrnaseq.nf:51:98: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  51 | iqc_config ? Channel.fromPath(params.multiqc_config) : Channel.empty()
+╰     |                                                        ^^^^^^^
+
+Warn  workflows/dualrnaseq.nf:52:45: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  52 |     ch_multiqc_logo = params.multiqc_logo ? Channel.fromPath(params.mu
+╰     |                                             ^^^^^^^
+
+Warn  workflows/dualrnaseq.nf:52:85: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  52 | multiqc_logo ? Channel.fromPath(params.multiqc_logo) : Channel.empty()
+╰     |                                                        ^^^^^^^
+
+Warn  workflows/dualrnaseq.nf:61:74: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  61 | multiqc_files = ch_multiqc_files.mix(FASTQC.out.zip.collect { it[1] })
+╰     |                                                               ^^
+
+
+Error conf/modules.config:83:17: Unexpected input: ':'
+│  83 |         withName: 'NFCORE_DUALRNASEQ:DUALRNASEQ:SALMON_SELECTIVE_ALIGN
+╰     |                 ^
+
+
+Error nextflow.config:462:14: Unexpected input: '('
+│ 462 | def check_max(obj, type) {
+╰     |              ^
 
 
 Nextflow linting complete!
- ❌ 3 files had 15 errors
- ✅ 3 files had no errors
+ ❌ 2 files had 2 errors
+ ✅ 51 files had no errors

@@ -1,18 +1,20 @@
 Linting Nextflow code..
 Linting: conf/nebnext_umi_bcr.config
+Linting: conf/takara_smarter_umi_tcr.config
 Linting: conf/test_assembled_immcantation_devel_mm.config
 Linting: conf/igenomes_ignored.config
-Linting: conf/clontech_umi_tcr.config
 Linting: conf/base.config
 Linting: conf/test_rnaseq_bulk.config
 Linting: conf/nebnext_umi_tcr.config
-Linting: conf/clontech_umi_bcr.config
+Linting: conf/takara_smarter_umi_bcr.config
 Linting: conf/test_10x_sc.config
 Linting: conf/test_assembled_immcantation_devel_hs.config
 Linting: conf/test_assembled_mm.config
+Linting: conf/takara_smartseq_umi_tcr.config
 Linting: conf/test_fetchimgt.config
 Linting: conf/modules.config
 Linting: conf/test_nocluster.config
+Linting: conf/takara_smartseq_umi_bcr.config
 Linting: conf/test_rnaseq_sc.config
 Linting: conf/test_maskprimers_align.config
 Linting: conf/test_full.config
@@ -25,7 +27,7 @@ Linting: conf/test_raw_immcantation_devel.config
 Linting: conf/test_no_umi.config
 Linting: conf/test_assembled_hs.config
 Linting: conf/test_maskprimers_extract.config
-Linting: conf/test_clontech_umi.config
+Linting: conf/test_takara_smartseq_umi_bcr.config
 Linting: nextflow.config
 Linting: workflows/airrflow.nf
 Linting: subworkflows/local/sequence_assembly.nf
@@ -52,6 +54,7 @@ Linting: subworkflows/nf-core/utils_nfschema_plugin/tests/nextflow.config
 Linting: docs/usage/bulk_tutorial/bulk_sample_code/resource.config
 Linting: docs/usage/single_cell_tutorial/sample_data_code/resource.config
 Linting: main.nf
+Linting: tests/nextflow.config
 Linting: modules/local/unzip_db.nf
 Linting: modules/local/gunzip.nf
 Linting: modules/local/parse_logs.nf
@@ -93,7 +96,7 @@ Linting: modules/local/samplesheet_check.nf
 Linting: modules/local/enchantr/detect_contamination.nf
 Linting: modules/local/enchantr/collapse_duplicates.nf
 Linting: modules/local/enchantr/find_threshold.nf
-Linting: modules/local/enchantr/define_clones.nf
+Linting: modules/local/enchantr/clonal_assignment.nf
 Linting: modules/local/enchantr/report_file_size.nf
 Linting: modules/local/enchantr/single_cell_qc.nf
 Linting: modules/local/enchantr/remove_chimeric.nf

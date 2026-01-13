@@ -8,12 +8,16 @@ Linting: conf/igenomes.config
 Linting: nextflow.config
 Linting: workflows/riboseq/main.nf
 Linting: subworkflows/local/prepare_genome/main.nf
+Linting: subworkflows/local/fastq_equalise_read_lengths/main.nf
+Linting: subworkflows/local/fastq_equalise_read_lengths/tests/nextflow.config
 Linting: subworkflows/local/utils_nfcore_riboseq_pipeline/main.nf
 Linting: subworkflows/nf-core/bam_dedup_stats_samtools_umicollapse/main.nf
 Linting: subworkflows/nf-core/bam_dedup_stats_samtools_umicollapse/tests/paired-end-umis.config
 Linting: subworkflows/nf-core/bam_stats_samtools/main.nf
 Linting: subworkflows/nf-core/utils_nfcore_pipeline/main.nf
 Linting: subworkflows/nf-core/utils_nfcore_pipeline/tests/nextflow.config
+Linting: subworkflows/nf-core/fastq_remove_rrna/main.nf
+Linting: subworkflows/nf-core/fastq_remove_rrna/tests/nextflow.config
 Linting: subworkflows/nf-core/fastq_fastqc_umitools_trimgalore/main.nf
 Linting: subworkflows/nf-core/fastq_fastqc_umitools_trimgalore/tests/nextflow.config
 Linting: subworkflows/nf-core/bam_dedup_umi/main.nf
@@ -30,7 +34,9 @@ Linting: subworkflows/nf-core/fastq_align_star/tests/with_transcripts.config
 Linting: subworkflows/nf-core/utils_nextflow_pipeline/main.nf
 Linting: subworkflows/nf-core/utils_nextflow_pipeline/tests/nextflow.config
 Linting: subworkflows/nf-core/bam_sort_stats_samtools/main.nf
+Linting: subworkflows/nf-core/quantify_pseudo_alignment/nextflow.config
 Linting: subworkflows/nf-core/quantify_pseudo_alignment/main.nf
+Linting: subworkflows/nf-core/quantify_pseudo_alignment/tests/nextflow.config
 Linting: subworkflows/nf-core/utils_nfschema_plugin/main.nf
 Linting: subworkflows/nf-core/utils_nfschema_plugin/tests/nextflow.config
 Linting: subworkflows/nf-core/fastq_fastqc_umitools_fastp/main.nf
@@ -41,6 +47,7 @@ Linting: modules/local/gtf_filter/main.nf
 Linting: modules/local/preprocess_transcripts_fasta_gencode/main.nf
 Linting: modules/local/gtf2bed/main.nf
 Linting: modules/local/star_genomegenerate_igenomes/main.nf
+Linting: modules/local/deseq2/deltate/main.nf
 Linting: modules/nf-core/tximeta/tximport/main.nf
 Linting: modules/nf-core/star/genomegenerate/main.nf
 Linting: modules/nf-core/star/align/main.nf
@@ -61,19 +68,29 @@ Linting: modules/nf-core/ribowaltz/main.nf
 Linting: modules/nf-core/anota2seq/anota2seqrun/main.nf
 Linting: modules/nf-core/gunzip/main.nf
 Linting: modules/nf-core/gunzip/tests/nextflow.config
+Linting: modules/nf-core/seqkit/replace/main.nf
+Linting: modules/nf-core/seqkit/replace/tests/uncomp.config
+Linting: modules/nf-core/seqkit/replace/tests/replace.config
+Linting: modules/nf-core/seqkit/stats/main.nf
 Linting: modules/nf-core/samtools/flagstat/main.nf
 Linting: modules/nf-core/samtools/idxstats/main.nf
+Linting: modules/nf-core/samtools/fastq/main.nf
 Linting: modules/nf-core/samtools/index/main.nf
 Linting: modules/nf-core/samtools/index/tests/csi.nextflow.config
 Linting: modules/nf-core/samtools/sort/main.nf
 Linting: modules/nf-core/samtools/sort/tests/nextflow.config
 Linting: modules/nf-core/samtools/sort/tests/nextflow_cram.config
 Linting: modules/nf-core/samtools/stats/main.nf
+Linting: modules/nf-core/samtools/view/main.nf
+Linting: modules/nf-core/samtools/view/tests/cram_index.config
+Linting: modules/nf-core/samtools/view/tests/bam_index.config
+Linting: modules/nf-core/samtools/view/tests/bam.config
 Linting: modules/nf-core/fastqc/main.nf
 Linting: modules/nf-core/cutadapt/main.nf
 Linting: modules/nf-core/cutadapt/tests/nextflow.config
 Linting: modules/nf-core/multiqc/main.nf
 Linting: modules/nf-core/multiqc/tests/nextflow.config
+Linting: modules/nf-core/multiqc/tests/custom_prefix.config
 Linting: modules/nf-core/ribotricer/detectorfs/main.nf
 Linting: modules/nf-core/ribotricer/detectorfs/tests/nextflow.all.config
 Linting: modules/nf-core/ribotricer/detectorfs/tests/nextflow.filtered.config
@@ -87,6 +104,12 @@ Linting: modules/nf-core/salmon/index/main.nf
 Linting: modules/nf-core/custom/tx2gene/main.nf
 Linting: modules/nf-core/custom/getchromsizes/main.nf
 Linting: modules/nf-core/custom/catadditionalfasta/main.nf
+Linting: modules/nf-core/bowtie2/build/main.nf
+Linting: modules/nf-core/bowtie2/align/main.nf
+Linting: modules/nf-core/bowtie2/align/tests/cram_crai.config
+Linting: modules/nf-core/bowtie2/align/tests/sam2.config
+Linting: modules/nf-core/bowtie2/align/tests/large_index.config
+Linting: modules/nf-core/bowtie2/align/tests/sam.config
 Linting: modules/nf-core/ribotish/predict/main.nf
 Linting: modules/nf-core/ribotish/quality/main.nf
 Linting: modules/nf-core/fastp/main.nf
@@ -108,23 +131,30 @@ Linting: modules/nf-core/bbmap/bbsplit/main.nf
 Linting: modules/nf-core/summarizedexperiment/summarizedexperiment/main.nf
 Linting: modules/nf-core/summarizedexperiment/summarizedexperiment/tests/single_matrix.config
 Linting: modules/nf-core/summarizedexperiment/summarizedexperiment/tests/multi_matrix.config
+Linting: modules/nf-core/summarizedexperiment/summarizedexperiment/tests/unify.config
+Linting: modules/nf-core/ribodetector/main.nf
 Linting: modules/nf-core/umicollapse/main.nf
 Linting: modules/nf-core/umicollapse/tests/nextflow.config
 Warn  main.nf:54:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 │  54 |     ch_versions = Channel.empty()
 ╰     |                   ^^^^^^^
 
-Warn  main.nf:85:39: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  85 |             .map { checkMaxContigSize(it) }
+Warn  main.nf:86:39: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  86 |             .map { checkMaxContigSize(it) }
 ╰     |                                       ^^
 
-Warn  main.nf:91:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  91 |     ch_samplesheet = Channel.value(file(params.input, checkIfExists: t
+Warn  main.nf:92:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  92 |     ch_samplesheet = Channel.value(file(params.input, checkIfExists: t
 ╰     |                      ^^^^^^^
 
-Warn  main.nf:93:29: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  93 |         ch_contrasts_file = Channel.value(file(params.contrasts))
+Warn  main.nf:94:29: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  94 |         ch_contrasts_file = Channel.value(file(params.contrasts))
 ╰     |                             ^^^^^^^
+
+Warn  main.nf:100:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 100 |     ch_bowtie2_index = Channel.empty()
+╰     |                        ^^^^^^^
+
 
 
 
@@ -136,26 +166,24 @@ Error modules/nf-core/bbmap/bbsplit/main.nf:41:43: `index` is already declared
 │  41 |     other_ref_names.eachWithIndex { name, index ->
 ╰     |                                           ^^^^^
 
-Error modules/nf-core/bbmap/bbsplit/main.nf:110:43: `index` is already declared
-│ 110 |     other_ref_names.eachWithIndex { name, index ->
+Error modules/nf-core/bbmap/bbsplit/main.nf:116:43: `index` is already declared
+│ 116 |     other_ref_names.eachWithIndex { name, index ->
 ╰     |                                           ^^^^^
 
-Warn  modules/nf-core/bbmap/bbsplit/main.nf:110:43: Parameter was not used -- prefix with `_` to suppress warning
-│ 110 |     other_ref_names.eachWithIndex { name, index ->
+Warn  modules/nf-core/bbmap/bbsplit/main.nf:116:43: Parameter was not used -- prefix with `_` to suppress warning
+│ 116 |     other_ref_names.eachWithIndex { name, index ->
 ╰     |                                           ^^^^^
 
 
-Warn  modules/nf-core/cat/fastq/main.nf:21:9: Variable was declared but not used
-│  21 |     def args = task.ext.args ?: ''
-╰     |         ^^^^
 
-Warn  modules/nf-core/cat/fastq/main.nf:23:59: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  23 |     def readList = reads instanceof List ? reads.collect{ it.toString(
-╰     |                                                           ^^
 
-Warn  modules/nf-core/cat/fastq/main.nf:54:59: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  54 |     def readList = reads instanceof List ? reads.collect{ it.toString(
-╰     |                                                           ^^
+Warn  modules/nf-core/cat/fastq/main.nf:22:60: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  22 |     def readList = reads instanceof List ? reads.collect { it.toString
+╰     |                                                            ^^
+
+Warn  modules/nf-core/cat/fastq/main.nf:58:60: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  58 |     def readList = reads instanceof List ? reads.collect { it.toString
+╰     |                                                            ^^
 
 
 Warn  modules/nf-core/custom/catadditionalfasta/main.nf:26:9: Variable was declared but not used
@@ -190,6 +218,7 @@ Warn  modules/nf-core/gffread/main.nf:49:103: Implicit closure parameter is depr
 Warn  modules/nf-core/gunzip/main.nf:43:9: Variable was declared but not used
 │  43 |     def args = task.ext.args ?: ''
 ╰     |         ^^^^
+
 
 
 

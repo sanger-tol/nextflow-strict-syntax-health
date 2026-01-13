@@ -23,17 +23,21 @@ Linting: subworkflows/local/bam_vcf_consensus_bcftools/main.nf
 Linting: subworkflows/local/align_collapse_contigs/main.nf
 Linting: subworkflows/local/fastq_fasta_mash_screen/main.nf
 Linting: subworkflows/local/preprocessing_illumina/main.nf
+Linting: subworkflows/local/preprocessing_illumina/tests/nextflow.config
 Linting: subworkflows/local/fastq_assembly/main.nf
 Linting: subworkflows/local/fastq_kraken_kaiju/main.nf
 Linting: subworkflows/local/bam_deduplicate/main.nf
 Linting: subworkflows/local/fasta_fastq_clust/main.nf
+Linting: subworkflows/local/fasta_fastq_clust/tests/nextflow.config
 Linting: subworkflows/local/fasta_contig_clust/main.nf
+Linting: subworkflows/local/fasta_contig_clust/tests/nextflow.config
 Linting: subworkflows/local/singleton_filtering/main.nf
 Linting: subworkflows/local/bam_stats_metrics/main.nf
 Linting: subworkflows/local/fasta_blast_refsel/main.nf
 Linting: subworkflows/local/fastq_kraken_host_remove/main.nf
 Linting: subworkflows/local/vcf_annotate/main.nf
 Linting: subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf
+Linting: subworkflows/local/fastq_fastqc_umitools_trimmomatic/tests/nextflow.config
 Linting: subworkflows/local/fastq_fasta_map_consensus/main.nf
 Linting: subworkflows/local/utils_nfcore_viralmetagenome_pipeline/main.nf
 Linting: subworkflows/local/bam_variants_bcftools/main.nf
@@ -63,7 +67,6 @@ Linting: modules/local/rename_fasta_header/main.nf
 Linting: modules/local/krona_cleanup/main.nf
 Linting: modules/local/custom_mpileup/main.nf
 Linting: modules/local/sspace_basic/main.nf
-Linting: modules/local/network_cluster/main.nf
 Linting: modules/local/extract_cluster/main.nf
 Linting: modules/local/blast_filter/main.nf
 Linting: modules/nf-core/umitools/dedup/main.nf
@@ -157,6 +160,8 @@ Linting: modules/nf-core/blast/makeblastdb/main.nf
 Linting: modules/nf-core/blast/makeblastdb/tests/nextflow.config
 Linting: modules/nf-core/blast/blastn/main.nf
 Linting: modules/nf-core/blast/blastn/tests/nextflow.config
+Linting: modules/nf-core/clusty/main.nf
+Linting: modules/nf-core/clusty/tests/nextflow.config
 Linting: modules/nf-core/mosdepth/main.nf
 Linting: modules/nf-core/mosdepth/tests/window.config
 Linting: modules/nf-core/mosdepth/tests/threshold.config
@@ -237,11 +242,6 @@ Warn  modules/local/make_bed_mask/main.nf:51:9: Variable was declared but not us
 Warn  modules/local/make_bed_mask/main.nf:53:9: Variable was declared but not used
 │  53 |     def mpileup = save_mpileup ? "| tee ${prefix}.mpileup" : ""
 ╰     |         ^^^^^^^
-
-
-Warn  modules/local/network_cluster/main.nf:44:9: Variable was declared but not used
-│  44 |     def args = task.ext.args ?: ''
-╰     |         ^^^^
 
 
 
@@ -344,6 +344,7 @@ Warn  modules/nf-core/checkv/downloaddatabase/main.nf:32:9: Variable was declare
 Warn  modules/nf-core/checkv/endtoend/main.nf:46:9: Variable was declared but not used
 │  46 |     def args = task.ext.args ?: ''
 ╰     |         ^^^^
+
 
 
 
@@ -703,19 +704,6 @@ Warn  subworkflows/local/consensus_qc/main.nf:46:16: Parameter was not used -- p
 ╰     |                ^^
 
 
-Warn  subworkflows/local/fasta_blast_refsel/main.nf:13:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  13 |     ch_versions = Channel.empty()
-╰     |                   ^^^^^^^
-
-Warn  subworkflows/local/fasta_blast_refsel/main.nf:30:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  30 |     ch_no_blast_hits = Channel.empty()
-╰     |                        ^^^^^^^
-
-
-Warn  subworkflows/local/fasta_contig_clust/main.nf:20:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  20 |     ch_versions        = Channel.empty()
-╰     |                          ^^^^^^^
-
 
 Warn  subworkflows/local/fasta_contig_preclust/main.nf:16:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 │  16 |     ch_versions = Channel.empty()
@@ -760,15 +748,6 @@ Warn  subworkflows/local/fasta_contig_preclust/main.nf:92:15: Parameter was not 
 Warn  subworkflows/local/fasta_contig_preclust/main.nf:92:43: Parameter was not used -- prefix with `_` to suppress warning
 │  92 |         .map{ sample, meta_contig, fasta, meta_reads, reads -> [meta_c
 ╰     |                                           ^^^^^^^^^^
-
-
-Warn  subworkflows/local/fasta_fastq_clust/main.nf:17:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  17 |     ch_versions = Channel.empty()
-╰     |                   ^^^^^^^
-
-Warn  subworkflows/local/fasta_fastq_clust/main.nf:19:15: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  19 |     ch_dist = Channel.empty()
-╰     |               ^^^^^^^
 
 
 Error subworkflows/local/fastq_assembly/main.nf:6:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/viralmetagenome/modules/nf-core/trinity/main.nf'
@@ -891,52 +870,52 @@ Warn  subworkflows/local/fastq_fasta_mash_screen/main.nf:15:19: The use of `Chan
 ╰     |                   ^^^^^^^
 
 
-Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:18:5: Parameter was not used -- prefix with `_` to suppress warning
-│  18 |     save_trimmed_fail // boolean: true/false
+Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:36:5: Parameter was not used -- prefix with `_` to suppress warning
+│  36 |     save_trimmed_fail // boolean: true/false
 ╰     |     ^^^^^^^^^^^^^^^^^
 
-Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:19:5: Parameter was not used -- prefix with `_` to suppress warning
-│  19 |     save_merged       // boolean: true/false
+Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:37:5: Parameter was not used -- prefix with `_` to suppress warning
+│  37 |     save_merged       // boolean: true/false
 ╰     |     ^^^^^^^^^^^
 
-Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:23:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  23 |     ch_versions = Channel.empty()
+Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:41:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  41 |     ch_versions = Channel.empty()
 ╰     |                   ^^^^^^^
 
-Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:24:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  24 |     ch_fastqc_raw_html = Channel.empty()
+Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:42:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  42 |     ch_fastqc_raw_html = Channel.empty()
 ╰     |                          ^^^^^^^
 
-Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:25:25: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  25 |     ch_fastqc_raw_zip = Channel.empty()
+Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:43:25: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  43 |     ch_fastqc_raw_zip = Channel.empty()
 ╰     |                         ^^^^^^^
 
-Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:35:18: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  35 |     ch_umi_log = Channel.empty()
+Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:53:18: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  53 |     ch_umi_log = Channel.empty()
 ╰     |                  ^^^^^^^
 
-Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:53:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  53 |     ch_trim_summ           = Channel.empty()
+Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:71:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  71 |     ch_trim_summ           = Channel.empty()
 ╰     |                              ^^^^^^^
 
-Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:54:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  54 |     ch_trim_unpaired_reads = Channel.empty()
+Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:72:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  72 |     ch_trim_unpaired_reads = Channel.empty()
 ╰     |                              ^^^^^^^
 
-Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:55:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  55 |     ch_trim_log            = Channel.empty()
+Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:73:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  73 |     ch_trim_log            = Channel.empty()
 ╰     |                              ^^^^^^^
 
-Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:56:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  56 |     ch_fastqc_trim_html    = Channel.empty()
+Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:74:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  74 |     ch_fastqc_trim_html    = Channel.empty()
 ╰     |                              ^^^^^^^
 
-Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:57:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  57 |     ch_fastqc_trim_zip     = Channel.empty()
+Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:75:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  75 |     ch_fastqc_trim_zip     = Channel.empty()
 ╰     |                              ^^^^^^^
 
-Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:58:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  58 |     ch_trim_read_count     = Channel.empty()
+Warn  subworkflows/local/fastq_fastqc_umitools_trimmomatic/main.nf:76:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  76 |     ch_trim_read_count     = Channel.empty()
 ╰     |                              ^^^^^^^
 
 
@@ -1163,42 +1142,6 @@ Warn  workflows/viralmetagenome.nf:78:5: Variable was declared but not used
 │  78 |     ch_adapter_fasta   = createFileChannel(params.adapter_fasta)
 ╰     |     ^^^^^^^^^^^^^^^^
 
-Warn  workflows/viralmetagenome.nf:82:258: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  82 |                                                      : Channel.empty()
-╰     |                                                        ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:83:258: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  83 | ad_classifiers || 'kraken2' in contig_classifiers) ) : Channel.empty()
-╰     |                                                        ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:84:258: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  84 | ssifiers || 'kaiju' in contig_classifiers) )         : Channel.empty()
-╰     |                                                        ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:85:258: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  85 | v )                                                  : Channel.empty()
-╰     |                                                        ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:86:258: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  86 | ad_classifiers) )                                    : Channel.empty()
-╰     |                                                        ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:87:258: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  87 | tremoval )                                           : Channel.empty()
-╰     |                                                        ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:88:258: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  88 | ip_consensus_annotation )                            : Channel.empty()
-╰     |                                                        ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:89:258: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  89 | a )                                                  : Channel.empty()
-╰     |                                                        ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:95:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  95 |     ch_db = Channel.empty()
-╰     |             ^^^^^^^
-
 Warn  workflows/viralmetagenome.nf:124:55: Implicit closure parameter is deprecated, declare an explicit parameter instead
 │ 124 |         ch_ref_pool         = ch_db.reference.collect{it[1]}.ifEmpty([
 ╰     |                                                       ^^
@@ -1219,190 +1162,50 @@ Warn  workflows/viralmetagenome.nf:179:84: Implicit closure parameter is depreca
 │ 179 | _KRAKEN_KAIJU.out.mqc.collect{it[1]}.ifEmpty([]))
 ╰     |                               ^^
 
-Warn  workflows/viralmetagenome.nf:184:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 184 |     ch_unaligned_raw_contigs     = Channel.empty()
-╰     |                                    ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:185:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 185 |     ch_unaligned_contigs         = Channel.empty()
-╰     |                                    ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:186:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 186 |     ch_polishing_consensus_reads = Channel.empty()
-╰     |                                    ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:189:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 189 |     ch_consensus                 = Channel.empty()
-╰     |                                    ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:191:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 191 |     ch_consensus_reads           = Channel.empty()
-╰     |                                    ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:193:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 193 |     ch_clusters_summary          = Channel.empty()
-╰     |                                    ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:195:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 195 |     ch_clusters_tsv              = Channel.empty()
-╰     |                                    ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:234:86: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 234 | .out.clusters_summary.collect{it[1]}.ifEmpty([])
+Warn  workflows/viralmetagenome.nf:238:86: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 238 | .out.clusters_summary.collect{it[1]}.ifEmpty([])
 ╰     |                               ^^
 
-Warn  workflows/viralmetagenome.nf:235:82: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 235 | LUST.out.clusters_tsv.collect{it[1]}.ifEmpty([])
+Warn  workflows/viralmetagenome.nf:239:82: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 239 | LUST.out.clusters_tsv.collect{it[1]}.ifEmpty([])
 ╰     |                               ^^
 
-Warn  workflows/viralmetagenome.nf:300:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 300 |     ch_mash_screen = Channel.empty()
-╰     |                      ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:304:34: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 304 |         ch_mapping_constraints = Channel
-╰     |                                  ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:347:67: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 347 |       ch_mash_screen = FASTQ_FASTA_MASH_SCREEN.out.json.collect{it[1]}
+Warn  workflows/viralmetagenome.nf:351:67: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 351 |       ch_mash_screen = FASTQ_FASTA_MASH_SCREEN.out.json.collect{it[1]}
 ╰     |                                                                 ^^
 
-Warn  workflows/viralmetagenome.nf:391:29: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 391 |     ch_checkv_summary     = Channel.empty()
-╰     |                             ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:392:29: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 392 |     ch_quast_summary      = Channel.empty()
-╰     |                             ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:393:29: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 393 |     ch_blast_summary      = Channel.empty()
-╰     |                             ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:394:29: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 394 |     ch_annotation_summary = Channel.empty()
-╰     |                             ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:409:83: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 409 | (CONSENSUS_QC.out.mqc.collect{it[1]}.ifEmpty([]))
+Warn  workflows/viralmetagenome.nf:413:83: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 413 | (CONSENSUS_QC.out.mqc.collect{it[1]}.ifEmpty([]))
 ╰     |                               ^^
 
-Warn  workflows/viralmetagenome.nf:410:65: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 410 | NSENSUS_QC.out.checkv.collect{it[1]}.ifEmpty([])
+Warn  workflows/viralmetagenome.nf:414:65: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 414 | NSENSUS_QC.out.checkv.collect{it[1]}.ifEmpty([])
 ╰     |                               ^^
 
-Warn  workflows/viralmetagenome.nf:411:64: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 411 | ONSENSUS_QC.out.quast.collect{it[1]}.ifEmpty([])
+Warn  workflows/viralmetagenome.nf:415:64: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 415 | ONSENSUS_QC.out.quast.collect{it[1]}.ifEmpty([])
 ╰     |                               ^^
 
-Warn  workflows/viralmetagenome.nf:412:64: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 412 | ONSENSUS_QC.out.blast.collect{it[1]}.ifEmpty([])
+Warn  workflows/viralmetagenome.nf:416:64: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 416 | ONSENSUS_QC.out.blast.collect{it[1]}.ifEmpty([])
 ╰     |                               ^^
 
-Warn  workflows/viralmetagenome.nf:413:69: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 413 | SUS_QC.out.annotation.collect{it[1]}.ifEmpty([])
+Warn  workflows/viralmetagenome.nf:417:69: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 417 | SUS_QC.out.annotation.collect{it[1]}.ifEmpty([])
 ╰     |                               ^^
 
-Warn  workflows/viralmetagenome.nf:419:45: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 419 |     ch_multiqc_config                     = Channel.fromPath("$project
-╰     |                                             ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:420:5: Variable was declared but not used
-│ 420 |     ch_multiqc_custom_config              = params.multiqc_config     
+Warn  workflows/viralmetagenome.nf:424:5: Variable was declared but not used
+│ 424 |     ch_multiqc_custom_config              = params.multiqc_config     
 ╰     |     ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Warn  workflows/viralmetagenome.nf:420:82: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 420 | multiqc_config              ? Channel.fromPath(params.multiqc_config, 
-╰     |                               ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:420:145: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 420 | fromPath(params.multiqc_config, checkIfExists: true) : Channel.empty()
-╰     |                                                        ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:421:5: Variable was declared but not used
-│ 421 |     ch_multiqc_logo                       = params.multiqc_logo       
+Warn  workflows/viralmetagenome.nf:425:5: Variable was declared but not used
+│ 425 |     ch_multiqc_logo                       = params.multiqc_logo       
 ╰     |     ^^^^^^^^^^^^^^^
 
-Warn  workflows/viralmetagenome.nf:421:82: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 421 | multiqc_logo                ? Channel.fromPath(params.multiqc_logo, ch
-╰     |                               ^^^^^^^
 
-Warn  workflows/viralmetagenome.nf:421:143: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 421 | l.fromPath(params.multiqc_logo, checkIfExists: true) : Channel.empty()
-╰     |                                                        ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:423:82: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 423 | custom_table_headers        ? Channel.fromPath(params.custom_table_hea
-╰     |                               ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:423:151: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 423 | aders, checkIfExists:true ) : Channel.fromPath("$projectDir/assets/cus
-╰     |                               ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:425:45: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 425 |     ch_workflow_summary                   = Channel.value(paramsSummar
-╰     |                                             ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:428:45: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 428 |     ch_methods_description                = Channel.value(methodsDescr
-╰     |                                             ^^^^^^^
-
-Warn  workflows/viralmetagenome.nf:433:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 433 |     def topic_versions = Channel.topic("versions")
-╰     |                          ^^^^^^^
-
-
-Error conf/modules.config:52:60: `save_final_reads` is not defined
-│  52 |                 enabled: params.save_intermediate_reads || save_final_
-╰     |                                                            ^^^^^^^^^^^
-
-Error conf/modules.config:85:60: `save_final_reads` is not defined
-│  85 |                 enabled: params.save_intermediate_reads || save_final_
-╰     |                                                            ^^^^^^^^^^^
-
-Error conf/modules.config:104:60: `save_final_reads` is not defined
-│ 104 |                 enabled: params.save_intermediate_reads || save_final_
-╰     |                                                            ^^^^^^^^^^^
-
-Error conf/modules.config:126:60: `save_final_reads` is not defined
-│ 126 |                 enabled: params.save_intermediate_reads || save_final_
-╰     |                                                            ^^^^^^^^^^^
-
-Error conf/modules.config:133:60: `save_final_reads` is not defined
-│ 133 |                 enabled: params.save_intermediate_reads || save_final_
-╰     |                                                            ^^^^^^^^^^^
-
-Error conf/modules.config:158:60: `save_final_reads` is not defined
-│ 158 |                 enabled: params.save_intermediate_reads || save_final_
-╰     |                                                            ^^^^^^^^^^^
-
-Error conf/modules.config:174:60: `save_final_reads` is not defined
-│ 174 |                 enabled: params.save_intermediate_reads || save_final_
-╰     |                                                            ^^^^^^^^^^^
-
-Error conf/modules.config:211:60: `save_final_reads` is not defined
-│ 211 |                 enabled: params.save_intermediate_reads || save_final_
-╰     |                                                            ^^^^^^^^^^^
-
-Error conf/modules.config:1201:13: `intermediate_variant_caller` is not defined
-│ 1201 |             intermediate_variant_caller == 'ivar'     ? "--include 'FO
-╰     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error conf/modules.config:1202:13: `intermediate_variant_caller` is not defined
-│ 1202 |             intermediate_variant_caller == 'bcftools' ? "--include 'FO
-╰     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error conf/modules.config:1216:13: `variant_caller` is not defined
-│ 1216 |             variant_caller == 'ivar'     ? "--include 'FORMAT/ALT_FREQ
-╰     |             ^^^^^^^^^^^^^^
-
-Error conf/modules.config:1217:13: `variant_caller` is not defined
-│ 1217 |             variant_caller == 'bcftools' ? "--include 'FORMAT/AD[:1] /
-╰     |             ^^^^^^^^^^^^^^
-
-Warn  conf/modules.config:15:89: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  15 | ssemblers.split(',').collect{ it.trim().toLowerCase() } : []
-╰     |                               ^^
+Error conf/modules.config:16:170: Unexpected input: '='
+│  16 | ty' : (params.umi_deduplicate = 'read' ? 'deduplication' : 'trimming')
+╰     |                               ^
 
 
 Error nextflow.config:104:39: `mapper` is not defined
@@ -1415,5 +1218,5 @@ Error nextflow.config:111:39: `variant_caller` is not defined
 
 
 Nextflow linting complete!
- ❌ 6 files had 29 errors
- ✅ 189 files had no errors
+ ❌ 6 files had 18 errors
+ ✅ 194 files had no errors

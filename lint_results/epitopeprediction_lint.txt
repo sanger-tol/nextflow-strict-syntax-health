@@ -1,8 +1,8 @@
 Linting Nextflow code..
+Linting: conf/test_offline.config
 Linting: conf/test_mhcnuggets.config
-Linting: conf/igenomes_ignored.config
+Linting: conf/test_norm.config
 Linting: conf/base.config
-Linting: conf/test_grch38.config
 Linting: conf/test_fasta_output.config
 Linting: conf/modules.config
 Linting: conf/test_peptides.config
@@ -11,8 +11,8 @@ Linting: conf/test_full.config
 Linting: conf/test_proteins.config
 Linting: conf/test.config
 Linting: conf/test_wide_format_output.config
+Linting: conf/test_grch37.config
 Linting: conf/test_netmhcpan.config
-Linting: conf/igenomes.config
 Linting: conf/test_netmhciipan.config
 Linting: nextflow.config
 Linting: workflows/epitopeprediction.nf
@@ -39,6 +39,15 @@ Linting: modules/local/unpack_netmhc_software/main.nf
 Linting: modules/local/mhcnuggets/main.nf
 Linting: modules/local/mhcflurry/main.nf
 Linting: modules/nf-core/bcftools/stats/main.nf
+Linting: modules/nf-core/bcftools/norm/main.nf
+Linting: modules/nf-core/bcftools/norm/tests/nextflow.vcf_gz.config
+Linting: modules/nf-core/bcftools/norm/tests/vcf_gz_index.config
+Linting: modules/nf-core/bcftools/norm/tests/vcf_gz_index_csi.config
+Linting: modules/nf-core/bcftools/norm/tests/nextflow.config
+Linting: modules/nf-core/bcftools/norm/tests/nextflow.bcf_gz.config
+Linting: modules/nf-core/bcftools/norm/tests/nextflow.vcf.config
+Linting: modules/nf-core/bcftools/norm/tests/vcf_gz_index_tbi.config
+Linting: modules/nf-core/bcftools/norm/tests/nextflow.bcf.config
 Linting: modules/nf-core/gunzip/main.nf
 Linting: modules/nf-core/gunzip/tests/nextflow.config
 Linting: modules/nf-core/multiqc/main.nf
@@ -89,6 +98,15 @@ Warn  modules/local/prepare_prediction_input/main.nf:22:9: Variable was declared
 
 
 
+Warn  modules/nf-core/bcftools/norm/main.nf:56:65: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  56 | '-W=tbi'].any { args.contains(it) }  && extension == 'vcf.gz') {
+╰     |                               ^^
+
+Warn  modules/nf-core/bcftools/norm/main.nf:58:126: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  58 | ex=csi', '-W=csi', '--write-index', '-W'].any { args.contains(it) }) {
+╰     |                                                               ^^
+
+
 
 Warn  modules/nf-core/cat/cat/main.nf:23:40: Implicit closure parameter is deprecated, declare an explicit parameter instead
 │  23 |     def file_list = files_in.collect { it.toString() }
@@ -127,7 +145,7 @@ Error subworkflows/local/mhc_binding_prediction/main.nf:117:110: `valid_tools` i
 ╰     |                               ^^^^^^^^^^^
 
 Error subworkflows/local/mhc_binding_prediction/main.nf:137:5: `ch_netmhc_exe` was assigned but not declared
-│ 137 |     ch_netmhc_exe = Channel.empty()
+│ 137 |     ch_netmhc_exe = channel.empty()
 ╰     |     ^^^^^^^^^^^^^
 
 Error subworkflows/local/mhc_binding_prediction/main.nf:138:5: `ch_netmhc_exe` is not defined
@@ -138,14 +156,6 @@ Error subworkflows/local/mhc_binding_prediction/main.nf:147:12: `ch_netmhc_exe` 
 │ 147 |     return ch_netmhc_exe
 ╰     |            ^^^^^^^^^^^^^
 
-Warn  subworkflows/local/mhc_binding_prediction/main.nf:32:23: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  32 |         ch_versions = Channel.empty()
-╰     |                       ^^^^^^^
-
-Warn  subworkflows/local/mhc_binding_prediction/main.nf:33:37: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  33 |         ch_binding_predictors_out = Channel.empty()
-╰     |                                     ^^^^^^^
-
 Warn  subworkflows/local/mhc_binding_prediction/main.nf:92:49: Parameter was not used -- prefix with `_` to suppress warning
 │  92 |         .map { meta, file -> [meta.findAll { k, v -> k != 'alleles_sup
 ╰     |                                                 ^
@@ -153,10 +163,6 @@ Warn  subworkflows/local/mhc_binding_prediction/main.nf:92:49: Parameter was not
 Warn  subworkflows/local/mhc_binding_prediction/main.nf:115:45: Implicit closure parameter is deprecated, declare an explicit parameter instead
 │ 115 |     def invalid_tools = tool_list.findAll { it.trim() !in valid_tools 
 ╰     |                                             ^^
-
-Warn  subworkflows/local/mhc_binding_prediction/main.nf:137:21: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 137 |     ch_netmhc_exe = Channel.empty()
-╰     |                     ^^^^^^^
 
 
 Error subworkflows/local/utils_nfcore_epitopeprediction_pipeline/main.nf:116:48: `readAlleles` is not defined
@@ -171,14 +177,6 @@ Warn  subworkflows/local/utils_nfcore_epitopeprediction_pipeline/main.nf:35:5: P
 │  35 |     input             //  string: Path to input samplesheet
 ╰     |     ^^^^^
 
-Warn  subworkflows/local/utils_nfcore_epitopeprediction_pipeline/main.nf:42:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  42 |     ch_versions = Channel.empty()
-╰     |                   ^^^^^^^
-
-Warn  subworkflows/local/utils_nfcore_epitopeprediction_pipeline/main.nf:67:144: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  67 | lect { "    https://doi.org/${it.trim().replace('https://doi.org/','')
-╰     |                               ^^
-
 Warn  subworkflows/local/utils_nfcore_epitopeprediction_pipeline/main.nf:101:9: Variable was declared but not used
 │ 101 |     def readAlleles = { allele_input ->
 ╰     |         ^^^^^^^^^^^
@@ -189,111 +187,67 @@ Warn  subworkflows/local/utils_nfcore_epitopeprediction_pipeline/main.nf:114:5: 
 
 
 
-Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 101 | mYAML(version) }.unique().mix(Channel.of(workflowVersionToYAML()))
-╰     |                               ^^^^^^^
 
 
-
-Warn  workflows/epitopeprediction.nf:53:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  53 |     ch_versions      = Channel.empty()
-╰     |                        ^^^^^^^
-
-Warn  workflows/epitopeprediction.nf:54:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  54 |     ch_multiqc_files = Channel.empty()
-╰     |                        ^^^^^^^
-
-Warn  workflows/epitopeprediction.nf:87:79: Parameter was not used -- prefix with `_` to suppress warning
-│  87 | OOLS_STATS.out.stats.collect{ meta, stats -> stats })
+Warn  workflows/epitopeprediction.nf:119:79: Parameter was not used -- prefix with `_` to suppress warning
+│ 119 | OOLS_STATS.out.stats.collect{ meta, stats -> stats })
 ╰     |                               ^^^^
 
-Warn  workflows/epitopeprediction.nf:94:24: Parameter was not used -- prefix with `_` to suppress warning
-│  94 |             meta_data, input_file ->
+Warn  workflows/epitopeprediction.nf:126:24: Parameter was not used -- prefix with `_` to suppress warning
+│ 126 |             meta_data, input_file ->
 ╰     |                        ^^^^^^^^^^
 
-Warn  workflows/epitopeprediction.nf:123:19: Parameter was not used -- prefix with `_` to suppress warning
-│ 123 |         .filter { meta, file -> file.size() > 0 }
+Warn  workflows/epitopeprediction.nf:155:19: Parameter was not used -- prefix with `_` to suppress warning
+│ 155 |         .filter { meta, file -> file.size() > 0 }
 ╰     |                   ^^^^
 
-Warn  workflows/epitopeprediction.nf:134:37: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 134 |         ch_peptides_from_variants = Channel.empty()
-╰     |                                     ^^^^^^^
-
-Warn  workflows/epitopeprediction.nf:173:81: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 173 | es = ch_multiqc_files.mix(SUMMARIZE_RESULTS.out.json.collect{ it[1] })
+Warn  workflows/epitopeprediction.nf:205:81: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 205 | es = ch_multiqc_files.mix(SUMMARIZE_RESULTS.out.json.collect{ it[1] })
 ╰     |                                                               ^^
-
-Warn  workflows/epitopeprediction.nf:190:32: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 190 |     ch_multiqc_config        = Channel.fromPath(
-╰     |                                ^^^^^^^
-
-Warn  workflows/epitopeprediction.nf:193:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 193 |         Channel.fromPath(params.multiqc_config, checkIfExists: true) :
-╰     |         ^^^^^^^
-
-Warn  workflows/epitopeprediction.nf:194:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 194 |         Channel.empty()
-╰     |         ^^^^^^^
-
-Warn  workflows/epitopeprediction.nf:196:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 196 |         Channel.fromPath(params.multiqc_logo, checkIfExists: true) :
-╰     |         ^^^^^^^
-
-Warn  workflows/epitopeprediction.nf:197:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 197 |         Channel.empty()
-╰     |         ^^^^^^^
-
-Warn  workflows/epitopeprediction.nf:201:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 201 |     ch_workflow_summary = Channel.value(paramsSummaryMultiqc(summary_p
-╰     |                           ^^^^^^^
-
-Warn  workflows/epitopeprediction.nf:207:45: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 207 |     ch_methods_description                = Channel.value(
-╰     |                                             ^^^^^^^
 
 
 Error conf/modules.config:12:1: Variable declarations cannot be mixed with config statements
 │  12 | def genome_reference = params.genome_reference.toLowerCase()
 ╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error conf/modules.config:44:13: `genome_reference` is not defined
-│  44 |             genome_reference != 'grch37' & genome_reference != 'grch38
+Error conf/modules.config:50:13: `genome_reference` is not defined
+│  50 |             genome_reference != 'grch37' & genome_reference != 'grch38
 ╰     |             ^^^^^^^^^^^^^^^^
 
-Error conf/modules.config:44:44: `genome_reference` is not defined
-│  44 |             genome_reference != 'grch37' & genome_reference != 'grch38
+Error conf/modules.config:50:44: `genome_reference` is not defined
+│  50 |             genome_reference != 'grch37' & genome_reference != 'grch38
 ╰     |                                            ^^^^^^^^^^^^^^^^
 
-Error conf/modules.config:44:98: `genome_reference` is not defined
-│  44 | ference != 'grch38' ? "--genome_reference '${genome_reference}'" : '',
+Error conf/modules.config:50:98: `genome_reference` is not defined
+│  50 | ference != 'grch38' ? "--genome_reference '${genome_reference}'" : '',
 ╰     |                                              ^^^^^^^^^^^^^^^^
 
-Error conf/modules.config:45:13: `genome_reference` is not defined
-│  45 |             genome_reference == 'grch37'                              
+Error conf/modules.config:51:13: `genome_reference` is not defined
+│  51 |             genome_reference == 'grch37'                              
 ╰     |             ^^^^^^^^^^^^^^^^
 
-Error conf/modules.config:46:13: `genome_reference` is not defined
-│  46 |             genome_reference == 'grch38'                              
+Error conf/modules.config:52:13: `genome_reference` is not defined
+│  52 |             genome_reference == 'grch38'                              
 ╰     |             ^^^^^^^^^^^^^^^^
 
 
-Error nextflow.config:365:5: Variable declarations cannot be mixed with config statements
-│ 365 |     String co2_timestamp = new java.util.Date().format( 'yyyy-MM-dd_HH
+Error nextflow.config:371:5: Variable declarations cannot be mixed with config statements
+│ 371 |     String co2_timestamp = new java.util.Date().format( 'yyyy-MM-dd_HH
 ╰     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error nextflow.config:366:70: `co2_timestamp` is not defined
-│ 366 | {params.outdir}/pipeline_info/co2footprint_trace_${co2_timestamp}.txt"
+Error nextflow.config:372:70: `co2_timestamp` is not defined
+│ 372 | {params.outdir}/pipeline_info/co2footprint_trace_${co2_timestamp}.txt"
 ╰     |                                                    ^^^^^^^^^^^^^
 
-Error nextflow.config:367:74: `co2_timestamp` is not defined
-│ 367 | arams.outdir}/pipeline_info/co2footprint_summary_${co2_timestamp}.txt"
+Error nextflow.config:373:74: `co2_timestamp` is not defined
+│ 373 | arams.outdir}/pipeline_info/co2footprint_summary_${co2_timestamp}.txt"
 ╰     |                                                    ^^^^^^^^^^^^^
 
-Error nextflow.config:368:72: `co2_timestamp` is not defined
-│ 368 | arams.outdir}/pipeline_info/co2footprint_report_${co2_timestamp}.html"
+Error nextflow.config:374:72: `co2_timestamp` is not defined
+│ 374 | arams.outdir}/pipeline_info/co2footprint_report_${co2_timestamp}.html"
 ╰     |                                                   ^^^^^^^^^^^^^
 
 
 Nextflow linting complete!
  ❌ 5 files had 20 errors
- ✅ 43 files had no errors
+ ✅ 52 files had no errors

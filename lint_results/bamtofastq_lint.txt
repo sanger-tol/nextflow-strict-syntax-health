@@ -122,138 +122,29 @@ Warn  subworkflows/local/prepare_indices.nf:48:51: Parameter was not used -- pre
 
 
 Warn  subworkflows/local/utils_nfcore_bamtofastq_pipeline/main.nf:31:5: Parameter was not used -- prefix with `_` to suppress warning
-│  31 |     monochrome_logs   // boolean: Do not use coloured log outputs
+│  31 |     monochrome_logs // boolean: Do not use coloured log outputs
 ╰     |     ^^^^^^^^^^^^^^^
 
 Warn  subworkflows/local/utils_nfcore_bamtofastq_pipeline/main.nf:34:5: Parameter was not used -- prefix with `_` to suppress warning
-│  34 |     input             //  string: Path to input samplesheet
+│  34 |     input //  string: Path to input samplesheet
 ╰     |     ^^^^^
 
-Warn  subworkflows/local/utils_nfcore_bamtofastq_pipeline/main.nf:38:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  38 |     ch_versions = Channel.empty()
-╰     |                   ^^^^^^^
-
-Warn  subworkflows/local/utils_nfcore_bamtofastq_pipeline/main.nf:75:5: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  75 |     Channel
-╰     |     ^^^^^^^
 
 
 
-Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 101 | mYAML(version) }.unique().mix(Channel.of(workflowVersionToYAML()))
-╰     |                               ^^^^^^^
-
-
-Warn  workflows/bamtofastq.nf:58:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  58 |     fasta     = params.fasta     ? Channel.fromPath(params.fasta).coll
-╰     |                                    ^^^^^^^
-
-Warn  workflows/bamtofastq.nf:58:84: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  58 | arams.fasta).collect()      : Channel.value([])
-╰     |                               ^^^^^^^
 
 Warn  workflows/bamtofastq.nf:61:5: Variable was declared but not used
-│  61 |     chr       = params.chr       ?: Channel.empty()
+│  61 |     chr = params.chr ?: channel.empty()
 ╰     |     ^^^
 
-Warn  workflows/bamtofastq.nf:61:37: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  61 |     chr       = params.chr       ?: Channel.empty()
-╰     |                                     ^^^^^^^
+Warn  workflows/bamtofastq.nf:162:24: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 162 |             ch_single: it[0].single_end == true
+╰     |                        ^^
 
-Warn  workflows/bamtofastq.nf:63:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  63 |     ch_versions = Channel.empty()
-╰     |                   ^^^^^^^
-
-Warn  workflows/bamtofastq.nf:64:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  64 |     ch_multiqc_files = Channel.empty()
-╰     |                        ^^^^^^^
-
-Warn  workflows/bamtofastq.nf:115:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 115 |         samtools_chr_out = Channel.empty().mix( SAMTOOLS_CHR.out.bam,
-╰     |                            ^^^^^^^
-
-Warn  workflows/bamtofastq.nf:118:46: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 118 |         ch_input_chr = samtools_chr_out.join(Channel.empty().mix( SAMT
-╰     |                                              ^^^^^^^
-
-Warn  workflows/bamtofastq.nf:141:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 141 |         ch_single:  it[0].single_end == true
-╰     |                     ^^
-
-Warn  workflows/bamtofastq.nf:142:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 142 |         ch_paired:  it[0].single_end == false
-╰     |                     ^^
-
-Warn  workflows/bamtofastq.nf:162:51: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 162 |     fasta_fai = params.fasta ? params.fasta_fai ? Channel.fromPath(par
-╰     |                                                   ^^^^^^^
-
-Warn  workflows/bamtofastq.nf:162:130: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 162 | EPARE_INDICES.out.fasta_fai : Channel.value([])
-╰     |                               ^^^^^^^
-
-Warn  workflows/bamtofastq.nf:177:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 177 |     ch_reads_post_qc = Channel.empty().mix(SAMTOOLS_COLLATEFASTQ_SINGL
-╰     |                        ^^^^^^^
-
-Warn  workflows/bamtofastq.nf:203:32: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 203 |     ch_multiqc_config        = Channel.fromPath(
-╰     |                                ^^^^^^^
-
-Warn  workflows/bamtofastq.nf:206:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 206 |         Channel.fromPath(params.multiqc_config, checkIfExists: true) :
-╰     |         ^^^^^^^
-
-Warn  workflows/bamtofastq.nf:207:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 207 |         Channel.empty()
-╰     |         ^^^^^^^
-
-Warn  workflows/bamtofastq.nf:209:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 209 |         Channel.fromPath(params.multiqc_logo, checkIfExists: true) :
-╰     |         ^^^^^^^
-
-Warn  workflows/bamtofastq.nf:210:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 210 |         Channel.empty()
-╰     |         ^^^^^^^
-
-Warn  workflows/bamtofastq.nf:214:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 214 |     ch_workflow_summary = Channel.value(paramsSummaryMultiqc(summary_p
-╰     |                           ^^^^^^^
-
-Warn  workflows/bamtofastq.nf:220:45: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 220 |     ch_methods_description                = Channel.value(
-╰     |                                             ^^^^^^^
-
-
-Error nextflow.config:331:34: `manifest` is not defined
-│ 331 | \033[0;35m  nf-core/bamtofastq ${manifest.version}\033[0m
-╰     |                                  ^^^^^^^^
-
-Error nextflow.config:334:26: `manifest` is not defined
-│ 334 |         afterText = """${manifest.doi ? "\n* The pipeline\n" : ""}${ma
-╰     |                          ^^^^^^^^
-
-Error nextflow.config:334:69: `manifest` is not defined
-│ 334 | ? "\n* The pipeline\n" : ""}${manifest.doi.tokenize(",").collect { "  
-╰     |                               ^^^^^^^^
-
-Error nextflow.config:334:186: `manifest` is not defined
-│ 334 | doi.org/','')}"}.join("\n")}${manifest.doi ? "\n" : ""}
-╰     |                               ^^^^^^^^
-
-Error nextflow.config:343:22: `validation` is not defined
-│ 343 |         beforeText = validation.help.beforeText
-╰     |                      ^^^^^^^^^^
-
-Error nextflow.config:344:21: `validation` is not defined
-│ 344 |         afterText = validation.help.afterText
-╰     |                     ^^^^^^^^^^
-
-Warn  nextflow.config:334:129: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 334 | lect { "    https://doi.org/${it.trim().replace('https://doi.org/','')
-╰     |                               ^^
+Warn  workflows/bamtofastq.nf:163:24: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 163 |             ch_paired: it[0].single_end == false
+╰     |                        ^^
 
 
 Nextflow linting complete!
- ❌ 1 file had 6 errors
- ✅ 40 files had no errors
+ ✅ 41 files had no errors

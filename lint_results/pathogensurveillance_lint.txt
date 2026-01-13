@@ -132,6 +132,11 @@ Linting: modules/nf-core/tabix/tabix/tests/tabix_vcf_tbi.config
 Linting: modules/nf-core/tabix/tabix/tests/tabix_gff.config
 Linting: modules/nf-core/tabix/tabix/tests/tabix_bed.config
 Linting: modules/nf-core/tabix/tabix/tests/tabix_vcf_csi.config
+Error main.nf:46:9: Unexpected input: 'params'
+│  46 |         params.reference_data
+╰     |         ^
+
+
 Warn  modules/local/assign_context_references/main.nf:24:9: Variable was declared but not used
 │  24 |     def args = task.ext.args ?: ''
 ╰     |         ^^^^
@@ -1582,29 +1587,37 @@ Warn  subworkflows/local/sketch_comparison/main.nf:64:15: Parameter was not used
 ╰     |               ^^^^^^^^^
 
 
-Error subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:78:5: `for` loops are no longer supported
-│  78 |     for (param in checkPathParamList) {
+Error subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:106:5: `for` loops are no longer supported
+│ 106 |     for (param in checkPathParamList) {
 ╰     |     ^^^
 
-Error subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:78:10: `param` is not defined
-│  78 |     for (param in checkPathParamList) {
+Error subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:106:10: `param` is not defined
+│ 106 |     for (param in checkPathParamList) {
 ╰     |          ^^^^^
 
-Error subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:79:12: `param` is not defined
-│  79 |         if (param) { file(param, checkIfExists: true) }
+Error subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:107:12: `param` is not defined
+│ 107 |         if (param) { file(param, checkIfExists: true) }
 ╰     |            ^^^^^^^
 
-Error subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:79:27: `param` is not defined
-│  79 |         if (param) { file(param, checkIfExists: true) }
+Error subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:107:27: `param` is not defined
+│ 107 |         if (param) { file(param, checkIfExists: true) }
 ╰     |                           ^^^^^
 
-Warn  subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:31:5: Parameter was not used -- prefix with `_` to suppress warning
-│  31 |     monochrome_logs    // boolean: Do not use coloured log outputs
+Error subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:125:26: `versions` is not defined
+│ 125 |     versions           = versions
+╰     |                          ^^^^^^^^
+
+Warn  subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:32:5: Parameter was not used -- prefix with `_` to suppress warning
+│  32 |     monochrome_logs   // boolean: Do not use coloured log outputs
 ╰     |     ^^^^^^^^^^^^^^^
 
-Warn  subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:39:16: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  39 |     versions = Channel.empty()
-╰     |                ^^^^^^^
+Warn  subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:35:5: Parameter was not used -- prefix with `_` to suppress warning
+│  35 |     input             //  string: Path to input samplesheet
+╰     |     ^^^^^
+
+Warn  subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:42:5: Variable was declared but not used
+│  42 |     ch_versions = channel.empty()
+╰     |     ^^^^^^^^^^^
 
 
 Warn  subworkflows/local/variant_analysis/main.nf:16:16: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
@@ -2009,17 +2022,18 @@ Warn  subworkflows/local/variant_analysis/main.nf:207:42: Implicit closure param
 
 
 
-Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 101 | mYAML(version) }.unique().mix(Channel.of(workflowVersionToYAML()))
-╰     |                               ^^^^^^^
 
 
-Error workflows/pathogensurveillance.nf:141:29: `versions` is already declared
-│ 141 |         .map { report_meta, versions, fastqc, fastp, nanoplot, quast -
+Error workflows/pathogensurveillance.nf:134:5: `ch_methods_description` is not defined
+│ 134 |     ch_methods_description.collectFile(
+╰     |     ^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/pathogensurveillance.nf:172:29: `versions` is already declared
+│ 172 |         .map { report_meta, versions, fastqc, fastp, nanoplot, quast -
 ╰     |                             ^^^^^^^^
 
-Error workflows/pathogensurveillance.nf:142:13: Variables in a closure should be declared with `def`
-│ 142 |             files = (fastqc ?: []) + (fastp ?: []) + (nanoplot ?: []) 
+Error workflows/pathogensurveillance.nf:173:13: Variables in a closure should be declared with `def`
+│ 173 |             files = (fastqc ?: []) + (fastp ?: []) + (nanoplot ?: []) 
 ╰     |             ^^^^^
 
 Warn  workflows/pathogensurveillance.nf:41:16: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
@@ -2030,296 +2044,271 @@ Warn  workflows/pathogensurveillance.nf:42:16: The use of `Channel` to access ch
 │  42 |     messages = Channel.empty()
 ╰     |                ^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:105:31: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 105 |     multiqc_config          = Channel.fromPath("$projectDir/assets/mul
+Warn  workflows/pathogensurveillance.nf:96:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  96 |     def topic_versions = Channel.topic("versions")
+╰     |                          ^^^^^^^
+
+Warn  workflows/pathogensurveillance.nf:123:31: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 123 |     multiqc_config          = Channel.fromPath("$projectDir/assets/mul
 ╰     |                               ^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:106:55: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 106 |     multiqc_custom_config   = params.multiqc_config ? Channel.fromPath
+Warn  workflows/pathogensurveillance.nf:124:55: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 124 |     multiqc_custom_config   = params.multiqc_config ? Channel.fromPath
 ╰     |                                                       ^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:106:120: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 106 | omPath( params.multiqc_config, checkIfExists: true ) : Channel.empty()
+Warn  workflows/pathogensurveillance.nf:124:120: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 124 | omPath( params.multiqc_config, checkIfExists: true ) : Channel.empty()
 ╰     |                                                        ^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:107:55: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 107 |     multiqc_logo            = params.multiqc_logo   ? Channel.fromPath
+Warn  workflows/pathogensurveillance.nf:125:55: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 125 |     multiqc_logo            = params.multiqc_logo   ? Channel.fromPath
 ╰     |                                                       ^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:107:118: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 107 | fromPath( params.multiqc_logo, checkIfExists: true ) : Channel.empty()
+Warn  workflows/pathogensurveillance.nf:125:118: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 125 | fromPath( params.multiqc_logo, checkIfExists: true ) : Channel.empty()
 ╰     |                                                        ^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:108:5: Variable was declared but not used
-│ 108 |     multiqc_custom_methods_description = params.multiqc_methods_descri
-╰     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Warn  workflows/pathogensurveillance.nf:129:5: Variable was declared but not used
+│ 129 |     methods_description     = channel.value(methodsDescriptionText(mul
+╰     |     ^^^^^^^^^^^^^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:110:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 110 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+Warn  workflows/pathogensurveillance.nf:141:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 141 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
 ╰     |                     ^^
 
-Warn  workflows/pathogensurveillance.nf:110:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 110 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+Warn  workflows/pathogensurveillance.nf:141:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 141 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
 ╰     |                                         ^^
 
-Warn  workflows/pathogensurveillance.nf:112:15: Parameter was not used -- prefix with `_` to suppress warning
-│ 112 |         .map{ sample_meta, report_meta, fastqc -> [report_meta, fastqc
+Warn  workflows/pathogensurveillance.nf:143:15: Parameter was not used -- prefix with `_` to suppress warning
+│ 143 |         .map{ sample_meta, report_meta, fastqc -> [report_meta, fastqc
 ╰     |               ^^^^^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:116:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 116 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+Warn  workflows/pathogensurveillance.nf:147:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 147 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
 ╰     |                     ^^
 
-Warn  workflows/pathogensurveillance.nf:116:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 116 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+Warn  workflows/pathogensurveillance.nf:147:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 147 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
 ╰     |                                         ^^
 
-Warn  workflows/pathogensurveillance.nf:118:15: Parameter was not used -- prefix with `_` to suppress warning
-│ 118 |         .map{ sample_meta, report_meta, fastp_json -> [report_meta, fa
+Warn  workflows/pathogensurveillance.nf:149:15: Parameter was not used -- prefix with `_` to suppress warning
+│ 149 |         .map{ sample_meta, report_meta, fastp_json -> [report_meta, fa
 ╰     |               ^^^^^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:122:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 122 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+Warn  workflows/pathogensurveillance.nf:153:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 153 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
 ╰     |                     ^^
 
-Warn  workflows/pathogensurveillance.nf:122:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 122 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+Warn  workflows/pathogensurveillance.nf:153:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 153 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
 ╰     |                                         ^^
 
-Warn  workflows/pathogensurveillance.nf:124:15: Parameter was not used -- prefix with `_` to suppress warning
-│ 124 |         .map{ sample_meta, report_meta, nanoplot_txt -> [report_meta, 
+Warn  workflows/pathogensurveillance.nf:155:15: Parameter was not used -- prefix with `_` to suppress warning
+│ 155 |         .map{ sample_meta, report_meta, nanoplot_txt -> [report_meta, 
 ╰     |               ^^^^^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:128:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 128 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+Warn  workflows/pathogensurveillance.nf:159:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 159 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
 ╰     |                     ^^
 
-Warn  workflows/pathogensurveillance.nf:128:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 128 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+Warn  workflows/pathogensurveillance.nf:159:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 159 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
 ╰     |                                         ^^
 
-Warn  workflows/pathogensurveillance.nf:130:15: Parameter was not used -- prefix with `_` to suppress warning
-│ 130 |         .map{ sample_meta, report_meta, quast -> [report_meta, quast] 
+Warn  workflows/pathogensurveillance.nf:161:15: Parameter was not used -- prefix with `_` to suppress warning
+│ 161 |         .map{ sample_meta, report_meta, quast -> [report_meta, quast] 
 ╰     |               ^^^^^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:134:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 134 |         .map{ [[id: it.report_group_ids]] }
+Warn  workflows/pathogensurveillance.nf:165:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 165 |         .map{ [[id: it.report_group_ids]] }
 ╰     |                     ^^
 
-Warn  workflows/pathogensurveillance.nf:158:71: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 158 | up_ids], sample_meta.findAll {it.key != 'paths' && it.key != 'ref_meta
+Warn  workflows/pathogensurveillance.nf:189:71: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 189 | up_ids], sample_meta.findAll {it.key != 'paths' && it.key != 'ref_meta
 ╰     |                               ^^
 
-Warn  workflows/pathogensurveillance.nf:158:92: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 158 | findAll {it.key != 'paths' && it.key != 'ref_metas' && it.key != 'ref_
+Warn  workflows/pathogensurveillance.nf:189:92: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 189 | findAll {it.key != 'paths' && it.key != 'ref_metas' && it.key != 'ref_
 ╰     |                               ^^
 
-Warn  workflows/pathogensurveillance.nf:158:117: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 158 | ' && it.key != 'ref_metas' && it.key != 'ref_ids'}]
+Warn  workflows/pathogensurveillance.nf:189:117: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 189 | ' && it.key != 'ref_metas' && it.key != 'ref_ids'}]
 ╰     |                               ^^
 
-Warn  workflows/pathogensurveillance.nf:162:87: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 162 | e_meta.keySet().collect{'"' + it + '"'}.join('\t') + "\n" + sample_met
+Warn  workflows/pathogensurveillance.nf:193:87: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 193 | e_meta.keySet().collect{'"' + it + '"'}.join('\t') + "\n" + sample_met
 ╰     |                               ^^
 
-Warn  workflows/pathogensurveillance.nf:162:153: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 162 | _meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n" ]
+Warn  workflows/pathogensurveillance.nf:193:153: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 193 | _meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n" ]
 ╰     |                               ^^
 
-Warn  workflows/pathogensurveillance.nf:164:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 164 |         .map {[[id: it.getSimpleName().replace('_sample_data', '')], i
+Warn  workflows/pathogensurveillance.nf:195:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 195 |         .map {[[id: it.getSimpleName().replace('_sample_data', '')], i
 ╰     |                     ^^
 
-Warn  workflows/pathogensurveillance.nf:164:70: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 164 |      .map {[[id: it.getSimpleName().replace('_sample_data', '')], it]}
+Warn  workflows/pathogensurveillance.nf:195:70: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 195 |      .map {[[id: it.getSimpleName().replace('_sample_data', '')], it]}
 ╰     |                                                                   ^^
 
-Warn  workflows/pathogensurveillance.nf:173:45: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 173 |             [report_meta, ref_meta.findAll {it.key != 'ref_path' && it
+Warn  workflows/pathogensurveillance.nf:204:45: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 204 |             [report_meta, ref_meta.findAll {it.key != 'ref_path' && it
 ╰     |                                             ^^
 
-Warn  workflows/pathogensurveillance.nf:173:69: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 173 | dAll {it.key != 'ref_path' && it.key != 'gff'}]
+Warn  workflows/pathogensurveillance.nf:204:69: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 204 | dAll {it.key != 'ref_path' && it.key != 'gff'}]
 ╰     |                               ^^
 
-Warn  workflows/pathogensurveillance.nf:177:87: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 177 | f_meta.keySet().collect{'"' + it + '"'}.join('\t') + "\n" + ref_meta.v
+Warn  workflows/pathogensurveillance.nf:208:87: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 208 | f_meta.keySet().collect{'"' + it + '"'}.join('\t') + "\n" + ref_meta.v
 ╰     |                               ^^
 
-Warn  workflows/pathogensurveillance.nf:177:150: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 177 | _meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n" ]
+Warn  workflows/pathogensurveillance.nf:208:150: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 208 | _meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n" ]
 ╰     |                               ^^
 
-Warn  workflows/pathogensurveillance.nf:179:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 179 |         .map {[[id: it.getSimpleName().replace('_reference_data', '')]
+Warn  workflows/pathogensurveillance.nf:210:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 210 |         .map {[[id: it.getSimpleName().replace('_reference_data', '')]
 ╰     |                     ^^
 
-Warn  workflows/pathogensurveillance.nf:179:73: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 179 |   .map {[[id: it.getSimpleName().replace('_reference_data', '')], it]}
+Warn  workflows/pathogensurveillance.nf:210:73: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 210 |   .map {[[id: it.getSimpleName().replace('_reference_data', '')], it]}
 ╰     |                                                                   ^^
 
-Warn  workflows/pathogensurveillance.nf:183:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 183 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+Warn  workflows/pathogensurveillance.nf:214:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 214 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
 ╰     |                     ^^
 
-Warn  workflows/pathogensurveillance.nf:183:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 183 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+Warn  workflows/pathogensurveillance.nf:214:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 214 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
 ╰     |                                         ^^
 
-Warn  workflows/pathogensurveillance.nf:185:15: Parameter was not used -- prefix with `_` to suppress warning
-│ 185 |         .map{ sample_meta, report_meta, sendsketch -> [report_meta, se
+Warn  workflows/pathogensurveillance.nf:216:15: Parameter was not used -- prefix with `_` to suppress warning
+│ 216 |         .map{ sample_meta, report_meta, sendsketch -> [report_meta, se
 ╰     |               ^^^^^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:191:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 191 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+Warn  workflows/pathogensurveillance.nf:222:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 222 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
 ╰     |                     ^^
 
-Warn  workflows/pathogensurveillance.nf:191:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 191 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+Warn  workflows/pathogensurveillance.nf:222:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 222 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
 ╰     |                                         ^^
 
-Warn  workflows/pathogensurveillance.nf:194:16: Parameter was not used -- prefix with `_` to suppress warning
-│ 194 |         .map { sample_meta, report_meta, family_stats ->
+Warn  workflows/pathogensurveillance.nf:225:16: Parameter was not used -- prefix with `_` to suppress warning
+│ 225 |         .map { sample_meta, report_meta, family_stats ->
 ╰     |                ^^^^^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:200:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 200 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+Warn  workflows/pathogensurveillance.nf:231:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 231 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
 ╰     |                     ^^
 
-Warn  workflows/pathogensurveillance.nf:200:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 200 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+Warn  workflows/pathogensurveillance.nf:231:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 231 |         .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
 ╰     |                                         ^^
 
-Warn  workflows/pathogensurveillance.nf:202:15: Parameter was not used -- prefix with `_` to suppress warning
-│ 202 |         .map{ sample_meta, report_meta, ref_meta_file ->
+Warn  workflows/pathogensurveillance.nf:233:15: Parameter was not used -- prefix with `_` to suppress warning
+│ 233 |         .map{ sample_meta, report_meta, ref_meta_file ->
 ╰     |               ^^^^^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:207:50: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 207 |             [report_meta, ref_meta_files.findAll{it != null}]
+Warn  workflows/pathogensurveillance.nf:238:50: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 238 |             [report_meta, ref_meta_files.findAll{it != null}]
 ╰     |                                                  ^^
 
-Warn  workflows/pathogensurveillance.nf:212:29: Parameter was not used -- prefix with `_` to suppress warning
-│ 212 |         .map { report_meta, ref_meta, fasta -> [report_meta, fasta] }
+Warn  workflows/pathogensurveillance.nf:243:29: Parameter was not used -- prefix with `_` to suppress warning
+│ 243 |         .map { report_meta, ref_meta, fasta -> [report_meta, fasta] }
 ╰     |                             ^^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:217:29: Parameter was not used -- prefix with `_` to suppress warning
-│ 217 |         .map { report_meta, ref_meta, tree -> [report_meta, tree] }
+Warn  workflows/pathogensurveillance.nf:248:29: Parameter was not used -- prefix with `_` to suppress warning
+│ 248 |         .map { report_meta, ref_meta, tree -> [report_meta, tree] }
 ╰     |                             ^^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:226:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 226 |         .map {[[id: it.getSimpleName()], it]}
+Warn  workflows/pathogensurveillance.nf:257:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 257 |         .map {[[id: it.getSimpleName()], it]}
 ╰     |                     ^^
 
-Warn  workflows/pathogensurveillance.nf:226:42: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 226 |         .map {[[id: it.getSimpleName()], it]}
+Warn  workflows/pathogensurveillance.nf:257:42: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 257 |         .map {[[id: it.getSimpleName()], it]}
 ╰     |                                          ^^
 
-Warn  workflows/pathogensurveillance.nf:246:17: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 246 |         .filter{it[0] != null} // remove extra item if messages is emp
+Warn  workflows/pathogensurveillance.nf:277:17: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 277 |         .filter{it[0] != null} // remove extra item if messages is emp
 ╰     |                 ^^
 
-Warn  workflows/pathogensurveillance.nf:247:15: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 247 |         .map{ it.size() == 16 ? it + [null] : it } // adds placeholder
+Warn  workflows/pathogensurveillance.nf:278:15: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 278 |         .map{ it.size() == 16 ? it + [null] : it } // adds placeholder
 ╰     |               ^^
 
-Warn  workflows/pathogensurveillance.nf:247:33: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 247 |         .map{ it.size() == 16 ? it + [null] : it } // adds placeholder
+Warn  workflows/pathogensurveillance.nf:278:33: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 278 |         .map{ it.size() == 16 ? it + [null] : it } // adds placeholder
 ╰     |                                 ^^
 
-Warn  workflows/pathogensurveillance.nf:247:47: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 247 |         .map{ it.size() == 16 ? it + [null] : it } // adds placeholder
+Warn  workflows/pathogensurveillance.nf:278:47: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 278 |         .map{ it.size() == 16 ? it + [null] : it } // adds placeholder
 ╰     |                                               ^^
 
-Warn  workflows/pathogensurveillance.nf:248:18: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 248 |         .filter{ it.size() == 17 } // remove any malformed inputs
+Warn  workflows/pathogensurveillance.nf:279:18: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 279 |         .filter{ it.size() == 17 } // remove any malformed inputs
 ╰     |                  ^^
 
-Warn  workflows/pathogensurveillance.nf:249:15: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 249 |         .map{ it.collect{ it ?: [] } } //replace nulls with empty list
+Warn  workflows/pathogensurveillance.nf:280:15: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 280 |         .map{ it.collect{ it ?: [] } } //replace nulls with empty list
 ╰     |               ^^
 
-Warn  workflows/pathogensurveillance.nf:249:27: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 249 |         .map{ it.collect{ it ?: [] } } //replace nulls with empty list
+Warn  workflows/pathogensurveillance.nf:280:27: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 280 |         .map{ it.collect{ it ?: [] } } //replace nulls with empty list
 ╰     |                           ^^
 
-Warn  workflows/pathogensurveillance.nf:254:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 254 |         Channel.fromPath("${projectDir}/assets/.pathogensurveillance_o
+Warn  workflows/pathogensurveillance.nf:285:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 285 |         Channel.fromPath("${projectDir}/assets/.pathogensurveillance_o
 ╰     |         ^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:259:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 259 |         Channel.fromPath("${projectDir}/assets/main_report", checkIfEx
+Warn  workflows/pathogensurveillance.nf:290:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 290 |         Channel.fromPath("${projectDir}/assets/main_report", checkIfEx
 ╰     |         ^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:278:5: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 278 |     Channel.value(
+Warn  workflows/pathogensurveillance.nf:309:5: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 309 |     Channel.value(
 ╰     |     ^^^^^^^
 
-Warn  workflows/pathogensurveillance.nf:297:34: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 297 |             sample_meta.findAll {it.key != 'paths' && it.key != 'ref_m
+Warn  workflows/pathogensurveillance.nf:328:34: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 328 |             sample_meta.findAll {it.key != 'paths' && it.key != 'ref_m
 ╰     |                                  ^^
 
-Warn  workflows/pathogensurveillance.nf:297:55: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 297 |             sample_meta.findAll {it.key != 'paths' && it.key != 'ref_m
+Warn  workflows/pathogensurveillance.nf:328:55: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 328 |             sample_meta.findAll {it.key != 'paths' && it.key != 'ref_m
 ╰     |                                                       ^^
 
-Warn  workflows/pathogensurveillance.nf:297:80: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 297 | ' && it.key != 'ref_metas' && it.key != 'ref_ids'}
+Warn  workflows/pathogensurveillance.nf:328:80: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 328 | ' && it.key != 'ref_metas' && it.key != 'ref_ids'}
 ╰     |                               ^^
 
-Warn  workflows/pathogensurveillance.nf:306:48: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 306 |             sample_meta.keySet().collect{'"' + it + '"'}.join('\t') + 
+Warn  workflows/pathogensurveillance.nf:337:48: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 337 |             sample_meta.keySet().collect{'"' + it + '"'}.join('\t') + 
 ╰     |                                                ^^
 
-Warn  workflows/pathogensurveillance.nf:306:114: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 306 | _meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n"
+Warn  workflows/pathogensurveillance.nf:337:114: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 337 | _meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n"
 ╰     |                               ^^
 
-Warn  workflows/pathogensurveillance.nf:316:34: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 316 |             ref_meta[0].findAll {it.key != 'ref_path' && it.key != 'gf
+Warn  workflows/pathogensurveillance.nf:347:34: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 347 |             ref_meta[0].findAll {it.key != 'ref_path' && it.key != 'gf
 ╰     |                                  ^^
 
-Warn  workflows/pathogensurveillance.nf:316:58: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 316 |             ref_meta[0].findAll {it.key != 'ref_path' && it.key != 'gf
+Warn  workflows/pathogensurveillance.nf:347:58: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 347 |             ref_meta[0].findAll {it.key != 'ref_path' && it.key != 'gf
 ╰     |                                                          ^^
 
-Warn  workflows/pathogensurveillance.nf:325:45: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 325 |             ref_meta.keySet().collect{'"' + it + '"'}.join('\t') + "\n
+Warn  workflows/pathogensurveillance.nf:356:45: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 356 |             ref_meta.keySet().collect{'"' + it + '"'}.join('\t') + "\n
 ╰     |                                             ^^
 
-Warn  workflows/pathogensurveillance.nf:325:108: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 325 | _meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n"
-╰     |                               ^^
-
-
-Error nextflow.config:356:44: `manifest` is not defined
-│ 356 | \033[0;35m  nf-core/pathogensurveillance ${manifest.version}\033[0m
-╰     |                                            ^^^^^^^^
-
-Error nextflow.config:359:26: `manifest` is not defined
-│ 359 |         afterText = """${manifest.doi ? "\n* The pipeline\n" : ""}${ma
-╰     |                          ^^^^^^^^
-
-Error nextflow.config:359:69: `manifest` is not defined
-│ 359 | ? "\n* The pipeline\n" : ""}${manifest.doi.tokenize(",").collect { "  
-╰     |                               ^^^^^^^^
-
-Error nextflow.config:359:186: `manifest` is not defined
-│ 359 | doi.org/','')}"}.join("\n")}${manifest.doi ? "\n" : ""}
-╰     |                               ^^^^^^^^
-
-Error nextflow.config:368:22: `validation` is not defined
-│ 368 |         beforeText = validation.help.beforeText
-╰     |                      ^^^^^^^^^^
-
-Error nextflow.config:369:21: `validation` is not defined
-│ 369 |         afterText = validation.help.afterText
-╰     |                     ^^^^^^^^^^
-
-Warn  nextflow.config:359:129: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 359 | lect { "    https://doi.org/${it.trim().replace('https://doi.org/','')
+Warn  workflows/pathogensurveillance.nf:356:108: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 356 | _meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n"
 ╰     |                               ^^
 
 
 Nextflow linting complete!
- ❌ 14 files had 43 errors
+ ❌ 14 files had 40 errors
  ✅ 119 files had no errors

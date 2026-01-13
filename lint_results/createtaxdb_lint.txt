@@ -25,6 +25,7 @@ Linting: subworkflows/nf-core/utils_nfschema_plugin/tests/nextflow.config
 Linting: main.nf
 Linting: tests/nextflow.config
 Linting: modules/local/seqkit/batchrename/main.nf
+Linting: modules/nf-core/metacache/build/main.nf
 Linting: modules/nf-core/centrifuge/build/main.nf
 Linting: modules/nf-core/kmcp/index/main.nf
 Linting: modules/nf-core/kmcp/index/tests/nextflow.config
@@ -98,6 +99,7 @@ Warn  modules/nf-core/malt/build/main.nf:44:9: Variable was declared but not use
 
 
 
+
 Warn  modules/nf-core/pigz/compress/main.nf:35:9: Variable was declared but not used
 │  35 |     def args = task.ext.args ?: ''
 ╰     |         ^^^^
@@ -162,14 +164,6 @@ Warn  subworkflows/local/utils_nfcore_createtaxdb_pipeline/main.nf:34:5: Paramet
 │  34 |     input //  string: Path to input samplesheet
 ╰     |     ^^^^^
 
-Warn  subworkflows/local/utils_nfcore_createtaxdb_pipeline/main.nf:41:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  41 |     ch_versions = Channel.empty()
-╰     |                   ^^^^^^^
-
-Warn  subworkflows/local/utils_nfcore_createtaxdb_pipeline/main.nf:66:144: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  66 | lect { "    https://doi.org/${it.trim().replace('https://doi.org/', ''
-╰     |                               ^^
-
 Warn  subworkflows/local/utils_nfcore_createtaxdb_pipeline/main.nf:106:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 │ 106 |     ch_samplesheet = Channel.fromList(samplesheetToList(params.input, 
 ╰     |                      ^^^^^^^
@@ -200,28 +194,28 @@ Warn  subworkflows/local/utils_nfcore_createtaxdb_pipeline/main.nf:133:93: Impli
 
 
 
-Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 101 | mYAML(version) }.unique().mix(Channel.of(workflowVersionToYAML()))
-╰     |                               ^^^^^^^
 
 
-
-Warn  workflows/createtaxdb.nf:123:20: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 123 |             .map { it.join("\t") }
+Warn  workflows/createtaxdb.nf:124:20: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 124 |             .map { it.join("\t") }
 ╰     |                    ^^
 
-Warn  workflows/createtaxdb.nf:129:39: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 129 |                 [[id: params.dbname], it]
+Warn  workflows/createtaxdb.nf:130:39: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 130 |                 [[id: params.dbname], it]
 ╰     |                                       ^^
 
-Warn  workflows/createtaxdb.nf:170:41: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 170 |         ch_taxdmpfiles_for_krakenuniq = Channel
+Warn  workflows/createtaxdb.nf:171:41: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 171 |         ch_taxdmpfiles_for_krakenuniq = Channel
 ╰     |                                         ^^^^^^^
 
-Warn  workflows/createtaxdb.nf:173:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 173 |             .map { [it] }
+Warn  workflows/createtaxdb.nf:174:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 174 |             .map { [it] }
 ╰     |                     ^^
+
+Warn  workflows/createtaxdb.nf:312:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 312 |     def topic_versions = Channel
+╰     |                          ^^^^^^^
 
 
 Nextflow linting complete!
- ✅ 55 files had no errors
+ ✅ 56 files had no errors

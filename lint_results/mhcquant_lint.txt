@@ -1,14 +1,12 @@
 Linting Nextflow code..
 Linting: conf/test_timstof.config
 Linting: conf/test_speclib.config
-Linting: conf/igenomes_ignored.config
 Linting: conf/base.config
 Linting: conf/test_ionannotator.config
 Linting: conf/modules.config
 Linting: conf/test_full.config
 Linting: conf/test.config
 Linting: conf/test_mokapot.config
-Linting: conf/igenomes.config
 Linting: nextflow.config
 Linting: workflows/mhcquant.nf
 Linting: subworkflows/local/quant/main.nf
@@ -182,10 +180,6 @@ Warn  modules/nf-core/openmsthirdparty/cometadapter/main.nf:42:9: Variable was d
 
 
 
-Warn  subworkflows/local/map_alignment/main.nf:17:23: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  17 |         ch_versions = Channel.empty()
-╰     |                       ^^^^^^^
-
 Warn  subworkflows/local/map_alignment/main.nf:25:24: Parameter was not used -- prefix with `_` to suppress warning
 │  25 |             .flatMap { group_meta, metas -> metas }
 ╰     |                        ^^^^^^^^^^
@@ -211,15 +205,6 @@ Warn  subworkflows/local/map_alignment/main.nf:43:24: Parameter was not used -- 
 ╰     |                        ^^^^^^^^^^
 
 
-Warn  subworkflows/local/prepare_spectra/main.nf:17:23: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  17 |         ch_versions = Channel.empty()
-╰     |                       ^^^^^^^
-
-
-Warn  subworkflows/local/process_feature/main.nf:14:23: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  14 |         ch_versions = Channel.empty()
-╰     |                       ^^^^^^^
-
 
 Error subworkflows/local/quant/main.nf:18:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
 │  18 | def sortById = { a, b -> a.id <=> b.id }
@@ -240,10 +225,6 @@ Error subworkflows/local/quant/main.nf:87:42: `mzml` is already declared
 Warn  subworkflows/local/quant/main.nf:18:5: Variable was declared but not used
 │  18 | def sortById = { a, b -> a.id <=> b.id }
 ╰     |     ^^^^^^^^
-
-Warn  subworkflows/local/quant/main.nf:28:23: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  28 |         ch_versions = Channel.empty()
-╰     |                       ^^^^^^^
 
 Warn  subworkflows/local/quant/main.nf:33:28: Parameter was not used -- prefix with `_` to suppress warning
 │  33 |                 .flatMap { group_meta, idxmls -> idxmls.collect { idxm
@@ -266,10 +247,6 @@ Warn  subworkflows/local/quant/main.nf:87:24: Parameter was not used -- prefix w
 ╰     |                        ^^^^^^^^^^
 
 
-Warn  subworkflows/local/rescore/main.nf:31:23: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  31 |         ch_versions = Channel.empty()
-╰     |                       ^^^^^^^
-
 Warn  subworkflows/local/rescore/main.nf:60:99: Parameter was not used -- prefix with `_` to suppress warning
 │  60 | PTER.out.feature_weights.map{ meta, feature_weights -> feature_weights
 ╰     |                               ^^^^
@@ -282,10 +259,6 @@ Warn  subworkflows/local/rescore/main.nf:73:101: Implicit closure parameter is d
 │  73 | out.combine(OPENMS_IDFILTER_Q_VALUE_GLOBAL.out.filtered.map{ it[1] }))
 ╰     |                                                              ^^
 
-
-Warn  subworkflows/local/speclib/main.nf:24:23: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  24 |         ch_versions = Channel.empty()
-╰     |                       ^^^^^^^
 
 Warn  subworkflows/local/speclib/main.nf:49:20: Parameter was not used -- prefix with `_` to suppress warning
 │  49 |             .map { meta, psmpkl -> [[id: "global"], psmpkl] }
@@ -305,20 +278,8 @@ Warn  subworkflows/local/utils_nfcore_mhcquant_pipeline/main.nf:35:5: Parameter 
 ╰     |     ^^^^^
 
 Warn  subworkflows/local/utils_nfcore_mhcquant_pipeline/main.nf:42:5: Variable was declared but not used
-│  42 |     ch_versions = Channel.empty()
+│  42 |     ch_versions = channel.empty()
 ╰     |     ^^^^^^^^^^^
-
-Warn  subworkflows/local/utils_nfcore_mhcquant_pipeline/main.nf:42:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  42 |     ch_versions = Channel.empty()
-╰     |                   ^^^^^^^
-
-Warn  subworkflows/local/utils_nfcore_mhcquant_pipeline/main.nf:67:144: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  67 | lect { "    https://doi.org/${it.trim().replace('https://doi.org/','')
-╰     |                               ^^
-
-Warn  subworkflows/local/utils_nfcore_mhcquant_pipeline/main.nf:99:5: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  99 |     Channel
-╰     |     ^^^^^^^
 
 Warn  subworkflows/local/utils_nfcore_mhcquant_pipeline/main.nf:105:28: Parameter was not used -- prefix with `_` to suppress warning
 │ 105 |         .map { group_meta, metas, files, fastas -> [ group_meta, files
@@ -335,10 +296,6 @@ Warn  subworkflows/local/utils_nfcore_mhcquant_pipeline/main.nf:107:16: Paramete
 Warn  subworkflows/local/utils_nfcore_mhcquant_pipeline/main.nf:110:59: Parameter was not used -- prefix with `_` to suppress warning
 │ 110 |     ch_samplesheet = ch_samplesheet_raw.map { meta, file, fasta -> [ m
 ╰     |                                                           ^^^^^
-
-Warn  subworkflows/local/utils_nfcore_mhcquant_pipeline/main.nf:117:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 117 |         Channel.fromPath(params.fasta, checkIfExists: true)
-╰     |         ^^^^^^^
 
 Warn  subworkflows/local/utils_nfcore_mhcquant_pipeline/main.nf:122:19: Parameter was not used -- prefix with `_` to suppress warning
 │ 122 |             .map{ meta, file, fasta -> fasta }
@@ -358,19 +315,7 @@ Warn  subworkflows/local/utils_nfcore_mhcquant_pipeline/main.nf:137:20: Paramete
 
 
 
-Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 101 | mYAML(version) }.unique().mix(Channel.of(workflowVersionToYAML()))
-╰     |                               ^^^^^^^
 
-
-
-Warn  workflows/mhcquant.nf:60:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  60 |     ch_versions = Channel.empty()
-╰     |                   ^^^^^^^
-
-Warn  workflows/mhcquant.nf:61:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  61 |     ch_multiqc_files = Channel.empty()
-╰     |                        ^^^^^^^
 
 Warn  workflows/mhcquant.nf:89:89: Parameter was not used -- prefix with `_` to suppress warning
 │  89 | ATOGRAMEXTRACTOR.out.csv.map{ meta, mzml -> mzml })
@@ -420,34 +365,6 @@ Warn  workflows/mhcquant.nf:230:94: Parameter was not used -- prefix with `_` to
 │ 230 | out.epicore_input.map { meta, tsv, stats -> stats }
 ╰     |                               ^^^
 
-Warn  workflows/mhcquant.nf:247:32: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 247 |     ch_multiqc_config        = Channel.fromPath(
-╰     |                                ^^^^^^^
-
-Warn  workflows/mhcquant.nf:250:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 250 |         Channel.fromPath(params.multiqc_config, checkIfExists: true) :
-╰     |         ^^^^^^^
-
-Warn  workflows/mhcquant.nf:251:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 251 |         Channel.empty()
-╰     |         ^^^^^^^
-
-Warn  workflows/mhcquant.nf:253:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 253 |         Channel.fromPath(params.multiqc_logo, checkIfExists: true) :
-╰     |         ^^^^^^^
-
-Warn  workflows/mhcquant.nf:254:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 254 |         Channel.empty()
-╰     |         ^^^^^^^
-
-Warn  workflows/mhcquant.nf:258:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 258 |     ch_workflow_summary = Channel.value(paramsSummaryMultiqc(summary_p
-╰     |                           ^^^^^^^
-
-Warn  workflows/mhcquant.nf:264:45: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 264 |     ch_methods_description                = Channel.value(
-╰     |                                             ^^^^^^^
-
 
 Error conf/base.config:61:29: Unexpected input: ':'
 │  61 |     withName:NFCORE_MHCQUANT:MHCQUANT:PREPARE_SPECTRA:TDF2MZML {
@@ -470,4 +387,4 @@ Error nextflow.config:235:25: Invalid include source: '/home/runner/work/strict-
 
 Nextflow linting complete!
  ❌ 5 files had 9 errors
- ✅ 63 files had no errors
+ ✅ 61 files had no errors

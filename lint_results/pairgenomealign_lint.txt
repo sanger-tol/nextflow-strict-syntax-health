@@ -130,20 +130,24 @@ Warn  subworkflows/local/pairalign_m2o/main.nf:117:55: Implicit closure paramete
 ╰     |                                                       ^^
 
 
-Warn  subworkflows/local/utils_nfcore_pairgenomealign_pipeline/main.nf:31:5: Parameter was not used -- prefix with `_` to suppress warning
-│  31 |     monochrome_logs   // boolean: Do not use coloured log outputs
+Warn  subworkflows/local/utils_nfcore_pairgenomealign_pipeline/main.nf:32:5: Parameter was not used -- prefix with `_` to suppress warning
+│  32 |     monochrome_logs   // boolean: Do not use coloured log outputs
 ╰     |     ^^^^^^^^^^^^^^^
 
-Warn  subworkflows/local/utils_nfcore_pairgenomealign_pipeline/main.nf:34:5: Parameter was not used -- prefix with `_` to suppress warning
-│  34 |     input             //  string: Path to input samplesheet
+Warn  subworkflows/local/utils_nfcore_pairgenomealign_pipeline/main.nf:35:5: Parameter was not used -- prefix with `_` to suppress warning
+│  35 |     input             //  string: Path to input samplesheet
 ╰     |     ^^^^^
 
-Warn  subworkflows/local/utils_nfcore_pairgenomealign_pipeline/main.nf:38:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  38 |     ch_versions = Channel.empty()
+Warn  subworkflows/local/utils_nfcore_pairgenomealign_pipeline/main.nf:42:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  42 |     ch_versions = Channel.empty()
 ╰     |                   ^^^^^^^
 
-Warn  subworkflows/local/utils_nfcore_pairgenomealign_pipeline/main.nf:75:5: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  75 |     Channel
+Warn  subworkflows/local/utils_nfcore_pairgenomealign_pipeline/main.nf:67:144: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  67 | lect { "    https://doi.org/${it.trim().replace('https://doi.org/','')
+╰     |                               ^^
+
+Warn  subworkflows/local/utils_nfcore_pairgenomealign_pipeline/main.nf:104:5: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 104 |     Channel
 ╰     |     ^^^^^^^
 
 
@@ -151,6 +155,7 @@ Warn  subworkflows/local/utils_nfcore_pairgenomealign_pipeline/main.nf:75:5: The
 Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 │ 101 | mYAML(version) }.unique().mix(Channel.of(workflowVersionToYAML()))
 ╰     |                               ^^^^^^^
+
 
 
 Warn  workflows/pairgenomealign.nf:34:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
@@ -207,35 +212,6 @@ Error conf/modules.config:130:22: `publishDir` is not defined
 ╰     |                      ^^^^^^^^^^
 
 
-Error nextflow.config:312:39: `manifest` is not defined
-│ 312 | \033[0;35m  nf-core/pairgenomealign ${manifest.version}\033[0m
-╰     |                                       ^^^^^^^^
-
-Error nextflow.config:315:26: `manifest` is not defined
-│ 315 |         afterText = """${manifest.doi ? "\n* The pipeline\n" : ""}${ma
-╰     |                          ^^^^^^^^
-
-Error nextflow.config:315:69: `manifest` is not defined
-│ 315 | ? "\n* The pipeline\n" : ""}${manifest.doi.tokenize(",").collect { "  
-╰     |                               ^^^^^^^^
-
-Error nextflow.config:315:186: `manifest` is not defined
-│ 315 | doi.org/','')}"}.join("\n")}${manifest.doi ? "\n" : ""}
-╰     |                               ^^^^^^^^
-
-Error nextflow.config:324:22: `validation` is not defined
-│ 324 |         beforeText = validation.help.beforeText
-╰     |                      ^^^^^^^^^^
-
-Error nextflow.config:325:21: `validation` is not defined
-│ 325 |         afterText = validation.help.afterText
-╰     |                     ^^^^^^^^^^
-
-Warn  nextflow.config:315:129: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 315 | lect { "    https://doi.org/${it.trim().replace('https://doi.org/','')
-╰     |                               ^^
-
-
 Nextflow linting complete!
- ❌ 3 files had 8 errors
- ✅ 36 files had no errors
+ ❌ 2 files had 2 errors
+ ✅ 37 files had no errors

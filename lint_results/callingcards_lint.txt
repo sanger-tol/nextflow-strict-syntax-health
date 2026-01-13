@@ -1,4 +1,5 @@
 Linting Nextflow code..
+Linting: conf/igenomes_ignored.config
 Linting: conf/base.config
 Linting: conf/default_mammals.config
 Linting: conf/modules.config
@@ -19,12 +20,13 @@ Linting: subworkflows/local/align.nf
 Linting: subworkflows/nf-core/bam_stats_samtools/main.nf
 Linting: subworkflows/nf-core/utils_nfcore_pipeline/main.nf
 Linting: subworkflows/nf-core/utils_nfcore_pipeline/tests/nextflow.config
-Linting: subworkflows/nf-core/utils_nfvalidation_plugin/main.nf
 Linting: subworkflows/nf-core/fastq_align_bwaaln/nextflow.config
 Linting: subworkflows/nf-core/fastq_align_bwaaln/main.nf
 Linting: subworkflows/nf-core/utils_nextflow_pipeline/main.nf
 Linting: subworkflows/nf-core/utils_nextflow_pipeline/tests/nextflow.config
 Linting: subworkflows/nf-core/bam_rseqc/main.nf
+Linting: subworkflows/nf-core/utils_nfschema_plugin/main.nf
+Linting: subworkflows/nf-core/utils_nfschema_plugin/tests/nextflow.config
 Linting: main.nf
 Linting: tests/nextflow.config
 Linting: modules/local/gtf2bed/main.nf
@@ -59,6 +61,7 @@ Linting: modules/nf-core/samtools/merge/main.nf
 Linting: modules/nf-core/samtools/merge/tests/index.config
 Linting: modules/nf-core/fastqc/main.nf
 Linting: modules/nf-core/multiqc/main.nf
+Linting: modules/nf-core/multiqc/tests/nextflow.config
 Linting: modules/nf-core/bwamem2/index/main.nf
 Linting: modules/nf-core/bwamem2/mem/main.nf
 Linting: modules/nf-core/bwa/samse/main.nf
@@ -89,177 +92,137 @@ Linting: modules/nf-core/rseqc/readdistribution/main.nf
 Linting: modules/nf-core/preseq/ccurve/main.nf
 Linting: modules/nf-core/picard/collectmultiplemetrics/main.nf
 Linting: modules/nf-core/bedtools/maskfasta/main.nf
-Error main.nf:21:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/callingcards/subworkflows/local/utils_nfcore_callingcards_pipeline/main.nf'
-│  21 | include { PIPELINE_INITIALISATION } from './subworkflows/local/utils_n
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error main.nf:22:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/callingcards/subworkflows/local/utils_nfcore_callingcards_pipeline/main.nf'
-│  22 | include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_n
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error main.nf:24:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/callingcards/subworkflows/local/utils_nfcore_callingcards_pipeline/main.nf'
-│  24 | include { getGenomeAttribute      } from './subworkflows/local/utils_n
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error main.nf:34:16: `getGenomeAttribute` is not defined
-│  34 | params.fasta = getGenomeAttribute('fasta')
-╰     |                ^^^^^^^^^^^^^^^^^^
-
-Error main.nf:35:14: `getGenomeAttribute` is not defined
-│  35 | params.gtf = getGenomeAttribute('gtf')
-╰     |              ^^^^^^^^^^^^^^^^^^
-
-Error main.nf:37:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  35 | params.gtf = getGenomeAttribute('gtf')
-│  36 | 
-│  37 | if (params.datatype == 'yeast'){
+Error main.nf:34:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  32 | params.gtf = getGenomeAttribute('gtf')
+│  33 | 
+│  34 | if (params.datatype == 'yeast'){
 │     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-│  38 |     if(params.genome == 'R64-1-1'){
-╰  39 |         log.info"${projectDir}"
+│  35 |     if(params.genome == 'R64-1-1'){
+╰  36 |         log.info"${projectDir}"
 
-Error main.nf:52:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  52 | if (params.genome == 'GRCm38'){
+Error main.nf:49:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  49 | if (params.genome == 'GRCm38'){
 │     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-│  53 |     if(params.aligner == 'bwa'){
-│  54 |         params.bwa_index = WorkflowMain.getGenomeAttribute(params, 'bw
-│  55 |     }
-╰  56 | }
+│  50 |     if(params.aligner == 'bwa'){
+│  51 |         params.bwa_index = getGenomeAttribute(params, 'bwa')
+│  52 |     }
+╰  53 | }
 
-Error main.nf:54:28: `WorkflowMain` is not defined
-│  54 |         params.bwa_index = WorkflowMain.getGenomeAttribute(params, 'bw
-╰     |                            ^^^^^^^^^^^^
-
-Error main.nf:58:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  58 | if(!params.containsKey('regions_mask')){
+Error main.nf:55:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  55 | if(!params.containsKey('regions_mask')){
 │     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-│  59 |     params.regions_mask = null
-│  60 |     log.info"Regions mask not specified. The entire genome will be use
-╰  61 | }
+│  56 |     params.regions_mask = null
+│  57 |     log.info"Regions mask not specified. The entire genome will be use
+╰  58 | }
 
-Error main.nf:63:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  63 | if(!params.containsKey('additional_fasta')){
+Error main.nf:60:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  60 | if(!params.containsKey('additional_fasta')){
 │     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-│  64 |     params.additional_fasta = null
-│  65 |     log.info"Additional fasta not specified. No additional sequences b
-╰  66 | }
+│  61 |     params.additional_fasta = null
+│  62 |     log.info"Additional fasta not specified. No additional sequences b
+╰  63 | }
 
-Error main.nf:68:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  68 | if (!params.containsKey('fasta_index')){
+Error main.nf:65:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  65 | if (!params.containsKey('fasta_index')){
 │     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-│  69 |     params.fasta_index = null
-│  70 |     log.info"Genome fasta will be indexed in the workflow"
-╰  71 | }
+│  66 |     params.fasta_index = null
+│  67 |     log.info"Genome fasta will be indexed in the workflow"
+╰  68 | }
+
+Error main.nf:73:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  73 | if(!params.containsKey('bwa_index')){
+│     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+│  74 |     params.bwa_index = null
+╰  75 | }
 
 Error main.nf:76:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  76 | if(!params.containsKey('bwa_index')){
-│     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-│  77 |     params.bwa_index = null
+│  76 | if(!params.containsKey('bwamem2_index')){
+│     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+│  77 |     params.bwamem2_index = null
 ╰  78 | }
 
 Error main.nf:79:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  79 | if(!params.containsKey('bwamem2_index')){
-│     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-│  80 |     params.bwamem2_index = null
+│  79 | if(!params.containsKey('bowtie_index')){
+│     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+│  80 |     params.bowtie_index = null
 ╰  81 | }
 
 Error main.nf:82:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  82 | if(!params.containsKey('bowtie_index')){
-│     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-│  83 |     params.bowtie_index = null
+│  82 | if(!params.containsKey('bowtie2_index')){
+│     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+│  83 |     params.bowtie2_index = null
 ╰  84 | }
 
-Error main.nf:85:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  85 | if(!params.containsKey('bowtie2_index')){
-│     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-│  86 |     params.bowtie2_index = null
-╰  87 | }
-
-Error main.nf:162:5: `PIPELINE_INITIALISATION` is not defined
-│ 162 |     PIPELINE_INITIALISATION (
-╰     |     ^^^^^^^^^^^^^^^^^^^^^^^
-
-Error main.nf:176:9: `PIPELINE_INITIALISATION` is not defined
-│ 176 |         PIPELINE_INITIALISATION.out.reads,
-╰     |         ^^^^^^^^^^^^^^^^^^^^^^^
-
-Error main.nf:177:9: `PIPELINE_INITIALISATION` is not defined
-│ 177 |         PIPELINE_INITIALISATION.out.barcode_details
-╰     |         ^^^^^^^^^^^^^^^^^^^^^^^
-
-Error main.nf:183:5: `PIPELINE_COMPLETION` is not defined
-│ 183 |     PIPELINE_COMPLETION (
-╰     |     ^^^^^^^^^^^^^^^^^^^
+Warn  main.nf:37:9: Params should be declared at the top-level (i.e. outside the workflow)
+│  37 |         params.regions_mask = "${projectDir}/assets/yeast/igenomes/R64
+╰     |         ^^^^^^
 
 Warn  main.nf:40:9: Params should be declared at the top-level (i.e. outside the workflow)
-│  40 |         params.regions_mask = "${projectDir}/assets/yeast/igenomes/R64
+│  40 |         params.fasta_index = null
 ╰     |         ^^^^^^
 
-Warn  main.nf:43:9: Params should be declared at the top-level (i.e. outside the workflow)
-│  43 |         params.fasta_index = null
+Warn  main.nf:44:9: Params should be declared at the top-level (i.e. outside the workflow)
+│  44 |         params.additional_fasta = "${projectDir}/assets/yeast/plasmid_
 ╰     |         ^^^^^^
 
-Warn  main.nf:47:9: Params should be declared at the top-level (i.e. outside the workflow)
-│  47 |         params.additional_fasta = "${projectDir}/assets/yeast/plasmid_
+Warn  main.nf:51:9: Params should be declared at the top-level (i.e. outside the workflow)
+│  51 |         params.bwa_index = getGenomeAttribute(params, 'bwa')
 ╰     |         ^^^^^^
 
-Warn  main.nf:54:9: Params should be declared at the top-level (i.e. outside the workflow)
-│  54 |         params.bwa_index = WorkflowMain.getGenomeAttribute(params, 'bw
-╰     |         ^^^^^^
-
-Warn  main.nf:59:5: Params should be declared at the top-level (i.e. outside the workflow)
-│  59 |     params.regions_mask = null
+Warn  main.nf:56:5: Params should be declared at the top-level (i.e. outside the workflow)
+│  56 |     params.regions_mask = null
 ╰     |     ^^^^^^
 
-Warn  main.nf:64:5: Params should be declared at the top-level (i.e. outside the workflow)
-│  64 |     params.additional_fasta = null
+Warn  main.nf:61:5: Params should be declared at the top-level (i.e. outside the workflow)
+│  61 |     params.additional_fasta = null
 ╰     |     ^^^^^^
 
-Warn  main.nf:69:5: Params should be declared at the top-level (i.e. outside the workflow)
-│  69 |     params.fasta_index = null
+Warn  main.nf:66:5: Params should be declared at the top-level (i.e. outside the workflow)
+│  66 |     params.fasta_index = null
+╰     |     ^^^^^^
+
+Warn  main.nf:74:5: Params should be declared at the top-level (i.e. outside the workflow)
+│  74 |     params.bwa_index = null
 ╰     |     ^^^^^^
 
 Warn  main.nf:77:5: Params should be declared at the top-level (i.e. outside the workflow)
-│  77 |     params.bwa_index = null
+│  77 |     params.bwamem2_index = null
 ╰     |     ^^^^^^
 
 Warn  main.nf:80:5: Params should be declared at the top-level (i.e. outside the workflow)
-│  80 |     params.bwamem2_index = null
+│  80 |     params.bowtie_index = null
 ╰     |     ^^^^^^
 
 Warn  main.nf:83:5: Params should be declared at the top-level (i.e. outside the workflow)
-│  83 |     params.bowtie_index = null
+│  83 |     params.bowtie2_index = null
 ╰     |     ^^^^^^
 
-Warn  main.nf:86:5: Params should be declared at the top-level (i.e. outside the workflow)
-│  86 |     params.bowtie2_index = null
-╰     |     ^^^^^^
-
-Warn  main.nf:107:20: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 107 |         ch_fasta = Channel.fromPath(params.fasta, checkIfExists: true)
+Warn  main.nf:104:20: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 104 |         ch_fasta = Channel.fromPath(params.fasta, checkIfExists: true)
 ╰     |                    ^^^^^^^
 
-Warn  main.nf:114:18: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 114 |         ch_gtf = Channel.fromPath(params.gtf, checkIfExists:true).coll
+Warn  main.nf:111:18: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 111 |         ch_gtf = Channel.fromPath(params.gtf, checkIfExists:true).coll
 ╰     |                  ^^^^^^^
 
-Warn  main.nf:120:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 120 |             Channel.fromPath(params.regions_mask, checkIfExists: true)
+Warn  main.nf:117:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 117 |             Channel.fromPath(params.regions_mask, checkIfExists: true)
+╰     |             ^^^^^^^
+
+Warn  main.nf:119:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 119 |             Channel.empty()
 ╰     |             ^^^^^^^
 
 Warn  main.nf:122:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 122 |             Channel.empty()
+│ 122 |             Channel.fromPath(params.additional_fasta, checkIfExists: t
 ╰     |             ^^^^^^^
 
-Warn  main.nf:125:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 125 |             Channel.fromPath(params.additional_fasta, checkIfExists: t
+Warn  main.nf:123:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 123 |             Channel.empty()
 ╰     |             ^^^^^^^
 
-Warn  main.nf:126:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 126 |             Channel.empty()
-╰     |             ^^^^^^^
-
-Warn  main.nf:129:50: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 129 |         params.rseqc_modules.split(',').collect{ it.trim().toLowerCase
+Warn  main.nf:126:50: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 126 |         params.rseqc_modules.split(',').collect{ it.trim().toLowerCase
 ╰     |                                                  ^^
 
 
@@ -343,14 +306,6 @@ Warn  modules/nf-core/custom/dumpsoftwareversions/main.nf:22:9: Variable was dec
 ╰     |         ^^^^
 
 
-Warn  modules/nf-core/fastqc/main.nf:27:48: Parameter was not used -- prefix with `_` to suppress warning
-│  27 |     def renamed_files = old_new_pairs.collect{ old_name, new_name -> n
-╰     |                                                ^^^^^^^^
-
-
-Error modules/nf-core/multiqc/main.nf:28:31: Unexpected input: '/'
-│  28 |     def logo = multiqc_logo ? /--cl-config 'custom_logo: "${multiqc_lo
-╰     |                               ^
 
 
 
@@ -514,9 +469,29 @@ Warn  subworkflows/local/prepare_genome.nf:113:26: The use of `Channel` to acces
 ╰     |                          ^^^^^^^
 
 
-Error subworkflows/local/utils_nfcore_callingcards_pipeline/main.nf:297:21: Unexpected input: 'doi_ref'
-│ 297 |         for (String doi_ref: manifest_doi) temp_doi_ref += "(doi: <a h
-╰     |                     ^
+Error subworkflows/local/utils_nfcore_callingcards_pipeline/main.nf:97:34: `True` is not defined
+│  97 |                     single_end = True
+╰     |                                  ^^^^
+
+Warn  subworkflows/local/utils_nfcore_callingcards_pipeline/main.nf:31:5: Parameter was not used -- prefix with `_` to suppress warning
+│  31 |     monochrome_logs   // boolean: Do not use coloured log outputs
+╰     |     ^^^^^^^^^^^^^^^
+
+Warn  subworkflows/local/utils_nfcore_callingcards_pipeline/main.nf:34:5: Parameter was not used -- prefix with `_` to suppress warning
+│  34 |     input             //  string: Path to input samplesheet
+╰     |     ^^^^^
+
+Warn  subworkflows/local/utils_nfcore_callingcards_pipeline/main.nf:38:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  38 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/utils_nfcore_callingcards_pipeline/main.nf:76:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  76 |         Channel
+╰     |         ^^^^^^^
+
+Warn  subworkflows/local/utils_nfcore_callingcards_pipeline/main.nf:91:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  91 |         Channel
+╰     |         ^^^^^^^
 
 
 Error subworkflows/local/yeast/prepare_reads.nf:48:20: `reads` is already declared
@@ -808,34 +783,14 @@ Warn  subworkflows/nf-core/fastq_align_bwaaln/main.nf:63:42: Parameter was not u
 ╰     |                                          ^^^
 
 
-Error subworkflows/nf-core/utils_nextflow_pipeline/main.nf:111:14: Unexpected input: 'i'
-│ 111 |     for (int i = 0; i < n - 1; i++) {
-╰     |              ^
 
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:73:17: Unexpected input: 'doi_ref'
-│  73 |     for (String doi_ref: manifest_doi) temp_doi_ref += "  https://doi.
-╰     |                 ^
+Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 101 | mYAML(version) }.unique().mix(Channel.of(workflowVersionToYAML()))
+╰     |                               ^^^^^^^
 
 
 Error workflows/callingcards.nf:10:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/callingcards/subworkflows/local/align.nf'
 │  10 | include { ALIGN                                            } from "../
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/callingcards.nf:13:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/callingcards/modules/nf-core/multiqc/main.nf'
-│  13 | include { MULTIQC                                          } from "../
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/callingcards.nf:15:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/callingcards/subworkflows/nf-core/utils_nfcore_pipeline/main.nf'
-│  15 | include { paramsSummaryMultiqc                             } from '../
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/callingcards.nf:16:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/callingcards/subworkflows/nf-core/utils_nfcore_pipeline/main.nf'
-│  16 | include { softwareVersionsToYAML                           } from '../
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/callingcards.nf:17:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/callingcards/subworkflows/local/utils_nfcore_callingcards_pipeline/main.nf'
-│  17 | include { methodsDescriptionText                           } from '../
 ╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Error workflows/callingcards.nf:96:5: `ALIGN` is not defined
@@ -853,26 +808,6 @@ Error workflows/callingcards.nf:115:9: `ALIGN` is not defined
 Error workflows/callingcards.nf:163:9: `ALIGN` is not defined
 │ 163 |         ALIGN.out.bam
 ╰     |         ^^^^^
-
-Error workflows/callingcards.nf:202:5: `softwareVersionsToYAML` is not defined
-│ 202 |     softwareVersionsToYAML(ch_versions)
-╰     |     ^^^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/callingcards.nf:224:41: `paramsSummaryMultiqc` is not defined
-│ 224 |     ch_workflow_summary = Channel.value(paramsSummaryMultiqc(summary_p
-╰     |                                         ^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/callingcards.nf:230:9: `methodsDescriptionText` is not defined
-│ 230 |         methodsDescriptionText(ch_multiqc_custom_methods_description))
-╰     |         ^^^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/callingcards.nf:242:5: `MULTIQC` is not defined
-│ 242 |     MULTIQC (
-╰     |     ^^^^^^^
-
-Error workflows/callingcards.nf:250:22: `MULTIQC` is not defined
-│ 250 |     multiqc_report = MULTIQC.out.report.toList() // channel: /path/to/
-╰     |                      ^^^^^^^
 
 Warn  workflows/callingcards.nf:39:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 │  39 |     ch_versions          = Channel.empty()
@@ -1038,102 +973,33 @@ Warn  workflows/callingcards.nf:195:98: Implicit closure parameter is deprecated
 │ 195 | GNMENTS.out.rseqc_tin.collect{it[1]}.ifEmpty([]))
 ╰     |                               ^^
 
-Warn  workflows/callingcards.nf:213:32: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 213 |     ch_multiqc_config        = Channel.fromPath(
+Warn  workflows/callingcards.nf:214:32: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 214 |     ch_multiqc_config        = Channel.fromPath(
 ╰     |                                ^^^^^^^
 
-Warn  workflows/callingcards.nf:216:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 216 |         Channel.fromPath(params.multiqc_config, checkIfExists: true) :
-╰     |         ^^^^^^^
-
 Warn  workflows/callingcards.nf:217:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 217 |         Channel.empty()
+│ 217 |         Channel.fromPath(params.multiqc_config, checkIfExists: true) :
 ╰     |         ^^^^^^^
 
-Warn  workflows/callingcards.nf:219:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 219 |         Channel.fromPath(params.multiqc_logo, checkIfExists: true) :
+Warn  workflows/callingcards.nf:218:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 218 |         Channel.empty()
 ╰     |         ^^^^^^^
 
 Warn  workflows/callingcards.nf:220:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 220 |         Channel.empty()
+│ 220 |         Channel.fromPath(params.multiqc_logo, checkIfExists: true) :
 ╰     |         ^^^^^^^
 
-Warn  workflows/callingcards.nf:224:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 224 |     ch_workflow_summary = Channel.value(paramsSummaryMultiqc(summary_p
+Warn  workflows/callingcards.nf:221:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 221 |         Channel.empty()
+╰     |         ^^^^^^^
+
+Warn  workflows/callingcards.nf:225:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 225 |     ch_workflow_summary = Channel.value(paramsSummaryMultiqc(summary_p
 ╰     |                           ^^^^^^^
 
-Warn  workflows/callingcards.nf:229:45: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 229 |     ch_methods_description                = Channel.value(
+Warn  workflows/callingcards.nf:231:45: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 231 |     ch_methods_description                = Channel.value(
 ╰     |                                             ^^^^^^^
-
-
-Error conf/base.config:13:16: `check_max` is not defined
-│  13 |     cpus   = { check_max( 1    * task.attempt, 'cpus'   ) }
-╰     |                ^^^^^^^^^
-
-Error conf/base.config:14:16: `check_max` is not defined
-│  14 |     memory = { check_max( 6.GB * task.attempt, 'memory' ) }
-╰     |                ^^^^^^^^^
-
-Error conf/base.config:15:16: `check_max` is not defined
-│  15 |     time   = { check_max( 4.h  * task.attempt, 'time'   ) }
-╰     |                ^^^^^^^^^
-
-Error conf/base.config:28:20: `check_max` is not defined
-│  28 |         cpus   = { check_max( 1                  , 'cpus'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:29:20: `check_max` is not defined
-│  29 |         memory = { check_max( 6.GB * task.attempt, 'memory'  ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:30:20: `check_max` is not defined
-│  30 |         time   = { check_max( 4.h  * task.attempt, 'time'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:33:20: `check_max` is not defined
-│  33 |         cpus   = { check_max( 2     * task.attempt, 'cpus'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:34:20: `check_max` is not defined
-│  34 |         memory = { check_max( 12.GB * task.attempt, 'memory'  ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:35:20: `check_max` is not defined
-│  35 |         time   = { check_max( 4.h   * task.attempt, 'time'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:38:20: `check_max` is not defined
-│  38 |         cpus   = { check_max( 6     * task.attempt, 'cpus'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:39:20: `check_max` is not defined
-│  39 |         memory = { check_max( 36.GB * task.attempt, 'memory'  ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:40:20: `check_max` is not defined
-│  40 |         time   = { check_max( 8.h   * task.attempt, 'time'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:43:20: `check_max` is not defined
-│  43 |         cpus   = { check_max( 12    * task.attempt, 'cpus'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:44:20: `check_max` is not defined
-│  44 |         memory = { check_max( 72.GB * task.attempt, 'memory'  ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:45:20: `check_max` is not defined
-│  45 |         time   = { check_max( 16.h  * task.attempt, 'time'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:48:20: `check_max` is not defined
-│  48 |         time   = { check_max( 20.h  * task.attempt, 'time'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:51:20: `check_max` is not defined
-│  51 |         memory = { check_max( 200.GB * task.attempt, 'memory' ) }
-╰     |                    ^^^^^^^^^
 
 
 Error conf/modules.config:87:17: Unexpected input: ':'
@@ -1141,11 +1007,11 @@ Error conf/modules.config:87:17: Unexpected input: ':'
 ╰     |                 ^
 
 
-Error nextflow.config:89:5: Unexpected input: 'includeConfig'
-│  89 |     includeConfig "${params.custom_config_base}/nfcore_custom.config"
-╰     |     ^
+Error nextflow.config:312:14: Unexpected input: '('
+│ 312 | def check_max(obj, type) {
+╰     |              ^
 
 
 Nextflow linting complete!
- ❌ 16 files had 80 errors
- ✅ 74 files had no errors
+ ❌ 12 files had 41 errors
+ ✅ 81 files had no errors

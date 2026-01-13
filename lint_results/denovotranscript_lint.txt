@@ -369,32 +369,32 @@ Error conf/modules.config:22:21: Unexpected input: ':'
 ╰     |                     ^
 
 
-Error nextflow.config:318:40: `manifest` is not defined
-│ 318 | \033[0;35m  nf-core/denovotranscript ${manifest.version}\033[0m
+Error nextflow.config:317:40: `manifest` is not defined
+│ 317 | \033[0;35m  nf-core/denovotranscript ${manifest.version}\033[0m
 ╰     |                                        ^^^^^^^^
 
-Error nextflow.config:321:26: `manifest` is not defined
-│ 321 |         afterText = """${manifest.doi ? "\n* The pipeline\n" : ""}${ma
+Error nextflow.config:320:26: `manifest` is not defined
+│ 320 |         afterText = """${manifest.doi ? "\n* The pipeline\n" : ""}${ma
 ╰     |                          ^^^^^^^^
 
-Error nextflow.config:321:69: `manifest` is not defined
-│ 321 | ? "\n* The pipeline\n" : ""}${manifest.doi.tokenize(",").collect { "  
+Error nextflow.config:320:69: `manifest` is not defined
+│ 320 | ? "\n* The pipeline\n" : ""}${manifest.doi.tokenize(",").collect { "  
 ╰     |                               ^^^^^^^^
 
-Error nextflow.config:321:186: `manifest` is not defined
-│ 321 | doi.org/','')}"}.join("\n")}${manifest.doi ? "\n" : ""}
+Error nextflow.config:320:186: `manifest` is not defined
+│ 320 | doi.org/','')}"}.join("\n")}${manifest.doi ? "\n" : ""}
 ╰     |                               ^^^^^^^^
 
-Error nextflow.config:330:22: `validation` is not defined
-│ 330 |         beforeText = validation.help.beforeText
+Error nextflow.config:329:22: `validation` is not defined
+│ 329 |         beforeText = validation.help.beforeText
 ╰     |                      ^^^^^^^^^^
 
-Error nextflow.config:331:21: `validation` is not defined
-│ 331 |         afterText = validation.help.afterText
+Error nextflow.config:330:21: `validation` is not defined
+│ 330 |         afterText = validation.help.afterText
 ╰     |                     ^^^^^^^^^^
 
-Warn  nextflow.config:321:129: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 321 | lect { "    https://doi.org/${it.trim().replace('https://doi.org/','')
+Warn  nextflow.config:320:129: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 320 | lect { "    https://doi.org/${it.trim().replace('https://doi.org/','')
 ╰     |                               ^^
 
 

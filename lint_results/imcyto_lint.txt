@@ -2,73 +2,306 @@ Linting Nextflow code..
 Linting: conf/test_tiff.config
 Linting: conf/base.config
 Linting: conf/test_txt.config
+Linting: conf/modules.config
+Linting: conf/test_full.config
 Linting: conf/test.config
 Linting: conf/test_skip_ilastik.config
 Linting: nextflow.config
+Linting: workflows/imcyto.nf
 Linting: main.nf
-Error main.nf:177:32: Unexpected input: 'from'
-│ 177 |     tuple val(name), path(mcd) from ch_mcd
-╰     |                                ^
+Linting: modules/local/ilastik.nf
+Linting: modules/local/cellprofiler.nf
+Linting: modules/local/imctools.nf
+Linting: modules/nf-core/modules/custom/dumpsoftwareversions/main.nf
+Error main.nf:20:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  20 | WorkflowMain.initialise(workflow, params, log)
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error main.nf:20:1: `WorkflowMain` is not defined
+│  20 | WorkflowMain.initialise(workflow, params, log)
+╰     | ^^^^^^^^^^^^
 
 
-Error conf/base.config:14:12: `check_max` is not defined
-│  14 |   cpus = { check_max( 1 * task.attempt, 'cpus' ) }
-╰     |            ^^^^^^^^^
 
-Error conf/base.config:15:14: `check_max` is not defined
-│  15 |   memory = { check_max( 7.GB * task.attempt, 'memory' ) }
-╰     |              ^^^^^^^^^
+Warn  modules/local/ilastik.nf:20:9: Variable was declared but not used
+│  20 |     def prefix = task.ext.prefix ?: "${meta.id}"
+╰     |         ^^^^^^
 
-Error conf/base.config:16:12: `check_max` is not defined
-│  16 |   time = { check_max( 4.h * task.attempt, 'time' ) }
-╰     |            ^^^^^^^^^
 
-Error conf/base.config:24:14: `check_max` is not defined
-│  24 |     cpus = { check_max( 2 * task.attempt, 'cpus' ) }
-╰     |              ^^^^^^^^^
 
-Error conf/base.config:25:16: `check_max` is not defined
-│  25 |     memory = { check_max( 14.GB * task.attempt, 'memory' ) }
+Warn  modules/nf-core/modules/custom/dumpsoftwareversions/main.nf:22:9: Variable was declared but not used
+│  22 |     def args = task.ext.args ?: ''
+╰     |         ^^^^
+
+
+Error workflows/imcyto.nf:7:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│   7 | def summary_params = NfcoreSchema.paramsSummaryMap(workflow, params)
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:7:22: `NfcoreSchema` is not defined
+│   7 | def summary_params = NfcoreSchema.paramsSummaryMap(workflow, params)
+╰     |                      ^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:10:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  10 | WorkflowImcyto.initialise(params, log)
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:10:1: `WorkflowImcyto` is not defined
+│  10 | WorkflowImcyto.initialise(params, log)
+╰     | ^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:13:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  11 | 
+│  12 | // Check input path parameters to see if they exist
+│  13 | def checkPathParamList = [ 
+│     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+│  14 |     params.input,
+╰  15 |     params.metadata,
+
+Error workflows/imcyto.nf:23:1: `for` loops are no longer supported
+│  23 | for (param in checkPathParamList) { if (param) { file(param, checkIfEx
+╰     | ^^^
+
+Error workflows/imcyto.nf:23:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  23 | for (param in checkPathParamList) { if (param) { file(param, checkIfEx
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:23:6: `param` is not defined
+│  23 | for (param in checkPathParamList) { if (param) { file(param, checkIfEx
+╰     |      ^^^^^
+
+Error workflows/imcyto.nf:23:40: `param` is not defined
+│  23 | for (param in checkPathParamList) { if (param) { file(param, checkIfEx
+╰     |                                        ^^^^^^^
+
+Error workflows/imcyto.nf:23:55: `param` is not defined
+│  23 | for (param in checkPathParamList) { if (param) { file(param, checkIfEx
+╰     |                                                       ^^^^^
+
+Error workflows/imcyto.nf:26:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  24 | 
+│  25 | // Check input parameters
+│  26 | if (params.input) {
+│     | ^^^^^^^^^^^^^^^^^^^
+│  27 |     Channel
+╰  28 |         .fromPath(params.input)
+
+Error workflows/imcyto.nf:36:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  36 | if (params.metadata)             { ch_metadata             = file(para
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:37:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  37 | if (params.full_stack_cppipe)    { ch_full_stack_cppipe    = file(para
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:38:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  38 | if (params.ilastik_stack_cppipe) { ch_ilastik_stack_cppipe = file(para
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:39:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  39 | if (params.segmentation_cppipe)  { ch_segmentation_cppipe  = file(para
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:41:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  41 | if (!params.skip_ilastik) {
+│     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+│  42 |     if (params.ilastik_training_ilp) {
+│  43 |         ch_ilastik_training_ilp = file(params.ilastik_training_ilp) 
+│  44 |     }
+╰  45 | }
+
+Error workflows/imcyto.nf:47:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  47 | ch_compensation_tiff = params.compensation_tiff ? file(params.compensa
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:50:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│  50 | ch_plugins_dir = file(params.plugins_dir)
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:92:9: `ch_mcd` is not defined
+│  92 |         ch_mcd,
+╰     |         ^^^^^^
+
+Error workflows/imcyto.nf:93:9: `ch_metadata` is not defined
+│  93 |         ch_metadata
+╰     |         ^^^^^^^^^^^
+
+Error workflows/imcyto.nf:103:16: `WorkflowImcyto` is not defined
+│ 103 |         .map { WorkflowImcyto.flattenTiff(it) }
+╰     |                ^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:116:16: `WorkflowImcyto` is not defined
+│ 116 |         .map { WorkflowImcyto.flattenTiff(it) }
+╰     |                ^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:128:9: `ch_full_stack_cppipe` is not defined
+│ 128 |         ch_full_stack_cppipe,
+╰     |         ^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:129:9: `ch_plugins_dir` is not defined
+│ 129 |         ch_plugins_dir,
+╰     |         ^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:130:9: `ch_compensation_tiff` is not defined
+│ 130 |         ch_compensation_tiff
+╰     |         ^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:139:9: `ch_ilastik_stack_cppipe` is not defined
+│ 139 |         ch_ilastik_stack_cppipe,
+╰     |         ^^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:140:9: `ch_plugins_dir` is not defined
+│ 140 |         ch_plugins_dir,
+╰     |         ^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:141:9: `ch_compensation_tiff` is not defined
+│ 141 |         ch_compensation_tiff
+╰     |         ^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:157:13: `ch_ilastik_training_ilp` is not defined
+│ 157 |             ch_ilastik_training_ilp
+╰     |             ^^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:174:9: `ch_segmentation_cppipe` is not defined
+│ 174 |         ch_segmentation_cppipe,
+╰     |         ^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:175:9: `ch_plugins_dir` is not defined
+│ 175 |         ch_plugins_dir,
+╰     |         ^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:193:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
+│ 191 | */
+│ 192 | 
+│ 193 | workflow.onComplete {
+│     | ^^^^^^^^^^^^^^^^^^^^^
+│ 194 |     if (params.email || params.email_on_fail) {
+╰ 195 |         NfcoreTemplate.email(workflow, params, summary_params, project
+
+Error workflows/imcyto.nf:195:9: `NfcoreTemplate` is not defined
+│ 195 |         NfcoreTemplate.email(workflow, params, summary_params, project
+╰     |         ^^^^^^^^^^^^^^
+
+Error workflows/imcyto.nf:197:5: `NfcoreTemplate` is not defined
+│ 197 |     NfcoreTemplate.summary(workflow, params, log)
+╰     |     ^^^^^^^^^^^^^^
+
+Warn  workflows/imcyto.nf:27:5: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  27 |     Channel
+╰     |     ^^^^^^^
+
+Warn  workflows/imcyto.nf:31:16: Variable was declared but not used
+│  31 |         .set { ch_mcd }
+╰     |                ^^^^^^
+
+Warn  workflows/imcyto.nf:36:36: Variable was declared but not used
+│  36 | if (params.metadata)             { ch_metadata             = file(para
+╰     |                                    ^^^^^^^^^^^
+
+Warn  workflows/imcyto.nf:37:36: Variable was declared but not used
+│  37 | if (params.full_stack_cppipe)    { ch_full_stack_cppipe    = file(para
+╰     |                                    ^^^^^^^^^^^^^^^^^^^^
+
+Warn  workflows/imcyto.nf:38:36: Variable was declared but not used
+│  38 | if (params.ilastik_stack_cppipe) { ch_ilastik_stack_cppipe = file(para
+╰     |                                    ^^^^^^^^^^^^^^^^^^^^^^^
+
+Warn  workflows/imcyto.nf:39:36: Variable was declared but not used
+│  39 | if (params.segmentation_cppipe)  { ch_segmentation_cppipe  = file(para
+╰     |                                    ^^^^^^^^^^^^^^^^^^^^^^
+
+Warn  workflows/imcyto.nf:43:9: Variable was declared but not used
+│  43 |         ch_ilastik_training_ilp = file(params.ilastik_training_ilp) 
+╰     |         ^^^^^^^^^^^^^^^^^^^^^^^
+
+Warn  workflows/imcyto.nf:47:1: Variable was declared but not used
+│  47 | ch_compensation_tiff = params.compensation_tiff ? file(params.compensa
+╰     | ^^^^^^^^^^^^^^^^^^^^
+
+Warn  workflows/imcyto.nf:50:1: Variable was declared but not used
+│  50 | ch_plugins_dir = file(params.plugins_dir)
+╰     | ^^^^^^^^^^^^^^
+
+Warn  workflows/imcyto.nf:86:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  86 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  workflows/imcyto.nf:103:43: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 103 |         .map { WorkflowImcyto.flattenTiff(it) }
+╰     |                                           ^^
+
+Warn  workflows/imcyto.nf:116:43: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 116 |         .map { WorkflowImcyto.flattenTiff(it) }
+╰     |                                           ^^
+
+
+Error conf/base.config:13:16: `check_max` is not defined
+│  13 |     cpus   = { check_max( 1    * task.attempt, 'cpus'   ) }
 ╰     |                ^^^^^^^^^
 
-Error conf/base.config:26:14: `check_max` is not defined
-│  26 |     time = { check_max( 6.h * task.attempt, 'time' ) }
-╰     |              ^^^^^^^^^
-
-Error conf/base.config:29:14: `check_max` is not defined
-│  29 |     cpus = { check_max( 6 * task.attempt, 'cpus' ) }
-╰     |              ^^^^^^^^^
-
-Error conf/base.config:30:16: `check_max` is not defined
-│  30 |     memory = { check_max( 42.GB * task.attempt, 'memory' ) }
+Error conf/base.config:14:16: `check_max` is not defined
+│  14 |     memory = { check_max( 6.GB * task.attempt, 'memory' ) }
 ╰     |                ^^^^^^^^^
 
-Error conf/base.config:31:14: `check_max` is not defined
-│  31 |     time = { check_max( 8.h * task.attempt, 'time' ) }
-╰     |              ^^^^^^^^^
-
-Error conf/base.config:34:14: `check_max` is not defined
-│  34 |     cpus = { check_max( 12 * task.attempt, 'cpus' ) }
-╰     |              ^^^^^^^^^
-
-Error conf/base.config:35:16: `check_max` is not defined
-│  35 |     memory = { check_max( 84.GB * task.attempt, 'memory' ) }
+Error conf/base.config:15:16: `check_max` is not defined
+│  15 |     time   = { check_max( 4.h  * task.attempt, 'time'   ) }
 ╰     |                ^^^^^^^^^
 
-Error conf/base.config:36:14: `check_max` is not defined
-│  36 |     time = { check_max( 16.h * task.attempt, 'time' ) }
-╰     |              ^^^^^^^^^
+Error conf/base.config:28:20: `check_max` is not defined
+│  28 |         cpus   = { check_max( 2     * task.attempt, 'cpus'    ) }
+╰     |                    ^^^^^^^^^
 
-Error conf/base.config:39:14: `check_max` is not defined
-│  39 |     time = { check_max( 20.h * task.attempt, 'time' ) }
-╰     |              ^^^^^^^^^
+Error conf/base.config:29:20: `check_max` is not defined
+│  29 |         memory = { check_max( 12.GB * task.attempt, 'memory'  ) }
+╰     |                    ^^^^^^^^^
+
+Error conf/base.config:30:20: `check_max` is not defined
+│  30 |         time   = { check_max( 4.h   * task.attempt, 'time'    ) }
+╰     |                    ^^^^^^^^^
+
+Error conf/base.config:33:20: `check_max` is not defined
+│  33 |         cpus   = { check_max( 6     * task.attempt, 'cpus'    ) }
+╰     |                    ^^^^^^^^^
+
+Error conf/base.config:34:20: `check_max` is not defined
+│  34 |         memory = { check_max( 36.GB * task.attempt, 'memory'  ) }
+╰     |                    ^^^^^^^^^
+
+Error conf/base.config:35:20: `check_max` is not defined
+│  35 |         time   = { check_max( 8.h   * task.attempt, 'time'    ) }
+╰     |                    ^^^^^^^^^
+
+Error conf/base.config:38:20: `check_max` is not defined
+│  38 |         cpus   = { check_max( 12    * task.attempt, 'cpus'    ) }
+╰     |                    ^^^^^^^^^
+
+Error conf/base.config:39:20: `check_max` is not defined
+│  39 |         memory = { check_max( 72.GB * task.attempt, 'memory'  ) }
+╰     |                    ^^^^^^^^^
+
+Error conf/base.config:40:20: `check_max` is not defined
+│  40 |         time   = { check_max( 16.h  * task.attempt, 'time'    ) }
+╰     |                    ^^^^^^^^^
+
+Error conf/base.config:43:20: `check_max` is not defined
+│  43 |         time   = { check_max( 20.h  * task.attempt, 'time'    ) }
+╰     |                    ^^^^^^^^^
+
+Error conf/base.config:46:20: `check_max` is not defined
+│  46 |         memory = { check_max( 200.GB * task.attempt, 'memory' ) }
+╰     |                    ^^^^^^^^^
 
 
-Error nextflow.config:52:3: Unexpected input: 'includeConfig'
-│  52 |   includeConfig "${params.custom_config_base}/nfcore_custom.config"
-╰     |   ^
+Error conf/modules.config:58:17: Unexpected input: ':'
+│  58 |         withName: 'ILASTIK' {
+╰     |                 ^
+
+
+Error nextflow.config:58:5: Unexpected input: 'includeConfig'
+│  58 |     includeConfig "${params.custom_config_base}/nfcore_custom.config"
+╰     |     ^
 
 
 Nextflow linting complete!
- ❌ 3 files had 15 errors
- ✅ 4 files had no errors
+ ❌ 5 files had 52 errors
+ ✅ 9 files had no errors

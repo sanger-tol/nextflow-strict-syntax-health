@@ -1,408 +1,519 @@
 Linting Nextflow code..
+Linting: conf/test_segfree_mode.config
 Linting: conf/base.config
+Linting: conf/test_preview_mode.config
 Linting: conf/modules.config
 Linting: conf/test_full.config
 Linting: conf/test.config
-Linting: conf/igenomes.config
+Linting: conf/test_coordinate_mode.config
+Linting: conf/test_image_mode.config
 Linting: nextflow.config
 Linting: workflows/spatialxe.nf
-Linting: subworkflows/local/input_check.nf
+Linting: subworkflows/local/xeniumranger_resegment_morphology_ome_tif/main.nf
+Linting: subworkflows/local/spatialdata_write_meta_merge/main.nf
+Linting: subworkflows/local/cellpose_resolift_morphology_ome_tif/main.nf
+Linting: subworkflows/local/cellpose_baysor_import_segmentation/main.nf
+Linting: subworkflows/local/proseg_preset_proseg2baysor/main.nf
+Linting: subworkflows/local/baysor_run_prior_segmentation_mask/main.nf
+Linting: subworkflows/local/xeniumranger_relabel_resegment/main.nf
+Linting: subworkflows/local/ficture_preprocess_model/main.nf
+Linting: subworkflows/local/baysor_generate_segfree/main.nf
+Linting: subworkflows/local/baysor_generate_preview/main.nf
+Linting: subworkflows/local/opt_flip_track_stat/main.nf
+Linting: subworkflows/local/xeniumranger_import_segmentation_redefine_bundle/main.nf
+Linting: subworkflows/local/segger_create_train_predict/main.nf
+Linting: subworkflows/local/utils_nfcore_spatialxe_pipeline/main.nf
+Linting: subworkflows/local/baysor_run_transcripts_parquet/main.nf
+Linting: subworkflows/nf-core/utils_nfcore_pipeline/main.nf
+Linting: subworkflows/nf-core/utils_nfcore_pipeline/tests/nextflow.config
+Linting: subworkflows/nf-core/utils_nextflow_pipeline/main.nf
+Linting: subworkflows/nf-core/utils_nextflow_pipeline/tests/nextflow.config
+Linting: subworkflows/nf-core/utils_nfschema_plugin/main.nf
+Linting: subworkflows/nf-core/utils_nfschema_plugin/tests/nextflow.config
 Linting: main.nf
-Linting: modules/local/proseg/preprocess/main.nf
-Linting: modules/local/proseg/main.nf
-Linting: modules/local/samplesheet_check.nf
+Linting: tests/nextflow.config
+Linting: modules/local/spatialdata/meta/main.nf
+Linting: modules/local/spatialdata/merge/main.nf
+Linting: modules/local/spatialdata/write/main.nf
+Linting: modules/local/segger/predict/main.nf
+Linting: modules/local/segger/train/main.nf
+Linting: modules/local/segger/create_dataset/main.nf
+Linting: modules/local/utility/segger2xr/main.nf
+Linting: modules/local/utility/spatialconverter/parquet_to_csv/main.nf
+Linting: modules/local/utility/resize_tif/main.nf
+Linting: modules/local/utility/get_coordinates/main.nf
+Linting: modules/local/utility/split_transcripts/main.nf
+Linting: modules/local/utility/extract_preview_data/main.nf
+Linting: modules/local/proseg/proseg2baysor/main.nf
+Linting: modules/local/proseg/proseg2baysor/tests/nextflow.config
+Linting: modules/local/proseg/preset/main.nf
+Linting: modules/local/proseg/preset/tests/nextflow.config
+Linting: modules/local/baysor/preview/main.nf
+Linting: modules/local/baysor/preview/tests/nextflow.config
+Linting: modules/local/baysor/segfree/main.nf
+Linting: modules/local/baysor/preprocess/main.nf
+Linting: modules/local/baysor/preprocess/tests/nextflow.config
+Linting: modules/local/baysor/create_dataset/main.nf
+Linting: modules/local/baysor/create_dataset/tests/nextflow.config
+Linting: modules/local/baysor/run/main.nf
+Linting: modules/local/resolift/main.nf
+Linting: modules/local/resolift/tests/nextflow.config
+Linting: modules/local/ficture/model/main.nf
+Linting: modules/local/ficture/preprocess/main.nf
+Linting: modules/nf-core/opt/flip/main.nf
+Linting: modules/nf-core/opt/track/main.nf
+Linting: modules/nf-core/opt/stat/main.nf
 Linting: modules/nf-core/cellpose/main.nf
 Linting: modules/nf-core/cellpose/tests/nextflow_wflows.config
 Linting: modules/nf-core/multiqc/main.nf
+Linting: modules/nf-core/multiqc/tests/nextflow.config
 Linting: modules/nf-core/xeniumranger/import-segmentation/main.nf
 Linting: modules/nf-core/xeniumranger/import-segmentation/tests/nextflow.config
 Linting: modules/nf-core/xeniumranger/resegment/main.nf
 Linting: modules/nf-core/xeniumranger/resegment/tests/nextflow.config
 Linting: modules/nf-core/xeniumranger/relabel/main.nf
 Linting: modules/nf-core/xeniumranger/relabel/tests/nextflow.config
-Linting: modules/nf-core/custom/dumpsoftwareversions/main.nf
-Error main.nf:21:16: `WorkflowMain` is not defined
-│  21 | params.fasta = WorkflowMain.getGenomeAttribute(params, 'fasta')
-╰     |                ^^^^^^^^^^^^
-
-Error main.nf:29:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  29 | WorkflowMain.initialise(workflow, params, log)
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error main.nf:29:1: `WorkflowMain` is not defined
-│  29 | WorkflowMain.initialise(workflow, params, log)
-╰     | ^^^^^^^^^^^^
+Linting: modules/nf-core/untar/main.nf
 
 
-Error modules/local/proseg/main.nf:31:20: `preset` is not defined
-│  31 |     def platform = preset ? "${params.preset}" : ""
-╰     |                    ^^^^^^
 
-Error modules/local/proseg/main.nf:40:13: `preset` is not defined
-│  40 |         --${preset} \\
-╰     |             ^^^^^^
 
-Warn  modules/local/proseg/main.nf:30:9: Variable was declared but not used
-│  30 |     def prefix = task.ext.prefix ?: "${meta.id}"
-╰     |         ^^^^^^
 
-Warn  modules/local/proseg/main.nf:64:9: Variable was declared but not used
-│  64 |     def args = task.ext.args ?: ''
+Warn  modules/local/ficture/model/main.nf:20:9: Variable was declared but not used
+│  20 |     def args = task.ext.args ?: ''
 ╰     |         ^^^^
 
-Warn  modules/local/proseg/main.nf:65:9: Variable was declared but not used
-│  65 |     def prefix = task.ext.prefix ?: "${meta.id}"
+Warn  modules/local/ficture/model/main.nf:21:9: Variable was declared but not used
+│  21 |     def prefix = task.ext.prefix ?: "${meta.id}"
 ╰     |         ^^^^^^
 
-
-Error modules/local/proseg/preprocess/main.nf:2:11: `meta` is not defined
-│   2 |     tag "$meta.id"
-╰     |           ^^^^
-
-Error modules/local/proseg/preprocess/main.nf:41:40: `meta` is not defined
-│  41 |     def prefix = task.ext.prefix ?: "${meta.id}"
-╰     |                                        ^^^^
-
-Warn  modules/local/proseg/preprocess/main.nf:40:9: Variable was declared but not used
-│  40 |     def args = task.ext.args ?: ''
+Warn  modules/local/ficture/model/main.nf:43:9: Variable was declared but not used
+│  43 |     def args = task.ext.args ?: ''
 ╰     |         ^^^^
 
-Warn  modules/local/proseg/preprocess/main.nf:41:9: Variable was declared but not used
-│  41 |     def prefix = task.ext.prefix ?: "${meta.id}"
+Warn  modules/local/ficture/model/main.nf:44:9: Variable was declared but not used
+│  44 |     def prefix = task.ext.prefix ?: "${meta.id}"
 ╰     |         ^^^^^^
 
 
-
-Warn  modules/nf-core/cellpose/main.nf:25:9: Variable was declared but not used
-│  25 |     def prefix = task.ext.prefix ?: "${meta.id}"
-╰     |         ^^^^^^
-
-Warn  modules/nf-core/cellpose/main.nf:45:9: Variable was declared but not used
-│  45 |     def prefix = task.ext.prefix ?: "${meta.id}"
-╰     |         ^^^^^^
-
-
-Warn  modules/nf-core/custom/dumpsoftwareversions/main.nf:22:9: Variable was declared but not used
-│  22 |     def args = task.ext.args ?: ''
+Warn  modules/local/ficture/preprocess/main.nf:21:9: Variable was declared but not used
+│  21 |     def args = task.ext.args ?: ''
 ╰     |         ^^^^
 
 
 
-Error modules/nf-core/xeniumranger/import-segmentation/main.nf:32:9: `expansion_distance` is already declared
-│  32 |     def expansion_distance = expansion_distance ? "--expansion-distanc
-╰     |         ^^^^^^^^^^^^^^^^^^
-
-Error modules/nf-core/xeniumranger/import-segmentation/main.nf:33:9: `coordinate_transform` is already declared
-│  33 |     def coordinate_transform = coordinate_transform ? "--coordinate-tr
-╰     |         ^^^^^^^^^^^^^^^^^^^^
-
-Error modules/nf-core/xeniumranger/import-segmentation/main.nf:36:9: `cells` is already declared
-│  36 |     def cells = cells ? "--cells=\"${cells}\"": ""
-╰     |         ^^^^^
-
-Error modules/nf-core/xeniumranger/import-segmentation/main.nf:39:9: `transcript_assignment` is already declared
-│  39 |     def transcript_assignment = transcript_assignment ? "--transcript-
-╰     |         ^^^^^^^^^^^^^^^^^^^^^
-
-Error modules/nf-core/xeniumranger/import-segmentation/main.nf:40:9: `viz_polygons` is already declared
-│  40 |     def viz_polygons = viz_polygons ? "--viz-polygons=\"${viz_polygons
-╰     |         ^^^^^^^^^^^^
 
 
 
-Error modules/nf-core/xeniumranger/resegment/main.nf:29:9: `expansion_distance` is already declared
-│  29 |     def expansion_distance = expansion_distance ? "--expansion-distanc
-╰     |         ^^^^^^^^^^^^^^^^^^
-
-Error modules/nf-core/xeniumranger/resegment/main.nf:30:9: `dapi_filter` is already declared
-│  30 |     def dapi_filter = dapi_filter ? "--dapi-filter=\"${dapi_filter}\""
-╰     |         ^^^^^^^^^^^
-
-Error modules/nf-core/xeniumranger/resegment/main.nf:33:9: `boundary_stain` is already declared
-│  33 |     def boundary_stain = boundary_stain ? "--boundary-stain=disable": 
-╰     |         ^^^^^^^^^^^^^^
-
-Error modules/nf-core/xeniumranger/resegment/main.nf:35:9: `interior_stain` is already declared
-│  35 |     def interior_stain = interior_stain ? "--interior-stain=disable": 
-╰     |         ^^^^^^^^^^^^^^
 
 
-Warn  subworkflows/local/input_check.nf:15:37: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  15 |         .map { create_fastq_channel(it) }
-╰     |                                     ^^
 
 
-Error workflows/spatialxe.nf:7:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│   7 | def summary_params = NfcoreSchema.paramsSummaryMap(workflow, params)
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/spatialxe.nf:7:22: `NfcoreSchema` is not defined
-│   7 | def summary_params = NfcoreSchema.paramsSummaryMap(workflow, params)
-╰     |                      ^^^^^^^^^^^^
 
-Error workflows/spatialxe.nf:10:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  10 | WorkflowSpatialxe.initialise(params, log)
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/spatialxe.nf:10:1: `WorkflowSpatialxe` is not defined
-│  10 | WorkflowSpatialxe.initialise(params, log)
-╰     | ^^^^^^^^^^^^^^^^^
 
-Error workflows/spatialxe.nf:14:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  14 | def checkPathParamList = [ params.input, params.multiqc_config, params
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/spatialxe.nf:15:1: `for` loops are no longer supported
-│  15 | for (param in checkPathParamList) { if (param) { file(param, checkIfEx
-╰     | ^^^
+Warn  modules/local/utility/split_transcripts/main.nf:24:9: Variable was declared but not used
+│  24 |     def prefix = task.ext.prefix ?: "${meta.id}"
+╰     |         ^^^^^^
 
-Error workflows/spatialxe.nf:15:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  15 | for (param in checkPathParamList) { if (param) { file(param, checkIfEx
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/spatialxe.nf:15:6: `param` is not defined
-│  15 | for (param in checkPathParamList) { if (param) { file(param, checkIfEx
-╰     |      ^^^^^
 
-Error workflows/spatialxe.nf:15:40: `param` is not defined
-│  15 | for (param in checkPathParamList) { if (param) { file(param, checkIfEx
-╰     |                                        ^^^^^^^
 
-Error workflows/spatialxe.nf:15:55: `param` is not defined
-│  15 | for (param in checkPathParamList) { if (param) { file(param, checkIfEx
-╰     |                                                       ^^^^^
 
-Error workflows/spatialxe.nf:18:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  18 | if (params.input) { ch_input = file(params.input) } else { exit 1, 'In
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/spatialxe.nf:26:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  26 | ch_multiqc_config          = Channel.fromPath("$projectDir/assets/mult
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/spatialxe.nf:27:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  27 | ch_multiqc_custom_config   = params.multiqc_config ? Channel.fromPath(
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/spatialxe.nf:28:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  28 | ch_multiqc_logo            = params.multiqc_logo   ? Channel.fromPath(
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/spatialxe.nf:29:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  29 | ch_multiqc_custom_methods_description = params.multiqc_methods_descrip
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/spatialxe.nf:51:1: Invalid include source: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/spatialxe/modules/nf-core/fastqc/main.nf'
-│  51 | include { FASTQC                      } from '../modules/nf-core/fastq
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/spatialxe.nf:62:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│  62 | def multiqc_report = []
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/spatialxe.nf:72:9: `ch_input` is not defined
-│  72 |         ch_input
-╰     |         ^^^^^^^^
-
-Error workflows/spatialxe.nf:79:5: `FASTQC` is not defined
-│  79 |     FASTQC (
-╰     |     ^^^^^^
-
-Error workflows/spatialxe.nf:82:35: `FASTQC` is not defined
-│  82 |     ch_versions = ch_versions.mix(FASTQC.out.versions.first())
-╰     |                                   ^^^^^^
-
-Error workflows/spatialxe.nf:91:27: `WorkflowSpatialxe` is not defined
-│  91 |     workflow_summary    = WorkflowSpatialxe.paramsSummaryMultiqc(workf
-╰     |                           ^^^^^^^^^^^^^^^^^
-
-Error workflows/spatialxe.nf:91:76: `summary_params` is not defined
-│  91 |     = WorkflowSpatialxe.paramsSummaryMultiqc(workflow, summary_params)
-╰     |                                                        ^^^^^^^^^^^^^^
-
-Error workflows/spatialxe.nf:94:30: `WorkflowSpatialxe` is not defined
-│  94 |     methods_description    = WorkflowSpatialxe.methodsDescriptionText(
-╰     |                              ^^^^^^^^^^^^^^^^^
-
-Error workflows/spatialxe.nf:94:81: `ch_multiqc_custom_methods_description` is not defined
-│  94 | ethodsDescriptionText(workflow, ch_multiqc_custom_methods_description)
-╰     |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/spatialxe.nf:101:45: `FASTQC` is not defined
-│ 101 |     ch_multiqc_files = ch_multiqc_files.mix(FASTQC.out.zip.collect{it[
-╰     |                                             ^^^^^^
-
-Error workflows/spatialxe.nf:105:9: `ch_multiqc_config` is not defined
-│ 105 |         ch_multiqc_config.toList(),
-╰     |         ^^^^^^^^^^^^^^^^^
-
-Error workflows/spatialxe.nf:106:9: `ch_multiqc_custom_config` is not defined
-│ 106 |         ch_multiqc_custom_config.toList(),
-╰     |         ^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/spatialxe.nf:107:9: `ch_multiqc_logo` is not defined
-│ 107 |         ch_multiqc_logo.toList()
-╰     |         ^^^^^^^^^^^^^^^
-
-Error workflows/spatialxe.nf:118:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
-│ 116 | */
-│ 117 | 
-│ 118 | workflow.onComplete {
-│     | ^^^^^^^^^^^^^^^^^^^^^
-│ 119 |     if (params.email || params.email_on_fail) {
-╰ 120 |         NfcoreTemplate.email(workflow, params, summary_params, project
-
-Error workflows/spatialxe.nf:120:9: `NfcoreTemplate` is not defined
-│ 120 |         NfcoreTemplate.email(workflow, params, summary_params, project
-╰     |         ^^^^^^^^^^^^^^
-
-Error workflows/spatialxe.nf:122:5: `NfcoreTemplate` is not defined
-│ 122 |     NfcoreTemplate.summary(workflow, params, log)
-╰     |     ^^^^^^^^^^^^^^
-
-Error workflows/spatialxe.nf:124:9: `NfcoreTemplate` is not defined
-│ 124 |         NfcoreTemplate.IM_notification(workflow, params, summary_param
-╰     |         ^^^^^^^^^^^^^^
-
-Warn  workflows/spatialxe.nf:18:21: Variable was declared but not used
-│  18 | if (params.input) { ch_input = file(params.input) } else { exit 1, 'In
-╰     |                     ^^^^^^^^
-
-Warn  workflows/spatialxe.nf:26:1: Variable was declared but not used
-│  26 | ch_multiqc_config          = Channel.fromPath("$projectDir/assets/mult
-╰     | ^^^^^^^^^^^^^^^^^
-
-Warn  workflows/spatialxe.nf:26:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  26 | ch_multiqc_config          = Channel.fromPath("$projectDir/assets/mult
-╰     |                              ^^^^^^^
-
-Warn  workflows/spatialxe.nf:27:1: Variable was declared but not used
-│  27 | ch_multiqc_custom_config   = params.multiqc_config ? Channel.fromPath(
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^
-
-Warn  workflows/spatialxe.nf:27:54: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  27 | ch_multiqc_custom_config   = params.multiqc_config ? Channel.fromPath(
-╰     |                                                      ^^^^^^^
-
-Warn  workflows/spatialxe.nf:27:119: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  27 | omPath( params.multiqc_config, checkIfExists: true ) : Channel.empty()
-╰     |                                                        ^^^^^^^
-
-Warn  workflows/spatialxe.nf:28:1: Variable was declared but not used
-│  28 | ch_multiqc_logo            = params.multiqc_logo   ? Channel.fromPath(
-╰     | ^^^^^^^^^^^^^^^
-
-Warn  workflows/spatialxe.nf:28:54: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  28 | ch_multiqc_logo            = params.multiqc_logo   ? Channel.fromPath(
-╰     |                                                      ^^^^^^^
-
-Warn  workflows/spatialxe.nf:28:117: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  28 | fromPath( params.multiqc_logo, checkIfExists: true ) : Channel.empty()
-╰     |                                                        ^^^^^^^
-
-Warn  workflows/spatialxe.nf:29:1: Variable was declared but not used
-│  29 | ch_multiqc_custom_methods_description = params.multiqc_methods_descrip
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Warn  workflows/spatialxe.nf:66:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  66 |     ch_versions = Channel.empty()
-╰     |                   ^^^^^^^
-
-Warn  workflows/spatialxe.nf:92:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  92 |     ch_workflow_summary = Channel.value(workflow_summary)
+Warn  subworkflows/local/baysor_generate_preview/main.nf:17:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  17 |     ch_versions         = Channel.empty()
 ╰     |                           ^^^^^^^
 
-Warn  workflows/spatialxe.nf:95:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  95 |     ch_methods_description = Channel.value(methods_description)
-╰     |                              ^^^^^^^
+Warn  subworkflows/local/baysor_generate_preview/main.nf:18:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  18 |     ch_preview_mqc_html = Channel.empty()
+╰     |                           ^^^^^^^
 
-Warn  workflows/spatialxe.nf:97:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  97 |     ch_multiqc_files = Channel.empty()
-╰     |                        ^^^^^^^
+Warn  subworkflows/local/baysor_generate_preview/main.nf:19:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  19 |     ch_preview_mqc_png  = Channel.empty()
+╰     |                           ^^^^^^^
 
-Warn  workflows/spatialxe.nf:101:68: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 101 | es.mix(FASTQC.out.zip.collect{it[1]}.ifEmpty([]))
+
+Warn  subworkflows/local/baysor_generate_segfree/main.nf:15:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  15 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+
+Warn  subworkflows/local/baysor_run_prior_segmentation_mask/main.nf:19:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  19 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/baysor_run_prior_segmentation_mask/main.nf:21:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  21 |     ch_transcripts = Channel.empty()
+╰     |                      ^^^^^^^
+
+Warn  subworkflows/local/baysor_run_prior_segmentation_mask/main.nf:23:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  23 |     ch_redefined_bundle = Channel.empty()
+╰     |                           ^^^^^^^
+
+Warn  subworkflows/local/baysor_run_prior_segmentation_mask/main.nf:24:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  24 |     ch_coordinate_space = Channel.value("pixels")
+╰     |                           ^^^^^^^
+
+
+Warn  subworkflows/local/baysor_run_transcripts_parquet/main.nf:19:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  19 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/baysor_run_transcripts_parquet/main.nf:21:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  21 |     ch_transcripts = Channel.empty()
+╰     |                      ^^^^^^^
+
+Warn  subworkflows/local/baysor_run_transcripts_parquet/main.nf:24:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  24 |     ch_redefined_bundle = Channel.empty()
+╰     |                           ^^^^^^^
+
+Warn  subworkflows/local/baysor_run_transcripts_parquet/main.nf:25:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  25 |     ch_coordinate_space = Channel.value("microns")
+╰     |                           ^^^^^^^
+
+
+Warn  subworkflows/local/cellpose_baysor_import_segmentation/main.nf:24:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  24 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/cellpose_baysor_import_segmentation/main.nf:25:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  25 |     ch_transcripts = Channel.empty()
+╰     |                      ^^^^^^^
+
+Warn  subworkflows/local/cellpose_baysor_import_segmentation/main.nf:26:25: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  26 |     ch_imp_seg_inputs = Channel.empty()
+╰     |                         ^^^^^^^
+
+Warn  subworkflows/local/cellpose_baysor_import_segmentation/main.nf:27:31: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  27 |     ch_filtered_transcripts = Channel.empty()
+╰     |                               ^^^^^^^
+
+Warn  subworkflows/local/cellpose_baysor_import_segmentation/main.nf:28:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  28 |     ch_coordinate_space = Channel.value("microns")
+╰     |                           ^^^^^^^
+
+Warn  subworkflows/local/cellpose_baysor_import_segmentation/main.nf:31:47: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  31 |     cellpose_model = params.cellpose_model ? (Channel.fromPath(params.
+╰     |                                               ^^^^^^^
+
+
+Warn  subworkflows/local/cellpose_resolift_morphology_ome_tif/main.nf:17:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  17 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/cellpose_resolift_morphology_ome_tif/main.nf:18:25: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  18 |     ch_imp_seg_inputs = Channel.empty()
+╰     |                         ^^^^^^^
+
+Warn  subworkflows/local/cellpose_resolift_morphology_ome_tif/main.nf:19:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  19 |     ch_coordinate_space = Channel.value("pixels")
+╰     |                           ^^^^^^^
+
+Warn  subworkflows/local/cellpose_resolift_morphology_ome_tif/main.nf:21:47: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  21 |     cellpose_model = params.cellpose_model ? (Channel.fromPath(params.
+╰     |                                               ^^^^^^^
+
+
+Warn  subworkflows/local/ficture_preprocess_model/main.nf:18:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  18 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/ficture_preprocess_model/main.nf:31:25: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  31 |     ch_features_clean = Channel.empty()
+╰     |                         ^^^^^^^
+
+
+Warn  subworkflows/local/opt_flip_track_stat/main.nf:14:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  14 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/opt_flip_track_stat/main.nf:15:18: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  15 |     ch_summary = Channel.empty()
+╰     |                  ^^^^^^^
+
+
+Warn  subworkflows/local/proseg_preset_proseg2baysor/main.nf:16:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  16 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/proseg_preset_proseg2baysor/main.nf:17:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  17 |     ch_coordinate_space = Channel.value("microns")
+╰     |                           ^^^^^^^
+
+
+Warn  subworkflows/local/segger_create_train_predict/main.nf:18:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  18 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/segger_create_train_predict/main.nf:20:25: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  20 |     ch_updated_bundle = Channel.empty()
+╰     |                         ^^^^^^^
+
+Warn  subworkflows/local/segger_create_train_predict/main.nf:21:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  21 |     ch_redefined_bundle = Channel.empty()
+╰     |                           ^^^^^^^
+
+Warn  subworkflows/local/segger_create_train_predict/main.nf:22:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  22 |     ch_coordinate_space = Channel.value("pixels")
+╰     |                           ^^^^^^^
+
+
+Warn  subworkflows/local/spatialdata_write_meta_merge/main.nf:18:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  18 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/spatialdata_write_meta_merge/main.nf:19:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  19 |     ch_segmented_object = Channel.empty()
+╰     |                           ^^^^^^^
+
+Warn  subworkflows/local/spatialdata_write_meta_merge/main.nf:25:35: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  25 |             ch_segmented_object = Channel.value('cells_and_nuclei')
+╰     |                                   ^^^^^^^
+
+Warn  subworkflows/local/spatialdata_write_meta_merge/main.nf:28:35: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  28 |             ch_segmented_object = Channel.value('nuclei')
+╰     |                                   ^^^^^^^
+
+Warn  subworkflows/local/spatialdata_write_meta_merge/main.nf:31:35: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  31 |             ch_segmented_object = Channel.value('cells')
+╰     |                                   ^^^^^^^
+
+Warn  subworkflows/local/spatialdata_write_meta_merge/main.nf:34:35: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  34 |             ch_segmented_object = Channel.value([])
+╰     |                                   ^^^^^^^
+
+Warn  subworkflows/local/spatialdata_write_meta_merge/main.nf:40:31: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  40 |         ch_segmented_object = Channel.value([])
+╰     |                               ^^^^^^^
+
+
+Warn  subworkflows/local/utils_nfcore_spatialxe_pipeline/main.nf:30:5: Parameter was not used -- prefix with `_` to suppress warning
+│  30 |     monochrome_logs   // boolean: Do not use coloured log outputs
+╰     |     ^^^^^^^^^^^^^^^
+
+Warn  subworkflows/local/utils_nfcore_spatialxe_pipeline/main.nf:40:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  40 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/utils_nfcore_spatialxe_pipeline/main.nf:65:144: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  65 | lect { "    https://doi.org/${it.trim().replace('https://doi.org/', ''
 ╰     |                               ^^
 
-Warn  workflows/spatialxe.nf:109:5: Variable was declared but not used
-│ 109 |     multiqc_report = MULTIQC.out.report.toList()
-╰     |     ^^^^^^^^^^^^^^
+Warn  subworkflows/local/utils_nfcore_spatialxe_pipeline/main.nf:104:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 104 |         Channel.fromList(samplesheetToList(input, "${projectDir}/asset
+╰     |         ^^^^^^^
+
+Warn  subworkflows/local/utils_nfcore_spatialxe_pipeline/main.nf:291:31: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 291 |     if (!ch_bundle_path.map { it.exists() }) {
+╰     |                               ^^
+
+Warn  subworkflows/local/utils_nfcore_spatialxe_pipeline/main.nf:297:30: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 297 |     if (ch_bundle_path.map { it.exists() }) {
+╰     |                              ^^
 
 
-Error conf/base.config:14:16: `check_max` is not defined
-│  14 |     cpus   = { check_max( 1    * task.attempt, 'cpus'   ) }
-╰     |                ^^^^^^^^^
+Warn  subworkflows/local/xeniumranger_import_segmentation_redefine_bundle/main.nf:16:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  16 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
 
-Error conf/base.config:15:16: `check_max` is not defined
-│  15 |     memory = { check_max( 6.GB * task.attempt, 'memory' ) }
-╰     |                ^^^^^^^^^
+Warn  subworkflows/local/xeniumranger_import_segmentation_redefine_bundle/main.nf:17:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  17 |     ch_redefined_bundle = Channel.empty()
+╰     |                           ^^^^^^^
 
-Error conf/base.config:16:16: `check_max` is not defined
-│  16 |     time   = { check_max( 4.h  * task.attempt, 'time'   ) }
-╰     |                ^^^^^^^^^
-
-Error conf/base.config:30:20: `check_max` is not defined
-│  30 |         cpus   = { check_max( 1                  , 'cpus'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:31:20: `check_max` is not defined
-│  31 |         memory = { check_max( 6.GB * task.attempt, 'memory'  ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:32:20: `check_max` is not defined
-│  32 |         time   = { check_max( 4.h  * task.attempt, 'time'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:35:20: `check_max` is not defined
-│  35 |         cpus   = { check_max( 2     * task.attempt, 'cpus'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:36:20: `check_max` is not defined
-│  36 |         memory = { check_max( 12.GB * task.attempt, 'memory'  ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:37:20: `check_max` is not defined
-│  37 |         time   = { check_max( 4.h   * task.attempt, 'time'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:40:20: `check_max` is not defined
-│  40 |         cpus   = { check_max( 6     * task.attempt, 'cpus'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:41:20: `check_max` is not defined
-│  41 |         memory = { check_max( 36.GB * task.attempt, 'memory'  ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:42:20: `check_max` is not defined
-│  42 |         time   = { check_max( 8.h   * task.attempt, 'time'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:45:20: `check_max` is not defined
-│  45 |         cpus   = { check_max( 12    * task.attempt, 'cpus'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:46:20: `check_max` is not defined
-│  46 |         memory = { check_max( 72.GB * task.attempt, 'memory'  ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:47:20: `check_max` is not defined
-│  47 |         time   = { check_max( 16.h  * task.attempt, 'time'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:50:20: `check_max` is not defined
-│  50 |         time   = { check_max( 20.h  * task.attempt, 'time'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:53:20: `check_max` is not defined
-│  53 |         memory = { check_max( 200.GB * task.attempt, 'memory' ) }
-╰     |                    ^^^^^^^^^
+Warn  subworkflows/local/xeniumranger_import_segmentation_redefine_bundle/main.nf:18:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  18 |     ch_coordinate_space = Channel.empty()
+╰     |                           ^^^^^^^
 
 
-Error nextflow.config:66:5: Unexpected input: 'includeConfig'
-│  66 |     includeConfig "${params.custom_config_base}/nfcore_custom.config"
-╰     |     ^
+Warn  subworkflows/local/xeniumranger_relabel_resegment/main.nf:15:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  15 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+
+Warn  subworkflows/local/xeniumranger_resegment_morphology_ome_tif/main.nf:14:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  14 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/xeniumranger_resegment_morphology_ome_tif/main.nf:15:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  15 |     ch_redefined_bundle = Channel.empty()
+╰     |                           ^^^^^^^
+
+Warn  subworkflows/local/xeniumranger_resegment_morphology_ome_tif/main.nf:16:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  16 |     ch_coordinate_space = Channel.value("pixels")
+╰     |                           ^^^^^^^
+
+
+
+Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 101 | mYAML(version) }.unique().mix(Channel.of(workflowVersionToYAML()))
+╰     |                               ^^^^^^^
+
+
+
+Warn  workflows/spatialxe.nf:65:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  65 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  workflows/spatialxe.nf:67:16: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  67 |     ch_input = Channel.empty()
+╰     |                ^^^^^^^
+
+Warn  workflows/spatialxe.nf:68:17: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  68 |     ch_bundle = Channel.empty()
+╰     |                 ^^^^^^^
+
+Warn  workflows/spatialxe.nf:69:17: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  69 |     ch_config = Channel.empty()
+╰     |                 ^^^^^^^
+
+Warn  workflows/spatialxe.nf:70:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  70 |     ch_features = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  workflows/spatialxe.nf:71:21: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  71 |     ch_raw_bundle = Channel.empty()
+╰     |                     ^^^^^^^
+
+Warn  workflows/spatialxe.nf:72:21: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  72 |     ch_gene_panel = Channel.empty()
+╰     |                     ^^^^^^^
+
+Warn  workflows/spatialxe.nf:73:21: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  73 |     ch_qc_reports = Channel.empty()
+╰     |                     ^^^^^^^
+
+Warn  workflows/spatialxe.nf:74:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  74 |     ch_bundle_path = Channel.empty()
+╰     |                      ^^^^^^^
+
+Warn  workflows/spatialxe.nf:75:23: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  75 |     ch_preview_html = Channel.empty()
+╰     |                       ^^^^^^^
+
+Warn  workflows/spatialxe.nf:76:23: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  76 |     ch_exp_metadata = Channel.empty()
+╰     |                       ^^^^^^^
+
+Warn  workflows/spatialxe.nf:77:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  77 |     ch_gene_synonyms = Channel.empty()
+╰     |                        ^^^^^^^
+
+Warn  workflows/spatialxe.nf:78:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  78 |     ch_multiqc_files = Channel.empty()
+╰     |                        ^^^^^^^
+
+Warn  workflows/spatialxe.nf:79:25: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  79 |     ch_multiqc_report = Channel.empty()
+╰     |                         ^^^^^^^
+
+Warn  workflows/spatialxe.nf:80:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  80 |     ch_qupath_polygons = Channel.empty()
+╰     |                          ^^^^^^^
+
+Warn  workflows/spatialxe.nf:81:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  81 |     ch_morphology_image = Channel.empty()
+╰     |                           ^^^^^^^
+
+Warn  workflows/spatialxe.nf:82:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  82 |     ch_redefined_bundle = Channel.empty()
+╰     |                           ^^^^^^^
+
+Warn  workflows/spatialxe.nf:83:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  83 |     ch_coordinate_space = Channel.empty()
+╰     |                           ^^^^^^^
+
+Warn  workflows/spatialxe.nf:84:29: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  84 |     ch_panel_probes_fasta = Channel.empty()
+╰     |                             ^^^^^^^
+
+Warn  workflows/spatialxe.nf:85:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  85 |     ch_transcripts_parquet = Channel.empty()
+╰     |                              ^^^^^^^
+
+Warn  workflows/spatialxe.nf:86:32: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  86 |     ch_reference_annotations = Channel.empty()
+╰     |                                ^^^^^^^
+
+Warn  workflows/spatialxe.nf:87:32: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  87 |     ch_multiqc_pre_xr_report = Channel.empty()
+╰     |                                ^^^^^^^
+
+Warn  workflows/spatialxe.nf:88:33: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  88 |     ch_multiqc_post_xr_report = Channel.empty()
+╰     |                                 ^^^^^^^
+
+Warn  workflows/spatialxe.nf:176:17: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 176 |     ch_config = Channel.fromPath(
+╰     |                 ^^^^^^^
+
+Warn  workflows/spatialxe.nf:184:32: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 184 |         ch_segmentation_mask = Channel.fromPath(
+╰     |                                ^^^^^^^
+
+Warn  workflows/spatialxe.nf:193:23: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 193 |         ch_features = Channel.fromPath(
+╰     |                       ^^^^^^^
+
+Warn  workflows/spatialxe.nf:202:23: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 202 |         ch_features = Channel.fromPath(
+╰     |                       ^^^^^^^
+
+Warn  workflows/spatialxe.nf:211:33: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 211 |         ch_panel_probes_fasta = Channel.fromPath(
+╰     |                                 ^^^^^^^
+
+Warn  workflows/spatialxe.nf:220:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 220 |         ch_reference_annotations = Channel.fromPath(
+╰     |                                    ^^^^^^^
+
+Warn  workflows/spatialxe.nf:229:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 229 |         ch_gene_synonyms = Channel.fromPath(
+╰     |                            ^^^^^^^
+
+Warn  workflows/spatialxe.nf:238:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 238 |         ch_qupath_polygons = Channel.fromPath(
+╰     |                              ^^^^^^^
+
+Warn  workflows/spatialxe.nf:249:25: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 249 |         ch_gene_panel = Channel.fromPath(
+╰     |                         ^^^^^^^
+
+Warn  workflows/spatialxe.nf:503:25: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 503 |     ch_multiqc_config = Channel.fromPath(
+╰     |                         ^^^^^^^
+
+Warn  workflows/spatialxe.nf:509:11: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 509 |         ? Channel.fromPath(params.multiqc_config, checkIfExists: true)
+╰     |           ^^^^^^^
+
+Warn  workflows/spatialxe.nf:510:11: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 510 |         : Channel.empty()
+╰     |           ^^^^^^^
+
+Warn  workflows/spatialxe.nf:513:11: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 513 |         ? Channel.fromPath(params.multiqc_logo, checkIfExists: true)
+╰     |           ^^^^^^^
+
+Warn  workflows/spatialxe.nf:514:11: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 514 |         : Channel.empty()
+╰     |           ^^^^^^^
+
+Warn  workflows/spatialxe.nf:521:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 521 |     ch_workflow_summary = Channel.value(paramsSummaryMultiqc(summary_p
+╰     |                           ^^^^^^^
+
+Warn  workflows/spatialxe.nf:531:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 531 |     ch_methods_description = Channel.value(
+╰     |                              ^^^^^^^
 
 
 Nextflow linting complete!
- ❌ 8 files had 66 errors
- ✅ 14 files had no errors
+ ✅ 75 files had no errors

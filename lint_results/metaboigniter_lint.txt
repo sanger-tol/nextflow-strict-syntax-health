@@ -62,6 +62,26 @@ Linting: modules/local/openms_idmapperconsensus.nf
 Linting: modules/local/pyopenms_libbuilder.nf
 Linting: modules/nf-core/fastqc/main.nf
 Linting: modules/nf-core/multiqc/main.nf
+Error main.nf:21:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/metaboigniter/subworkflows/local/utils_nfcore_metaboigniter_pipeline/main.nf'
+│  21 | include { PIPELINE_INITIALISATION } from './subworkflows/local/utils_n
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error main.nf:22:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/metaboigniter/subworkflows/local/utils_nfcore_metaboigniter_pipeline/main.nf'
+│  22 | include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_n
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error main.nf:71:5: `PIPELINE_INITIALISATION` is not defined
+│  71 |     PIPELINE_INITIALISATION (
+╰     |     ^^^^^^^^^^^^^^^^^^^^^^^
+
+Error main.nf:85:9: `PIPELINE_INITIALISATION` is not defined
+│  85 |         PIPELINE_INITIALISATION.out.samplesheet
+╰     |         ^^^^^^^^^^^^^^^^^^^^^^^
+
+Error main.nf:91:5: `PIPELINE_COMPLETION` is not defined
+│  91 |     PIPELINE_COMPLETION (
+╰     |     ^^^^^^^^^^^^^^^^^^^
+
 
 Warn  modules/local/general_mergefile.nf:22:48: Implicit closure parameter is deprecated, declare an explicit parameter instead
 │  22 |     def inputs        = input_target.collect { it }.join(' ')
@@ -605,29 +625,9 @@ Warn  subworkflows/local/sirius.nf:28:82: Implicit closure parameter is deprecat
 ╰     |                                                                  ^^
 
 
-Error subworkflows/local/utils_nfcore_metaboigniter_pipeline/main.nf:14:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/metaboigniter/subworkflows/nf-core/utils_nextflow_pipeline/main.nf'
-│  14 | include { UTILS_NEXTFLOW_PIPELINE   } from '../../nf-core/utils_nextfl
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error subworkflows/local/utils_nfcore_metaboigniter_pipeline/main.nf:47:5: `UTILS_NEXTFLOW_PIPELINE` is not defined
-│  47 |     UTILS_NEXTFLOW_PIPELINE (
-╰     |     ^^^^^^^^^^^^^^^^^^^^^^^
-
-Warn  subworkflows/local/utils_nfcore_metaboigniter_pipeline/main.nf:38:5: Parameter was not used -- prefix with `_` to suppress warning
-│  38 |     input             //  string: Path to input samplesheet
-╰     |     ^^^^^
-
-Warn  subworkflows/local/utils_nfcore_metaboigniter_pipeline/main.nf:42:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  42 |     ch_versions = Channel.empty()
-╰     |                   ^^^^^^^
-
-Warn  subworkflows/local/utils_nfcore_metaboigniter_pipeline/main.nf:83:5: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  83 |     Channel
-╰     |     ^^^^^^^
-
-Warn  subworkflows/local/utils_nfcore_metaboigniter_pipeline/main.nf:160:39: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 160 |     def endedness_ok = metas.collect{ it.single_end }.unique().size ==
-╰     |                                       ^^
+Error subworkflows/local/utils_nfcore_metaboigniter_pipeline/main.nf:239:21: Unexpected input: 'doi_ref'
+│ 239 |         for (String doi_ref: manifest_doi) temp_doi_ref += "(doi: <a h
+╰     |                     ^
 
 
 Error subworkflows/nf-core/utils_nextflow_pipeline/main.nf:111:14: Unexpected input: 'i'
@@ -635,133 +635,45 @@ Error subworkflows/nf-core/utils_nextflow_pipeline/main.nf:111:14: Unexpected in
 ╰     |              ^
 
 
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:5:1: Groovy `import` declarations are not supported -- use fully-qualified name inline instead
-│   5 | import org.yaml.snakeyaml.Yaml
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:6:1: Groovy `import` declarations are not supported -- use fully-qualified name inline instead
-│   6 | import nextflow.extension.FilesEx
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:37:5: `valid_config` was assigned but not declared
-│  37 |     valid_config = true
-╰     |     ^^^^^^^^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:45:9: `valid_config` was assigned but not declared
-│  45 |         valid_config = false
-╰     |         ^^^^^^^^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:47:12: `valid_config` is not defined
-│  47 |     return valid_config
-╰     |            ^^^^^^^^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:99:17: `Yaml` is not defined
-│  99 |     Yaml yaml = new Yaml()
-╰     |                 ^^^^^^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:100:5: `versions` was assigned but not declared
-│ 100 |     versions = yaml.load(yaml_file).collectEntries { k, v -> [ k.token
-╰     |     ^^^^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:27: `versions` is not defined
-│ 101 |     return yaml.dumpAsMap(versions).trim()
-╰     |                           ^^^^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:131:5: `for` loops are no longer supported
-│ 131 |     for (group in summary_params.keySet()) {
-╰     |     ^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:131:10: `group` is not defined
-│ 131 |     for (group in summary_params.keySet()) {
-╰     |          ^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:132:47: `group` is not defined
-│ 132 |         def group_params = summary_params.get(group)  // This gets the
-╰     |                                               ^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:134:68: `group` is not defined
-│ 134 | p style=\"font-size:110%\"><b>$group</b></p>\n"
-╰     |                               ^^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:136:13: `for` loops are no longer supported
-│ 136 |             for (param in group_params.keySet()) {
-╰     |             ^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:136:18: `param` is not defined
-│ 136 |             for (param in group_params.keySet()) {
-╰     |                  ^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:137:49: `param` is not defined
-│ 137 |                 summary_section += "        <dt>$param</dt><dd><samp>$
-╰     |                                                 ^^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:137:89: `param` is not defined
-│ 137 | ><dd><samp>${group_params.get(param) ?: '<span style=\"color:#999999;\
-╰     |                               ^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:284:5: `for` loops are no longer supported
-│ 284 |     for (group in summary_params.keySet()) {
-╰     |     ^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:284:10: `group` is not defined
-│ 284 |     for (group in summary_params.keySet()) {
-╰     |          ^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:285:34: `group` is not defined
-│ 285 |         summary << summary_params[group]
-╰     |                                  ^^^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:344:42: `GroovyException` is not defined
-│ 344 |             if (plaintext_email) { throw GroovyException('Send plainte
-╰     |                                          ^^^^^^^^^^^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:361:5: `FilesEx` is not defined
-│ 361 |     FilesEx.copyTo(output_hf.toPath(), "${outdir}/pipeline_info/pipeli
-╰     |     ^^^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:367:5: `FilesEx` is not defined
-│ 367 |     FilesEx.copyTo(output_tf.toPath(), "${outdir}/pipeline_info/pipeli
-╰     |     ^^^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:392:5: `for` loops are no longer supported
-│ 392 |     for (group in summary_params.keySet()) {
-╰     |     ^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:392:10: `group` is not defined
-│ 392 |     for (group in summary_params.keySet()) {
-╰     |          ^^^^^
-
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:393:34: `group` is not defined
-│ 393 |         summary << summary_params[group]
-╰     |                                  ^^^^^^^
-
-Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:121:48: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 121 |                 .map { processVersionsFromYAML(it) }
-╰     |                                                ^^
-
-Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:123:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 123 |                 .mix(Channel.of(workflowVersionToYAML()))
-╰     |                      ^^^^^^^
-
-Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:264:14: Parameter was not used -- prefix with `_` to suppress warning
-│ 264 |     } catch (all) {
-╰     |              ^^^
-
-Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:350:18: Parameter was not used -- prefix with `_` to suppress warning
-│ 350 |         } catch (all) {
-╰     |                  ^^^
+Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:73:17: Unexpected input: 'doi_ref'
+│  73 |     for (String doi_ref: manifest_doi) temp_doi_ref += "  https://doi.
+╰     |                 ^
 
 
 Error workflows/metaboigniter.nf:31:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/metaboigniter/modules/nf-core/multiqc/main.nf'
 │  31 | include { MULTIQC                } from '../modules/nf-core/multiqc/ma
 ╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/metaboigniter.nf:161:5: `MULTIQC` is not defined
-│ 161 |     MULTIQC (
+Error workflows/metaboigniter.nf:33:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/metaboigniter/subworkflows/nf-core/utils_nfcore_pipeline/main.nf'
+│  33 | include { paramsSummaryMultiqc   } from '../subworkflows/nf-core/utils
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/metaboigniter.nf:34:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/metaboigniter/subworkflows/nf-core/utils_nfcore_pipeline/main.nf'
+│  34 | include { softwareVersionsToYAML } from '../subworkflows/nf-core/utils
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/metaboigniter.nf:35:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/metaboigniter/subworkflows/local/utils_nfcore_metaboigniter_pipeline/main.nf'
+│  35 | include { methodsDescriptionText } from '../subworkflows/local/utils_n
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/metaboigniter.nf:143:5: `softwareVersionsToYAML` is not defined
+│ 143 |     softwareVersionsToYAML(ch_versions)
+╰     |     ^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/metaboigniter.nf:165:41: `paramsSummaryMultiqc` is not defined
+│ 165 |     ch_workflow_summary = Channel.value(paramsSummaryMultiqc(summary_p
+╰     |                                         ^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/metaboigniter.nf:171:9: `methodsDescriptionText` is not defined
+│ 171 |         methodsDescriptionText(ch_multiqc_custom_methods_description))
+╰     |         ^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/metaboigniter.nf:183:5: `MULTIQC` is not defined
+│ 183 |     MULTIQC (
 ╰     |     ^^^^^^^
 
-Error workflows/metaboigniter.nf:169:22: `MULTIQC` is not defined
-│ 169 |     multiqc_report = MULTIQC.out.report.toList() // channel: /path/to/
+Error workflows/metaboigniter.nf:191:22: `MULTIQC` is not defined
+│ 191 |     multiqc_report = MULTIQC.out.report.toList() // channel: /path/to/
 ╰     |                      ^^^^^^^
 
 Warn  workflows/metaboigniter.nf:49:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
@@ -784,32 +696,32 @@ Warn  workflows/metaboigniter.nf:108:9: Variable was declared but not used
 │ 108 |         consensusxml_data_tsv = PYOPENMS_EXPORTQUANTIFICATION.out.tsv
 ╰     |         ^^^^^^^^^^^^^^^^^^^^^
 
-Warn  workflows/metaboigniter.nf:150:45: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 150 |     ch_multiqc_config                     = Channel.fromPath("$project
-╰     |                                             ^^^^^^^
+Warn  workflows/metaboigniter.nf:154:32: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 154 |     ch_multiqc_config        = Channel.fromPath(
+╰     |                                ^^^^^^^
 
-Warn  workflows/metaboigniter.nf:151:69: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 151 |     = params.multiqc_config ? Channel.fromPath(params.multiqc_config, 
-╰     |                               ^^^^^^^
+Warn  workflows/metaboigniter.nf:157:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 157 |         Channel.fromPath(params.multiqc_config, checkIfExists: true) :
+╰     |         ^^^^^^^
 
-Warn  workflows/metaboigniter.nf:151:132: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 151 | fromPath(params.multiqc_config, checkIfExists: true) : Channel.empty()
-╰     |                                                        ^^^^^^^
+Warn  workflows/metaboigniter.nf:158:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 158 |         Channel.empty()
+╰     |         ^^^^^^^
 
-Warn  workflows/metaboigniter.nf:152:67: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 152 |       = params.multiqc_logo ? Channel.fromPath(params.multiqc_logo, ch
-╰     |                               ^^^^^^^
+Warn  workflows/metaboigniter.nf:160:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 160 |         Channel.fromPath(params.multiqc_logo, checkIfExists: true) :
+╰     |         ^^^^^^^
 
-Warn  workflows/metaboigniter.nf:152:128: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 152 | l.fromPath(params.multiqc_logo, checkIfExists: true) : Channel.empty()
-╰     |                                                        ^^^^^^^
+Warn  workflows/metaboigniter.nf:161:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 161 |         Channel.empty()
+╰     |         ^^^^^^^
 
-Warn  workflows/metaboigniter.nf:154:45: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 154 |     ch_workflow_summary                   = Channel.value(paramsSummar
-╰     |                                             ^^^^^^^
+Warn  workflows/metaboigniter.nf:165:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 165 |     ch_workflow_summary = Channel.value(paramsSummaryMultiqc(summary_p
+╰     |                           ^^^^^^^
 
-Warn  workflows/metaboigniter.nf:156:45: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 156 |     ch_methods_description                = Channel.value(methodsDescr
+Warn  workflows/metaboigniter.nf:170:45: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 170 |     ch_methods_description                = Channel.value(
 ╰     |                                             ^^^^^^^
 
 
@@ -894,32 +806,32 @@ Error conf/base.config:56:20: `check_max` is not defined
 ╰     |                    ^^^^^^^^^
 
 
-Error conf/modules.config:134:32: `$` is not defined
-│ 134 |                 ext.prefix = { ${meta.id} }
+Error conf/modules.config:139:32: `$` is not defined
+│ 139 |                 ext.prefix = { ${meta.id} }
 ╰     |                                ^
 
-Error conf/modules.config:172:32: `$` is not defined
-│ 172 |                 ext.prefix = { ${meta.id} }
+Error conf/modules.config:177:32: `$` is not defined
+│ 177 |                 ext.prefix = { ${meta.id} }
 ╰     |                                ^
 
-Error conf/modules.config:311:31: `$` is not defined
-│ 311 |                 ext.prefix ={ ${meta.id} }
+Error conf/modules.config:316:31: `$` is not defined
+│ 316 |                 ext.prefix ={ ${meta.id} }
 ╰     |                               ^
 
-Error conf/modules.config:327:31: `$` is not defined
-│ 327 |                 ext.prefix ={ ${meta.id} }
+Error conf/modules.config:332:31: `$` is not defined
+│ 332 |                 ext.prefix ={ ${meta.id} }
 ╰     |                               ^
 
-Error conf/modules.config:346:39: `$` is not defined
-│ 346 |                         ext.prefix ={ ${meta.id} }
+Error conf/modules.config:351:39: `$` is not defined
+│ 351 |                         ext.prefix ={ ${meta.id} }
 ╰     |                                       ^
 
 
-Error nextflow.config:303:5: Unexpected input: 'includeConfig'
-│ 303 |     includeConfig "${params.custom_config_base}/nfcore_custom.config"
+Error nextflow.config:304:5: Unexpected input: 'includeConfig'
+│ 304 |     includeConfig "${params.custom_config_base}/nfcore_custom.config"
 ╰     |     ^
 
 
 Nextflow linting complete!
- ❌ 13 files had 66 errors
- ✅ 50 files had no errors
+ ❌ 14 files had 52 errors
+ ✅ 49 files had no errors

@@ -67,19 +67,6 @@ Linting: modules/nf-core/checkqc/main.nf
 Linting: modules/nf-core/checkqc/tests/nextflow.config
 Linting: modules/nf-core/cellranger/mkfastq/main.nf
 Linting: modules/nf-core/cellranger/mkfastq/tests/nextflow.config
-Error main.nf:18:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/demultiplex/workflows/demultiplex.nf'
-│  18 | include { DEMULTIPLEX             } from './workflows/demultiplex'
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error main.nf:41:5: `DEMULTIPLEX` is not defined
-│  41 |     DEMULTIPLEX (
-╰     |     ^^^^^^^^^^^
-
-Error main.nf:46:22: `DEMULTIPLEX` is not defined
-│  46 |     multiqc_report = DEMULTIPLEX.out.multiqc_report // channel: /path/
-╰     |                      ^^^^^^^^^^^
-
-
 Warn  modules/local/checkqc_dir/main.nf:17:9: Variable was declared but not used
 │  17 |     def args = task.ext.args ?: ''
 ╰     |         ^^^^
@@ -394,44 +381,36 @@ Warn  subworkflows/local/singular_demultiplex/main.nf:77:68: Implicit closure pa
 ╰     |                                                                    ^^
 
 
-Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:32:5: Parameter was not used -- prefix with `_` to suppress warning
-│  32 |     monochrome_logs   // boolean: Do not use coloured log outputs
+Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:31:5: Parameter was not used -- prefix with `_` to suppress warning
+│  31 |     monochrome_logs // boolean: Do not use coloured log outputs
 ╰     |     ^^^^^^^^^^^^^^^
 
-Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:35:5: Parameter was not used -- prefix with `_` to suppress warning
-│  35 |     input             //  string: Path to input samplesheet
+Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:34:5: Parameter was not used -- prefix with `_` to suppress warning
+│  34 |     input //  string: Path to input samplesheet
 ╰     |     ^^^^^
 
-Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:42:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  42 |     ch_versions = Channel.empty()
-╰     |                   ^^^^^^^
-
-Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:67:144: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  67 | lect { "    https://doi.org/${it.trim().replace('https://doi.org/','')
-╰     |                               ^^
-
-Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:106:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 106 |         ch_samplesheet = Channel.fromList(samplesheetToList(params.inp
+Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:105:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 105 |         ch_samplesheet = Channel
 ╰     |                          ^^^^^^^
 
-Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:115:9: Variable was declared but not used
-│ 115 |         ch_flowcell_manifest = ch_samplesheet.map{ meta, samplesheet, 
+Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:114:9: Variable was declared but not used
+│ 114 |         ch_flowcell_manifest = ch_samplesheet
 ╰     |         ^^^^^^^^^^^^^^^^^^^^
 
-Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:115:52: Parameter was not used -- prefix with `_` to suppress warning
-│ 115 |         ch_flowcell_manifest = ch_samplesheet.map{ meta, samplesheet, 
-╰     |                                                    ^^^^
+Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:115:20: Parameter was not used -- prefix with `_` to suppress warning
+│ 115 |             .map { meta, samplesheet, flowcell, per_flowcell_manifest 
+╰     |                    ^^^^
 
-Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:115:58: Parameter was not used -- prefix with `_` to suppress warning
-│ 115 |         ch_flowcell_manifest = ch_samplesheet.map{ meta, samplesheet, 
-╰     |                                                          ^^^^^^^^^^^
+Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:115:26: Parameter was not used -- prefix with `_` to suppress warning
+│ 115 |             .map { meta, samplesheet, flowcell, per_flowcell_manifest 
+╰     |                          ^^^^^^^^^^^
 
-Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:115:71: Parameter was not used -- prefix with `_` to suppress warning
-│ 115 | sheet.map{ meta, samplesheet, flowcell, per_flowcell_manifest -> per_f
-╰     |                               ^^^^^^^^
+Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:115:39: Parameter was not used -- prefix with `_` to suppress warning
+│ 115 |             .map { meta, samplesheet, flowcell, per_flowcell_manifest 
+╰     |                                       ^^^^^^^^
 
 Warn  subworkflows/local/utils_nfcore_demultiplex_pipeline/main.nf:124:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 124 |         ch_samplesheet = Channel.fromList(samplesheetToList(params.inp
+│ 124 |         ch_samplesheet = Channel
 ╰     |                          ^^^^^^^
 
 
@@ -474,12 +453,137 @@ Warn  subworkflows/nf-core/fastq_contam_seqtk_kraken/main.nf:18:23: The use of `
 
 
 
-Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 101 | mYAML(version) }.unique().mix(Channel.of(workflowVersionToYAML()))
-╰     |                               ^^^^^^^
 
 
+Error workflows/demultiplex.nf:86:60: `AdapterRemover` is not defined
+│  86 |                 ["${item[0].id}${suffix}_no_adapters.csv", AdapterRemo
+╰     |                                                            ^^^^^^^^^^^
 
-ERROR ~ begin 27, end 28, length 27
+Error workflows/demultiplex.nf:120:55: `FormattingService` is not defined
+│ 120 |     ch_samplesheet.dump(tag: 'DEMULTIPLEX::inputs') { FormattingServic
+╰     |                                                       ^^^^^^^^^^^^^^^^
+
+Error workflows/demultiplex.nf:261:66: `FormattingService` is not defined
+│ 261 | PLEX::Demultiplexed Fastq") { FormattingService.prettyFormat(it) }
+╰     |                               ^^^^^^^^^^^^^^^^^
+
+Error workflows/demultiplex.nf:378:65: `FormattingService` is not defined
+│ 378 | .dump(tag: "multiqc_files") { FormattingService.prettyFormat(it) }
+╰     |                               ^^^^^^^^^^^^^^^^^
+
+Warn  workflows/demultiplex.nf:98:26: Parameter was not used -- prefix with `_` to suppress warning
+│  98 |             .map { meta, samplesheet, flowcell, lane, new_samplesheet 
+╰     |                          ^^^^^^^^^^^
+
+Warn  workflows/demultiplex.nf:110:53: Parameter was not used -- prefix with `_` to suppress warning
+│ 110 |             ch_samplesheet.map { meta, samplesheet, flowcell, lane -> 
+╰     |                                                     ^^^^^^^^
+
+Warn  workflows/demultiplex.nf:110:63: Parameter was not used -- prefix with `_` to suppress warning
+│ 110 |  meta, samplesheet, flowcell, lane -> [meta, samplesheet] },
+╰     |                               ^^^^
+
+Warn  workflows/demultiplex.nf:116:26: Parameter was not used -- prefix with `_` to suppress warning
+│ 116 |             .map { meta, samplesheet, flowcell, lane, samplesheet_form
+╰     |                          ^^^^^^^^^^^
+
+Warn  workflows/demultiplex.nf:120:86: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 120 | ump(tag: 'DEMULTIPLEX::inputs') { FormattingService.prettyFormat(it) }
+╰     |                                                                  ^^
+
+Warn  workflows/demultiplex.nf:126:48: Parameter was not used -- prefix with `_` to suppress warning
+│ 126 |         ch_flowcells = ch_samplesheet.branch { meta, samplesheet, flow
+╰     |                                                ^^^^
+
+Warn  workflows/demultiplex.nf:126:54: Parameter was not used -- prefix with `_` to suppress warning
+│ 126 |         ch_flowcells = ch_samplesheet.branch { meta, samplesheet, flow
+╰     |                                                      ^^^^^^^^^^^
+
+Warn  workflows/demultiplex.nf:126:77: Parameter was not used -- prefix with `_` to suppress warning
+│ 126 | lesheet.branch { meta, samplesheet, flowcell, per_flowcell_manifest ->
+╰     |                                               ^^^^^^^^^^^^^^^^^^^^^
+
+Warn  workflows/demultiplex.nf:138:49: Parameter was not used -- prefix with `_` to suppress warning
+│ 138 |             .map { meta, samplesheet, flowcell, per_flowcell_manifest 
+╰     |                                                 ^^^^^^^^^^^^^^^^^^^^^
+
+Warn  workflows/demultiplex.nf:141:23: Parameter was not used -- prefix with `_` to suppress warning
+│ 141 |             .branch { meta, samplesheet, flowcell ->
+╰     |                       ^^^^
+
+Warn  workflows/demultiplex.nf:141:29: Parameter was not used -- prefix with `_` to suppress warning
+│ 141 |             .branch { meta, samplesheet, flowcell ->
+╰     |                             ^^^^^^^^^^^
+
+Warn  workflows/demultiplex.nf:180:85: Parameter was not used -- prefix with `_` to suppress warning
+│ 180 | DEMULTIPLEX.out.metrics.map { meta, metrics ->
+╰     |                               ^^^^
+
+Warn  workflows/demultiplex.nf:190:83: Parameter was not used -- prefix with `_` to suppress warning
+│ 190 | DEMULTIPLEX.out.reports.map { meta, report ->
+╰     |                               ^^^^
+
+Warn  workflows/demultiplex.nf:193:81: Parameter was not used -- prefix with `_` to suppress warning
+│ 193 | L_DEMULTIPLEX.out.stats.map { meta, stats ->
+╰     |                               ^^^^
+
+Warn  workflows/demultiplex.nf:201:85: Parameter was not used -- prefix with `_` to suppress warning
+│ 201 | s = ch_multiqc_files.mix(RUNDIR_CHECKQC.out.report.map { meta, json ->
+╰     |                                                          ^^^^
+
+Warn  workflows/demultiplex.nf:212:20: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 212 |             .map { it[2] }
+╰     |                    ^^
+
+Warn  workflows/demultiplex.nf:214:21: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 214 |             .map { [it.fastq, it.read_structure] }
+╰     |                     ^^
+
+Warn  workflows/demultiplex.nf:214:31: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 214 |             .map { [it.fastq, it.read_structure] }
+╰     |                               ^^
+
+Warn  workflows/demultiplex.nf:218:93: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 218 | _FLOWCELL.out.untar.collect { it[1] }).toList()
+╰     |                               ^^
+
+Warn  workflows/demultiplex.nf:226:84: Parameter was not used -- prefix with `_` to suppress warning
+│ 226 | DEMULTIPLEX.out.metrics.map { meta, metrics ->
+╰     |                               ^^^^
+
+Warn  workflows/demultiplex.nf:236:88: Parameter was not used -- prefix with `_` to suppress warning
+│ 236 | DEMULTIPLEX.out.metrics.map { meta, metrics ->
+╰     |                               ^^^^
+
+Warn  workflows/demultiplex.nf:253:89: Parameter was not used -- prefix with `_` to suppress warning
+│ 253 | ULTIPLEX.out.qc_reports.map { meta, metrics ->
+╰     |                               ^^^^
+
+Warn  workflows/demultiplex.nf:261:97: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 261 | ULTIPLEX::Demultiplexed Fastq") { FormattingService.prettyFormat(it) }
+╰     |                                                                  ^^
+
+Warn  workflows/demultiplex.nf:272:70: Parameter was not used -- prefix with `_` to suppress warning
+│ 272 | ultiqc_files = ch_multiqc_files.mix(FASTP.out.json.map { meta, json ->
+╰     |                                                          ^^^^
+
+Warn  workflows/demultiplex.nf:282:69: Parameter was not used -- prefix with `_` to suppress warning
+│ 282 | _multiqc_files = ch_multiqc_files.mix(FALCO.out.txt.map { meta, txt ->
+╰     |                                                           ^^^^
+
+Warn  workflows/demultiplex.nf:299:57: Parameter was not used -- prefix with `_` to suppress warning
+│ 299 |             kraken_db = UNTAR_KRAKEN_DB.out.untar.map { meta, file -> 
+╰     |                                                         ^^^^
+
+Warn  workflows/demultiplex.nf:310:93: Parameter was not used -- prefix with `_` to suppress warning
+│ 310 | iqc_files.mix(FASTQ_CONTAM_SEQTK_KRAKEN.out.reports.map { meta, log ->
+╰     |                                                           ^^^^
+
+Warn  workflows/demultiplex.nf:378:96: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 378 | ct().dump(tag: "multiqc_files") { FormattingService.prettyFormat(it) }
+╰     |                                                                  ^^
 
 
+Nextflow linting complete!
+ ❌ 6 files had 54 errors
+ ✅ 62 files had no errors

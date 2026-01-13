@@ -1,4 +1,5 @@
 Linting Nextflow code..
+Linting: conf/igenomes_ignored.config
 Linting: conf/base.config
 Linting: conf/modules.config
 Linting: conf/test_full.config
@@ -22,21 +23,22 @@ Linting: subworkflows/nf-core/fastq_align_bowtie2/tests/nextflow.config
 Linting: subworkflows/nf-core/fastq_fastqc_umitools_trimgalore/main.nf
 Linting: subworkflows/nf-core/fastq_fastqc_umitools_trimgalore/tests/nextflow.config
 Linting: subworkflows/nf-core/fastq_align_chromap/main.nf
-Linting: subworkflows/nf-core/utils_nfvalidation_plugin/main.nf
 Linting: subworkflows/nf-core/fastq_align_bwa/main.nf
 Linting: subworkflows/nf-core/fastq_align_bwa/tests/nextflow.config
 Linting: subworkflows/nf-core/utils_nextflow_pipeline/main.nf
 Linting: subworkflows/nf-core/utils_nextflow_pipeline/tests/nextflow.config
 Linting: subworkflows/nf-core/bam_sort_stats_samtools/main.nf
+Linting: subworkflows/nf-core/utils_nfschema_plugin/main.nf
+Linting: subworkflows/nf-core/utils_nfschema_plugin/tests/nextflow.config
 Linting: subworkflows/nf-core/bam_markduplicates_picard/main.nf
 Linting: main.nf
+Linting: tests/nextflow.config
 Linting: modules/local/gtf2bed.nf
 Linting: modules/local/multiqc_custom_phantompeakqualtools.nf
 Linting: modules/local/star_align.nf
 Linting: modules/local/igv.nf
 Linting: modules/local/plot_homer_annotatepeaks.nf
 Linting: modules/local/bam_remove_orphans.nf
-Linting: modules/local/bedtools_genomecov.nf
 Linting: modules/local/deseq2_qc.nf
 Linting: modules/local/multiqc_custom_peaks.nf
 Linting: modules/local/bamtools_filter.nf
@@ -73,6 +75,7 @@ Linting: modules/nf-core/samtools/sort/tests/nextflow_cram.config
 Linting: modules/nf-core/samtools/stats/main.nf
 Linting: modules/nf-core/fastqc/main.nf
 Linting: modules/nf-core/multiqc/main.nf
+Linting: modules/nf-core/multiqc/tests/nextflow.config
 Linting: modules/nf-core/bwa/index/main.nf
 Linting: modules/nf-core/bwa/mem/main.nf
 Linting: modules/nf-core/custom/getchromsizes/main.nf
@@ -98,32 +101,17 @@ Linting: modules/nf-core/picard/markduplicates/main.nf
 Linting: modules/nf-core/picard/markduplicates/tests/nextflow.config
 Linting: modules/nf-core/picard/mergesamfiles/main.nf
 Linting: modules/nf-core/picard/collectmultiplemetrics/main.nf
+Linting: modules/nf-core/bedtools/genomecov/main.nf
+Linting: modules/nf-core/bedtools/genomecov/tests/nextflow.config
 Linting: modules/nf-core/phantompeakqualtools/main.nf
 Linting: modules/nf-core/khmer/uniquekmers/main.nf
-Error main.nf:38:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/chipseq/subworkflows/local/utils_nfcore_chipseq_pipeline/main.nf'
-│  38 | include { PIPELINE_INITIALISATION } from './subworkflows/local/utils_n
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error main.nf:39:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/chipseq/subworkflows/local/utils_nfcore_chipseq_pipeline/main.nf'
-│  39 | include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_n
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error main.nf:112:5: `PIPELINE_INITIALISATION` is not defined
-│ 112 |     PIPELINE_INITIALISATION (
-╰     |     ^^^^^^^^^^^^^^^^^^^^^^^
-
-Error main.nf:129:5: `PIPELINE_COMPLETION` is not defined
-│ 129 |     PIPELINE_COMPLETION (
-╰     |     ^^^^^^^^^^^^^^^^^^^
-
-Warn  main.nf:55:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  55 |     ch_versions = Channel.empty()
+Warn  main.nf:52:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  52 |     ch_versions = Channel.empty()
 ╰     |                   ^^^^^^^
 
-Warn  main.nf:77:16: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  77 |     ch_input = Channel.value(file(params.input, checkIfExists: true))
-╰     |                ^^^^^^^
-
+Warn  main.nf:74:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  74 |     ch_samplesheet = Channel.value(file(params.input, checkIfExists: t
+╰     |                      ^^^^^^^
 
 
 
@@ -140,6 +128,7 @@ Warn  modules/local/macs3_consensus.nf:37:46: Implicit closure parameter is depr
 Warn  modules/local/macs3_consensus.nf:42:25: Implicit closure parameter is deprecated, declare an explicit parameter instead
 │  42 |         ${peaks.collect{it.toString()}.sort().join(',').replaceAll("_p
 ╰     |                         ^^
+
 
 
 
@@ -181,10 +170,6 @@ Warn  modules/nf-core/custom/getchromsizes/main.nf:23:9: Variable was declared b
 
 
 
-Warn  modules/nf-core/fastqc/main.nf:27:48: Parameter was not used -- prefix with `_` to suppress warning
-│  27 |     def renamed_files = old_new_pairs.collect{ old_name, new_name -> n
-╰     |                                                ^^^^^^^^
-
 
 Warn  modules/nf-core/gffread/main.nf:26:103: Implicit closure parameter is deprecated, declare an explicit parameter instead
 │  26 | ', '-y' ].any { args.contains(it) } ) ? 'fasta' : 'gff3' )
@@ -215,19 +200,11 @@ Warn  modules/nf-core/macs3/callpeak/main.nf:56:9: Variable was declared but not
 ╰     |         ^^^^
 
 
-Error modules/nf-core/multiqc/main.nf:30:31: Unexpected input: '/'
-│  30 |     def logo = multiqc_logo ? /--cl-config 'custom_logo: "${multiqc_lo
-╰     |                               ^
 
 
 
 
 
-
-
-Warn  modules/nf-core/samtools/flagstat/main.nf:21:9: Variable was declared but not used
-│  21 |     def args = task.ext.args ?: ''
-╰     |         ^^^^
 
 
 Warn  modules/nf-core/samtools/idxstats/main.nf:21:9: Variable was declared but not used
@@ -337,7 +314,7 @@ Warn  subworkflows/local/bed_consensus_quantify_qc_bedtools_featurecounts_deseq2
 ╰     |                                                          ^^
 
 Warn  subworkflows/local/bed_consensus_quantify_qc_bedtools_featurecounts_deseq2.nf:93:13: Parameter was not used -- prefix with `_` to suppress warning
-│  93 |             antibody, meta, saf, bams ->
+│  93 |             antibody, meta, saf, bams, meta_single_end ->
 ╰     |             ^^^^^^^^
 
 Warn  subworkflows/local/bed_consensus_quantify_qc_bedtools_featurecounts_deseq2.nf:109:34: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
@@ -382,118 +359,126 @@ Warn  subworkflows/local/input_check.nf:16:37: Implicit closure parameter is dep
 ╰     |                                     ^^
 
 
-Error subworkflows/local/prepare_genome.nf:75:23: Incorrect number of call arguments, expected 2 but received 1
-│  75 |         ch_gtf      = GFFREAD ( [ [:], ch_gff ] ).gtf
-╰     |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Warn  subworkflows/local/prepare_genome.nf:45:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  45 |     ch_versions = Channel.empty()
+Warn  subworkflows/local/prepare_genome.nf:47:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  47 |     ch_versions = Channel.empty()
 ╰     |                   ^^^^^^^
 
-Warn  subworkflows/local/prepare_genome.nf:50:16: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  50 |     ch_fasta = Channel.empty()
+Warn  subworkflows/local/prepare_genome.nf:52:16: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  52 |     ch_fasta = Channel.empty()
 ╰     |                ^^^^^^^
 
-Warn  subworkflows/local/prepare_genome.nf:52:67: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  52 |      ch_fasta    = GUNZIP_FASTA ( [ [:], fasta ] ).gunzip.map{ it[1] }
-╰     |                                                                ^^
+Warn  subworkflows/local/prepare_genome.nf:54:63: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  54 |         ch_fasta    = GUNZIP_FASTA([[:], fasta]).gunzip.map { it[1] }
+╰     |                                                               ^^
 
-Warn  subworkflows/local/prepare_genome.nf:55:20: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  55 |         ch_fasta = Channel.value(file(fasta))
+Warn  subworkflows/local/prepare_genome.nf:58:20: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  58 |         ch_fasta = Channel.value(file(fasta, checkIfExists: true))
 ╰     |                    ^^^^^^^
 
-Warn  subworkflows/local/prepare_genome.nf:63:67: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  63 |          ch_gtf      = GUNZIP_GTF ( [ [:], gtf ] ).gunzip.map{ it[1] }
-╰     |                                                                ^^
+Warn  subworkflows/local/prepare_genome.nf:66:63: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  66 |             ch_gtf      = GUNZIP_GTF([[:], gtf]).gunzip.map { it[1] }
+╰     |                                                               ^^
 
-Warn  subworkflows/local/prepare_genome.nf:66:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  66 |             ch_gtf = Channel.value(file(gtf))
+Warn  subworkflows/local/prepare_genome.nf:69:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  69 |             ch_gtf = Channel.value(file(gtf, checkIfExists: true))
 ╰     |                      ^^^^^^^
 
-Warn  subworkflows/local/prepare_genome.nf:70:67: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  70 |          ch_gff      = GUNZIP_GFF ( [ [:], gff ] ).gunzip.map{ it[1] }
+Warn  subworkflows/local/prepare_genome.nf:73:90: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  73 | GUNZIP_GFF([[:], file(gff, checkIfExists: true)]).gunzip.map { it[1] }
 ╰     |                                                                ^^
 
-Warn  subworkflows/local/prepare_genome.nf:73:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  73 |             ch_gff = Channel.value(file(gff))
+Warn  subworkflows/local/prepare_genome.nf:76:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  76 |             ch_gff = Channel.value(file(gff, checkIfExists: true)).map
 ╰     |                      ^^^^^^^
 
-Warn  subworkflows/local/prepare_genome.nf:82:20: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  82 |     ch_blacklist = Channel.empty()
+Warn  subworkflows/local/prepare_genome.nf:76:81: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  76 | ff = Channel.value(file(gff, checkIfExists: true)).map { [ [:], it ] }
+╰     |                                                                 ^^
+
+Warn  subworkflows/local/prepare_genome.nf:79:53: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  79 |         ch_gtf      = GFFREAD(ch_gff, []).gtf.map { it[1] }
+╰     |                                                     ^^
+
+Warn  subworkflows/local/prepare_genome.nf:86:20: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  86 |     ch_blacklist = Channel.empty()
 ╰     |                    ^^^^^^^
 
-Warn  subworkflows/local/prepare_genome.nf:85:80: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  85 | lacklist = GUNZIP_BLACKLIST ( [ [:], blacklist ] ).gunzip.map{ it[1] }
+Warn  subworkflows/local/prepare_genome.nf:89:76: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  89 | ch_blacklist = GUNZIP_BLACKLIST([[:], blacklist]).gunzip.map { it[1] }
 ╰     |                                                                ^^
 
-Warn  subworkflows/local/prepare_genome.nf:88:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  88 |             ch_blacklist = Channel.value(file(blacklist))
+Warn  subworkflows/local/prepare_genome.nf:92:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  92 |             ch_blacklist = Channel.value(file(blacklist))
 ╰     |                            ^^^^^^^
 
-Warn  subworkflows/local/prepare_genome.nf:112:77: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 112 | h_gene_bed = GUNZIP_GENE_BED ( [ [:], gene_bed ] ).gunzip.map{ it[1] }
+Warn  subworkflows/local/prepare_genome.nf:116:73: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 116 |    ch_gene_bed = GUNZIP_GENE_BED([[:], gene_bed]).gunzip.map { it[1] }
 ╰     |                                                                ^^
 
-Warn  subworkflows/local/prepare_genome.nf:115:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 115 |             ch_gene_bed = Channel.value(file(gene_bed))
+Warn  subworkflows/local/prepare_genome.nf:119:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 119 |             ch_gene_bed = Channel.value(file(gene_bed))
 ╰     |                           ^^^^^^^
 
-Warn  subworkflows/local/prepare_genome.nf:122:50: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 122 |     CUSTOM_GETCHROMSIZES ( ch_fasta.map { [ [:], it ] } )
-╰     |                                                  ^^
+Warn  subworkflows/local/prepare_genome.nf:126:47: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 126 |     CUSTOM_GETCHROMSIZES(ch_fasta.map { [[:], it] })
+╰     |                                               ^^
 
-Warn  subworkflows/local/prepare_genome.nf:123:59: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 123 |     ch_chrom_sizes = CUSTOM_GETCHROMSIZES.out.sizes.map { it[1] }
+Warn  subworkflows/local/prepare_genome.nf:127:59: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 127 |     ch_chrom_sizes = CUSTOM_GETCHROMSIZES.out.sizes.map { it[1] }
 ╰     |                                                           ^^
 
-Warn  subworkflows/local/prepare_genome.nf:124:56: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 124 |     ch_fai         = CUSTOM_GETCHROMSIZES.out.fai.map{ it[1] }
-╰     |                                                        ^^
+Warn  subworkflows/local/prepare_genome.nf:128:57: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 128 |     ch_fai         = CUSTOM_GETCHROMSIZES.out.fai.map { it[1] }
+╰     |                                                         ^^
 
-Warn  subworkflows/local/prepare_genome.nf:130:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 130 |     ch_genome_filtered_bed = Channel.empty()
+Warn  subworkflows/local/prepare_genome.nf:134:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 134 |     ch_genome_filtered_bed = Channel.empty()
 ╰     |                              ^^^^^^^
 
-Warn  subworkflows/local/prepare_genome.nf:142:20: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 142 |     ch_bwa_index = Channel.empty()
+Warn  subworkflows/local/prepare_genome.nf:146:20: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 146 |     ch_bwa_index = Channel.empty()
 ╰     |                    ^^^^^^^
 
-Warn  subworkflows/local/prepare_genome.nf:152:62: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 152 | INDEX ( ch_fasta.map { [ [:], it ] } ).index
-╰     |                               ^^
+Warn  subworkflows/local/prepare_genome.nf:156:59: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 156 |             ch_bwa_index = BWA_INDEX(ch_fasta.map { [[:], it] }).index
+╰     |                                                           ^^
 
-Warn  subworkflows/local/prepare_genome.nf:160:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 160 |     ch_bowtie2_index = Channel.empty()
+Warn  subworkflows/local/prepare_genome.nf:164:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 164 |     ch_bowtie2_index = Channel.empty()
 ╰     |                        ^^^^^^^
 
-Warn  subworkflows/local/prepare_genome.nf:170:70: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 170 | BUILD ( ch_fasta.map { [ [:], it ] } ).index
+Warn  subworkflows/local/prepare_genome.nf:174:67: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 174 | E2_BUILD(ch_fasta.map { [[:], it] }).index
 ╰     |                               ^^
 
-Warn  subworkflows/local/prepare_genome.nf:178:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 178 |     ch_chromap_index = Channel.empty()
+Warn  subworkflows/local/prepare_genome.nf:182:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 182 |     ch_chromap_index = Channel.empty()
 ╰     |                        ^^^^^^^
 
-Warn  subworkflows/local/prepare_genome.nf:188:70: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 188 | INDEX ( ch_fasta.map { [ [:], it ] } ).index
+Warn  subworkflows/local/prepare_genome.nf:192:67: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 192 | AP_INDEX(ch_fasta.map { [[:], it] }).index
 ╰     |                               ^^
 
-Warn  subworkflows/local/prepare_genome.nf:196:21: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 196 |     ch_star_index = Channel.empty()
+Warn  subworkflows/local/prepare_genome.nf:200:21: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 200 |     ch_star_index = Channel.empty()
 ╰     |                     ^^^^^^^
 
-Warn  subworkflows/local/prepare_genome.nf:200:85: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 200 | ar_index = UNTAR_STAR_INDEX ( [ [:], star_index ] ).untar.map{ it[1] }
+Warn  subworkflows/local/prepare_genome.nf:204:81: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 204 | h_star_index = UNTAR_STAR_INDEX([[:], star_index]).untar.map { it[1] }
 ╰     |                                                                ^^
 
-Warn  subworkflows/local/prepare_genome.nf:203:33: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 203 |                 ch_star_index = Channel.value(file(star_index))
+Warn  subworkflows/local/prepare_genome.nf:207:33: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 207 |                 ch_star_index = Channel.value(file(star_index))
 ╰     |                                 ^^^^^^^
 
 
-Error subworkflows/local/utils_nfcore_chipseq_pipeline/main.nf:208:21: Unexpected input: 'doi_ref'
-│ 208 |         for (String doi_ref: manifest_doi) temp_doi_ref += "(doi: <a h
-╰     |                     ^
+Warn  subworkflows/local/utils_nfcore_chipseq_pipeline/main.nf:32:5: Parameter was not used -- prefix with `_` to suppress warning
+│  32 |     monochrome_logs   // boolean: Do not use coloured log outputs
+╰     |     ^^^^^^^^^^^^^^^
+
+Warn  subworkflows/local/utils_nfcore_chipseq_pipeline/main.nf:104:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 104 |     ch_samplesheet = Channel.fromList(samplesheetToList(input, "assets
+╰     |                      ^^^^^^^
 
 
 Warn  subworkflows/nf-core/bam_markduplicates_picard/main.nf:18:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
@@ -619,27 +604,8 @@ Warn  subworkflows/nf-core/fastq_fastqc_umitools_trimgalore/main.nf:104:26: Para
 ╰     |                          ^^^^^
 
 
-Error subworkflows/nf-core/utils_nextflow_pipeline/main.nf:111:14: Unexpected input: 'i'
-│ 111 |     for (int i = 0; i < n - 1; i++) {
-╰     |              ^
 
 
-Error subworkflows/nf-core/utils_nfcore_pipeline/main.nf:73:17: Unexpected input: 'doi_ref'
-│  73 |     for (String doi_ref: manifest_doi) temp_doi_ref += "  https://doi.
-╰     |                 ^
-
-
-Error workflows/chipseq.nf:18:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/chipseq/subworkflows/nf-core/utils_nfcore_pipeline/main.nf'
-│  18 | include { paramsSummaryMultiqc   } from '../subworkflows/nf-core/utils
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/chipseq.nf:19:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/chipseq/subworkflows/nf-core/utils_nfcore_pipeline/main.nf'
-│  19 | include { softwareVersionsToYAML } from '../subworkflows/nf-core/utils
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/chipseq.nf:20:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/chipseq/subworkflows/local/utils_nfcore_chipseq_pipeline/main.nf'
-│  20 | include { methodsDescriptionText } from '../subworkflows/local/utils_n
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Error workflows/chipseq.nf:65:1: Statements cannot be mixed with script declarations -- move statements into a process or workflow
 │  65 | ch_bamtools_filter_se_config = file(params.bamtools_filter_se_config)
@@ -692,53 +658,45 @@ Error workflows/chipseq.nf:80:1: Statements cannot be mixed with script declarat
 │  82 |     file(anno_readme).copyTo("${params.outdir}/genome/")
 ╰  83 | }
 
-Error workflows/chipseq.nf:279:9: `ch_bamtools_filter_se_config` is not defined
-│ 279 |         ch_bamtools_filter_se_config,
+Error workflows/chipseq.nf:278:9: `ch_bamtools_filter_se_config` is not defined
+│ 278 |         ch_bamtools_filter_se_config,
 ╰     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/chipseq.nf:280:9: `ch_bamtools_filter_pe_config` is not defined
-│ 280 |         ch_bamtools_filter_pe_config
+Error workflows/chipseq.nf:279:9: `ch_bamtools_filter_pe_config` is not defined
+│ 279 |         ch_bamtools_filter_pe_config
 ╰     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/chipseq.nf:340:13: `ch_spp_nsc_header` is not defined
-│ 340 |             ch_spp_nsc_header,
+Error workflows/chipseq.nf:339:13: `ch_spp_nsc_header` is not defined
+│ 339 |             ch_spp_nsc_header,
 ╰     |             ^^^^^^^^^^^^^^^^^
 
-Error workflows/chipseq.nf:341:13: `ch_spp_rsc_header` is not defined
-│ 341 |             ch_spp_rsc_header,
+Error workflows/chipseq.nf:340:13: `ch_spp_rsc_header` is not defined
+│ 340 |             ch_spp_rsc_header,
 ╰     |             ^^^^^^^^^^^^^^^^^
 
-Error workflows/chipseq.nf:342:13: `ch_spp_correlation_header` is not defined
-│ 342 |             ch_spp_correlation_header
+Error workflows/chipseq.nf:341:13: `ch_spp_correlation_header` is not defined
+│ 341 |             ch_spp_correlation_header
 ╰     |             ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/chipseq.nf:456:9: `ch_peak_count_header` is not defined
-│ 456 |         ch_peak_count_header,
+Error workflows/chipseq.nf:455:9: `ch_peak_count_header` is not defined
+│ 455 |         ch_peak_count_header,
 ╰     |         ^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/chipseq.nf:457:9: `ch_frip_score_header` is not defined
-│ 457 |         ch_frip_score_header,
+Error workflows/chipseq.nf:456:9: `ch_frip_score_header` is not defined
+│ 456 |         ch_frip_score_header,
 ╰     |         ^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/chipseq.nf:458:9: `ch_peak_annotation_header` is not defined
-│ 458 |         ch_peak_annotation_header,
+Error workflows/chipseq.nf:457:9: `ch_peak_annotation_header` is not defined
+│ 457 |         ch_peak_annotation_header,
 ╰     |         ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/chipseq.nf:487:13: `ch_deseq2_pca_header` is not defined
-│ 487 |             ch_deseq2_pca_header,
+Error workflows/chipseq.nf:491:13: `ch_deseq2_pca_header` is not defined
+│ 491 |             ch_deseq2_pca_header,
 ╰     |             ^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/chipseq.nf:488:13: `ch_deseq2_clustering_header` is not defined
-│ 488 |             ch_deseq2_clustering_header,
+Error workflows/chipseq.nf:492:13: `ch_deseq2_clustering_header` is not defined
+│ 492 |             ch_deseq2_clustering_header,
 ╰     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/chipseq.nf:520:5: `softwareVersionsToYAML` is not defined
-│ 520 |     softwareVersionsToYAML(ch_versions)
-╰     |     ^^^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/chipseq.nf:532:50: `paramsSummaryMultiqc` is not defined
-│ 532 |         ch_workflow_summary      = Channel.value(paramsSummaryMultiqc(
-╰     |                                                  ^^^^^^^^^^^^^^^^^^^^
 
 Warn  workflows/chipseq.nf:65:1: Variable was declared but not used
 │  65 | ch_bamtools_filter_se_config = file(params.bamtools_filter_se_config)
@@ -788,354 +746,289 @@ Warn  workflows/chipseq.nf:76:31: The use of `Channel` to access channel factori
 │  76 | ch_deseq2_clustering_header = Channel.value(file("$projectDir/assets/m
 ╰     |                               ^^^^^^^
 
-Warn  workflows/chipseq.nf:106:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 106 |     ch_multiqc_files = Channel.empty()
-╰     |                        ^^^^^^^
+Warn  workflows/chipseq.nf:136:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 136 |     ch_genome_bam        = Channel.empty()
+╰     |                            ^^^^^^^
 
 Warn  workflows/chipseq.nf:137:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 137 |     ch_genome_bam        = Channel.empty()
+│ 137 |     ch_genome_bam_index  = Channel.empty()
 ╰     |                            ^^^^^^^
 
 Warn  workflows/chipseq.nf:138:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 138 |     ch_genome_bam_index  = Channel.empty()
+│ 138 |     ch_samtools_stats    = Channel.empty()
 ╰     |                            ^^^^^^^
 
 Warn  workflows/chipseq.nf:139:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 139 |     ch_samtools_stats    = Channel.empty()
+│ 139 |     ch_samtools_flagstat = Channel.empty()
 ╰     |                            ^^^^^^^
 
 Warn  workflows/chipseq.nf:140:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 140 |     ch_samtools_flagstat = Channel.empty()
+│ 140 |     ch_samtools_idxstats = Channel.empty()
 ╰     |                            ^^^^^^^
 
-Warn  workflows/chipseq.nf:141:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 141 |     ch_samtools_idxstats = Channel.empty()
-╰     |                            ^^^^^^^
-
-Warn  workflows/chipseq.nf:149:28: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 149 |                     [ [:], it ]
+Warn  workflows/chipseq.nf:148:28: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 148 |                     [ [:], it ]
 ╰     |                            ^^
 
-Warn  workflows/chipseq.nf:171:28: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 171 |                     [ [:], it ]
+Warn  workflows/chipseq.nf:170:28: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 170 |                     [ [:], it ]
 ╰     |                            ^^
 
-Warn  workflows/chipseq.nf:191:28: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 191 |                     [ [:], it ]
+Warn  workflows/chipseq.nf:190:28: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 190 |                     [ [:], it ]
 ╰     |                            ^^
 
-Warn  workflows/chipseq.nf:215:32: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 215 |                         [ [:], it ]
+Warn  workflows/chipseq.nf:214:32: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 214 |                         [ [:], it ]
 ╰     |                                ^^
 
-Warn  workflows/chipseq.nf:221:9: Variable was declared but not used
-│ 221 |         ch_transcriptome_bam = ALIGN_STAR.out.bam_transcript
+Warn  workflows/chipseq.nf:220:9: Variable was declared but not used
+│ 220 |         ch_transcriptome_bam = ALIGN_STAR.out.bam_transcript
 ╰     |         ^^^^^^^^^^^^^^^^^^^^
 
-Warn  workflows/chipseq.nf:225:9: Variable was declared but not used
-│ 225 |         ch_star_multiqc      = ALIGN_STAR.out.log_final
+Warn  workflows/chipseq.nf:224:9: Variable was declared but not used
+│ 224 |         ch_star_multiqc      = ALIGN_STAR.out.log_final
 ╰     |         ^^^^^^^^^^^^^^^
 
-Warn  workflows/chipseq.nf:260:24: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 260 |                 [ [:], it ]
+Warn  workflows/chipseq.nf:259:24: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 259 |                 [ [:], it ]
 ╰     |                        ^^
 
-Warn  workflows/chipseq.nf:264:24: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 264 |                 [ [:], it ]
+Warn  workflows/chipseq.nf:263:24: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 263 |                 [ [:], it ]
 ╰     |                        ^^
 
-Warn  workflows/chipseq.nf:277:24: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 277 |                 [ [:], it ]
+Warn  workflows/chipseq.nf:276:24: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 276 |                 [ [:], it ]
 ╰     |                        ^^
 
-Warn  workflows/chipseq.nf:287:25: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 287 |     ch_preseq_multiqc = Channel.empty()
+Warn  workflows/chipseq.nf:286:25: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 286 |     ch_preseq_multiqc = Channel.empty()
 ╰     |                         ^^^^^^^
 
-Warn  workflows/chipseq.nf:299:47: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 299 |     ch_picardcollectmultiplemetrics_multiqc = Channel.empty()
+Warn  workflows/chipseq.nf:298:47: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 298 |     ch_picardcollectmultiplemetrics_multiqc = Channel.empty()
 ╰     |                                               ^^^^^^^
 
-Warn  workflows/chipseq.nf:306:23: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 306 |                     [ it[0], it[1], [] ]
+Warn  workflows/chipseq.nf:305:23: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 305 |                     [ it[0], it[1], [] ]
 ╰     |                       ^^
 
-Warn  workflows/chipseq.nf:306:30: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 306 |                     [ it[0], it[1], [] ]
+Warn  workflows/chipseq.nf:305:30: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 305 |                     [ it[0], it[1], [] ]
 ╰     |                              ^^
 
-Warn  workflows/chipseq.nf:310:28: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 310 |                     [ [:], it ]
+Warn  workflows/chipseq.nf:309:28: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 309 |                     [ [:], it ]
 ╰     |                            ^^
 
-Warn  workflows/chipseq.nf:314:28: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 314 |                     [ [:], it ]
+Warn  workflows/chipseq.nf:313:28: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 313 |                     [ [:], it ]
 ╰     |                            ^^
+
+Warn  workflows/chipseq.nf:323:59: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 323 |     ch_phantompeakqualtools_spp_multiqc                 = Channel.empt
+╰     |                                                           ^^^^^^^
 
 Warn  workflows/chipseq.nf:324:59: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 324 |     ch_phantompeakqualtools_spp_multiqc                 = Channel.empt
+│ 324 |     ch_multiqc_phantompeakqualtools_nsc_multiqc         = Channel.empt
 ╰     |                                                           ^^^^^^^
 
 Warn  workflows/chipseq.nf:325:59: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 325 |     ch_multiqc_phantompeakqualtools_nsc_multiqc         = Channel.empt
+│ 325 |     ch_multiqc_phantompeakqualtools_rsc_multiqc         = Channel.empt
 ╰     |                                                           ^^^^^^^
 
 Warn  workflows/chipseq.nf:326:59: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 326 |     ch_multiqc_phantompeakqualtools_rsc_multiqc         = Channel.empt
+│ 326 |     ch_multiqc_phantompeakqualtools_correlation_multiqc = Channel.empt
 ╰     |                                                           ^^^^^^^
 
-Warn  workflows/chipseq.nf:327:59: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 327 |     ch_multiqc_phantompeakqualtools_correlation_multiqc = Channel.empt
-╰     |                                                           ^^^^^^^
-
-Warn  workflows/chipseq.nf:359:39: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 359 |     ch_deeptoolsplotprofile_multiqc = Channel.empty()
+Warn  workflows/chipseq.nf:358:39: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 358 |     ch_deeptoolsplotprofile_multiqc = Channel.empty()
 ╰     |                                       ^^^^^^^
 
-Warn  workflows/chipseq.nf:416:43: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 416 |     ch_deeptoolsplotfingerprint_multiqc = Channel.empty()
+Warn  workflows/chipseq.nf:415:43: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 415 |     ch_deeptoolsplotfingerprint_multiqc = Channel.empty()
 ╰     |                                           ^^^^^^^
 
+Warn  workflows/chipseq.nf:427:41: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 427 |     ch_macs_gsize                     = Channel.empty()
+╰     |                                         ^^^^^^^
+
 Warn  workflows/chipseq.nf:428:41: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 428 |     ch_macs_gsize                     = Channel.empty()
+│ 428 |     ch_subreadfeaturecounts_multiqc   = Channel.empty()
 ╰     |                                         ^^^^^^^
 
-Warn  workflows/chipseq.nf:429:41: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 429 |     ch_subreadfeaturecounts_multiqc   = Channel.empty()
-╰     |                                         ^^^^^^^
-
-Warn  workflows/chipseq.nf:436:59: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 436 |         ch_macs_gsize = KHMER_UNIQUEKMERS.out.kmers.map { it.text.trim
+Warn  workflows/chipseq.nf:435:59: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 435 |         ch_macs_gsize = KHMER_UNIQUEKMERS.out.kmers.map { it.text.trim
 ╰     |                                                           ^^
 
-Warn  workflows/chipseq.nf:442:25: Parameter was not used -- prefix with `_` to suppress warning
-│ 442 |             meta, bams, bais ->
+Warn  workflows/chipseq.nf:441:25: Parameter was not used -- prefix with `_` to suppress warning
+│ 441 |             meta, bams, bais ->
 ╰     |                         ^^^^
 
+Warn  workflows/chipseq.nf:467:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 467 |     ch_macs3_consensus_bed_lib   = Channel.empty()
+╰     |                                    ^^^^^^^
+
 Warn  workflows/chipseq.nf:468:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 468 |     ch_macs3_consensus_bed_lib   = Channel.empty()
+│ 468 |     ch_macs3_consensus_txt_lib   = Channel.empty()
 ╰     |                                    ^^^^^^^
 
 Warn  workflows/chipseq.nf:469:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 469 |     ch_macs3_consensus_txt_lib   = Channel.empty()
+│ 469 |     ch_deseq2_pca_multiqc        = Channel.empty()
 ╰     |                                    ^^^^^^^
 
 Warn  workflows/chipseq.nf:470:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 470 |     ch_deseq2_pca_multiqc        = Channel.empty()
+│ 470 |     ch_deseq2_clustering_multiqc = Channel.empty()
 ╰     |                                    ^^^^^^^
 
-Warn  workflows/chipseq.nf:471:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 471 |     ch_deseq2_clustering_multiqc = Channel.empty()
-╰     |                                    ^^^^^^^
-
-Warn  workflows/chipseq.nf:476:31: Parameter was not used -- prefix with `_` to suppress warning
-│ 476 |                 meta, ip_bam, control_bam ->
+Warn  workflows/chipseq.nf:475:31: Parameter was not used -- prefix with `_` to suppress warning
+│ 475 |                 meta, ip_bam, control_bam ->
 ╰     |                               ^^^^^^^^^^^
 
-Warn  workflows/chipseq.nf:509:66: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 509 | TOOLS_UCSC.out.bigwig.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:513:66: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 513 | TOOLS_UCSC.out.bigwig.collect{it[1]}.ifEmpty([]),
 ╰     |                               ^^
 
-Warn  workflows/chipseq.nf:510:70: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 510 | MACS3_HOMER.out.peaks.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:514:70: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 514 | MACS3_HOMER.out.peaks.collect{it[1]}.ifEmpty([]),
 ╰     |                               ^^
 
-Warn  workflows/chipseq.nf:511:48: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 511 |             ch_macs3_consensus_bed_lib.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:515:48: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 515 |             ch_macs3_consensus_bed_lib.collect{it[1]}.ifEmpty([]),
 ╰     |                                                ^^
 
-Warn  workflows/chipseq.nf:512:48: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 512 |             ch_macs3_consensus_txt_lib.collect{it[1]}.ifEmpty([])
+Warn  workflows/chipseq.nf:516:48: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 516 |             ch_macs3_consensus_txt_lib.collect{it[1]}.ifEmpty([])
 ╰     |                                                ^^
 
-Warn  workflows/chipseq.nf:528:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 528 |         ch_multiqc_config        = Channel.fromPath("$projectDir/asset
+Warn  workflows/chipseq.nf:524:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 524 |     def topic_versions = Channel.topic("versions")
+╰     |                          ^^^^^^^
+
+Warn  workflows/chipseq.nf:553:25: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 553 |     ch_multiqc_report = Channel.empty()
+╰     |                         ^^^^^^^
+
+Warn  workflows/chipseq.nf:556:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 556 |         ch_multiqc_config        = Channel.fromPath("$projectDir/asset
 ╰     |                                    ^^^^^^^
 
-Warn  workflows/chipseq.nf:529:60: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 529 |         ch_multiqc_custom_config = params.multiqc_config ? Channel.fro
+Warn  workflows/chipseq.nf:557:60: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 557 |         ch_multiqc_custom_config = params.multiqc_config ? Channel.fro
 ╰     |                                                            ^^^^^^^
 
-Warn  workflows/chipseq.nf:529:103: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 529 | qc_config ? Channel.fromPath( params.multiqc_config ): Channel.empty()
+Warn  workflows/chipseq.nf:557:103: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 557 | qc_config ? Channel.fromPath( params.multiqc_config ): Channel.empty()
 ╰     |                                                        ^^^^^^^
 
-Warn  workflows/chipseq.nf:530:60: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 530 |         ch_multiqc_logo          = params.multiqc_logo   ? Channel.fro
+Warn  workflows/chipseq.nf:558:60: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 558 |         ch_multiqc_logo          = params.multiqc_logo   ? Channel.fro
 ╰     |                                                            ^^^^^^^
 
-Warn  workflows/chipseq.nf:530:103: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 530 | qc_logo   ? Channel.fromPath( params.multiqc_logo )  : Channel.empty()
+Warn  workflows/chipseq.nf:558:103: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 558 | qc_logo   ? Channel.fromPath( params.multiqc_logo )  : Channel.empty()
 ╰     |                                                        ^^^^^^^
 
-Warn  workflows/chipseq.nf:532:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 532 |         ch_workflow_summary      = Channel.value(paramsSummaryMultiqc(
+Warn  workflows/chipseq.nf:560:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 560 |         ch_workflow_summary      = Channel.value(paramsSummaryMultiqc(
 ╰     |                                    ^^^^^^^
 
-Warn  workflows/chipseq.nf:542:69: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 542 | GALORE.out.fastqc_zip.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:570:69: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 570 | GALORE.out.fastqc_zip.collect{it[1]}.ifEmpty([]),
 ╰     |                               ^^
 
-Warn  workflows/chipseq.nf:543:67: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 543 | IMGALORE.out.trim_zip.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:571:67: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 571 | IMGALORE.out.trim_zip.collect{it[1]}.ifEmpty([]),
 ╰     |                               ^^
 
-Warn  workflows/chipseq.nf:544:67: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 544 | IMGALORE.out.trim_log.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:572:67: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 572 | IMGALORE.out.trim_log.collect{it[1]}.ifEmpty([]),
 ╰     |                               ^^
 
-Warn  workflows/chipseq.nf:546:39: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 546 |             ch_samtools_stats.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:574:39: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 574 |             ch_samtools_stats.collect{it[1]}.ifEmpty([]),
 ╰     |                                       ^^
 
-Warn  workflows/chipseq.nf:547:42: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 547 |             ch_samtools_flagstat.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:575:42: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 575 |             ch_samtools_flagstat.collect{it[1]}.ifEmpty([]),
 ╰     |                                          ^^
 
-Warn  workflows/chipseq.nf:548:42: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 548 |             ch_samtools_idxstats.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:576:42: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 576 |             ch_samtools_idxstats.collect{it[1]}.ifEmpty([]),
 ╰     |                                          ^^
 
-Warn  workflows/chipseq.nf:550:57: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 550 |             BAM_MARKDUPLICATES_PICARD.out.stats.collect{it[1]}.ifEmpty
+Warn  workflows/chipseq.nf:578:57: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 578 |             BAM_MARKDUPLICATES_PICARD.out.stats.collect{it[1]}.ifEmpty
 ╰     |                                                         ^^
 
-Warn  workflows/chipseq.nf:551:60: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 551 |             BAM_MARKDUPLICATES_PICARD.out.flagstat.collect{it[1]}.ifEm
+Warn  workflows/chipseq.nf:579:60: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 579 |             BAM_MARKDUPLICATES_PICARD.out.flagstat.collect{it[1]}.ifEm
 ╰     |                                                            ^^
 
-Warn  workflows/chipseq.nf:552:60: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 552 |             BAM_MARKDUPLICATES_PICARD.out.idxstats.collect{it[1]}.ifEm
+Warn  workflows/chipseq.nf:580:60: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 580 |             BAM_MARKDUPLICATES_PICARD.out.idxstats.collect{it[1]}.ifEm
 ╰     |                                                            ^^
 
-Warn  workflows/chipseq.nf:553:59: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 553 |             BAM_MARKDUPLICATES_PICARD.out.metrics.collect{it[1]}.ifEmp
+Warn  workflows/chipseq.nf:581:59: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 581 |             BAM_MARKDUPLICATES_PICARD.out.metrics.collect{it[1]}.ifEmp
 ╰     |                                                           ^^
 
-Warn  workflows/chipseq.nf:555:51: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 555 |             BAM_FILTER_BAMTOOLS.out.stats.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:583:51: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 583 |             BAM_FILTER_BAMTOOLS.out.stats.collect{it[1]}.ifEmpty([]),
 ╰     |                                                   ^^
 
-Warn  workflows/chipseq.nf:556:54: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 556 |             BAM_FILTER_BAMTOOLS.out.flagstat.collect{it[1]}.ifEmpty([]
+Warn  workflows/chipseq.nf:584:54: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 584 |             BAM_FILTER_BAMTOOLS.out.flagstat.collect{it[1]}.ifEmpty([]
 ╰     |                                                      ^^
 
-Warn  workflows/chipseq.nf:557:54: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 557 |             BAM_FILTER_BAMTOOLS.out.idxstats.collect{it[1]}.ifEmpty([]
+Warn  workflows/chipseq.nf:585:54: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 585 |             BAM_FILTER_BAMTOOLS.out.idxstats.collect{it[1]}.ifEmpty([]
 ╰     |                                                      ^^
 
-Warn  workflows/chipseq.nf:558:61: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 558 | ltiplemetrics_multiqc.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:586:61: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 586 | ltiplemetrics_multiqc.collect{it[1]}.ifEmpty([]),
 ╰     |                               ^^
 
-Warn  workflows/chipseq.nf:560:39: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 560 |             ch_preseq_multiqc.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:588:39: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 588 |             ch_preseq_multiqc.collect{it[1]}.ifEmpty([]),
 ╰     |                                       ^^
 
-Warn  workflows/chipseq.nf:562:53: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 562 |             ch_deeptoolsplotprofile_multiqc.collect{it[1]}.ifEmpty([])
+Warn  workflows/chipseq.nf:590:53: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 590 |             ch_deeptoolsplotprofile_multiqc.collect{it[1]}.ifEmpty([])
 ╰     |                                                     ^^
 
-Warn  workflows/chipseq.nf:563:57: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 563 |             ch_deeptoolsplotfingerprint_multiqc.collect{it[1]}.ifEmpty
+Warn  workflows/chipseq.nf:591:57: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 591 |             ch_deeptoolsplotfingerprint_multiqc.collect{it[1]}.ifEmpty
 ╰     |                                                         ^^
 
-Warn  workflows/chipseq.nf:565:57: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 565 |             ch_phantompeakqualtools_spp_multiqc.collect{it[1]}.ifEmpty
+Warn  workflows/chipseq.nf:593:57: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 593 |             ch_phantompeakqualtools_spp_multiqc.collect{it[1]}.ifEmpty
 ╰     |                                                         ^^
 
-Warn  workflows/chipseq.nf:566:65: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 566 | qualtools_nsc_multiqc.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:594:65: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 594 | qualtools_nsc_multiqc.collect{it[1]}.ifEmpty([]),
 ╰     |                               ^^
 
-Warn  workflows/chipseq.nf:567:65: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 567 | qualtools_rsc_multiqc.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:595:65: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 595 | qualtools_rsc_multiqc.collect{it[1]}.ifEmpty([]),
 ╰     |                               ^^
 
-Warn  workflows/chipseq.nf:568:73: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 568 | s_correlation_multiqc.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:596:73: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 596 | s_correlation_multiqc.collect{it[1]}.ifEmpty([]),
 ╰     |                               ^^
 
-Warn  workflows/chipseq.nf:570:77: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 570 | OMER.out.frip_multiqc.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:598:77: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 598 | OMER.out.frip_multiqc.collect{it[1]}.ifEmpty([]),
 ╰     |                               ^^
 
-Warn  workflows/chipseq.nf:571:83: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 571 | ut.peak_count_multiqc.collect{it[1]}.ifEmpty([]),
+Warn  workflows/chipseq.nf:599:83: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 599 | ut.peak_count_multiqc.collect{it[1]}.ifEmpty([]),
 ╰     |                               ^^
 
-Warn  workflows/chipseq.nf:573:53: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 573 |             ch_subreadfeaturecounts_multiqc.collect{it[1]}.ifEmpty([])
+Warn  workflows/chipseq.nf:601:53: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 601 |             ch_subreadfeaturecounts_multiqc.collect{it[1]}.ifEmpty([])
 ╰     |                                                     ^^
-
-
-Error conf/base.config:13:16: `check_max` is not defined
-│  13 |     cpus   = { check_max( 1    * task.attempt, 'cpus'   ) }
-╰     |                ^^^^^^^^^
-
-Error conf/base.config:14:16: `check_max` is not defined
-│  14 |     memory = { check_max( 6.GB * task.attempt, 'memory' ) }
-╰     |                ^^^^^^^^^
-
-Error conf/base.config:15:16: `check_max` is not defined
-│  15 |     time   = { check_max( 4.h  * task.attempt, 'time'   ) }
-╰     |                ^^^^^^^^^
-
-Error conf/base.config:28:20: `check_max` is not defined
-│  28 |         cpus   = { check_max( 1                  , 'cpus'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:29:20: `check_max` is not defined
-│  29 |         memory = { check_max( 6.GB * task.attempt, 'memory'  ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:30:20: `check_max` is not defined
-│  30 |         time   = { check_max( 4.h  * task.attempt, 'time'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:33:20: `check_max` is not defined
-│  33 |         cpus   = { check_max( 2     * task.attempt, 'cpus'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:34:20: `check_max` is not defined
-│  34 |         memory = { check_max( 12.GB * task.attempt, 'memory'  ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:35:20: `check_max` is not defined
-│  35 |         time   = { check_max( 4.h   * task.attempt, 'time'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:38:20: `check_max` is not defined
-│  38 |         cpus   = { check_max( 6     * task.attempt, 'cpus'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:39:20: `check_max` is not defined
-│  39 |         memory = { check_max( 36.GB * task.attempt, 'memory'  ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:40:20: `check_max` is not defined
-│  40 |         time   = { check_max( 8.h   * task.attempt, 'time'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:43:20: `check_max` is not defined
-│  43 |         cpus   = { check_max( 12    * task.attempt, 'cpus'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:44:20: `check_max` is not defined
-│  44 |         memory = { check_max( 72.GB * task.attempt, 'memory'  ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:45:20: `check_max` is not defined
-│  45 |         time   = { check_max( 16.h  * task.attempt, 'time'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:48:20: `check_max` is not defined
-│  48 |         time   = { check_max( 20.h  * task.attempt, 'time'    ) }
-╰     |                    ^^^^^^^^^
-
-Error conf/base.config:51:20: `check_max` is not defined
-│  51 |         memory = { check_max( 200.GB * task.attempt, 'memory' ) }
-╰     |                    ^^^^^^^^^
 
 
 Error conf/modules.config:112:1: If statements cannot be mixed with config statements
@@ -1186,79 +1079,74 @@ Error conf/modules.config:277:1: If statements cannot be mixed with config state
 │ 278 |     process {
 ╰ 279 |         withName: '.*:ALIGN_STAR:STAR_ALIGN' {
 
-Error conf/modules.config:482:1: If statements cannot be mixed with config statements
-│ 480 | }
-│ 481 | 
-│ 482 | if (!params.skip_picard_metrics) {
+Error conf/modules.config:491:1: If statements cannot be mixed with config statements
+│ 489 | }
+│ 490 | 
+│ 491 | if (!params.skip_picard_metrics) {
 │     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-│ 483 |     process {
-╰ 484 |         withName: 'PICARD_COLLECTMULTIPLEMETRICS' {
+│ 492 |     process {
+╰ 493 |         withName: 'PICARD_COLLECTMULTIPLEMETRICS' {
 
-Error conf/modules.config:503:1: If statements cannot be mixed with config statements
-│ 501 | }
-│ 502 | 
-│ 503 | if (!params.skip_preseq) {
+Error conf/modules.config:512:1: If statements cannot be mixed with config statements
+│ 510 | }
+│ 511 | 
+│ 512 | if (!params.skip_preseq) {
 │     | ^^^^^^^^^^^^^^^^^^^^^^^^^^
-│ 504 |     process {
-╰ 505 |         withName: 'PRESEQ_LCEXTRAP' {
+│ 513 |     process {
+╰ 514 |         withName: 'PRESEQ_LCEXTRAP' {
 
-Error conf/modules.config:517:1: If statements cannot be mixed with config statements
-│ 515 | }
-│ 516 | 
-│ 517 | if (!params.skip_plot_profile) {
+Error conf/modules.config:526:1: If statements cannot be mixed with config statements
+│ 524 | }
+│ 525 | 
+│ 526 | if (!params.skip_plot_profile) {
 │     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-│ 518 |     process {
-╰ 519 |         withName: 'DEEPTOOLS_COMPUTEMATRIX' {
+│ 527 |     process {
+╰ 528 |         withName: 'DEEPTOOLS_COMPUTEMATRIX' {
 
-Error conf/modules.config:549:1: If statements cannot be mixed with config statements
-│ 547 | }
-│ 548 | 
-│ 549 | if (!params.skip_plot_fingerprint) {
+Error conf/modules.config:558:1: If statements cannot be mixed with config statements
+│ 556 | }
+│ 557 | 
+│ 558 | if (!params.skip_plot_fingerprint) {
 │     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-│ 550 |     process {
-╰ 551 |         withName: 'DEEPTOOLS_PLOTFINGERPRINT' {
+│ 559 |     process {
+╰ 560 |         withName: 'DEEPTOOLS_PLOTFINGERPRINT' {
 
-Error conf/modules.config:601:1: If statements cannot be mixed with config statements
-│ 599 | }
-│ 600 | 
-│ 601 | if (!params.skip_peak_annotation) {
+Error conf/modules.config:610:1: If statements cannot be mixed with config statements
+│ 608 | }
+│ 609 | 
+│ 610 | if (!params.skip_peak_annotation) {
 │     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-│ 602 |     process {
-╰ 603 |         withName: '.*:BAM_PEAKS_CALL_QC_ANNOTATE_MACS3_HOMER:HOMER_ANN
+│ 611 |     process {
+╰ 612 |         withName: '.*:BAM_PEAKS_CALL_QC_ANNOTATE_MACS3_HOMER:HOMER_ANN
 
-Error conf/modules.config:638:1: If statements cannot be mixed with config statements
-│ 636 | }
-│ 637 | 
-│ 638 | if (!params.skip_consensus_peaks) {
+Error conf/modules.config:647:1: If statements cannot be mixed with config statements
+│ 645 | }
+│ 646 | 
+│ 647 | if (!params.skip_consensus_peaks) {
 │     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-│ 639 |     process {
-╰ 640 |         withName: 'MACS3_CONSENSUS' {
+│ 648 |     process {
+╰ 649 |         withName: 'MACS3_CONSENSUS' {
 
-Error conf/modules.config:705:1: If statements cannot be mixed with config statements
-│ 703 | }
-│ 704 | 
-│ 705 | if (!params.skip_igv) {
+Error conf/modules.config:714:1: If statements cannot be mixed with config statements
+│ 712 | }
+│ 713 | 
+│ 714 | if (!params.skip_igv) {
 │     | ^^^^^^^^^^^^^^^^^^^^^^^
-│ 706 |     process {
-╰ 707 |         withName: 'IGV' {
+│ 715 |     process {
+╰ 716 |         withName: 'IGV' {
 
-Error conf/modules.config:724:1: If statements cannot be mixed with config statements
-│ 731 |                 saveAs: { filename -> filename.equals('versions.yml') 
-│ 732 |             ]
-│ 733 |         }
-│ 734 |     }
-╰ 735 | }
+Error conf/modules.config:733:1: If statements cannot be mixed with config statements
+│ 740 |                 saveAs: { filename -> filename.equals('versions.yml') 
+│ 741 |             ]
+│ 742 |         }
+│ 743 |     }
+╰ 744 | }
 
 Warn  conf/modules.config:375:77: Implicit closure parameter is deprecated, declare an explicit parameter instead
 │ 375 | ms.save_align_intermeds) ? "${it}" : null }
 ╰     |                               ^^
 
 
-Error nextflow.config:118:5: Unexpected input: 'includeConfig'
-│ 118 |     includeConfig "${params.custom_config_base}/nfcore_custom.config"
-╰     |     ^
-
-
 Nextflow linting complete!
- ❌ 12 files had 79 errors
- ✅ 89 files had no errors
+ ❌ 4 files had 47 errors
+ ✅ 102 files had no errors

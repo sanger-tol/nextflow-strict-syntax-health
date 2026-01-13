@@ -28,27 +28,6 @@ Linting: modules/nf-core/multiqc/main.nf
 Linting: modules/nf-core/multiqc/tests/nextflow.config
 Linting: modules/nf-core/bbmap/repair/main.nf
 Linting: modules/nf-core/bbmap/repair/tests/nextflow.config
-Error main.nf:19:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/fastqrepair/subworkflows/local/utils_nfcore_fastqrepair_pipeline/main.nf'
-│  19 | include { PIPELINE_INITIALISATION } from './subworkflows/local/utils_n
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error main.nf:20:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/fastqrepair/subworkflows/local/utils_nfcore_fastqrepair_pipeline/main.nf'
-│  20 | include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_n
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error main.nf:58:5: `PIPELINE_INITIALISATION` is not defined
-│  58 |     PIPELINE_INITIALISATION (
-╰     |     ^^^^^^^^^^^^^^^^^^^^^^^
-
-Error main.nf:71:9: `PIPELINE_INITIALISATION` is not defined
-│  71 |         PIPELINE_INITIALISATION.out.samplesheet
-╰     |         ^^^^^^^^^^^^^^^^^^^^^^^
-
-Error main.nf:76:5: `PIPELINE_COMPLETION` is not defined
-│  76 |     PIPELINE_COMPLETION (
-╰     |     ^^^^^^^^^^^^^^^^^^^
-
-
 
 
 
@@ -90,9 +69,21 @@ Warn  subworkflows/local/fastq_repair_wipertools/main.nf:68:24: The use of `Chan
 ╰     |                        ^^^^^^^
 
 
-Error subworkflows/local/utils_nfcore_fastqrepair_pipeline/main.nf:187:30: Unexpected input: 'gis'
-│ 187 |         try (GZIPInputStream gis = new GZIPInputStream(Files.newInputS
-╰     |                              ^
+Warn  subworkflows/local/utils_nfcore_fastqrepair_pipeline/main.nf:31:5: Parameter was not used -- prefix with `_` to suppress warning
+│  31 |     monochrome_logs   // boolean: Do not use coloured log outputs
+╰     |     ^^^^^^^^^^^^^^^
+
+Warn  subworkflows/local/utils_nfcore_fastqrepair_pipeline/main.nf:34:5: Parameter was not used -- prefix with `_` to suppress warning
+│  34 |     input             //  string: Path to input samplesheet
+╰     |     ^^^^^
+
+Warn  subworkflows/local/utils_nfcore_fastqrepair_pipeline/main.nf:37:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  37 |     ch_versions = Channel.empty()
+╰     |                   ^^^^^^^
+
+Warn  subworkflows/local/utils_nfcore_fastqrepair_pipeline/main.nf:69:5: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  69 |     Channel
+╰     |     ^^^^^^^
 
 
 
@@ -100,46 +91,6 @@ Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98: The use of `Cha
 │ 101 | mYAML(version) }.unique().mix(Channel.of(workflowVersionToYAML()))
 ╰     |                               ^^^^^^^
 
-
-Error workflows/fastqrepair.nf:14:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/fastqrepair/subworkflows/local/utils_nfcore_fastqrepair_pipeline/main.nf'
-│  14 | include { methodsDescriptionText  } from '../subworkflows/local/utils_
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/fastqrepair.nf:15:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/fastqrepair/subworkflows/local/utils_nfcore_fastqrepair_pipeline/main.nf'
-│  15 | include { isFastqFileEmpty        } from '../subworkflows/local/utils_
-╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Error workflows/fastqrepair.nf:51:39: `isFastqFileEmpty` is not defined
-│  51 |         ? fileList instanceof List ? !isFastqFileEmpty(fileList[0]) : 
-╰     |                                       ^^^^^^^^^^^^^^^^
-
-Error workflows/fastqrepair.nf:51:72: `isFastqFileEmpty` is not defined
-│  51 | astqFileEmpty(fileList[0]) : !isFastqFileEmpty(fileList)
-╰     |                               ^^^^^^^^^^^^^^^^
-
-Error workflows/fastqrepair.nf:52:12: `isFastqFileEmpty` is not defined
-│  52 |         : !isFastqFileEmpty(fileList[0]) && !isFastqFileEmpty(fileList
-╰     |            ^^^^^^^^^^^^^^^^
-
-Error workflows/fastqrepair.nf:52:46: `isFastqFileEmpty` is not defined
-│  52 |         : !isFastqFileEmpty(fileList[0]) && !isFastqFileEmpty(fileList
-╰     |                                              ^^^^^^^^^^^^^^^^
-
-Error workflows/fastqrepair.nf:58:102: `meta` is not defined
-│  58 | es found after GZRT. Skipping the rest of the pipeline for ${meta.id}"
-╰     |                                                              ^^^^
-
-Error workflows/fastqrepair.nf:62:32: `_` is not allowed as an identifier because it is reserved for future use
-│  62 |     ch_samplesheet.map { meta, _ -> meta.id }
-╰     |                                ^
-
-Error workflows/fastqrepair.nf:67:36: `_` is not allowed as an identifier because it is reserved for future use
-│  67 |     ch_tobewiped_fastq.map { meta, _ -> meta.id }
-╰     |                                    ^
-
-Error workflows/fastqrepair.nf:149:9: `methodsDescriptionText` is not defined
-│ 149 |         methodsDescriptionText(ch_multiqc_custom_methods_description))
-╰     |         ^^^^^^^^^^^^^^^^^^^^^^
 
 Warn  workflows/fastqrepair.nf:29:16: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 │  29 |     ch_final = Channel.empty()      // channel: repaired fastq files
@@ -214,47 +165,47 @@ Warn  workflows/fastqrepair.nf:148:45: The use of `Channel` to access channel fa
 ╰     |                                             ^^^^^^^
 
 
-Error nextflow.config:265:47: `manifest` is not defined
-│ 265 |         command             = "nextflow run ${manifest.name} -profile 
-╰     |                                               ^^^^^^^^
+Error nextflow.config:270:35: `manifest` is not defined
+│ 270 |         command = "nextflow run ${manifest.name} -profile <docker/sing
+╰     |                                   ^^^^^^^^
 
-Error nextflow.config:275:15: `manifest` is not defined
-│ 275 | \033[0;35m  ${manifest.name} ${manifest.version}\033[0m
+Error nextflow.config:280:15: `manifest` is not defined
+│ 280 | \033[0;35m  ${manifest.name} ${manifest.version}\033[0m
 ╰     |               ^^^^^^^^
 
-Error nextflow.config:275:32: `manifest` is not defined
-│ 275 | \033[0;35m  ${manifest.name} ${manifest.version}\033[0m
+Error nextflow.config:280:32: `manifest` is not defined
+│ 280 | \033[0;35m  ${manifest.name} ${manifest.version}\033[0m
 ╰     |                                ^^^^^^^^
 
-Error nextflow.config:278:36: `manifest` is not defined
-│ 278 |         afterText           = """${manifest.doi ? "* The pipeline\n" :
-╰     |                                    ^^^^^^^^
-
-Error nextflow.config:278:77: `manifest` is not defined
-│ 278 | i ? "* The pipeline\n" : ""}${manifest.doi.tokenize(",").collect { "  
-╰     |                               ^^^^^^^^
-
-Error nextflow.config:278:194: `manifest` is not defined
-│ 278 | i.org/', '')}" }.join("\n")}${manifest.doi ? "\n" : ""}
-╰     |                               ^^^^^^^^
-
 Error nextflow.config:283:26: `manifest` is not defined
-│ 283 |     https://github.com/${manifest.name}/blob/master/CITATIONS.md
+│ 283 |         afterText = """${manifest.doi ? "* The pipeline\n" : ""}${mani
 ╰     |                          ^^^^^^^^
 
-Error nextflow.config:287:22: `validation` is not defined
-│ 287 |         beforeText = validation.help.beforeText
+Error nextflow.config:283:67: `manifest` is not defined
+│ 283 | i ? "* The pipeline\n" : ""}${manifest.doi.tokenize(",").collect { "  
+╰     |                               ^^^^^^^^
+
+Error nextflow.config:283:184: `manifest` is not defined
+│ 283 | i.org/', '')}" }.join("\n")}${manifest.doi ? "\n" : ""}
+╰     |                               ^^^^^^^^
+
+Error nextflow.config:288:26: `manifest` is not defined
+│ 288 |     https://github.com/${manifest.name}/blob/master/CITATIONS.md
+╰     |                          ^^^^^^^^
+
+Error nextflow.config:292:22: `validation` is not defined
+│ 292 |         beforeText = validation.help.beforeText
 ╰     |                      ^^^^^^^^^^
 
-Error nextflow.config:288:22: `validation` is not defined
-│ 288 |         afterText  = validation.help.afterText
-╰     |                      ^^^^^^^^^^
+Error nextflow.config:293:21: `validation` is not defined
+│ 293 |         afterText = validation.help.afterText
+╰     |                     ^^^^^^^^^^
 
-Warn  nextflow.config:278:135: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 278 | ollect { "  https://doi.org/${it.trim().replace('https://doi.org/', ''
+Warn  nextflow.config:283:125: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 283 | ollect { "  https://doi.org/${it.trim().replace('https://doi.org/', ''
 ╰     |                               ^^
 
 
 Nextflow linting complete!
- ❌ 4 files had 25 errors
- ✅ 25 files had no errors
+ ❌ 1 file had 9 errors
+ ✅ 28 files had no errors

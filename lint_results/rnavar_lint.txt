@@ -81,8 +81,8 @@ Warn  modules/nf-core/cat/fastq/main.nf:22:60: Implicit closure parameter is dep
 │  22 |     def readList = reads instanceof List ? reads.collect { it.toString
 ╰     |                                                            ^^
 
-Warn  modules/nf-core/cat/fastq/main.nf:58:60: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  58 |     def readList = reads instanceof List ? reads.collect { it.toString
+Warn  modules/nf-core/cat/fastq/main.nf:48:60: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  48 |     def readList = reads instanceof List ? reads.collect { it.toString
 ╰     |                                                            ^^
 
 
@@ -148,10 +148,6 @@ Warn  modules/nf-core/seq2hla/main.nf:53:9: Variable was declared but not used
 
 
 
-Warn  modules/nf-core/star/align/main.nf:46:56: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  46 |     meta.single_end ? [reads].flatten().each{reads1 << it} : reads.eac
-╰     |                                                        ^^
-
 
 
 
@@ -177,16 +173,6 @@ Warn  subworkflows/nf-core/bam_stats_samtools/main.nf:15:19: The use of `Channel
 
 Warn  subworkflows/nf-core/fastq_align_star/main.nf:20:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 │  20 |     ch_versions = Channel.empty()
-╰     |                   ^^^^^^^
-
-
-Warn  subworkflows/nf-core/vcf_annotate_ensemblvep/main.nf:19:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  19 |     ch_versions = Channel.empty()
-╰     |                   ^^^^^^^
-
-
-Warn  subworkflows/nf-core/vcf_annotate_snpeff/main.nf:15:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  15 |     ch_versions = Channel.empty()
 ╰     |                   ^^^^^^^
 
 

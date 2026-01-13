@@ -74,8 +74,8 @@ Error conf/base.config:42:14: `check_max` is not defined
 ╰     |              ^^^^^^^^^
 
 
-Error nextflow.config:108:3: Unexpected input: 'includeConfig'
-│ 108 |   includeConfig "${params.custom_config_base}/nfcore_custom.config"
+Error nextflow.config:204:3: Unexpected input: 'includeConfig'
+│ 204 |   includeConfig "${params.custom_config_base}/nfcore_custom.config"
 ╰     |   ^
 
 

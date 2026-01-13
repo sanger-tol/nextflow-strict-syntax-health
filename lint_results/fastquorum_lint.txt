@@ -70,40 +70,40 @@ Warn  subworkflows/local/prepare_genome/main.nf:20:16: The use of `Channel` to a
 ╰     |                ^^^^^^^
 
 
-Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:30:5: Parameter was not used -- prefix with `_` to suppress warning
-│  30 |     monochrome_logs // boolean: Do not use coloured log outputs
+Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:31:5: Parameter was not used -- prefix with `_` to suppress warning
+│  31 |     monochrome_logs // boolean: Do not use coloured log outputs
 ╰     |     ^^^^^^^^^^^^^^^
 
-Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:33:5: Parameter was not used -- prefix with `_` to suppress warning
-│  33 |     input //  string: Path to input samplesheet
+Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:34:5: Parameter was not used -- prefix with `_` to suppress warning
+│  34 |     input //  string: Path to input samplesheet
 ╰     |     ^^^^^
 
-Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:37:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  37 |     ch_versions = Channel.empty()
+Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:38:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  38 |     ch_versions = Channel.empty()
 ╰     |                   ^^^^^^^
 
-Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:74:5: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  74 |     Channel
+Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:75:5: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  75 |     Channel
 ╰     |     ^^^^^^^
 
-Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:82:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  82 |             validateInputSamplesheetRow(it)
+Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:83:41: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  83 |             validateInputSamplesheetRow(it)
 ╰     |                                         ^^
 
-Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:87:38: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  87 |             validateInputSamplesheet(it)
+Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:88:38: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  88 |             validateInputSamplesheet(it)
 ╰     |                                      ^^
 
-Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:93:31: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  93 |                 return [meta, it]
+Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:94:31: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  94 |                 return [meta, it]
 ╰     |                               ^^
 
-Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:201:49: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 201 |     def fastqs_per_sample_ok = fastqs.collect { it.size() }.unique().s
+Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:223:49: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 223 |     def fastqs_per_sample_ok = fastqs.collect { it.size() }.unique().s
 ╰     |                                                 ^^
 
-Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:205:46: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 205 |     def read_structures_ok = metas.collect { it.read_structure }.uniqu
+Warn  subworkflows/local/utils_nfcore_fastquorum_pipeline/main.nf:227:46: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 227 |     def read_structures_ok = metas.collect { it.read_structure }.uniqu
 ╰     |                                              ^^
 
 
@@ -158,32 +158,32 @@ Warn  workflows/fastquorum.nf:216:30: The use of `Channel` to access channel fac
 ╰     |                              ^^^^^^^
 
 
-Error nextflow.config:297:34: `manifest` is not defined
-│ 297 | \033[0;35m  nf-core/fastquorum ${manifest.version}\033[0m
+Error nextflow.config:303:34: `manifest` is not defined
+│ 303 | \033[0;35m  nf-core/fastquorum ${manifest.version}\033[0m
 ╰     |                                  ^^^^^^^^
 
-Error nextflow.config:300:26: `manifest` is not defined
-│ 300 |         afterText = """${manifest.doi ? "\n* The pipeline\n" : ""}${ma
+Error nextflow.config:306:26: `manifest` is not defined
+│ 306 |         afterText = """${manifest.doi ? "\n* The pipeline\n" : ""}${ma
 ╰     |                          ^^^^^^^^
 
-Error nextflow.config:300:69: `manifest` is not defined
-│ 300 | ? "\n* The pipeline\n" : ""}${manifest.doi.tokenize(",").collect { "  
+Error nextflow.config:306:69: `manifest` is not defined
+│ 306 | ? "\n* The pipeline\n" : ""}${manifest.doi.tokenize(",").collect { "  
 ╰     |                               ^^^^^^^^
 
-Error nextflow.config:300:188: `manifest` is not defined
-│ 300 | i.org/', '')}" }.join("\n")}${manifest.doi ? "\n" : ""}
+Error nextflow.config:306:188: `manifest` is not defined
+│ 306 | i.org/', '')}" }.join("\n")}${manifest.doi ? "\n" : ""}
 ╰     |                               ^^^^^^^^
 
-Error nextflow.config:309:22: `validation` is not defined
-│ 309 |         beforeText = validation.help.beforeText
+Error nextflow.config:315:22: `validation` is not defined
+│ 315 |         beforeText = validation.help.beforeText
 ╰     |                      ^^^^^^^^^^
 
-Error nextflow.config:310:21: `validation` is not defined
-│ 310 |         afterText = validation.help.afterText
+Error nextflow.config:316:21: `validation` is not defined
+│ 316 |         afterText = validation.help.afterText
 ╰     |                     ^^^^^^^^^^
 
-Warn  nextflow.config:300:129: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 300 | lect { "    https://doi.org/${it.trim().replace('https://doi.org/', ''
+Warn  nextflow.config:306:129: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 306 | lect { "    https://doi.org/${it.trim().replace('https://doi.org/', ''
 ╰     |                               ^^
 
 

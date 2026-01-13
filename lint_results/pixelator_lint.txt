@@ -6,7 +6,7 @@ Linting: conf/test_panel_v2.config
 Linting: conf/modules.config
 Linting: conf/modules.pna.config
 Linting: conf/test_full.config
-Linting: conf/test.config
+Linting: conf/test_mpx.config
 Linting: nextflow.config
 Linting: workflows/pixelator.nf
 Linting: subworkflows/local/mpx/main.nf

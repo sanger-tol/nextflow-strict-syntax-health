@@ -397,12 +397,12 @@ Warn  subworkflows/local/longread_filtering.nf:14:24: The use of `Channel` to ac
 ╰     |                        ^^^^^^^
 
 
-Warn  subworkflows/local/longread_hostremoval.nf:19:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  19 |     ch_versions = Channel.empty()
+Warn  subworkflows/local/longread_hostremoval.nf:18:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  18 |     ch_versions = Channel.empty()
 ╰     |                   ^^^^^^^
 
-Warn  subworkflows/local/longread_hostremoval.nf:20:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  20 |     ch_multiqc_files = Channel.empty()
+Warn  subworkflows/local/longread_hostremoval.nf:19:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  19 |     ch_multiqc_files = Channel.empty()
 ╰     |                        ^^^^^^^
 
 
@@ -753,12 +753,12 @@ Warn  conf/modules.config:442:195: Implicit closure parameter is deprecated, dec
 │ 442 | .save_analysis_ready_fastqs ? it : null },
 ╰     |                               ^^
 
-Warn  conf/modules.config:486:194: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 486 | .save_analysis_ready_fastqs ? it : null },
+Warn  conf/modules.config:503:194: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 503 | .save_analysis_ready_fastqs ? it : null },
 ╰     |                               ^^
 
-Warn  conf/modules.config:548:99: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 548 | cken_save_intermediatekraken2 && meta.tool == "bracken" ? null : it },
+Warn  conf/modules.config:565:99: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 565 | cken_save_intermediatekraken2 && meta.tool == "bracken" ? null : it },
 ╰     |                                                                  ^^
 
 

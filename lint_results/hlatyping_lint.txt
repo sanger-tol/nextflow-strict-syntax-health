@@ -5,7 +5,9 @@ Linting: conf/test_dna_rna.config
 Linting: conf/base.config
 Linting: conf/test_fastq.config
 Linting: conf/modules.config
+Linting: conf/test_optitype_hlahd.config
 Linting: conf/test_full.config
+Linting: conf/test_hlahd.config
 Linting: conf/test.config
 Linting: conf/test_rna.config
 Linting: conf/igenomes.config
@@ -19,7 +21,10 @@ Linting: subworkflows/nf-core/utils_nextflow_pipeline/tests/nextflow.config
 Linting: subworkflows/nf-core/utils_nfschema_plugin/main.nf
 Linting: subworkflows/nf-core/utils_nfschema_plugin/tests/nextflow.config
 Linting: main.nf
-Linting: modules/local/check_paired.nf
+Linting: tests/nextflow.config
+Linting: modules/local/hlahd/genotype/main.nf
+Linting: modules/local/hlahd/install/main.nf
+Linting: modules/local/check_paired/main.nf
 Linting: modules/nf-core/gunzip/main.nf
 Linting: modules/nf-core/gunzip/tests/nextflow.config
 Linting: modules/nf-core/samtools/view/main.nf
@@ -52,26 +57,24 @@ Error main.nf:66:5: `PIPELINE_INITIALISATION` is not defined
 │  66 |     PIPELINE_INITIALISATION (
 ╰     |     ^^^^^^^^^^^^^^^^^^^^^^^
 
-Error main.nf:79:9: `PIPELINE_INITIALISATION` is not defined
-│  79 |         PIPELINE_INITIALISATION.out.samplesheet
+Error main.nf:82:9: `PIPELINE_INITIALISATION` is not defined
+│  82 |         PIPELINE_INITIALISATION.out.samplesheet
 ╰     |         ^^^^^^^^^^^^^^^^^^^^^^^
 
-Error main.nf:84:5: `PIPELINE_COMPLETION` is not defined
-│  84 |     PIPELINE_COMPLETION (
+Error main.nf:87:5: `PIPELINE_COMPLETION` is not defined
+│  87 |     PIPELINE_COMPLETION (
 ╰     |     ^^^^^^^^^^^^^^^^^^^
 
 
 
-Warn  modules/nf-core/cat/fastq/main.nf:21:9: Variable was declared but not used
-│  21 |     def args = task.ext.args ?: ''
-╰     |         ^^^^
 
-Warn  modules/nf-core/cat/fastq/main.nf:23:60: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  23 |     def readList = reads instanceof List ? reads.collect { it.toString
+
+Warn  modules/nf-core/cat/fastq/main.nf:22:60: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  22 |     def readList = reads instanceof List ? reads.collect { it.toString
 ╰     |                                                            ^^
 
-Warn  modules/nf-core/cat/fastq/main.nf:55:60: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  55 |     def readList = reads instanceof List ? reads.collect { it.toString
+Warn  modules/nf-core/cat/fastq/main.nf:58:60: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  58 |     def readList = reads instanceof List ? reads.collect { it.toString
 ╰     |                                                            ^^
 
 
@@ -103,107 +106,91 @@ Warn  modules/nf-core/yara/mapper/main.nf:70:9: Variable was declared but not us
 ╰     |         ^^^^^^^^^^^^
 
 
-Error subworkflows/local/utils_nfcore_hlatyping_pipeline/main.nf:181:13: Unexpected input: '+'
-│ 181 |             + "sample must have the same sequence type: ${metas[0].id}
+Error subworkflows/local/utils_nfcore_hlatyping_pipeline/main.nf:210:13: Unexpected input: '+'
+│ 210 |             + "sample must have the same sequence type: ${metas[0].id}
 ╰     |             ^
 
 
 
-Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 101 | mYAML(version) }.unique().mix(Channel.of(workflowVersionToYAML()))
-╰     |                               ^^^^^^^
 
 
-Error workflows/hlatyping.nf:21:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/hlatyping/subworkflows/local/utils_nfcore_hlatyping_pipeline/main.nf'
-│  21 | include { methodsDescriptionText      } from '../subworkflows/local/ut
+Error workflows/hlatyping.nf:23:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/hlatyping/subworkflows/local/utils_nfcore_hlatyping_pipeline/main.nf'
+│  23 | include { methodsDescriptionText      } from '../subworkflows/local/ut
 ╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Error workflows/hlatyping.nf:208:9: `methodsDescriptionText` is not defined
-│ 208 |         methodsDescriptionText(ch_multiqc_custom_methods_description))
+Error workflows/hlatyping.nf:260:9: `methodsDescriptionText` is not defined
+│ 260 |         methodsDescriptionText(ch_multiqc_custom_methods_description))
 ╰     |         ^^^^^^^^^^^^^^^^^^^^^^
 
-Warn  workflows/hlatyping.nf:56:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  56 |     ch_versions = Channel.empty()
+Error workflows/hlatyping.nf:291:5: `valid_tools` was assigned but not declared
+│ 291 |     valid_tools = [ 'optitype', 'hlahd' ]
+╰     |     ^^^^^^^^^^^
+
+Error workflows/hlatyping.nf:292:5: `tool_list` was assigned but not declared
+│ 292 |     tool_list = tools.tokenize(',')
+╰     |     ^^^^^^^^^
+
+Error workflows/hlatyping.nf:294:25: `tool_list` is not defined
+│ 294 |     def invalid_tools = tool_list.findAll { it.trim() !in valid_tools 
+╰     |                         ^^^^^^^^^
+
+Error workflows/hlatyping.nf:294:59: `valid_tools` is not defined
+│ 294 |     def invalid_tools = tool_list.findAll { it.trim() !in valid_tools 
+╰     |                                                           ^^^^^^^^^^^
+
+Error workflows/hlatyping.nf:296:110: `valid_tools` is not defined
+│ 296 | s.join(',')}.\nValid tools: ${valid_tools.join(',')}")
+╰     |                               ^^^^^^^^^^^
+
+Error workflows/hlatyping.nf:308:5: `ch_hlahd_exe` was assigned but not declared
+│ 308 |     ch_hlahd_exe = Channel.empty()
+╰     |     ^^^^^^^^^^^^
+
+Error workflows/hlatyping.nf:309:5: `ch_hlahd_exe` is not defined
+│ 309 |     ch_hlahd_exe.bind([
+╰     |     ^^^^^^^^^^^^
+
+Error workflows/hlatyping.nf:316:12: `ch_hlahd_exe` is not defined
+│ 316 |     return ch_hlahd_exe
+╰     |            ^^^^^^^^^^^^
+
+Warn  workflows/hlatyping.nf:65:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  65 |     ch_versions = Channel.empty()
 ╰     |                   ^^^^^^^
 
-Warn  workflows/hlatyping.nf:57:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  57 |     ch_multiqc_files = Channel.empty()
+Warn  workflows/hlatyping.nf:66:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  66 |     ch_multiqc_files = Channel.empty()
 ╰     |                        ^^^^^^^
 
-Warn  workflows/hlatyping.nf:112:22: Parameter was not used -- prefix with `_` to suppress warning
-│ 112 |         .map { meta, reads ->
-╰     |                      ^^^^^
-
-Warn  workflows/hlatyping.nf:123:68: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 123 | ch_multiqc_files = ch_multiqc_files.mix(FASTQC.out.zip.collect{it[1]})
+Warn  workflows/hlatyping.nf:126:68: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 126 | ch_multiqc_files = ch_multiqc_files.mix(FASTQC.out.zip.collect{it[1]})
 ╰     |                                                                ^^
 
-Warn  workflows/hlatyping.nf:170:75: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 170 | iqc_files = ch_multiqc_files.mix(OPTITYPE.out.hla_type.collect{it[1]})
+Warn  workflows/hlatyping.nf:136:26: Parameter was not used -- prefix with `_` to suppress warning
+│ 136 |             .map { meta, reads ->
+╰     |                          ^^^^^
+
+Warn  workflows/hlatyping.nf:184:79: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 184 | iqc_files = ch_multiqc_files.mix(OPTITYPE.out.hla_type.collect{it[1]})
 ╰     |                                                                ^^
 
-Warn  workflows/hlatyping.nf:171:80: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 171 | iles = ch_multiqc_files.mix(OPTITYPE.out.coverage_plot.collect{it[1]})
+Warn  workflows/hlatyping.nf:185:84: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 185 | iles = ch_multiqc_files.mix(OPTITYPE.out.coverage_plot.collect{it[1]})
 ╰     |                                                                ^^
 
-Warn  workflows/hlatyping.nf:190:32: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 190 |     ch_multiqc_config        = Channel.fromPath(
-╰     |                                ^^^^^^^
+Warn  workflows/hlatyping.nf:212:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 212 |     def topic_versions = Channel.topic("versions")
+╰     |                          ^^^^^^^
 
-Warn  workflows/hlatyping.nf:193:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 193 |         Channel.fromPath(params.multiqc_config, checkIfExists: true) :
-╰     |         ^^^^^^^
+Warn  workflows/hlatyping.nf:294:45: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 294 |     def invalid_tools = tool_list.findAll { it.trim() !in valid_tools 
+╰     |                                             ^^
 
-Warn  workflows/hlatyping.nf:194:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 194 |         Channel.empty()
-╰     |         ^^^^^^^
-
-Warn  workflows/hlatyping.nf:196:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 196 |         Channel.fromPath(params.multiqc_logo, checkIfExists: true) :
-╰     |         ^^^^^^^
-
-Warn  workflows/hlatyping.nf:197:9: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 197 |         Channel.empty()
-╰     |         ^^^^^^^
-
-Warn  workflows/hlatyping.nf:201:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 201 |     ch_workflow_summary = Channel.value(paramsSummaryMultiqc(summary_p
-╰     |                           ^^^^^^^
-
-Warn  workflows/hlatyping.nf:207:45: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 207 |     ch_methods_description                = Channel.value(
-╰     |                                             ^^^^^^^
-
-
-Error nextflow.config:317:33: `manifest` is not defined
-│ 317 | \033[0;35m  nf-core/hlatyping ${manifest.version}\033[0m
-╰     |                                 ^^^^^^^^
-
-Error nextflow.config:320:26: `manifest` is not defined
-│ 320 |         afterText = """${manifest.doi ? "\n* The pipeline\n" : ""}${ma
-╰     |                          ^^^^^^^^
-
-Error nextflow.config:320:69: `manifest` is not defined
-│ 320 | ? "\n* The pipeline\n" : ""}${manifest.doi.tokenize(",").collect { "  
-╰     |                               ^^^^^^^^
-
-Error nextflow.config:320:186: `manifest` is not defined
-│ 320 | doi.org/','')}"}.join("\n")}${manifest.doi ? "\n" : ""}
-╰     |                               ^^^^^^^^
-
-Error nextflow.config:329:22: `validation` is not defined
-│ 329 |         beforeText = validation.help.beforeText
-╰     |                      ^^^^^^^^^^
-
-Error nextflow.config:330:21: `validation` is not defined
-│ 330 |         afterText = validation.help.afterText
-╰     |                     ^^^^^^^^^^
-
-Warn  nextflow.config:320:129: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 320 | lect { "    https://doi.org/${it.trim().replace('https://doi.org/','')
-╰     |                               ^^
+Warn  workflows/hlatyping.nf:308:20: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 308 |     ch_hlahd_exe = Channel.empty()
+╰     |                    ^^^^^^^
 
 
 Nextflow linting complete!
- ❌ 4 files had 15 errors
- ✅ 33 files had no errors
+ ❌ 3 files had 17 errors
+ ✅ 39 files had no errors

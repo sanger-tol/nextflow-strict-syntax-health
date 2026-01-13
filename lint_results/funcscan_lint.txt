@@ -59,6 +59,7 @@ Linting: modules/nf-core/hamronization/rgi/main.nf
 Linting: modules/nf-core/hamronization/deeparg/main.nf
 Linting: modules/nf-core/hamronization/fargene/main.nf
 Linting: modules/nf-core/gecco/run/main.nf
+Linting: modules/nf-core/gecco/convert/main.nf
 Linting: modules/nf-core/hmmer/hmmsearch/main.nf
 Linting: modules/nf-core/ampir/main.nf
 Linting: modules/nf-core/untar/main.nf
@@ -152,10 +153,6 @@ Warn  modules/nf-core/argnorm/main.nf:49:9: Variable was declared but not used
 ╰     |         ^^^^
 
 
-Error modules/nf-core/bakta/bakta/main.nf:36:9: `prodigal_tf` is already declared
-│  36 |     def prodigal_tf = prodigal_tf ? "--prodigal-tf ${prodigal_tf[0]}" 
-╰     |         ^^^^^^^^^^^
-
 
 
 
@@ -173,6 +170,11 @@ Warn  modules/nf-core/deepbgc/download/main.nf:17:9: Variable was declared but n
 Warn  modules/nf-core/fargene/main.nf:56:9: Variable was declared but not used
 │  56 |     def args = task.ext.args   ?: ''
 ╰     |         ^^^^
+
+
+Warn  modules/nf-core/gecco/convert/main.nf:27:9: Variable was declared but not used
+│  27 |     def prefix = task.ext.prefix ?: "${meta.id}" // IMPORTANT: -o ${pr
+╰     |         ^^^^^^
 
 
 
@@ -309,11 +311,15 @@ Warn  subworkflows/local/annotation.nf:65:53: Implicit closure parameter is depr
 ╰     |                                                     ^^
 
 Warn  subworkflows/local/annotation.nf:74:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  74 |             ch_bakta_db = Channel
+│  74 |             ch_bakta_db = Channel.fromPath(params.annotation_bakta_db,
 ╰     |                           ^^^^^^^
 
-Warn  subworkflows/local/annotation.nf:86:58: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  86 |         ch_multiqc_files = BAKTA_BAKTA.out.txt.collect { it[1] }.ifEmp
+Warn  subworkflows/local/annotation.nf:85:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  85 |             ch_bakta_hmm = Channel.fromPath(params.annotation_bakta_hm
+╰     |                            ^^^^^^^
+
+Warn  subworkflows/local/annotation.nf:100:58: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 100 |         ch_multiqc_files = BAKTA_BAKTA.out.txt.collect { it[1] }.ifEmp
 ╰     |                                                          ^^
 
 
@@ -382,48 +388,48 @@ Warn  subworkflows/local/arg.nf:206:26: The use of `Channel` to access channel f
 ╰     |                          ^^^^^^^
 
 
-Warn  subworkflows/local/bgc.nf:24:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  24 |     ch_versions = Channel.empty()
+Warn  subworkflows/local/bgc.nf:25:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  25 |     ch_versions = Channel.empty()
 ╰     |                   ^^^^^^^
 
-Warn  subworkflows/local/bgc.nf:25:32: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  25 |     ch_bgcresults_for_combgc = Channel.empty()
+Warn  subworkflows/local/bgc.nf:26:32: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  26 |     ch_bgcresults_for_combgc = Channel.empty()
 ╰     |                                ^^^^^^^
 
-Warn  subworkflows/local/bgc.nf:41:38: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  41 |             ch_antismash_databases = Channel.fromPath(params.bgc_antis
+Warn  subworkflows/local/bgc.nf:42:38: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  42 |             ch_antismash_databases = Channel.fromPath(params.bgc_antis
 ╰     |                                      ^^^^^^^
 
-Warn  subworkflows/local/bgc.nf:74:35: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  74 |             ch_deepbgc_database = Channel.fromPath(params.bgc_deepbgc_
+Warn  subworkflows/local/bgc.nf:75:35: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  75 |             ch_deepbgc_database = Channel
 ╰     |                                   ^^^^^^^
 
-Warn  subworkflows/local/bgc.nf:93:26: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  93 |                 fastas: [it[0], it[1], []]
+Warn  subworkflows/local/bgc.nf:95:26: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  95 |                 fastas: [it[0], it[1], []]
 ╰     |                          ^^
 
-Warn  subworkflows/local/bgc.nf:93:33: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  93 |                 fastas: [it[0], it[1], []]
+Warn  subworkflows/local/bgc.nf:95:33: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  95 |                 fastas: [it[0], it[1], []]
 ╰     |                                 ^^
 
-Warn  subworkflows/local/bgc.nf:110:33: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 110 |             ch_bgc_hmm_models = Channel.fromPath(params.bgc_hmmsearch_
+Warn  subworkflows/local/bgc.nf:123:33: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 123 |             ch_bgc_hmm_models = Channel.fromPath(params.bgc_hmmsearch_
 ╰     |                                 ^^^^^^^
 
-Warn  subworkflows/local/bgc.nf:152:52: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 152 |         ch_combgc_summaries = COMBGC.out.tsv.map { it[1] }.collectFile
+Warn  subworkflows/local/bgc.nf:165:52: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 165 |         ch_combgc_summaries = COMBGC.out.tsv.map { it[1] }.collectFile
 ╰     |                                                    ^^
 
-Warn  subworkflows/local/bgc.nf:155:52: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 155 |         ch_combgc_summaries = COMBGC.out.tsv.map { it[1] }.collectFile
+Warn  subworkflows/local/bgc.nf:168:52: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 168 |         ch_combgc_summaries = COMBGC.out.tsv.map { it[1] }.collectFile
 ╰     |                                                    ^^
 
-Warn  subworkflows/local/bgc.nf:161:46: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 161 |         ch_mmseqs_taxonomy_list = tsvs.map { it[1] }.collect()
+Warn  subworkflows/local/bgc.nf:174:46: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 174 |         ch_mmseqs_taxonomy_list = tsvs.map { it[1] }.collect()
 ╰     |                                              ^^
 
-Warn  subworkflows/local/bgc.nf:165:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 165 |         ch_tabix_input = Channel.of(['id': 'combgc_complete_summary_ta
+Warn  subworkflows/local/bgc.nf:178:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 178 |         ch_tabix_input = Channel
 ╰     |                          ^^^^^^^
 
 
@@ -477,36 +483,21 @@ Warn  subworkflows/local/taxa_class.nf:26:28: The use of `Channel` to access cha
 ╰     |                            ^^^^^^^
 
 
-Warn  subworkflows/local/utils_nfcore_funcscan_pipeline/main.nf:30:5: Parameter was not used -- prefix with `_` to suppress warning
-│  30 |     monochrome_logs   // boolean: Do not use coloured log outputs
+Warn  subworkflows/local/utils_nfcore_funcscan_pipeline/main.nf:31:5: Parameter was not used -- prefix with `_` to suppress warning
+│  31 |     monochrome_logs // boolean: Do not use coloured log outputs
 ╰     |     ^^^^^^^^^^^^^^^
 
-Warn  subworkflows/local/utils_nfcore_funcscan_pipeline/main.nf:37:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  37 |     ch_versions = Channel.empty()
-╰     |                   ^^^^^^^
-
-Warn  subworkflows/local/utils_nfcore_funcscan_pipeline/main.nf:73:5: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  73 |     Channel.fromList(samplesheetToList(input, "${projectDir}/assets/sc
+Warn  subworkflows/local/utils_nfcore_funcscan_pipeline/main.nf:102:5: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 102 |     Channel
 ╰     |     ^^^^^^^
 
 
 
-Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 101 | mYAML(version) }.unique().mix(Channel.of(workflowVersionToYAML()))
-╰     |                               ^^^^^^^
 
 
 Error workflows/funcscan.nf:206:65: `_` is not allowed as an identifier because it is reserved for future use
 │ 206 |         ch_interproscan_tsv = ch_prepped_input.faas.map { meta, _ ->
 ╰     |                                                                 ^
-
-Warn  workflows/funcscan.nf:54:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  54 |     ch_versions = Channel.empty()
-╰     |                   ^^^^^^^
-
-Warn  workflows/funcscan.nf:55:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  55 |     ch_multiqc_files = Channel.empty()
-╰     |                        ^^^^^^^
 
 Warn  workflows/funcscan.nf:63:25: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 │  63 |     ch_multiqc_config = Channel.fromPath("${projectDir}/assets/multiqc
@@ -636,73 +627,20 @@ Warn  workflows/funcscan.nf:176:27: The use of `Channel` to access channel facto
 │ 176 |         ch_taxonomy_tsv = Channel.empty()
 ╰     |                           ^^^^^^^
 
-Warn  workflows/funcscan.nf:376:25: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 376 |     ch_multiqc_config = Channel.fromPath(
-╰     |                         ^^^^^^^
+Warn  workflows/funcscan.nf:363:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 363 |     def topic_versions = Channel.topic("versions")
+╰     |                          ^^^^^^^
 
-Warn  workflows/funcscan.nf:381:11: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 381 |         ? Channel.fromPath(params.multiqc_config, checkIfExists: true)
-╰     |           ^^^^^^^
-
-Warn  workflows/funcscan.nf:382:11: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 382 |         : Channel.empty()
-╰     |           ^^^^^^^
-
-Warn  workflows/funcscan.nf:384:11: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 384 |         ? Channel.fromPath(params.multiqc_logo, checkIfExists: true)
-╰     |           ^^^^^^^
-
-Warn  workflows/funcscan.nf:385:11: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 385 |         : Channel.fromPath("${workflow.projectDir}/docs/images/nf-core
-╰     |           ^^^^^^^
-
-Warn  workflows/funcscan.nf:391:27: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 391 |     ch_workflow_summary = Channel.value(paramsSummaryMultiqc(summary_p
-╰     |                           ^^^^^^^
-
-Warn  workflows/funcscan.nf:398:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 398 |     ch_methods_description = Channel.value(
-╰     |                              ^^^^^^^
-
-Warn  workflows/funcscan.nf:411:88: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 411 | = ch_multiqc_files.mix(ANNOTATION.out.multiqc_files.collect { it[1] })
+Warn  workflows/funcscan.nf:423:88: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 423 | = ch_multiqc_files.mix(ANNOTATION.out.multiqc_files.collect { it[1] })
 ╰     |                                                               ^^
 
 
-Warn  conf/modules.config:581:65: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 581 | axa_classification == false ? it : null },
-╰     |                               ^^
-
-
-Error nextflow.config:563:32: `manifest` is not defined
-│ 563 | \033[0;35m  nf-core/funcscan ${manifest.version}\033[0m
-╰     |                                ^^^^^^^^
-
-Error nextflow.config:566:36: `manifest` is not defined
-│ 566 |         afterText           = """${manifest.doi ? "\n* The pipeline\n"
-╰     |                                    ^^^^^^^^
-
-Error nextflow.config:566:79: `manifest` is not defined
-│ 566 | ? "\n* The pipeline\n" : ""}${manifest.doi.tokenize(",").collect { "  
-╰     |                               ^^^^^^^^
-
-Error nextflow.config:566:198: `manifest` is not defined
-│ 566 | i.org/', '')}" }.join("\n")}${manifest.doi ? "\n" : ""}
-╰     |                               ^^^^^^^^
-
-Error nextflow.config:575:22: `validation` is not defined
-│ 575 |         beforeText = validation.help.beforeText
-╰     |                      ^^^^^^^^^^
-
-Error nextflow.config:576:22: `validation` is not defined
-│ 576 |         afterText  = validation.help.afterText
-╰     |                      ^^^^^^^^^^
-
-Warn  nextflow.config:566:139: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 566 | lect { "    https://doi.org/${it.trim().replace('https://doi.org/', ''
+Warn  conf/modules.config:592:65: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 592 | axa_classification == false ? it : null },
 ╰     |                               ^^
 
 
 Nextflow linting complete!
- ❌ 6 files had 13 errors
- ✅ 90 files had no errors
+ ❌ 4 files had 6 errors
+ ✅ 93 files had no errors

@@ -69,6 +69,7 @@ Linting: modules/nf-core/samtools/faidx/main.nf
 Linting: modules/nf-core/samtools/faidx/tests/nextflow.config
 Linting: modules/nf-core/samtools/faidx/tests/nextflow2.config
 Linting: modules/nf-core/samtools/convert/main.nf
+Linting: modules/nf-core/samtools/collatefastq/main.nf
 Linting: modules/nf-core/starfusion/build/main.nf
 Linting: modules/nf-core/starfusion/detect/main.nf
 Linting: modules/nf-core/starfusion/detect/tests/nextflow.config
@@ -188,6 +189,7 @@ Warn  modules/nf-core/gffread/main.nf:49:103: Implicit closure parameter is depr
 Warn  modules/nf-core/salmon/quant/main.nf:34:58: Implicit closure parameter is deprecated, declare an explicit parameter instead
 │  34 |     meta.single_end ? [reads].flatten().each { reads1 << it } : reads.
 ╰     |                                                          ^^
+
 
 
 
@@ -509,120 +511,120 @@ Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98: The use of `Cha
 ╰     |                               ^^^^^^^
 
 
-Warn  workflows/rnafusion.nf:46:23: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  46 |     def ch_versions = Channel.empty()
+Warn  workflows/rnafusion.nf:47:23: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  47 |     def ch_versions = Channel.empty()
 ╰     |                       ^^^^^^^
 
-Warn  workflows/rnafusion.nf:47:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  47 |     def ch_multiqc_files = Channel.empty()
+Warn  workflows/rnafusion.nf:48:28: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  48 |     def ch_multiqc_files = Channel.empty()
 ╰     |                            ^^^^^^^
 
-Warn  workflows/rnafusion.nf:122:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 122 |         def ch_reads = Channel.empty()
+Warn  workflows/rnafusion.nf:137:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 137 |         def ch_reads = Channel.empty()
 ╰     |                        ^^^^^^^
 
-Warn  workflows/rnafusion.nf:125:55: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 125 |         def ch_adapter_fasta = params.adapter_fasta ? Channel.fromPath
+Warn  workflows/rnafusion.nf:140:55: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 140 |         def ch_adapter_fasta = params.adapter_fasta ? Channel.fromPath
 ╰     |                                                       ^^^^^^^
 
-Warn  workflows/rnafusion.nf:156:29: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 156 |         ch_sbwf_fastp_mqc = Channel.empty()
+Warn  workflows/rnafusion.nf:171:29: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 171 |         ch_sbwf_fastp_mqc = Channel.empty()
 ╰     |                             ^^^^^^^
 
-Warn  workflows/rnafusion.nf:157:71: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 157 |     .mix(FASTQ_FASTQC_UMITOOLS_FASTP.out.fastqc_raw_zip.map { it[1] })
+Warn  workflows/rnafusion.nf:172:71: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 172 |     .mix(FASTQ_FASTQC_UMITOOLS_FASTP.out.fastqc_raw_zip.map { it[1] })
 ╰     |                                                               ^^
 
-Warn  workflows/rnafusion.nf:158:72: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 158 |    .mix(FASTQ_FASTQC_UMITOOLS_FASTP.out.fastqc_trim_zip.map { it[1] })
+Warn  workflows/rnafusion.nf:173:72: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 173 |    .mix(FASTQ_FASTQC_UMITOOLS_FASTP.out.fastqc_trim_zip.map { it[1] })
 ╰     |                                                               ^^
 
-Warn  workflows/rnafusion.nf:159:66: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 159 |          .mix(FASTQ_FASTQC_UMITOOLS_FASTP.out.trim_html.map { it[1] })
+Warn  workflows/rnafusion.nf:174:66: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 174 |          .mix(FASTQ_FASTQC_UMITOOLS_FASTP.out.trim_html.map { it[1] })
 ╰     |                                                               ^^
 
-Warn  workflows/rnafusion.nf:160:66: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 160 |          .mix(FASTQ_FASTQC_UMITOOLS_FASTP.out.trim_json.map { it[1] })
+Warn  workflows/rnafusion.nf:175:66: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 175 |          .mix(FASTQ_FASTQC_UMITOOLS_FASTP.out.trim_json.map { it[1] })
 ╰     |                                                               ^^
 
-Warn  workflows/rnafusion.nf:178:88: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 178 | iles = ch_multiqc_files.mix(SALMON_QUANT.out.json_info.collect{it[1]})
+Warn  workflows/rnafusion.nf:193:88: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 193 | iles = ch_multiqc_files.mix(SALMON_QUANT.out.json_info.collect{it[1]})
 ╰     |                                                                ^^
 
-Warn  workflows/rnafusion.nf:212:99: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 212 | GN_STAR.out.log_final.collect{it[1]}.ifEmpty([]))
+Warn  workflows/rnafusion.nf:227:99: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 227 | GN_STAR.out.log_final.collect{it[1]}.ifEmpty([]))
 ╰     |                               ^^
 
-Warn  workflows/rnafusion.nf:213:100: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 213 | N_STAR.out.gene_count.collect{it[1]}.ifEmpty([]))
+Warn  workflows/rnafusion.nf:228:100: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 228 | N_STAR.out.gene_count.collect{it[1]}.ifEmpty([]))
 ╰     |                               ^^
 
-Warn  workflows/rnafusion.nf:247:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 247 |                     .combine(Channel.value(file(params.arriba_fusions,
+Warn  workflows/rnafusion.nf:262:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 262 |                     .combine(Channel.value(file(params.arriba_fusions,
 ╰     |                              ^^^^^^^
 
-Warn  workflows/rnafusion.nf:323:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 323 |         def ch_fusion_list = Channel.empty()
+Warn  workflows/rnafusion.nf:338:30: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 338 |         def ch_fusion_list = Channel.empty()
 ╰     |                              ^^^^^^^
 
-Warn  workflows/rnafusion.nf:324:39: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 324 |         def ch_fusion_list_filtered = Channel.empty()
+Warn  workflows/rnafusion.nf:339:39: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 339 |         def ch_fusion_list_filtered = Channel.empty()
 ╰     |                                       ^^^^^^^
 
-Warn  workflows/rnafusion.nf:325:38: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 325 |         def ch_fusionreport_report = Channel.empty()
+Warn  workflows/rnafusion.nf:340:38: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 340 |         def ch_fusionreport_report = Channel.empty()
 ╰     |                                      ^^^^^^^
 
-Warn  workflows/rnafusion.nf:326:35: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 326 |         def ch_fusionreport_csv = Channel.empty()
+Warn  workflows/rnafusion.nf:341:35: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 341 |         def ch_fusionreport_csv = Channel.empty()
 ╰     |                                   ^^^^^^^
 
-Warn  workflows/rnafusion.nf:381:114: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 381 | _arriba_visualisation.collect{it[1]}.ifEmpty([]))
+Warn  workflows/rnafusion.nf:396:114: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 396 | _arriba_visualisation.collect{it[1]}.ifEmpty([]))
 ╰     |                               ^^
 
-Warn  workflows/rnafusion.nf:397:92: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 397 |  = ch_multiqc_files.mix(QC_WORKFLOW.out.rnaseq_metrics.collect{it[1]})
+Warn  workflows/rnafusion.nf:412:92: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 412 |  = ch_multiqc_files.mix(QC_WORKFLOW.out.rnaseq_metrics.collect{it[1]})
 ╰     |                                                                ^^
 
-Warn  workflows/rnafusion.nf:398:95: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 398 | ch_multiqc_files.mix(QC_WORKFLOW.out.duplicate_metrics.collect{it[1]})
+Warn  workflows/rnafusion.nf:413:95: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 413 | ch_multiqc_files.mix(QC_WORKFLOW.out.duplicate_metrics.collect{it[1]})
 ╰     |                                                                ^^
 
-Warn  workflows/rnafusion.nf:399:96: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 399 | h_multiqc_files.mix(QC_WORKFLOW.out.insertsize_metrics.collect{it[1]})
+Warn  workflows/rnafusion.nf:414:96: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 414 | h_multiqc_files.mix(QC_WORKFLOW.out.insertsize_metrics.collect{it[1]})
 ╰     |                                                                ^^
 
-Warn  workflows/rnafusion.nf:418:29: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 418 |     def ch_multiqc_output = Channel.empty()
+Warn  workflows/rnafusion.nf:433:29: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 433 |     def ch_multiqc_output = Channel.empty()
 ╰     |                             ^^^^^^^
 
-Warn  workflows/rnafusion.nf:420:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 420 |         ch_multiqc_config        = Channel.fromPath(
+Warn  workflows/rnafusion.nf:435:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 435 |         ch_multiqc_config        = Channel.fromPath(
 ╰     |                                    ^^^^^^^
 
-Warn  workflows/rnafusion.nf:423:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 423 |             Channel.fromPath(params.multiqc_config, checkIfExists: tru
+Warn  workflows/rnafusion.nf:438:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 438 |             Channel.fromPath(params.multiqc_config, checkIfExists: tru
 ╰     |             ^^^^^^^
 
-Warn  workflows/rnafusion.nf:424:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 424 |             Channel.empty()
+Warn  workflows/rnafusion.nf:439:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 439 |             Channel.empty()
 ╰     |             ^^^^^^^
 
-Warn  workflows/rnafusion.nf:426:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 426 |             Channel.fromPath(params.multiqc_logo, checkIfExists: true)
+Warn  workflows/rnafusion.nf:441:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 441 |             Channel.fromPath(params.multiqc_logo, checkIfExists: true)
 ╰     |             ^^^^^^^
 
-Warn  workflows/rnafusion.nf:427:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 427 |             Channel.empty()
+Warn  workflows/rnafusion.nf:442:13: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 442 |             Channel.empty()
 ╰     |             ^^^^^^^
 
-Warn  workflows/rnafusion.nf:431:31: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 431 |         ch_workflow_summary = Channel.value(paramsSummaryMultiqc(summa
+Warn  workflows/rnafusion.nf:446:31: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 446 |         ch_workflow_summary = Channel.value(paramsSummaryMultiqc(summa
 ╰     |                               ^^^^^^^
 
-Warn  workflows/rnafusion.nf:437:49: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│ 437 |         ch_methods_description                = Channel.value(
+Warn  workflows/rnafusion.nf:452:49: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│ 452 |         ch_methods_description                = Channel.value(
 ╰     |                                                 ^^^^^^^
 
 
@@ -682,4 +684,4 @@ Error tests/nextflow.config:32:38: `pipelines_testdata_base_path` is not defined
 
 Nextflow linting complete!
  ❌ 3 files had 13 errors
- ✅ 105 files had no errors
+ ✅ 106 files had no errors

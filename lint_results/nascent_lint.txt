@@ -12,7 +12,6 @@ Linting: workflows/nascent.nf
 Linting: workflows/tests/skip_pints.config
 Linting: workflows/tests/inputs/uniqmap/nextflow.config
 Linting: workflows/tests/skip_gzip.config
-Linting: subworkflows/local/coverage_graphs.nf
 Linting: subworkflows/local/align_bwamem2/main.nf
 Linting: subworkflows/local/quality_control.nf
 Linting: subworkflows/local/grohmm/main.nf
@@ -21,6 +20,7 @@ Linting: subworkflows/local/dreg_prep/main.nf
 Linting: subworkflows/local/prepare_genome.nf
 Linting: subworkflows/local/utils_nfcore_nascent_pipeline/main.nf
 Linting: subworkflows/local/align_dragmap/main.nf
+Linting: subworkflows/local/coverage_graphs/main.nf
 Linting: subworkflows/nf-core/bam_stats_samtools/main.nf
 Linting: subworkflows/nf-core/utils_nfcore_pipeline/main.nf
 Linting: subworkflows/nf-core/utils_nfcore_pipeline/tests/nextflow.config
@@ -51,6 +51,8 @@ Linting: modules/local/grohmm/transcriptcalling/main.nf
 Linting: modules/local/grohmm/parametertuning/main.nf
 Linting: modules/local/dreg_prep/main.nf
 Linting: modules/local/bed2saf.nf
+Linting: modules/local/flip_strand/main.nf
+Linting: modules/local/pints/visualizer/main.nf
 Linting: modules/nf-core/star/genomegenerate/main.nf
 Linting: modules/nf-core/star/align/main.nf
 Linting: modules/nf-core/star/align/tests/nextflow.arriba.config
@@ -127,8 +129,6 @@ Linting: modules/nf-core/dragmap/hashtable/main.nf
 Linting: modules/nf-core/dragmap/align/main.nf
 Linting: modules/nf-core/deeptools/bamcoverage/main.nf
 Linting: modules/nf-core/bedtools/intersect/main.nf
-Linting: modules/nf-core/bedtools/genomecov/main.nf
-Linting: modules/nf-core/bedtools/genomecov/tests/nextflow.config
 Linting: modules/nf-core/bedtools/sort/main.nf
 Linting: modules/nf-core/bedtools/sort/tests/nextflow.config
 Linting: modules/nf-core/bedtools/bamtobed/main.nf
@@ -141,6 +141,14 @@ Linting: modules/nf-core/pints/caller/tests/nextflow.config
 
 
 
+
+Error modules/local/pints/visualizer/main.nf:47:23: `chr_name` is not defined
+│  47 |     touch ${prefix}_${chr_name}_plus.bigwig
+╰     |                       ^^^^^^^^
+
+Error modules/local/pints/visualizer/main.nf:48:23: `chr_name` is not defined
+│  48 |     touch ${prefix}_${chr_name}_minus.bigwig
+╰     |                       ^^^^^^^^
 
 
 
@@ -315,21 +323,25 @@ Warn  subworkflows/local/align_dragmap/main.nf:16:19: The use of `Channel` to ac
 ╰     |                   ^^^^^^^
 
 
-Warn  subworkflows/local/coverage_graphs.nf:22:26: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  22 |     bam = bam_bai.map { [it[0], it[1]] }
+Warn  subworkflows/local/coverage_graphs/main.nf:13:5: Parameter was not used -- prefix with `_` to suppress warning
+│  13 |     sizes
+╰     |     ^^^^^
+
+Warn  subworkflows/local/coverage_graphs/main.nf:19:5: Variable was declared but not used
+│  19 |     bam = bam_bai.map { [it[0], it[1]] }
+╰     |     ^^^
+
+Warn  subworkflows/local/coverage_graphs/main.nf:19:26: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  19 |     bam = bam_bai.map { [it[0], it[1]] }
 ╰     |                          ^^
 
-Warn  subworkflows/local/coverage_graphs.nf:22:33: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  22 |     bam = bam_bai.map { [it[0], it[1]] }
+Warn  subworkflows/local/coverage_graphs/main.nf:19:33: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│  19 |     bam = bam_bai.map { [it[0], it[1]] }
 ╰     |                                 ^^
 
-Warn  subworkflows/local/coverage_graphs.nf:24:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  24 |     ch_versions = Channel.empty()
+Warn  subworkflows/local/coverage_graphs/main.nf:21:19: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+│  21 |     ch_versions = Channel.empty()
 ╰     |                   ^^^^^^^
-
-Warn  subworkflows/local/coverage_graphs.nf:26:36: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  26 |     ch_genomecov_bam = bam.combine(Channel.from(1))
-╰     |                                    ^^^^^^^
 
 
 Error subworkflows/local/dreg_prep/main.nf:1:1: Invalid include source: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/nascent/subworkflows/local/modules/nf-core/bedtools/bamtobed/main.nf'
@@ -990,5 +1002,5 @@ Error tests/config/test_data.config:6:5: Unexpected input: 'includeConfig'
 
 
 Nextflow linting complete!
- ❌ 10 files had 32 errors
- ✅ 127 files had no errors
+ ❌ 11 files had 34 errors
+ ✅ 126 files had no errors

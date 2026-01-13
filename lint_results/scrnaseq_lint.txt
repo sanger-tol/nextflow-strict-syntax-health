@@ -359,101 +359,9 @@ Warn  subworkflows/local/align_cellrangerarc.nf:73:90: Implicit closure paramete
 ╰     |                                                               ^^
 
 
-Error subworkflows/local/align_cellrangermulti.nf:35:13: Variables in a closure should be declared with `def`
-│  35 |             fastqs = data_dict?.value
-╰     |             ^^^^^^
-
-Error subworkflows/local/align_cellrangermulti.nf:225:5: `out_ch` was assigned but not declared
-│ 225 |     out_ch =
-╰     |     ^^^^^^
-
-Error subworkflows/local/align_cellrangermulti.nf:243:12: `out_ch` is not defined
-│ 243 |     return out_ch
-╰     |            ^^^^^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:21:26: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-│  21 |         ch_versions    = Channel.empty()
-╰     |                          ^^^^^^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:34:47: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  34 |             def data_dict  = meta_clone.find{ it.key == "${meta_clone.
-╰     |                                               ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:64:9: Variable was declared but not used
-│  64 |         ch_gex_barcodes           = params.gex_barcode_sample_assignme
-╰     |         ^^^^^^^^^^^^^^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:95:20: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  95 |             .map{ [it[0].id] }
-╰     |                    ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:96:85: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  96 | .out.cmo.flatten().map { [ "${it.baseName}" - "_cmo", it ] } )
-╰     |                               ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:96:109: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  96 | PLESHEET.out.cmo.flatten().map { [ "${it.baseName}" - "_cmo", it ] } )
-╰     |                                                               ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:98:25: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  98 |             .map { if ( it.size() == 2 ) { it[1] } else { [] } } // a 
-╰     |                         ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:98:44: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│  98 |             .map { if ( it.size() == 2 ) { it[1] } else { [] } } // a 
-╰     |                                            ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:103:20: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 103 |             .map{ [it[0].id] }
-╰     |                    ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:104:85: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 104 | .out.ocm.flatten().map { [ "${it.baseName}" - "_ocm", it ] } )
-╰     |                               ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:104:109: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 104 | PLESHEET.out.ocm.flatten().map { [ "${it.baseName}" - "_ocm", it ] } )
-╰     |                                                               ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:106:25: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 106 |             .map { if ( it.size() == 2 ) { it[1] } else { [] } } // a 
-╰     |                         ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:106:44: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 106 |             .map { if ( it.size() == 2 ) { it[1] } else { [] } } // a 
-╰     |                                            ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:111:20: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 111 |             .map{ [it[0].id] }
-╰     |                    ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:112:86: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 112 | out.frna.flatten().map { [ "${it.baseName}" - "_frna", it ] } )
-╰     |                               ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:112:111: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 112 | ESHEET.out.frna.flatten().map { [ "${it.baseName}" - "_frna", it ] } )
-╰     |                                                               ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:114:25: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 114 |             .map { if ( it.size() == 2 ) { it[1] } else { [] } } // a 
-╰     |                         ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:114:44: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 114 |             .map { if ( it.size() == 2 ) { it[1] } else { [] } } // a 
-╰     |                                            ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:179:39: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 179 |             ch_grouped_fastq.gex.map{ it[0] },
-╰     |                                       ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:228:30: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 228 |         mtx_files.each{ if ( it.toString().contains("${pattern}") ) { 
-╰     |                              ^^
-
-Warn  subworkflows/local/align_cellrangermulti.nf:228:90: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 228 | ( it.toString().contains("${pattern}") ) { desired_files.add( it ) } }
-╰     |                                                               ^^
+Error subworkflows/local/align_cellrangermulti.nf:150:34: Unexpected input: '='
+│ 150 |                     while ((line = reader.readLine()) != null) {
+╰     |                                  ^
 
 
 Warn  subworkflows/local/fastqc.nf:29:22: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
@@ -509,6 +417,14 @@ Warn  subworkflows/local/starsolo.nf:76:53: Parameter was not used -- prefix wit
 ╰     |                                                     ^^^^
 
 
+Error subworkflows/local/utils_nfcore_scrnaseq_pipeline/main.nf:238:5: `cellranger_multi_barcodes` was assigned but not declared
+│ 238 |     cellranger_multi_barcodes = file(params.cellranger_multi_barcodes)
+╰     |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error subworkflows/local/utils_nfcore_scrnaseq_pipeline/main.nf:248:5: `cellranger_multi_barcodes` is not defined
+│ 248 |     cellranger_multi_barcodes.eachWithIndex { row, idx ->
+╰     |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Warn  subworkflows/local/utils_nfcore_scrnaseq_pipeline/main.nf:32:5: Parameter was not used -- prefix with `_` to suppress warning
 │  32 |     monochrome_logs   // boolean: Do not use coloured log outputs
 ╰     |     ^^^^^^^^^^^^^^^
@@ -553,8 +469,24 @@ Warn  subworkflows/local/utils_nfcore_scrnaseq_pipeline/main.nf:155:42: Implicit
 │ 155 |                 validateInputSamplesheet(it)
 ╰     |                                          ^^
 
-Warn  subworkflows/local/utils_nfcore_scrnaseq_pipeline/main.nf:257:86: Implicit closure parameter is deprecated, declare an explicit parameter instead
-│ 257 | ample_type }.unique().every { it in valid_sample_types }
+Warn  subworkflows/local/utils_nfcore_scrnaseq_pipeline/main.nf:241:76: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 241 | itCsv(header: true).collect { it.sample }.toSet()
+╰     |                               ^^
+
+Warn  subworkflows/local/utils_nfcore_scrnaseq_pipeline/main.nf:268:65: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 268 | houtBarcodes.collect { "row ${it.row} (${it.multiplexed_sample_id})" }
+╰     |                               ^^
+
+Warn  subworkflows/local/utils_nfcore_scrnaseq_pipeline/main.nf:268:76: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 268 | s.collect { "row ${it.row} (${it.multiplexed_sample_id})" }.join(', ')
+╰     |                               ^^
+
+Warn  subworkflows/local/utils_nfcore_scrnaseq_pipeline/main.nf:275:65: Parameter was not used -- prefix with `_` to suppress warning
+│ 275 |  sampleBarcodeTypes.findAll { multiplexed_sample_id, info -> info.type
+╰     |                               ^^^^^^^^^^^^^^^^^^^^^
+
+Warn  subworkflows/local/utils_nfcore_scrnaseq_pipeline/main.nf:321:86: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 321 | ample_type }.unique().every { it in valid_sample_types }
 ╰     |                               ^^
 
 
@@ -570,9 +502,33 @@ Warn  subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98: The use of `Cha
 
 
 
+Error workflows/scrnaseq.nf:17:1: Module could not be parsed: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/scrnaseq/subworkflows/local/align_cellrangermulti.nf'
+│  17 | include { CELLRANGER_MULTI_ALIGN                            } from "..
+╰     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Error workflows/scrnaseq.nf:37:23: `Utils` is not defined
 │  37 |     protocol_config = Utils.getProtocol(workflow, log, params.aligner,
 ╰     |                       ^^^^^
+
+Error workflows/scrnaseq.nf:264:9: `CELLRANGER_MULTI_ALIGN` is not defined
+│ 264 |         CELLRANGER_MULTI_ALIGN(
+╰     |         ^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/scrnaseq.nf:272:39: `CELLRANGER_MULTI_ALIGN` is not defined
+│ 272 |         ch_versions = ch_versions.mix(CELLRANGER_MULTI_ALIGN.out.ch_ve
+╰     |                                       ^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/scrnaseq.nf:273:50: `CELLRANGER_MULTI_ALIGN` is not defined
+│ 273 |         ch_multiqc_files = ch_multiqc_files.mix( CELLRANGER_MULTI_ALIG
+╰     |                                                  ^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/scrnaseq.nf:276:48: `CELLRANGER_MULTI_ALIGN` is not defined
+│ 276 |         ch_mtx_matrices = ch_mtx_matrices.mix( CELLRANGER_MULTI_ALIGN.
+╰     |                                                ^^^^^^^^^^^^^^^^^^^^^^
+
+Error workflows/scrnaseq.nf:276:100: `CELLRANGER_MULTI_ALIGN` is not defined
+│ 276 | .out.cellrangermulti_mtx_raw, CELLRANGER_MULTI_ALIGN.out.cellrangermul
+╰     |                               ^^^^^^^^^^^^^^^^^^^^^^
 
 Warn  workflows/scrnaseq.nf:33:24: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 │  33 |     ch_multiqc_files = Channel.empty()
@@ -679,16 +635,20 @@ Warn  workflows/scrnaseq.nf:368:29: The use of `Channel` to access channel facto
 ╰     |                             ^^^^^^^
 
 
-Error conf/modules.config:35:17: Unexpected input: ':'
-│  35 |         withName: 'CELLBENDER_REMOVEBACKGROUND' {
-╰     |                 ^
+Warn  conf/modules.config:160:25: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 160 |             saveAs: { (!it.endsWith('.bam') || params.save_align_inter
+╰     |                         ^^
+
+Warn  conf/modules.config:160:79: Implicit closure parameter is deprecated, declare an explicit parameter instead
+│ 160 |  { (!it.endsWith('.bam') || params.save_align_intermeds) ? it : null }
+╰     |                                                            ^^
 
 
-Error nextflow.config:230:28: Invalid include source: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/scrnaseq/conf/test_multiome.config'
-│ 230 |     test_multiome        { includeConfig 'conf/test_multiome.config'  
+Error nextflow.config:231:28: Invalid include source: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/scrnaseq/conf/test_multiome.config'
+│ 231 |     test_multiome        { includeConfig 'conf/test_multiome.config'  
 ╰     |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Nextflow linting complete!
- ❌ 11 files had 17 errors
+ ❌ 11 files had 22 errors
  ✅ 56 files had no errors
