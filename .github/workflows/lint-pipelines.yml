@@ -5,6 +5,19 @@ on:
     # Run nightly at midnight UTC
     - cron: "0 0 * * *"
   workflow_dispatch:
+    inputs:
+      update_pipelines:
+        description: "Update lint results pipelines (don't just use history)"
+        type: boolean
+        default: true
+      update_readme:
+        description: "Update README.md with results"
+        type: boolean
+        default: true
+      pipelines:
+        description: "Specific pipeline(s) to lint (comma-separated, leave empty for all)"
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -30,8 +43,40 @@ jobs:
       - name: Install dependencies
         run: pip install .
 
+      - name: Build linting command
+        id: build-cmd
+        run: |
+          CMD="strict-syntax-health"
+
+          # For scheduled runs, use defaults (update both)
+          # For workflow_dispatch, use the inputs
+          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+            CMD="$CMD --update-pipelines --update-readme"
+          else
+            if [[ "${{ inputs.update_pipelines }}" == "true" ]]; then
+              CMD="$CMD --update-pipelines"
+            fi
+            if [[ "${{ inputs.update_readme }}" == "true" ]]; then
+              CMD="$CMD --update-readme"
+            fi
+            if [[ -n "${{ inputs.pipelines }}" ]]; then
+              # Convert comma-separated list to multiple -p flags
+              IFS=',' read -ra PIPELINES <<< "${{ inputs.pipelines }}"
+              for p in "${PIPELINES[@]}"; do
+                # Trim whitespace
+                p=$(echo "$p" | xargs)
+                if [[ -n "$p" ]]; then
+                  CMD="$CMD -p $p"
+                fi
+              done
+            fi
+          fi
+
+          echo "cmd=$CMD" >> $GITHUB_OUTPUT
+          echo "Running: $CMD"
+
       - name: Run linting
-        run: strict-syntax-health --update-pipelines --update-readme
+        run: ${{ steps.build-cmd.outputs.cmd }}
 
       - name: Run pre-commit on all files to fix formatting
         run: |
