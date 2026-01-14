@@ -24,8 +24,7 @@ LINT_RESULTS_DIR = Path("lint_results")
 # Pipelines.json now lives inside pipelines/
 PIPELINES_JSON_PATH = PIPELINES_DIR / "pipelines.json"
 
-# History and README
-HISTORY_PATH = LINT_RESULTS_DIR / "history.json"
+# README path
 README_PATH = Path("README.md")
 
 # Lint results subdirectories
@@ -463,23 +462,70 @@ def display_results(results: list[dict], title: str = "nf-core Strict Syntax Hea
     )
 
 
+def _get_type_dir(type_name: str) -> Path:
+    """Get the lint results directory for a specific type."""
+    type_dirs = {
+        "pipelines": PIPELINES_LINT_RESULTS_DIR,
+        "modules": MODULES_LINT_RESULTS_DIR,
+        "subworkflows": SUBWORKFLOWS_LINT_RESULTS_DIR,
+    }
+    return type_dirs[type_name]
+
+
+def _get_history_path_for_type(type_name: str) -> Path:
+    """Get the history file path for a specific type."""
+    return _get_type_dir(type_name) / "history.json"
+
+
+def _get_results_path_for_type(type_name: str) -> Path:
+    """Get the results file path for a specific type (for aggregation)."""
+    return _get_type_dir(type_name) / "results.json"
+
+
+def save_results_for_type(type_name: str, results: list[dict]) -> None:
+    """Save lint results for a specific type (for later aggregation)."""
+    path = _get_results_path_for_type(type_name)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    # Strip lint_details to keep file size reasonable
+    stripped_results = []
+    for r in results:
+        stripped = {k: v for k, v in r.items() if k != "lint_details"}
+        stripped_results.append(stripped)
+    path.write_text(json.dumps(stripped_results, indent=2) + "\n")
+    console.print(f"Saved results to {path}")
+
+
+def load_results_for_type(type_name: str) -> list[dict]:
+    """Load lint results for a specific type."""
+    path = _get_results_path_for_type(type_name)
+    if path.exists():
+        return json.loads(path.read_text())
+    return []
+
+
+def load_history_for_type(type_name: str) -> list[dict]:
+    """Load historical results for a specific type."""
+    path = _get_history_path_for_type(type_name)
+    if path.exists():
+        return json.loads(path.read_text())
+    return []
+
+
+def save_history_for_type(type_name: str, history: list[dict]) -> None:
+    """Save historical results for a specific type."""
+    path = _get_history_path_for_type(type_name)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(history, indent=2) + "\n")
+    console.print(f"Updated {path}")
+
+
 def load_history() -> dict:
-    """Load historical results from the history file."""
-    if HISTORY_PATH.exists():
-        data = json.loads(HISTORY_PATH.read_text())
-        # Handle both old list format and new dict format
-        if isinstance(data, list):
-            # Migrate old format to new format
-            return {"pipelines": data, "modules": [], "subworkflows": []}
-        return data
-    return {"pipelines": [], "modules": [], "subworkflows": []}
-
-
-def save_history(history: dict) -> None:
-    """Save historical results to the history file."""
-    HISTORY_PATH.parent.mkdir(parents=True, exist_ok=True)
-    HISTORY_PATH.write_text(json.dumps(history, indent=2))
-    console.print(f"Updated {HISTORY_PATH}")
+    """Load historical results from all per-type history files."""
+    return {
+        "pipelines": load_history_for_type("pipelines"),
+        "modules": load_history_for_type("modules"),
+        "subworkflows": load_history_for_type("subworkflows"),
+    }
 
 
 def _create_history_entry(results: list[dict]) -> dict:
@@ -516,22 +562,33 @@ def update_history(
     module_results: list[dict] | None = None,
     subworkflow_results: list[dict] | None = None,
 ) -> dict:
-    """Add current results to history and return updated history."""
-    history = load_history()
+    """Add current results to history and return updated history.
+
+    Each type's history is stored in its own file to allow parallel updates.
+    """
+    history = {}
 
     if pipeline_results is not None:
+        pipelines_history = load_history_for_type("pipelines")
         entry = _create_history_entry(pipeline_results)
-        history["pipelines"] = _update_history_for_type(history.get("pipelines", []), entry)
+        pipelines_history = _update_history_for_type(pipelines_history, entry)
+        save_history_for_type("pipelines", pipelines_history)
+        history["pipelines"] = pipelines_history
 
     if module_results is not None:
+        modules_history = load_history_for_type("modules")
         entry = _create_history_entry(module_results)
-        history["modules"] = _update_history_for_type(history.get("modules", []), entry)
+        modules_history = _update_history_for_type(modules_history, entry)
+        save_history_for_type("modules", modules_history)
+        history["modules"] = modules_history
 
     if subworkflow_results is not None:
+        subworkflows_history = load_history_for_type("subworkflows")
         entry = _create_history_entry(subworkflow_results)
-        history["subworkflows"] = _update_history_for_type(history.get("subworkflows", []), entry)
+        subworkflows_history = _update_history_for_type(subworkflows_history, entry)
+        save_history_for_type("subworkflows", subworkflows_history)
+        history["subworkflows"] = subworkflows_history
 
-    save_history(history)
     return history
 
 
@@ -840,6 +897,11 @@ def generate_readme(
     is_flag=True,
     help="Skip linting subworkflows",
 )
+@click.option(
+    "--generate-charts-only",
+    is_flag=True,
+    help="Only generate charts and README from existing history files (no linting)",
+)
 def main(
     update_readme: bool,
     update_pipelines: bool,
@@ -849,6 +911,7 @@ def main(
     skip_pipelines: bool,
     skip_modules: bool,
     skip_subworkflows: bool,
+    generate_charts_only: bool,
 ) -> None:
     """Check nf-core pipelines, modules, and subworkflows for Nextflow strict syntax linting issues."""
     if update_pipelines:
@@ -857,6 +920,31 @@ def main(
     # Get nextflow version
     nextflow_version = get_nextflow_version()
     console.print(f"Using Nextflow version: {nextflow_version}")
+
+    # Generate charts only mode - skip linting, load existing results and generate outputs
+    if generate_charts_only:
+        console.print("[bold]Generate charts only mode - loading existing data...[/bold]")
+
+        # Load results from JSON files (saved by lint jobs)
+        pipeline_results = load_results_for_type("pipelines") or None
+        module_results = load_results_for_type("modules") or None
+        subworkflow_results = load_results_for_type("subworkflows") or None
+
+        # Load history and generate charts
+        history = load_history()
+        generate_all_charts(history)
+
+        if update_readme:
+            readme_content = generate_readme(
+                pipeline_results=pipeline_results,
+                module_results=module_results,
+                subworkflow_results=subworkflow_results,
+                include_charts=True,
+                nextflow_version=nextflow_version,
+            )
+            README_PATH.write_text(readme_content)
+            console.print(f"\n[green]Updated {README_PATH}[/green]")
+        return
 
     pipeline_results: list[dict] | None = None
     module_results: list[dict] | None = None
@@ -876,6 +964,9 @@ def main(
 
         pipeline_results = run_pipeline_lint(pipelines)
         display_results(pipeline_results, title="nf-core Pipeline Strict Syntax Health")
+        # Save results for aggregation (only when not filtering specific pipelines)
+        if not pipeline:
+            save_results_for_type("pipelines", pipeline_results)
 
     # Lint modules and subworkflows (requires modules repo)
     if not skip_modules or not skip_subworkflows:
@@ -894,6 +985,9 @@ def main(
 
             module_results = run_modules_lint(modules)
             display_results(module_results, title="nf-core Module Strict Syntax Health")
+            # Save results for aggregation (only when not filtering specific modules)
+            if not module:
+                save_results_for_type("modules", module_results)
 
         if not skip_subworkflows:
             subworkflows = discover_subworkflows()
@@ -910,16 +1004,34 @@ def main(
 
             subworkflow_results = run_subworkflows_lint(subworkflows)
             display_results(subworkflow_results, title="nf-core Subworkflow Strict Syntax Health")
+            # Save results for aggregation (only when not filtering specific subworkflows)
+            if not subworkflow:
+                save_results_for_type("subworkflows", subworkflow_results)
 
-    # Update history and generate charts (only when not filtering)
+    # Update history and generate charts
+    # History is updated per-type when all items of that type are linted (no -p/-m/-s filters)
+    # This allows parallel jobs to each update their own history file
     include_charts = False
-    if not pipeline and not module and not subworkflow:
-        history = update_history(
-            pipeline_results=pipeline_results,
-            module_results=module_results,
-            subworkflow_results=subworkflow_results,
-        )
-        generate_all_charts(history)
+    history = {}
+
+    # Update history for each type that was fully linted
+    if pipeline_results is not None and not pipeline:
+        update_history(pipeline_results=pipeline_results)
+        history["pipelines"] = load_history_for_type("pipelines")
+
+    if module_results is not None and not module:
+        update_history(module_results=module_results)
+        history["modules"] = load_history_for_type("modules")
+
+    if subworkflow_results is not None and not subworkflow:
+        update_history(subworkflow_results=subworkflow_results)
+        history["subworkflows"] = load_history_for_type("subworkflows")
+
+    # Generate charts if any history was updated
+    if history:
+        # Load full history for chart generation
+        full_history = load_history()
+        generate_all_charts(full_history)
         include_charts = True
 
     if update_readme:

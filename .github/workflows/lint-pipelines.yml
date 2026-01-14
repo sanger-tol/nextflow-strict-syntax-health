@@ -35,30 +35,29 @@ permissions:
   contents: write
 
 jobs:
-  lint:
+  # Setup job: Get Nextflow commit SHA for caching
+  setup:
     runs-on: ubuntu-latest
-
+    outputs:
+      nf-commit: ${{ steps.nf-commit.outputs.sha }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
       - name: Get Nextflow latest commit
         id: nf-commit
         run: |
           COMMIT=$(git ls-remote https://github.com/nextflow-io/nextflow.git HEAD | cut -f1)
           echo "sha=$COMMIT" >> $GITHUB_OUTPUT
 
+  # Build Nextflow and upload as artifact
+  build-nextflow:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
       - name: Restore Nextflow build cache
         id: cache-nextflow
         uses: actions/cache/restore@v4
         with:
           path: nextflow-src/build/releases
-          key: nextflow-build-${{ steps.nf-commit.outputs.sha }}
+          key: nextflow-build-${{ needs.setup.outputs.nf-commit }}
 
       - name: Set up Java
         if: steps.cache-nextflow.outputs.cache-hit != 'true'
@@ -74,24 +73,62 @@ jobs:
           git clone --depth 1 https://github.com/nextflow-io/nextflow.git nextflow-src
           cd nextflow-src
           make pack
-
-          # Create nextflow alias (binary has versioned name like nextflow-X.Y.Z-dist)
           cd build/releases/
           ln -s nextflow-*-dist nextflow
 
       - name: Save Nextflow build cache
-        if: steps.cache-nextflow.outputs.cache-hit != 'true' && steps.build-nextflow.outcome == 'success' && always()
+        if: steps.cache-nextflow.outputs.cache-hit != 'true' && steps.build-nextflow.outcome == 'success'
         uses: actions/cache/save@v4
         with:
           path: nextflow-src/build/releases
-          key: nextflow-build-${{ steps.nf-commit.outputs.sha }}
+          key: nextflow-build-${{ needs.setup.outputs.nf-commit }}
+
+      - name: Fix symlink if needed
+        run: |
+          cd nextflow-src/build/releases
+          if [ -L nextflow ] && [ ! -e nextflow ]; then
+            rm nextflow
+            ln -s nextflow-*-dist nextflow
+          fi
+
+      - name: Upload Nextflow binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: nextflow-binary
+          path: nextflow-src/build/releases/
+          retention-days: 1
+
+  # Lint jobs running in parallel
+  lint:
+    runs-on: ubuntu-latest
+    needs: [setup, build-nextflow]
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - type: pipelines
+            skip_flag: "--skip-modules --skip-subworkflows"
+          - type: modules-subworkflows
+            skip_flag: "--skip-pipelines"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download Nextflow binary
+        uses: actions/download-artifact@v4
+        with:
+          name: nextflow-binary
+          path: nextflow-src/build/releases
 
       - name: Add Nextflow to PATH
         run: |
-          cd ${{ github.workspace }}
-          tree -L 3
-          ls -la nextflow-src/build/releases/
-          # Fix symlink if broken (e.g., from old cache)
+          chmod +x nextflow-src/build/releases/nextflow*
+          # Fix symlink if needed
           cd nextflow-src/build/releases
           if [ -L nextflow ] && [ ! -e nextflow ]; then
             rm nextflow
@@ -102,60 +139,144 @@ jobs:
       - name: Install dependencies
         run: pip install .
 
+      - name: Check if job should run
+        id: should-run
+        run: |
+          # Check if this job type should be skipped based on inputs
+          if [[ "${{ matrix.type }}" == "pipelines" ]]; then
+            if [[ "${{ inputs.skip_pipelines }}" == "true" ]]; then
+              echo "skip=true" >> $GITHUB_OUTPUT
+            else
+              echo "skip=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            # modules-subworkflows
+            if [[ "${{ inputs.skip_modules }}" == "true" && "${{ inputs.skip_subworkflows }}" == "true" ]]; then
+              echo "skip=true" >> $GITHUB_OUTPUT
+            else
+              echo "skip=false" >> $GITHUB_OUTPUT
+            fi
+          fi
+
       - name: Build linting command
         id: build-cmd
+        if: steps.should-run.outputs.skip != 'true'
         run: |
-          CMD="strict-syntax-health --update-pipelines --update-readme"
+          CMD="strict-syntax-health --update-pipelines ${{ matrix.skip_flag }}"
 
-          # Add skip flags
-          if [[ "${{ inputs.skip_pipelines }}" == "true" ]]; then
-            CMD="$CMD --skip-pipelines"
-          fi
-          if [[ "${{ inputs.skip_modules }}" == "true" ]]; then
-            CMD="$CMD --skip-modules"
-          fi
-          if [[ "${{ inputs.skip_subworkflows }}" == "true" ]]; then
-            CMD="$CMD --skip-subworkflows"
+          # Add additional skip flags for modules-subworkflows job
+          if [[ "${{ matrix.type }}" == "modules-subworkflows" ]]; then
+            if [[ "${{ inputs.skip_modules }}" == "true" ]]; then
+              CMD="$CMD --skip-modules"
+            fi
+            if [[ "${{ inputs.skip_subworkflows }}" == "true" ]]; then
+              CMD="$CMD --skip-subworkflows"
+            fi
           fi
 
-          # Add pipeline filters
-          if [[ -n "${{ inputs.pipelines }}" ]]; then
+          # Add specific filters if provided
+          if [[ "${{ matrix.type }}" == "pipelines" && -n "${{ inputs.pipelines }}" ]]; then
             IFS=',' read -ra ITEMS <<< "${{ inputs.pipelines }}"
             for item in "${ITEMS[@]}"; do
               item=$(echo "$item" | xargs)
-              if [[ -n "$item" ]]; then
-                CMD="$CMD -p $item"
-              fi
+              [[ -n "$item" ]] && CMD="$CMD -p $item"
             done
           fi
 
-          # Add module filters
-          if [[ -n "${{ inputs.modules }}" ]]; then
-            IFS=',' read -ra ITEMS <<< "${{ inputs.modules }}"
-            for item in "${ITEMS[@]}"; do
-              item=$(echo "$item" | xargs)
-              if [[ -n "$item" ]]; then
-                CMD="$CMD -m $item"
-              fi
-            done
-          fi
-
-          # Add subworkflow filters
-          if [[ -n "${{ inputs.subworkflows }}" ]]; then
-            IFS=',' read -ra ITEMS <<< "${{ inputs.subworkflows }}"
-            for item in "${ITEMS[@]}"; do
-              item=$(echo "$item" | xargs)
-              if [[ -n "$item" ]]; then
-                CMD="$CMD -s $item"
-              fi
-            done
+          if [[ "${{ matrix.type }}" == "modules-subworkflows" ]]; then
+            if [[ -n "${{ inputs.modules }}" ]]; then
+              IFS=',' read -ra ITEMS <<< "${{ inputs.modules }}"
+              for item in "${ITEMS[@]}"; do
+                item=$(echo "$item" | xargs)
+                [[ -n "$item" ]] && CMD="$CMD -m $item"
+              done
+            fi
+            if [[ -n "${{ inputs.subworkflows }}" ]]; then
+              IFS=',' read -ra ITEMS <<< "${{ inputs.subworkflows }}"
+              for item in "${ITEMS[@]}"; do
+                item=$(echo "$item" | xargs)
+                [[ -n "$item" ]] && CMD="$CMD -s $item"
+              done
+            fi
           fi
 
           echo "cmd=$CMD" >> $GITHUB_OUTPUT
           echo "Running: $CMD"
 
       - name: Run linting
+        if: steps.should-run.outputs.skip != 'true'
         run: ${{ steps.build-cmd.outputs.cmd }}
+
+      - name: Upload lint results
+        if: steps.should-run.outputs.skip != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-results-${{ matrix.type }}
+          path: lint_results/
+          retention-days: 1
+
+  # Aggregation job: merge results, generate README, commit
+  aggregate:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download Nextflow binary
+        uses: actions/download-artifact@v4
+        with:
+          name: nextflow-binary
+          path: nextflow-src/build/releases
+
+      - name: Add Nextflow to PATH
+        run: |
+          chmod +x nextflow-src/build/releases/nextflow*
+          cd nextflow-src/build/releases
+          if [ -L nextflow ] && [ ! -e nextflow ]; then
+            rm nextflow
+            ln -s nextflow-*-dist nextflow
+          fi
+          echo "${{ github.workspace }}/nextflow-src/build/releases" >> $GITHUB_PATH
+
+      - name: Download all lint results
+        uses: actions/download-artifact@v4
+        with:
+          pattern: lint-results-*
+          path: downloaded-results/
+          merge-multiple: false
+
+      - name: Merge lint results
+        run: |
+          # Merge results from all matrix jobs
+          # Each job uploaded to downloaded-results/lint-results-<type>/
+          for artifact_dir in downloaded-results/lint-results-*/; do
+            if [ -d "$artifact_dir" ]; then
+              echo "Merging from $artifact_dir"
+              # Copy all subdirectories (pipelines/, modules/, subworkflows/)
+              for type_dir in "$artifact_dir"*/; do
+                if [ -d "$type_dir" ]; then
+                  type_name=$(basename "$type_dir")
+                  echo "  Copying $type_name"
+                  mkdir -p "lint_results/$type_name"
+                  cp -r "$type_dir"* "lint_results/$type_name/" 2>/dev/null || true
+                fi
+              done
+            fi
+          done
+          echo "Merged lint_results structure:"
+          find lint_results -type f | head -20
+
+      - name: Install dependencies
+        run: pip install .
+
+      - name: Generate charts and README
+        run: strict-syntax-health --generate-charts-only --update-readme
 
       - name: Run prek on all files to fix formatting
         uses: j178/prek-action@v1
