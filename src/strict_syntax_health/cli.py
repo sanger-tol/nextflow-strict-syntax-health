@@ -270,6 +270,206 @@ def lint_component(repo_path: Path, target_path: Path | None = None) -> dict:
         return {"summary": {"errors": 0}, "errors": [], "warnings": [], "parse_error": True}
 
 
+def lint_directory_bulk(repo_path: Path, target_path: Path) -> dict:
+    """Run nextflow lint on a directory containing multiple components (JSON output).
+
+    This runs lint once on the entire directory and returns all results,
+    which is much faster than running lint on each component individually.
+
+    Args:
+        repo_path: The repository root path (used as cwd)
+        target_path: The directory to lint (e.g., modules/nf-core or subworkflows/nf-core)
+    """
+    try:
+        relative_path = target_path.relative_to(repo_path)
+    except ValueError:
+        relative_path = target_path
+
+    cmd = ["nextflow", "lint", str(relative_path), "-o", "json"]
+
+    result = subprocess.run(
+        cmd,
+        cwd=repo_path,
+        capture_output=True,
+        text=True,
+    )
+
+    try:
+        return json.loads(result.stdout)
+    except json.JSONDecodeError:
+        console.print(f"[red]Failed to parse bulk lint output for {target_path}[/red]")
+        console.print(f"stdout: {result.stdout[:500]}...")
+        console.print(f"stderr: {result.stderr}")
+        return {"errors": [], "warnings": []}
+
+
+def _extract_component_name_from_path(filepath: str, component_type: str) -> str | None:
+    """Extract component name from a file path.
+
+    Args:
+        filepath: Path like 'modules/nf-core/bwa/mem/main.nf' or 'subworkflows/nf-core/foo/main.nf'
+        component_type: Either 'modules' or 'subworkflows'
+
+    Returns:
+        Component name like 'bwa_mem' for modules or 'foo' for subworkflows, or None if not matched
+    """
+    parts = Path(filepath).parts
+
+    # Find the nf-core part and extract the component name
+    try:
+        nf_core_idx = parts.index("nf-core")
+    except ValueError:
+        return None
+
+    if component_type == "modules":
+        # modules/nf-core/tool/subcommand/main.nf -> tool_subcommand
+        if len(parts) > nf_core_idx + 2:
+            return f"{parts[nf_core_idx + 1]}_{parts[nf_core_idx + 2]}"
+    else:
+        # subworkflows/nf-core/name/main.nf -> name
+        if len(parts) > nf_core_idx + 1:
+            return parts[nf_core_idx + 1]
+
+    return None
+
+
+def _group_lint_results_by_component(
+    lint_result: dict,
+    component_type: str,
+) -> dict[str, dict]:
+    """Group lint errors and warnings by component name.
+
+    Args:
+        lint_result: The JSON output from nextflow lint
+        component_type: Either 'modules' or 'subworkflows'
+
+    Returns:
+        Dict mapping component name to {"errors": [...], "warnings": [...]}
+    """
+    grouped: dict[str, dict] = {}
+
+    for error in lint_result.get("errors", []):
+        filename = error.get("filename", "")
+        name = _extract_component_name_from_path(filename, component_type)
+        if name:
+            if name not in grouped:
+                grouped[name] = {"errors": [], "warnings": []}
+            grouped[name]["errors"].append(error)
+
+    for warning in lint_result.get("warnings", []):
+        filename = warning.get("filename", "")
+        name = _extract_component_name_from_path(filename, component_type)
+        if name:
+            if name not in grouped:
+                grouped[name] = {"errors": [], "warnings": []}
+            grouped[name]["warnings"].append(warning)
+
+    return grouped
+
+
+def _get_code_snippet(repo_path: Path, filename: str, line_num: int, column: int) -> str | None:
+    """Read a code snippet from a file for display in markdown.
+
+    Args:
+        repo_path: Base repository path
+        filename: Relative path to the file
+        line_num: Line number (1-indexed)
+        column: Column number (1-indexed)
+
+    Returns:
+        Formatted code snippet with caret marker, or None if file not found
+    """
+    try:
+        file_path = repo_path / filename
+        if not file_path.exists():
+            return None
+
+        source_lines = file_path.read_text().splitlines()
+        if line_num < 1 or line_num > len(source_lines):
+            return None
+
+        source_line = source_lines[line_num - 1]
+        # Create caret marker line pointing to the column
+        # Account for the column being 1-indexed
+        caret_line = " " * (column - 1) + "^" * max(1, min(10, len(source_line) - column + 1))
+
+        return f"    ```nextflow\n    {source_line}\n    {caret_line}\n    ```"
+    except Exception:
+        return None
+
+
+def _generate_markdown_from_issues(
+    errors: list[dict],
+    warnings: list[dict],
+    nextflow_version: str,
+    repo_path: Path | None = None,
+) -> str:
+    """Generate markdown output matching nextflow lint markdown format.
+
+    Args:
+        errors: List of error dicts with filename, startLine, startColumn, message
+        warnings: List of warning dicts with same structure
+        nextflow_version: Nextflow version string
+        repo_path: Optional repository path for reading source code snippets
+
+    Returns:
+        Markdown string matching nextflow lint output format
+    """
+    now = datetime.now(timezone.utc).isoformat()
+    error_count = len(errors)
+    warning_count = len(warnings)
+
+    lines = [
+        "# Nextflow lint results",
+        "",
+        f"- Generated: {now}",
+        f"- Nextflow version: {nextflow_version}",
+    ]
+
+    if error_count == 0 and warning_count == 0:
+        lines.append("- Summary: No issues found")
+        return "\n".join(lines)
+
+    summary_parts = []
+    if error_count > 0:
+        summary_parts.append(f"{error_count} error{'s' if error_count != 1 else ''}")
+    if warning_count > 0:
+        summary_parts.append(f"{warning_count} warning{'s' if warning_count != 1 else ''}")
+    lines.append(f"- Summary: {', '.join(summary_parts)}")
+
+    if errors:
+        lines.extend(["", "## :x: Errors", ""])
+        for error in errors:
+            filename = error.get("filename", "unknown")
+            line_num = error.get("startLine", 0)
+            col = error.get("startColumn", 0)
+            message = error.get("message", "")
+            lines.append(f"- Error: `{filename}:{line_num}:{col}`: {message}")
+            lines.append("")
+            if repo_path:
+                snippet = _get_code_snippet(repo_path, filename, line_num, col)
+                if snippet:
+                    lines.append(snippet)
+                    lines.append("")
+
+    if warnings:
+        lines.extend(["", "## :warning: Warnings", ""])
+        for warning in warnings:
+            filename = warning.get("filename", "unknown")
+            line_num = warning.get("startLine", 0)
+            col = warning.get("startColumn", 0)
+            message = warning.get("message", "")
+            lines.append(f"- Warning: `{filename}:{line_num}:{col}`: {message}")
+            lines.append("")
+            if repo_path:
+                snippet = _get_code_snippet(repo_path, filename, line_num, col)
+                if snippet:
+                    lines.append(snippet)
+                    lines.append("")
+
+    return "\n".join(lines)
+
+
 def lint_pipeline(repo_path: Path) -> dict:
     """Run nextflow lint on a pipeline (JSON output for parsing)."""
     return lint_component(repo_path)
@@ -347,8 +547,23 @@ def run_pipeline_lint(pipelines: list[dict]) -> list[dict]:
     return results
 
 
-def run_modules_lint(modules: list[dict]) -> list[dict]:
-    """Lint all modules."""
+def run_modules_lint(modules: list[dict], nextflow_version: str = "unknown") -> list[dict]:
+    """Lint all modules using bulk lint for efficiency.
+
+    Args:
+        modules: List of module dicts with name, path, html_url
+        nextflow_version: Nextflow version string for markdown output
+    """
+    # Check if we're filtering to specific modules (small list)
+    # If so, use individual linting for accuracy; otherwise use bulk
+    if len(modules) <= 5:
+        return _run_modules_lint_individual(modules, nextflow_version)
+
+    return _run_modules_lint_bulk(modules, nextflow_version)
+
+
+def _run_modules_lint_individual(modules: list[dict], nextflow_version: str) -> list[dict]:
+    """Lint modules individually (used when filtering to specific modules)."""
     results = []
 
     for module in modules:
@@ -384,8 +599,64 @@ def run_modules_lint(modules: list[dict]) -> list[dict]:
     return results
 
 
-def run_subworkflows_lint(subworkflows: list[dict]) -> list[dict]:
-    """Lint all subworkflows."""
+def _run_modules_lint_bulk(modules: list[dict], nextflow_version: str) -> list[dict]:
+    """Lint all modules at once using bulk lint (much faster)."""
+    console.print(f"Running bulk lint on {len(modules)} modules...")
+
+    # Run lint once on the entire modules/nf-core directory
+    modules_path = MODULES_DIR / "modules" / "nf-core"
+    bulk_result = lint_directory_bulk(MODULES_DIR, modules_path)
+
+    # Group results by component name
+    grouped = _group_lint_results_by_component(bulk_result, "modules")
+
+    # Generate results and markdown files for each module
+    results = []
+    MODULES_LINT_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+
+    for module in modules:
+        name = module["name"]
+        component_issues = grouped.get(name, {"errors": [], "warnings": []})
+        errors = component_issues["errors"]
+        warnings = component_issues["warnings"]
+
+        # Generate markdown file
+        markdown_content = _generate_markdown_from_issues(errors, warnings, nextflow_version, MODULES_DIR)
+        output_file = MODULES_LINT_RESULTS_DIR / f"{name}_lint.md"
+        output_file.write_text(markdown_content)
+
+        results.append(
+            {
+                "name": name,
+                "html_url": module["html_url"],
+                "errors": len(errors),
+                "warnings": len(warnings),
+                "parse_error": False,
+                "lint_details": {"errors": errors, "warnings": warnings},
+            }
+        )
+
+    console.print(f"Generated {len(results)} module lint reports")
+    return results
+
+
+def run_subworkflows_lint(subworkflows: list[dict], nextflow_version: str = "unknown") -> list[dict]:
+    """Lint all subworkflows using bulk lint for efficiency.
+
+    Args:
+        subworkflows: List of subworkflow dicts with name, path, html_url
+        nextflow_version: Nextflow version string for markdown output
+    """
+    # Check if we're filtering to specific subworkflows (small list)
+    # If so, use individual linting for accuracy; otherwise use bulk
+    if len(subworkflows) <= 5:
+        return _run_subworkflows_lint_individual(subworkflows, nextflow_version)
+
+    return _run_subworkflows_lint_bulk(subworkflows, nextflow_version)
+
+
+def _run_subworkflows_lint_individual(subworkflows: list[dict], nextflow_version: str) -> list[dict]:
+    """Lint subworkflows individually (used when filtering to specific subworkflows)."""
     results = []
 
     for subworkflow in subworkflows:
@@ -420,6 +691,47 @@ def run_subworkflows_lint(subworkflows: list[dict]) -> list[dict]:
                 }
             )
 
+    return results
+
+
+def _run_subworkflows_lint_bulk(subworkflows: list[dict], nextflow_version: str) -> list[dict]:
+    """Lint all subworkflows at once using bulk lint (much faster)."""
+    console.print(f"Running bulk lint on {len(subworkflows)} subworkflows...")
+
+    # Run lint once on the entire subworkflows/nf-core directory
+    subworkflows_path = MODULES_DIR / "subworkflows" / "nf-core"
+    bulk_result = lint_directory_bulk(MODULES_DIR, subworkflows_path)
+
+    # Group results by component name
+    grouped = _group_lint_results_by_component(bulk_result, "subworkflows")
+
+    # Generate results and markdown files for each subworkflow
+    results = []
+    SUBWORKFLOWS_LINT_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+
+    for subworkflow in subworkflows:
+        name = subworkflow["name"]
+        component_issues = grouped.get(name, {"errors": [], "warnings": []})
+        errors = component_issues["errors"]
+        warnings = component_issues["warnings"]
+
+        # Generate markdown file
+        markdown_content = _generate_markdown_from_issues(errors, warnings, nextflow_version, MODULES_DIR)
+        output_file = SUBWORKFLOWS_LINT_RESULTS_DIR / f"{name}_lint.md"
+        output_file.write_text(markdown_content)
+
+        results.append(
+            {
+                "name": name,
+                "html_url": subworkflow["html_url"],
+                "errors": len(errors),
+                "warnings": len(warnings),
+                "parse_error": False,
+                "lint_details": {"errors": errors, "warnings": warnings},
+            }
+        )
+
+    console.print(f"Generated {len(results)} subworkflow lint reports")
     return results
 
 
@@ -983,7 +1295,7 @@ def main(
                     sys.exit(1)
                 console.print(f"Filtering to {len(modules)} module(s): {', '.join(m['name'] for m in modules)}")
 
-            module_results = run_modules_lint(modules)
+            module_results = run_modules_lint(modules, nextflow_version)
             display_results(module_results, title="nf-core Module Strict Syntax Health")
             # Save results for aggregation (only when not filtering specific modules)
             if not module:
@@ -1002,7 +1314,7 @@ def main(
                     f"Filtering to {len(subworkflows)} subworkflow(s): {', '.join(s['name'] for s in subworkflows)}"
                 )
 
-            subworkflow_results = run_subworkflows_lint(subworkflows)
+            subworkflow_results = run_subworkflows_lint(subworkflows, nextflow_version)
             display_results(subworkflow_results, title="nf-core Subworkflow Strict Syntax Health")
             # Save results for aggregation (only when not filtering specific subworkflows)
             if not subworkflow:
