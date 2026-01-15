@@ -8,7 +8,6 @@
 
 - Error: `subworkflows/nf-core/dia_proteomics_analysis/main.nf:110:21`: Unexpected input: ','
 
-
 ## :warning: Warnings
 
 - Warning: `subworkflows/nf-core/dia_proteomics_analysis/nextflow.config:45:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead

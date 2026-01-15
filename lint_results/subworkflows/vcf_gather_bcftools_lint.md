@@ -8,7 +8,6 @@
 
 - Error: `subworkflows/nf-core/vcf_gather_bcftools/nextflow.config:3:26`: `meta` is not defined
 
-
 ## :warning: Warnings
 
 - Warning: `subworkflows/nf-core/vcf_gather_bcftools/main.nf:15:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead

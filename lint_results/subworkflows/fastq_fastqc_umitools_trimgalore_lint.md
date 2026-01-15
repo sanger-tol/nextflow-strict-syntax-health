@@ -8,7 +8,6 @@
 
 - Error: `subworkflows/nf-core/fastq_fastqc_umitools_trimgalore/main.nf:59:30`: `reads` is already declared
 
-
 ## :warning: Warnings
 
 - Warning: `subworkflows/nf-core/fastq_fastqc_umitools_trimgalore/main.nf:39:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
