@@ -255,22 +255,17 @@ jobs:
         run: |
           # Merge results from all matrix jobs
           # Each job uploaded to downloaded-results/lint-results-<type>/
+          mkdir -p lint_results
           for artifact_dir in downloaded-results/lint-results-*/; do
             if [ -d "$artifact_dir" ]; then
               echo "Merging from $artifact_dir"
-              # Copy lint_results subdirectories (pipelines/, modules/, subworkflows/)
-              for type_dir in "$artifact_dir"*/; do
-                if [ -d "$type_dir" ]; then
-                  type_name=$(basename "$type_dir")
-                  echo "  Copying $type_name"
-                  mkdir -p "lint_results/$type_name"
-                  cp -r "$type_dir"* "lint_results/$type_name/" 2>/dev/null || true
-                fi
-              done
+              # Copy all files and directories from artifact to lint_results
+              cp -r "$artifact_dir"* lint_results/ 2>/dev/null || true
             fi
           done
           echo "Merged lint_results structure:"
-          find lint_results -type f | head -20
+          ls -la lint_results/
+          find lint_results -type f | head -30
 
       - name: Install dependencies
         run: pip install .
