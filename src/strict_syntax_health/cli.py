@@ -35,6 +35,102 @@ SUBWORKFLOWS_LINT_RESULTS_DIR = LINT_RESULTS_DIR / "subworkflow-results"
 console = Console()
 
 
+# ============================================================================
+# Git commit hash utilities for caching
+# ============================================================================
+
+
+def get_remote_commit_hash(repo_url: str, branch: str = "HEAD") -> str | None:
+    """Get the latest commit hash from a remote repository without cloning.
+
+    Uses `git ls-remote` which only queries the remote server - no download needed.
+    This is the key optimization for skipping unchanged repos.
+
+    Args:
+        repo_url: The URL of the git repository
+        branch: The branch/ref to check (default: HEAD). Use "refs/heads/dev" for dev branch.
+
+    Returns:
+        The commit hash string, or None if the query fails.
+    """
+    try:
+        result = subprocess.run(
+            ["git", "ls-remote", repo_url, branch],
+            capture_output=True,
+            text=True,
+            check=True,
+            timeout=30,
+        )
+        if result.stdout:
+            return result.stdout.split()[0]
+        return None
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
+        return None
+
+
+def get_local_commit_hash(repo_path: Path) -> str:
+    """Get the current HEAD commit hash of a cloned repository.
+
+    Args:
+        repo_path: Path to the cloned git repository.
+
+    Returns:
+        The commit hash string.
+    """
+    result = subprocess.run(
+        ["git", "-C", str(repo_path), "rev-parse", "HEAD"],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    return result.stdout.strip()
+
+
+# ============================================================================
+# Commits cache utilities
+# ============================================================================
+
+
+def _get_commits_cache_path(type_name: str) -> Path:
+    """Get the commits cache file path for a specific type."""
+    return LINT_RESULTS_DIR / f"{type_name}_commits.json"
+
+
+def load_commits_cache(type_name: str) -> dict:
+    """Load the commits cache for a specific type.
+
+    Args:
+        type_name: One of "pipelines", "modules", "subworkflows"
+
+    Returns:
+        Dictionary mapping component names to their cached data (commit, errors, warnings, parse_error)
+    """
+    path = _get_commits_cache_path(type_name)
+    if path.exists():
+        try:
+            return json.loads(path.read_text())
+        except json.JSONDecodeError:
+            return {}
+    return {}
+
+
+def save_commits_cache(type_name: str, cache: dict) -> None:
+    """Save the commits cache for a specific type.
+
+    Args:
+        type_name: One of "pipelines", "modules", "subworkflows"
+        cache: Dictionary mapping component names to their cached data
+    """
+    path = _get_commits_cache_path(type_name)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(cache, indent=2) + "\n")
+
+
+# ============================================================================
+# Result sorting and utilities
+# ============================================================================
+
+
 def _sort_results(results: list[dict]) -> list[dict]:
     """Sort results by parse_error first, then errors (descending), then warnings (descending)."""
     return sorted(results, key=lambda x: (not x.get("parse_error", False), -x["errors"], -x["warnings"]))
@@ -75,8 +171,53 @@ def load_pipelines() -> list[dict]:
     return pipelines
 
 
-def clone_modules_repo() -> Path:
-    """Clone or update the nf-core/modules repository."""
+def check_modules_repo_unchanged(
+    no_cache: bool = False, check_modules: bool = True, check_subworkflows: bool = True
+) -> tuple[bool, str | None]:
+    """Check if the nf-core/modules repo is unchanged from cache (without cloning).
+
+    Args:
+        no_cache: If True, always return False (treat as changed)
+        check_modules: Whether to check the modules cache
+        check_subworkflows: Whether to check the subworkflows cache
+
+    Returns:
+        Tuple of (is_unchanged, remote_commit_hash)
+        - is_unchanged: True if repo hasn't changed and we can use cached results
+        - remote_commit_hash: The remote commit hash (for updating cache later)
+    """
+    if no_cache:
+        return False, None
+
+    # Get remote commit hash WITHOUT cloning
+    remote_commit = get_remote_commit_hash(MODULES_REPO_URL, "refs/heads/master")
+    if remote_commit is None:
+        return False, None
+
+    # Check caches for the types being linted
+    cache_matches = True
+
+    if check_modules:
+        modules_cache = load_commits_cache("modules")
+        modules_repo_commit = modules_cache.get("_repo_commit")
+        if modules_repo_commit != remote_commit:
+            cache_matches = False
+
+    if check_subworkflows:
+        subworkflows_cache = load_commits_cache("subworkflows")
+        subworkflows_repo_commit = subworkflows_cache.get("_repo_commit")
+        if subworkflows_repo_commit != remote_commit:
+            cache_matches = False
+
+    return cache_matches, remote_commit
+
+
+def clone_modules_repo() -> str:
+    """Clone or update the nf-core/modules repository.
+
+    Returns:
+        The current commit hash of the cloned/updated repository.
+    """
     if MODULES_DIR.exists():
         console.print("Updating nf-core/modules repository...")
         subprocess.run(
@@ -101,8 +242,10 @@ def clone_modules_repo() -> Path:
             check=True,
             capture_output=True,
         )
-    console.print(f"nf-core/modules repository ready at {MODULES_DIR}")
-    return MODULES_DIR
+
+    commit_hash = get_local_commit_hash(MODULES_DIR)
+    console.print(f"nf-core/modules repository ready at {MODULES_DIR} ({commit_hash[:8]})")
+    return commit_hash
 
 
 def discover_modules() -> list[dict]:
@@ -507,34 +650,84 @@ def lint_component_markdown(repo_path: Path, name: str, output_dir: Path, target
     console.print(f"  Saved lint output to {output_file}")
 
 
-def run_pipeline_lint(pipelines: list[dict]) -> list[dict]:
-    """Clone and lint all pipelines."""
+def run_pipeline_lint(pipelines: list[dict], no_cache: bool = False) -> list[dict]:
+    """Clone and lint all pipelines, using commit cache to skip unchanged repos.
+
+    Args:
+        pipelines: List of pipeline dicts with name, full_name, html_url
+        no_cache: If True, ignore cache and re-lint everything
+    """
+    commits_cache = load_commits_cache("pipelines")
     results = []
+    skipped_count = 0
+    linted_count = 0
 
     for pipeline in pipelines:
-        console.print(f"Processing pipeline {pipeline['name']}...")
+        name = pipeline["name"]
+        cached = commits_cache.get(name)
+
+        # BEFORE cloning: check if we can skip by comparing remote commit hash
+        if not no_cache and cached:
+            # Try dev branch first, then HEAD (default branch)
+            remote_commit = get_remote_commit_hash(pipeline["html_url"], "refs/heads/dev")
+            if remote_commit is None:
+                remote_commit = get_remote_commit_hash(pipeline["html_url"], "HEAD")
+
+            if remote_commit and remote_commit == cached.get("commit"):
+                console.print(f"[dim]Skipping {name} (unchanged at {remote_commit[:8]})[/dim]")
+                results.append(
+                    {
+                        "name": name,
+                        "full_name": pipeline["full_name"],
+                        "html_url": pipeline["html_url"],
+                        "errors": cached["errors"],
+                        "warnings": cached["warnings"],
+                        "parse_error": cached.get("parse_error", False),
+                        "lint_details": {},  # Don't store full details in cache
+                    }
+                )
+                skipped_count += 1
+                continue
+
+        # Cache miss or commit changed - need to clone and lint
+        console.print(f"Processing pipeline {name}...")
 
         try:
             repo_path = clone_pipeline(pipeline)
+            commit_hash = get_local_commit_hash(repo_path)
             lint_result = lint_pipeline(repo_path)
-            lint_component_markdown(repo_path, pipeline["name"], PIPELINES_LINT_RESULTS_DIR)
+            lint_component_markdown(repo_path, name, PIPELINES_LINT_RESULTS_DIR)
+
+            error_count = lint_result.get("summary", {}).get("errors", 0)
+            warning_count = len(lint_result.get("warnings", []))
+            parse_error = lint_result.get("parse_error", False)
 
             results.append(
                 {
-                    "name": pipeline["name"],
+                    "name": name,
                     "full_name": pipeline["full_name"],
                     "html_url": pipeline["html_url"],
-                    "errors": lint_result.get("summary", {}).get("errors", 0),
-                    "warnings": len(lint_result.get("warnings", [])),
-                    "parse_error": lint_result.get("parse_error", False),
+                    "errors": error_count,
+                    "warnings": warning_count,
+                    "parse_error": parse_error,
                     "lint_details": lint_result,
                 }
             )
+
+            # Update cache with new commit and results
+            commits_cache[name] = {
+                "commit": commit_hash,
+                "errors": error_count,
+                "warnings": warning_count,
+                "parse_error": parse_error,
+            }
+            linted_count += 1
+
         except subprocess.CalledProcessError as e:
-            console.print(f"[red]Failed to process {pipeline['name']}: {e}[/red]")
+            console.print(f"[red]Failed to process {name}: {e}[/red]")
             results.append(
                 {
-                    "name": pipeline["name"],
+                    "name": name,
                     "full_name": pipeline["full_name"],
                     "html_url": pipeline["html_url"],
                     "errors": 0,
@@ -543,23 +736,75 @@ def run_pipeline_lint(pipelines: list[dict]) -> list[dict]:
                     "lint_details": {},
                 }
             )
+            linted_count += 1
+
+    # Save updated cache
+    save_commits_cache("pipelines", commits_cache)
+
+    if skipped_count > 0:
+        console.print(f"[green]Skipped {skipped_count} unchanged pipelines, linted {linted_count}[/green]")
 
     return results
 
 
-def run_modules_lint(modules: list[dict], nextflow_version: str = "unknown") -> list[dict]:
+def run_modules_lint(
+    modules: list[dict], nextflow_version: str = "unknown", repo_commit: str | None = None
+) -> list[dict]:
     """Lint all modules using bulk lint for efficiency.
 
     Args:
         modules: List of module dicts with name, path, html_url
         nextflow_version: Nextflow version string for markdown output
+        repo_commit: The commit hash of the modules repo (for cache)
     """
     # Check if we're filtering to specific modules (small list)
     # If so, use individual linting for accuracy; otherwise use bulk
     if len(modules) <= 5:
-        return _run_modules_lint_individual(modules, nextflow_version)
+        results = _run_modules_lint_individual(modules, nextflow_version)
+    else:
+        results = _run_modules_lint_bulk(modules, nextflow_version)
 
-    return _run_modules_lint_bulk(modules, nextflow_version)
+    # Update the commits cache with results and repo commit
+    if repo_commit:
+        commits_cache = {"_repo_commit": repo_commit}
+        for r in results:
+            commits_cache[r["name"]] = {
+                "errors": r["errors"],
+                "warnings": r["warnings"],
+                "parse_error": r.get("parse_error", False),
+            }
+        save_commits_cache("modules", commits_cache)
+
+    return results
+
+
+def load_cached_modules_results(modules: list[dict]) -> list[dict]:
+    """Load cached lint results for modules when repo is unchanged.
+
+    Args:
+        modules: List of module dicts with name, path, html_url
+
+    Returns:
+        List of result dicts with cached error/warning counts
+    """
+    commits_cache = load_commits_cache("modules")
+    results = []
+
+    for module in modules:
+        name = module["name"]
+        cached = commits_cache.get(name, {})
+        results.append(
+            {
+                "name": name,
+                "html_url": module["html_url"],
+                "errors": cached.get("errors", 0),
+                "warnings": cached.get("warnings", 0),
+                "parse_error": cached.get("parse_error", False),
+                "lint_details": {},
+            }
+        )
+
+    return results
 
 
 def _run_modules_lint_individual(modules: list[dict], nextflow_version: str) -> list[dict]:
@@ -640,19 +885,64 @@ def _run_modules_lint_bulk(modules: list[dict], nextflow_version: str) -> list[d
     return results
 
 
-def run_subworkflows_lint(subworkflows: list[dict], nextflow_version: str = "unknown") -> list[dict]:
+def run_subworkflows_lint(
+    subworkflows: list[dict], nextflow_version: str = "unknown", repo_commit: str | None = None
+) -> list[dict]:
     """Lint all subworkflows using bulk lint for efficiency.
 
     Args:
         subworkflows: List of subworkflow dicts with name, path, html_url
         nextflow_version: Nextflow version string for markdown output
+        repo_commit: The commit hash of the modules repo (for cache)
     """
     # Check if we're filtering to specific subworkflows (small list)
     # If so, use individual linting for accuracy; otherwise use bulk
     if len(subworkflows) <= 5:
-        return _run_subworkflows_lint_individual(subworkflows, nextflow_version)
+        results = _run_subworkflows_lint_individual(subworkflows, nextflow_version)
+    else:
+        results = _run_subworkflows_lint_bulk(subworkflows, nextflow_version)
 
-    return _run_subworkflows_lint_bulk(subworkflows, nextflow_version)
+    # Update the commits cache with results and repo commit
+    if repo_commit:
+        commits_cache = {"_repo_commit": repo_commit}
+        for r in results:
+            commits_cache[r["name"]] = {
+                "errors": r["errors"],
+                "warnings": r["warnings"],
+                "parse_error": r.get("parse_error", False),
+            }
+        save_commits_cache("subworkflows", commits_cache)
+
+    return results
+
+
+def load_cached_subworkflows_results(subworkflows: list[dict]) -> list[dict]:
+    """Load cached lint results for subworkflows when repo is unchanged.
+
+    Args:
+        subworkflows: List of subworkflow dicts with name, path, html_url
+
+    Returns:
+        List of result dicts with cached error/warning counts
+    """
+    commits_cache = load_commits_cache("subworkflows")
+    results = []
+
+    for subworkflow in subworkflows:
+        name = subworkflow["name"]
+        cached = commits_cache.get(name, {})
+        results.append(
+            {
+                "name": name,
+                "html_url": subworkflow["html_url"],
+                "errors": cached.get("errors", 0),
+                "warnings": cached.get("warnings", 0),
+                "parse_error": cached.get("parse_error", False),
+                "lint_details": {},
+            }
+        )
+
+    return results
 
 
 def _run_subworkflows_lint_individual(subworkflows: list[dict], nextflow_version: str) -> list[dict]:
@@ -1217,6 +1507,11 @@ def generate_readme(
     is_flag=True,
     help="Only generate charts and README from existing history files (no linting)",
 )
+@click.option(
+    "--no-cache",
+    is_flag=True,
+    help="Ignore commit cache and re-lint everything (by default, unchanged repos are skipped)",
+)
 def main(
     update_readme: bool,
     update_pipelines: bool,
@@ -1227,6 +1522,7 @@ def main(
     skip_modules: bool,
     skip_subworkflows: bool,
     generate_charts_only: bool,
+    no_cache: bool,
 ) -> None:
     """Check nf-core pipelines, modules, and subworkflows for Nextflow strict syntax linting issues."""
     if update_pipelines:
@@ -1277,7 +1573,7 @@ def main(
                 sys.exit(1)
             console.print(f"Filtering to {len(pipelines)} pipeline(s): {', '.join(p['name'] for p in pipelines)}")
 
-        pipeline_results = run_pipeline_lint(pipelines)
+        pipeline_results = run_pipeline_lint(pipelines, no_cache=no_cache)
         display_results(pipeline_results, title="nf-core Pipeline Strict Syntax Health")
         # Save results for aggregation (only when not filtering specific pipelines)
         if not pipeline:
@@ -1285,39 +1581,82 @@ def main(
 
     # Lint modules and subworkflows (requires modules repo)
     if not skip_modules or not skip_subworkflows:
-        clone_modules_repo()
+        # Check if we can skip cloning by using cached results
+        # Only use cache when linting ALL modules/subworkflows (no -m/-s filters)
+        use_modules_cache = not module and not subworkflow and not no_cache
+        modules_repo_unchanged, remote_commit = check_modules_repo_unchanged(
+            no_cache=not use_modules_cache,
+            check_modules=not skip_modules,
+            check_subworkflows=not skip_subworkflows,
+        )
+
+        if modules_repo_unchanged:
+            console.print(f"[dim]nf-core/modules repo unchanged at {remote_commit[:8]} - using cached results[/dim]")
+            repo_commit = remote_commit
+        else:
+            # Clone/update the repo
+            repo_commit = clone_modules_repo()
 
         if not skip_modules:
-            modules = discover_modules()
+            if modules_repo_unchanged:
+                # Use cached results - need to load module list for the cache lookup
+                # We need the modules repo to be present for discover_modules, but since it's unchanged
+                # we can just use the cached results directly
+                modules_cache = load_commits_cache("modules")
+                # Build modules list from cache keys (excluding _repo_commit)
+                base_url = "https://github.com/nf-core/modules/tree/master/modules/nf-core"
+                modules = [
+                    {"name": name, "html_url": f"{base_url}/{name.replace('_', '/')}"}
+                    for name in modules_cache.keys()
+                    if name != "_repo_commit"
+                ]
+                module_results = load_cached_modules_results(modules)
+                console.print(f"[dim]Loaded {len(module_results)} cached module results[/dim]")
+            else:
+                modules = discover_modules()
 
-            if module:
-                module_names = set(module)
-                modules = [m for m in modules if m["name"] in module_names]
-                if not modules:
-                    console.print(f"[red]No matching modules found for: {', '.join(module_names)}[/red]")
-                    sys.exit(1)
-                console.print(f"Filtering to {len(modules)} module(s): {', '.join(m['name'] for m in modules)}")
+                if module:
+                    module_names = set(module)
+                    modules = [m for m in modules if m["name"] in module_names]
+                    if not modules:
+                        console.print(f"[red]No matching modules found for: {', '.join(module_names)}[/red]")
+                        sys.exit(1)
+                    console.print(f"Filtering to {len(modules)} module(s): {', '.join(m['name'] for m in modules)}")
 
-            module_results = run_modules_lint(modules, nextflow_version)
+                module_results = run_modules_lint(modules, nextflow_version, repo_commit=repo_commit)
+
             display_results(module_results, title="nf-core Module Strict Syntax Health")
             # Save results for aggregation (only when not filtering specific modules)
             if not module:
                 save_results_for_type("modules", module_results)
 
         if not skip_subworkflows:
-            subworkflows = discover_subworkflows()
+            if modules_repo_unchanged:
+                # Use cached results
+                subworkflows_cache = load_commits_cache("subworkflows")
+                base_url = "https://github.com/nf-core/modules/tree/master/subworkflows/nf-core"
+                subworkflows = [
+                    {"name": name, "html_url": f"{base_url}/{name}"}
+                    for name in subworkflows_cache.keys()
+                    if name != "_repo_commit"
+                ]
+                subworkflow_results = load_cached_subworkflows_results(subworkflows)
+                console.print(f"[dim]Loaded {len(subworkflow_results)} cached subworkflow results[/dim]")
+            else:
+                subworkflows = discover_subworkflows()
 
-            if subworkflow:
-                subworkflow_names = set(subworkflow)
-                subworkflows = [s for s in subworkflows if s["name"] in subworkflow_names]
-                if not subworkflows:
-                    console.print(f"[red]No matching subworkflows found for: {', '.join(subworkflow_names)}[/red]")
-                    sys.exit(1)
-                console.print(
-                    f"Filtering to {len(subworkflows)} subworkflow(s): {', '.join(s['name'] for s in subworkflows)}"
-                )
+                if subworkflow:
+                    subworkflow_names = set(subworkflow)
+                    subworkflows = [s for s in subworkflows if s["name"] in subworkflow_names]
+                    if not subworkflows:
+                        console.print(f"[red]No matching subworkflows found for: {', '.join(subworkflow_names)}[/red]")
+                        sys.exit(1)
+                    console.print(
+                        f"Filtering to {len(subworkflows)} subworkflow(s): {', '.join(s['name'] for s in subworkflows)}"
+                    )
 
-            subworkflow_results = run_subworkflows_lint(subworkflows, nextflow_version)
+                subworkflow_results = run_subworkflows_lint(subworkflows, nextflow_version, repo_commit=repo_commit)
+
             display_results(subworkflow_results, title="nf-core Subworkflow Strict Syntax Health")
             # Save results for aggregation (only when not filtering specific subworkflows)
             if not subworkflow:
