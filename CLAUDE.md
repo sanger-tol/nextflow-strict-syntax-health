@@ -87,6 +87,7 @@ lint_results/
 ## Caching
 
 The tool uses commit-based caching to skip unchanged repositories:
+
 - Pipeline results are cached by git commit hash; unchanged pipelines are skipped
 - Module/subworkflow results share a single cache keyed to the nf-core/modules repo commit
 - Use `--no-cache` to force re-linting everything
