@@ -1427,11 +1427,13 @@ def _generate_results_section(
 
     # Results table in a collapsible details section
     if show_prints_help:
-        table_header = f"| {type_singular.title()} | Parse Error | Errors | Warnings | Prints Help | Lint Output |"
-        table_separator = "|----------|:-----------:|-------:|---------:|:-----------:|:-----------:|"
+        table_header = (
+            f"| {type_singular.title()} | Parse Error | Errors | Warnings | Prints Help | Lint Output | Help Output |"
+        )
+        table_separator = "|----------|:-----------:|-------:|---------:|:-----------:|:-----------:|:-----------:|"
     else:
         table_header = f"| {type_singular.title()} | Parse Error | Errors | Warnings | Lint Output |"
-        table_separator = "|----------|:-----------:|-------:|---------:|:-----------:|"
+        table_separator = "|----------|:-----------:|-------:|---------:|:-----------:|:-----------:|"
 
     lines.extend(
         [
@@ -1471,13 +1473,16 @@ def _generate_results_section(
         if show_prints_help:
             if prints_help is None:
                 prints_help_str = "-"
+                help_file_link = "-"
             elif prints_help:
                 prints_help_str = "Yes"
+                help_file_link = f"[View]({PRINTS_HELP_RESULTS_DIR}/{result['name']}_help.txt)"
             else:
                 prints_help_str = "No"
+                help_file_link = f"[View]({PRINTS_HELP_RESULTS_DIR}/{result['name']}_help.txt)"
             row = (
                 f"| {name_link} | {parse_error_str} | {error_str} | {warning_str} "
-                f"| {prints_help_str} | {lint_file_link} |"
+                f"| {prints_help_str} | {lint_file_link} | {help_file_link} |"
             )
             lines.append(row)
         else:
