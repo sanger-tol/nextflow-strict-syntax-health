@@ -1,0 +1,10 @@
+$ NXF_SYNTAX_PARSER=v2 nextflow run . --help
+
+
+ N E X T F L O W   ~  version 25.12.0-edge
+
+Launching `./main.nf` [crazy_jennings] DSL2 - revision: 5856071a2c
+
+ERROR ~ Unable to create help message: Specified param 'true' does not exist in JSON schema.
+
+ -- Check script 'subworkflows/local/utils_nfcore_rnavar_pipeline/main.nf' at line: 98 or see '.nextflow.log' file for more details

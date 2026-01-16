@@ -24,7 +24,7 @@
     "errors": 0,
     "warnings": 20,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "ampliseq": {
     "full_name": "nf-core/ampliseq",
@@ -69,7 +69,7 @@
     "errors": 0,
     "warnings": 21,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "cageseq": {
     "full_name": "nf-core/cageseq",
@@ -150,7 +150,7 @@
     "errors": 0,
     "warnings": 15,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "createtaxdb": {
     "full_name": "nf-core/createtaxdb",
@@ -159,7 +159,7 @@
     "errors": 0,
     "warnings": 33,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "crisprseq": {
     "full_name": "nf-core/crisprseq",
@@ -456,7 +456,7 @@
     "errors": 0,
     "warnings": 31,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "kmermaid": {
     "full_name": "nf-core/kmermaid",
@@ -501,7 +501,7 @@
     "errors": 0,
     "warnings": 35,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "magmap": {
     "full_name": "nf-core/magmap",
@@ -582,7 +582,7 @@
     "errors": 0,
     "warnings": 81,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "methylseq": {
     "full_name": "nf-core/methylseq",
@@ -627,7 +627,7 @@
     "errors": 0,
     "warnings": 63,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "multiplesequencealign": {
     "full_name": "nf-core/multiplesequencealign",
@@ -654,7 +654,7 @@
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "nascent": {
     "full_name": "nf-core/nascent",
@@ -780,7 +780,7 @@
     "errors": 0,
     "warnings": 8,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "proteinfamilies": {
     "full_name": "nf-core/proteinfamilies",
@@ -798,7 +798,7 @@
     "errors": 0,
     "warnings": 25,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "proteogenomicsdb": {
     "full_name": "nf-core/proteogenomicsdb",
@@ -870,7 +870,7 @@
     "errors": 0,
     "warnings": 31,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "reportho": {
     "full_name": "nf-core/reportho",
@@ -888,7 +888,7 @@
     "errors": 0,
     "warnings": 27,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "riboseq": {
     "full_name": "nf-core/riboseq",
@@ -942,7 +942,7 @@
     "errors": 0,
     "warnings": 14,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "sammyseq": {
     "full_name": "nf-core/sammyseq",
@@ -1050,7 +1050,7 @@
     "errors": 0,
     "warnings": 98,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "spinningjenny": {
     "full_name": "nf-core/spinningjenny",
@@ -1077,7 +1077,7 @@
     "errors": 0,
     "warnings": 113,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "tbanalyzer": {
     "full_name": "nf-core/tbanalyzer",
