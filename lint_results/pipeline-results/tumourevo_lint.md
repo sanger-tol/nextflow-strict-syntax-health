@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-01-16T10:31:01.854610858Z
+- Generated: 2026-01-21T10:18:41.081477262Z
 - Nextflow version: 25.12.0-edge
-- Summary: 9 errors, 56 warnings
+- Summary: 9 errors, 55 warnings
 
 ## :x: Errors
 
@@ -188,13 +188,6 @@
   ```nextflow
       def prefix = task.ext.prefix ?: "${meta.id}"
           ^^^^^^
-  ```
-
-- Warning: `modules/local/join_cnaqc/main.nf:22:9`: Variable was declared but not used
-
-  ```nextflow
-      def qc_filter = args!='' && args.qc_filter ? "$args.qc_filter" : ""
-          ^^^^^^^^^
   ```
 
 - Warning: `modules/local/join_positions/main.nf:19:9`: Variable was declared but not used

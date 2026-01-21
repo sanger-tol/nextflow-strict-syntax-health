@@ -11,12 +11,12 @@ The goal is for all nf-core pipelines to run without errors using strict syntax.
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-01-21 00:21:22 UTC
+- **Last updated:** 2026-01-21 10:19:55 UTC
 - **Nextflow version:** 25.12.0-edge
 
 ## Pipelines
 
-- **Total:** 0 parse errors, 3634 errors, 10382 warnings across 130 pipelines
+- **Total:** 0 parse errors, 3634 errors, 10380 warnings across 130 pipelines
 - **Zero errors:** 18 pipelines (13.8%)
 
 |                    Errors                    |                     Warnings                     |
@@ -104,7 +104,7 @@ The goal is for all nf-core pipelines to run without errors using strict syntax.
 | :x: [detaxizer](https://github.com/nf-core/detaxizer)                                 |     No      |     13 |       61 |      -      |         [View](lint_results/pipeline-results/detaxizer_lint.md)         |                                    -                                    |
 | :x: [crisprseq](https://github.com/nf-core/crisprseq)                                 |     No      |     13 |       45 |      -      |         [View](lint_results/pipeline-results/crisprseq_lint.md)         |                                    -                                    |
 | :x: [sopa](https://github.com/nf-core/sopa)                                           |     No      |     13 |       17 |      -      |           [View](lint_results/pipeline-results/sopa_lint.md)            |                                    -                                    |
-| :x: [variantbenchmarking](https://github.com/nf-core/variantbenchmarking)             |     No      |     12 |      144 |      -      |    [View](lint_results/pipeline-results/variantbenchmarking_lint.md)    |                                    -                                    |
+| :x: [variantbenchmarking](https://github.com/nf-core/variantbenchmarking)             |     No      |     12 |      143 |      -      |    [View](lint_results/pipeline-results/variantbenchmarking_lint.md)    |                                    -                                    |
 | :x: [drop](https://github.com/nf-core/drop)                                           |     No      |     12 |       77 |      -      |           [View](lint_results/pipeline-results/drop_lint.md)            |                                    -                                    |
 | :x: [pacvar](https://github.com/nf-core/pacvar)                                       |     No      |     12 |       54 |      -      |          [View](lint_results/pipeline-results/pacvar_lint.md)           |                                    -                                    |
 | :x: [smrnaseq](https://github.com/nf-core/smrnaseq)                                   |     No      |     11 |       74 |      -      |         [View](lint_results/pipeline-results/smrnaseq_lint.md)          |                                    -                                    |
@@ -113,7 +113,7 @@ The goal is for all nf-core pipelines to run without errors using strict syntax.
 | :x: [pixelator](https://github.com/nf-core/pixelator)                                 |     No      |     10 |       65 |      -      |         [View](lint_results/pipeline-results/pixelator_lint.md)         |                                    -                                    |
 | :x: [deepmodeloptim](https://github.com/nf-core/deepmodeloptim)                       |     No      |     10 |       49 |      -      |      [View](lint_results/pipeline-results/deepmodeloptim_lint.md)       |                                    -                                    |
 | :x: [mhcquant](https://github.com/nf-core/mhcquant)                                   |     No      |      9 |       60 |      -      |         [View](lint_results/pipeline-results/mhcquant_lint.md)          |                                    -                                    |
-| :x: [tumourevo](https://github.com/nf-core/tumourevo)                                 |     No      |      9 |       56 |      -      |         [View](lint_results/pipeline-results/tumourevo_lint.md)         |                                    -                                    |
+| :x: [tumourevo](https://github.com/nf-core/tumourevo)                                 |     No      |      9 |       55 |      -      |         [View](lint_results/pipeline-results/tumourevo_lint.md)         |                                    -                                    |
 | :x: [fastqrepair](https://github.com/nf-core/fastqrepair)                             |     No      |      9 |       32 |      -      |        [View](lint_results/pipeline-results/fastqrepair_lint.md)        |                                    -                                    |
 | :x: [pacsomatic](https://github.com/nf-core/pacsomatic)                               |     No      |      7 |      113 |      -      |        [View](lint_results/pipeline-results/pacsomatic_lint.md)         |                                    -                                    |
 | :x: [drugresponseeval](https://github.com/nf-core/drugresponseeval)                   |     No      |      7 |       29 |      -      |     [View](lint_results/pipeline-results/drugresponseeval_lint.md)      |                                    -                                    |

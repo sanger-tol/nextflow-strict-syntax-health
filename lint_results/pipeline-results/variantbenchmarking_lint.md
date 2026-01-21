@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-01-16T10:31:11.985927259Z
+- Generated: 2026-01-21T10:18:51.404200947Z
 - Nextflow version: 25.12.0-edge
-- Summary: 12 errors, 144 warnings
+- Summary: 12 errors, 143 warnings
 
 ## :x: Errors
 
@@ -219,13 +219,6 @@
   ```
 
 - Warning: `modules/nf-core/manta/convertinversion/main.nf:24:9`: Variable was declared but not used
-
-  ```nextflow
-      def args = task.ext.args ?: ''
-          ^^^^
-  ```
-
-- Warning: `modules/nf-core/rtgtools/format/main.nf:49:9`: Variable was declared but not used
 
   ```nextflow
       def args = task.ext.args ?: ''

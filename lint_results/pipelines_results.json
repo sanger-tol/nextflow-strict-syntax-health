@@ -29,7 +29,7 @@
   "ampliseq": {
     "full_name": "nf-core/ampliseq",
     "html_url": "https://github.com/nf-core/ampliseq",
-    "commit": "d07c2e0822fb282ba42d0465e4c9404c2b8b903d",
+    "commit": "23e0812525d6c15dff6987a94eeac19e4387a673",
     "errors": 4,
     "warnings": 148,
     "parse_error": false,
@@ -1109,18 +1109,18 @@
   "tumourevo": {
     "full_name": "nf-core/tumourevo",
     "html_url": "https://github.com/nf-core/tumourevo",
-    "commit": "05e44f3b4ee51278b2a5c11098f5edc7ded00485",
+    "commit": "adcd0240800659f38e796908762cdddf3927a2d8",
     "errors": 9,
-    "warnings": 56,
+    "warnings": 55,
     "parse_error": false,
     "prints_help": null
   },
   "variantbenchmarking": {
     "full_name": "nf-core/variantbenchmarking",
     "html_url": "https://github.com/nf-core/variantbenchmarking",
-    "commit": "ce2fe242700cf96795b3d772498b4235c5a81bf1",
+    "commit": "0a61fc91d3f933dadce5be7ae8c21569936b3447",
     "errors": 12,
-    "warnings": 144,
+    "warnings": 143,
     "parse_error": false,
     "prints_help": null
   },
