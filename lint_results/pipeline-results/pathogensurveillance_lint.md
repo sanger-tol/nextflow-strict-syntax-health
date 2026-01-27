@@ -1,17 +1,10 @@
 # Nextflow lint results
 
-- Generated: 2026-01-16T10:25:33.961708673Z
+- Generated: 2026-01-27T00:17:56.210638856Z
 - Nextflow version: 25.12.0-edge
-- Summary: 40 errors, 486 warnings
+- Summary: 36 errors, 488 warnings
 
 ## :x: Errors
-
-- Error: `main.nf:46:9`: Unexpected input: 'params'
-
-  ```nextflow
-          params.reference_data
-          ^
-  ```
 
 - Error: `modules/local/initial_classification/main.nf:16:26`: `DOMAIN` is not defined
 
@@ -39,13 +32,6 @@
   ```nextflow
       tuple val(ref_meta), env(SEQ_COUNT)                , emit: seq_count
                                ^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/bakta/bakta/main.nf:36:9`: `prodigal_tf` is already declared
-
-  ```nextflow
-      def prodigal_tf = prodigal_tf ? "--prodigal-tf ${prodigal_tf[0]}" : ""
-          ^^^^^^^^^^^
   ```
 
 - Error: `modules/nf-core/mafft/align/main.nf:29:9`: `add` is already declared
@@ -216,7 +202,7 @@
                                       ^^^^^
   ```
 
-- Error: `subworkflows/local/genome_assembly/main.nf:111:28`: `sample_data` is already declared
+- Error: `subworkflows/local/genome_assembly/main.nf:110:28`: `sample_data` is already declared
 
   ```nextflow
           .map{ sample_meta, sample_data, paths ->
@@ -230,56 +216,42 @@
                                                       ^^^^^^^^^^
   ```
 
-- Error: `subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:106:5`: `for` loops are no longer supported
+- Error: `subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:107:5`: `for` loops are no longer supported
 
   ```nextflow
       for (param in checkPathParamList) {
       ^^^
   ```
 
-- Error: `subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:106:10`: `param` is not defined
+- Error: `subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:107:10`: `param` is not defined
 
   ```nextflow
       for (param in checkPathParamList) {
            ^^^^^
   ```
 
-- Error: `subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:107:12`: `param` is not defined
+- Error: `subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:108:12`: `param` is not defined
 
   ```nextflow
           if (param) { file(param, checkIfExists: true) }
              ^^^^^^^
   ```
 
-- Error: `subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:107:27`: `param` is not defined
+- Error: `subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:108:27`: `param` is not defined
 
   ```nextflow
           if (param) { file(param, checkIfExists: true) }
                             ^^^^^
   ```
 
-- Error: `subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:125:26`: `versions` is not defined
+- Error: `workflows/pathogensurveillance.nf:181:28`: `versions` is already declared
 
   ```nextflow
-      versions           = versions
-                           ^^^^^^^^
+          .map {report_meta, versions, fastqc, fastp, nanoplot, quast ->
+                             ^^^^^^^^
   ```
 
-- Error: `workflows/pathogensurveillance.nf:134:5`: `ch_methods_description` is not defined
-
-  ```nextflow
-      ch_methods_description.collectFile(
-      ^^^^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `workflows/pathogensurveillance.nf:172:29`: `versions` is already declared
-
-  ```nextflow
-          .map { report_meta, versions, fastqc, fastp, nanoplot, quast ->
-                              ^^^^^^^^
-  ```
-
-- Error: `workflows/pathogensurveillance.nf:173:13`: Variables in a closure should be declared with `def`
+- Error: `workflows/pathogensurveillance.nf:182:13`: Variables in a closure should be declared with `def`
 
   ```nextflow
               files = (fastqc ?: []) + (fastp ?: []) + (nanoplot ?: []) + (quast ?: []) + ([versions])
@@ -1632,259 +1604,259 @@
                                ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:119:29`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:121:29`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               .map{ ref_meta, report_meta, ref_path, ref_gff ->
                               ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:128:49`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:130:49`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { sample_or_ref_meta, report_meta, assem_path, gff_path ->
                                                   ^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:133:38`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:135:38`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map{ ref_meta, report_meta, ref_path, ref_gff, ref_combined ->
                                        ^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:133:48`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:135:48`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map{ ref_meta, report_meta, ref_path, ref_gff, ref_combined ->
                                                  ^^^^^^^
   ```
 
-- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:138:16`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:140:16`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { sample_or_ref_meta, report_meta, gff ->
                  ^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:150:19`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:152:19`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .filter { it[1].any{ it.endsWith("PIRATE.gene_families.ordered.tsv") } }
                     ^^
   ```
 
-- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:150:30`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:152:30`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .filter { it[1].any{ it.endsWith("PIRATE.gene_families.ordered.tsv") } }
                                ^^
   ```
 
-- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:152:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:154:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .filter { ! it[1].any{ it.endsWith("PIRATE.gene_families.ordered.tsv") } }
                       ^^
   ```
 
-- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:152:32`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:154:32`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .filter { ! it[1].any{ it.endsWith("PIRATE.gene_families.ordered.tsv") } }
                                  ^^
   ```
 
-- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:153:23`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:155:23`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { [null, it[0], null, "CORE_GENOME_PHYLOGENY", "WARNING", "Pirate failed to find a core genome, possibly becuase samples are very different or there are too few reads."] } // meta, group_meta, ref_meta, workflow, level, message
                         ^^
   ```
 
-- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:182:20`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:184:20`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
               .map { file_name, message_data -> [
                      ^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:214:17`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:216:17`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { [it[0].group_id, it[1]] } // group_meta, tree
                   ^^
   ```
 
-- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:214:33`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:216:33`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { [it[0].group_id, it[1]] } // group_meta, tree
                                   ^^
   ```
 
-- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:219:17`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:221:17`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { [it[1], null] }
                   ^^
   ```
 
-- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:222:17`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/core_genome_phylogeny/main.nf:224:17`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { [it[1], null] }
                   ^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:15:16`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/local/genome_assembly/main.nf:14:16`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       versions = Channel.empty()
                  ^^^^^^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:16:16`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/local/genome_assembly/main.nf:15:16`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       messages = Channel.empty()
                  ^^^^^^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:18:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/genome_assembly/main.nf:17:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id, single_end: it.single_end, domain: it.domain, type: it.sequence_type], [id: it.report_group_ids], it.paths] }
                       ^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:18:47`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/genome_assembly/main.nf:17:47`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id, single_end: it.single_end, domain: it.domain, type: it.sequence_type], [id: it.report_group_ids], it.paths] }
                                                 ^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:18:70`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/genome_assembly/main.nf:17:70`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id, single_end: it.single_end, domain: it.domain, type: it.sequence_type], [id: it.report_group_ids], it.paths] }
                                                                        ^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:18:87`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/genome_assembly/main.nf:17:87`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id, single_end: it.single_end, domain: it.domain, type: it.sequence_type], [id: it.report_group_ids], it.paths] }
                                                                                         ^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:18:111`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/genome_assembly/main.nf:17:111`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id, single_end: it.single_end, domain: it.domain, type: it.sequence_type], [id: it.report_group_ids], it.paths] }
                                                                                                                 ^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:18:133`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/genome_assembly/main.nf:17:133`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id, single_end: it.single_end, domain: it.domain, type: it.sequence_type], [id: it.report_group_ids], it.paths] }
                                                                                                                                       ^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:20:28`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/genome_assembly/main.nf:19:28`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map{ sample_meta, report_meta, read_paths -> [sample_meta, read_paths]}
                              ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:22:25`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/genome_assembly/main.nf:21:25`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .branch { meta, paths->
                           ^^^^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:37:86`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/genome_assembly/main.nf:36:86`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               [sample_meta, read_paths.size() <= 2 ? read_paths : read_paths.findAll { it ==~ /.+_[12]\..+$/ }]
                                                                                        ^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:45:18`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/genome_assembly/main.nf:44:18`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .filter{ sample_meta, json ->
                    ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:59:29`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/genome_assembly/main.nf:58:29`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { sample_meta, read_paths1, base_count, report_meta, read_paths2 ->
                               ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:59:67`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/genome_assembly/main.nf:58:67`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { sample_meta, read_paths1, base_count, report_meta, read_paths2 ->
                                                                     ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:74:19`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/genome_assembly/main.nf:73:19`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .filter { sample_meta, read_paths, scaffolds ->
                     ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:74:32`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/genome_assembly/main.nf:73:32`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .filter { sample_meta, read_paths, scaffolds ->
                                  ^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:78:29`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/genome_assembly/main.nf:77:29`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { sample_meta, read_paths, scaffolds, report_meta, read_paths2 ->
                               ^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:78:41`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/genome_assembly/main.nf:77:41`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { sample_meta, read_paths, scaffolds, report_meta, read_paths2 ->
                                           ^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:78:65`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/genome_assembly/main.nf:77:65`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { sample_meta, read_paths, scaffolds, report_meta, read_paths2 ->
                                                                   ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:109:22`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/genome_assembly/main.nf:108:22`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { [[id: it.sample_id], it] }
                        ^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:109:37`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/genome_assembly/main.nf:108:37`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { [[id: it.sample_id], it] }
                                       ^^
   ```
 
-- Warning: `subworkflows/local/genome_assembly/main.nf:111:41`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/genome_assembly/main.nf:110:41`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map{ sample_meta, sample_data, paths ->
@@ -2395,98 +2367,98 @@
                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/local/sketch_comparison/main.nf:14:16`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/local/sketch_comparison/main.nf:12:16`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       versions = Channel.empty()
                  ^^^^^^^
   ```
 
-- Warning: `subworkflows/local/sketch_comparison/main.nf:15:16`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/local/sketch_comparison/main.nf:13:16`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       messages = Channel.empty()
                  ^^^^^^^
   ```
 
-- Warning: `subworkflows/local/sketch_comparison/main.nf:19:22`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/sketch_comparison/main.nf:17:22`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { [[id: it.sample_id], it.paths] }
                        ^^
   ```
 
-- Warning: `subworkflows/local/sketch_comparison/main.nf:19:37`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/sketch_comparison/main.nf:17:37`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { [[id: it.sample_id], it.paths] }
                                       ^^
   ```
 
-- Warning: `subworkflows/local/sketch_comparison/main.nf:38:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/sketch_comparison/main.nf:36:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [it.ref_metas] }
                  ^^
   ```
 
-- Warning: `subworkflows/local/sketch_comparison/main.nf:50:22`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/sketch_comparison/main.nf:48:22`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { [[id: it.sample_id], [id: it.report_group_ids]] }
                        ^^
   ```
 
-- Warning: `subworkflows/local/sketch_comparison/main.nf:50:42`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/sketch_comparison/main.nf:48:42`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { [[id: it.sample_id], [id: it.report_group_ids]] }
                                            ^^
   ```
 
-- Warning: `subworkflows/local/sketch_comparison/main.nf:52:16`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/sketch_comparison/main.nf:50:16`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { sample_id, report_group_id, signature -> [report_group_id, signature]}
                  ^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/sketch_comparison/main.nf:55:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/sketch_comparison/main.nf:53:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [it.ref_metas, [id: it.report_group_ids]] }
                  ^^
   ```
 
-- Warning: `subworkflows/local/sketch_comparison/main.nf:55:35`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/sketch_comparison/main.nf:53:35`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [it.ref_metas, [id: it.report_group_ids]] }
                                     ^^
   ```
 
-- Warning: `subworkflows/local/sketch_comparison/main.nf:59:15`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/sketch_comparison/main.nf:57:15`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map{ ref_id, report_group_id, signature -> [report_group_id, signature]}
                 ^^^^^^
   ```
 
-- Warning: `subworkflows/local/sketch_comparison/main.nf:62:22`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/sketch_comparison/main.nf:60:22`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { [[id: it.sample_id], [id: it.report_group_ids]] }
                        ^^
   ```
 
-- Warning: `subworkflows/local/sketch_comparison/main.nf:62:42`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/sketch_comparison/main.nf:60:42`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { [[id: it.sample_id], [id: it.report_group_ids]] }
                                            ^^
   ```
 
-- Warning: `subworkflows/local/sketch_comparison/main.nf:64:15`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/sketch_comparison/main.nf:62:15`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map{ sample_id, report_group_id, signature -> [report_group_id, signature]}
@@ -2507,11 +2479,11 @@
       ^^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:42:5`: Variable was declared but not used
+- Warning: `subworkflows/local/utils_nfcore_pathogensurveillance_pipeline/main.nf:39:5`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
-      ch_versions = channel.empty()
-      ^^^^^^^^^^^
+      reference_data    //  string: Path to reference data samplesheet
+      ^^^^^^^^^^^^^^
   ```
 
 - Warning: `subworkflows/local/variant_analysis/main.nf:16:16`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
@@ -3228,277 +3200,270 @@
                  ^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:96:26`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/pathogensurveillance.nf:90:30`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+
+  ```nextflow
+          core_selected_refs = Channel.empty()
+                               ^^^^^^^
+  ```
+
+- Warning: `workflows/pathogensurveillance.nf:91:21`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+
+  ```nextflow
+          core_pocp = Channel.empty()
+                      ^^^^^^^
+  ```
+
+- Warning: `workflows/pathogensurveillance.nf:92:26`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+
+  ```nextflow
+          core_phylogeny = Channel.empty()
+                           ^^^^^^^
+  ```
+
+- Warning: `workflows/pathogensurveillance.nf:105:26`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       def topic_versions = Channel.topic("versions")
                            ^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:123:31`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/pathogensurveillance.nf:132:31`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       multiqc_config          = Channel.fromPath("$projectDir/assets/multiqc_config.yml", checkIfExists: true)
                                 ^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:124:55`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/pathogensurveillance.nf:133:55`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       multiqc_custom_config   = params.multiqc_config ? Channel.fromPath( params.multiqc_config, checkIfExists: true ) : Channel.empty()
                                                         ^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:124:120`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/pathogensurveillance.nf:133:120`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       multiqc_custom_config   = params.multiqc_config ? Channel.fromPath( params.multiqc_config, checkIfExists: true ) : Channel.empty()
                                                                                                                          ^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:125:55`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/pathogensurveillance.nf:134:55`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       multiqc_logo            = params.multiqc_logo   ? Channel.fromPath( params.multiqc_logo, checkIfExists: true ) : Channel.empty()
                                                         ^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:125:118`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/pathogensurveillance.nf:134:118`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       multiqc_logo            = params.multiqc_logo   ? Channel.fromPath( params.multiqc_logo, checkIfExists: true ) : Channel.empty()
                                                                                                                        ^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:129:5`: Variable was declared but not used
-
-  ```nextflow
-      methods_description     = channel.value(methodsDescriptionText(multiqc_custom_methods_description))
-      ^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Warning: `workflows/pathogensurveillance.nf:141:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:150:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
                       ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:141:41`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:150:41`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
                                           ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:143:15`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/pathogensurveillance.nf:152:15`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map{ sample_meta, report_meta, fastqc -> [report_meta, fastqc] }
                 ^^^^^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:147:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:156:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
                       ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:147:41`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:156:41`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
                                           ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:149:15`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/pathogensurveillance.nf:158:15`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map{ sample_meta, report_meta, fastp_json -> [report_meta, fastp_json] }
                 ^^^^^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:153:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:162:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
                       ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:153:41`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:162:41`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
                                           ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:155:15`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/pathogensurveillance.nf:164:15`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map{ sample_meta, report_meta, nanoplot_txt -> [report_meta, nanoplot_txt] }
                 ^^^^^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:159:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:168:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
                       ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:159:41`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:168:41`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
                                           ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:161:15`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/pathogensurveillance.nf:170:15`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map{ sample_meta, report_meta, quast -> [report_meta, quast] }
                 ^^^^^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:165:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:174:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.report_group_ids]] }
                       ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:189:71`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:198:71`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               [[id: sample_meta.report_group_ids], sample_meta.findAll {it.key != 'paths' && it.key != 'ref_metas' && it.key != 'ref_ids'}]
                                                                         ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:189:92`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:198:92`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               [[id: sample_meta.report_group_ids], sample_meta.findAll {it.key != 'paths' && it.key != 'ref_metas' && it.key != 'ref_ids'}]
                                                                                              ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:189:117`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:198:117`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               [[id: sample_meta.report_group_ids], sample_meta.findAll {it.key != 'paths' && it.key != 'ref_metas' && it.key != 'ref_ids'}]
                                                                                                                       ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:193:87`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:202:87`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               [ "${report_meta.id}_sample_data.tsv", sample_meta.keySet().collect{'"' + it + '"'}.join('\t') + "\n" + sample_meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n" ]
                                                                                         ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:193:153`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:202:153`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               [ "${report_meta.id}_sample_data.tsv", sample_meta.keySet().collect{'"' + it + '"'}.join('\t') + "\n" + sample_meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n" ]
                                                                                                                                                           ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:195:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:204:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map {[[id: it.getSimpleName().replace('_sample_data', '')], it]}
                       ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:195:70`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:204:70`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map {[[id: it.getSimpleName().replace('_sample_data', '')], it]}
                                                                        ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:204:45`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:213:45`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               [report_meta, ref_meta.findAll {it.key != 'ref_path' && it.key != 'gff'}]
                                               ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:204:69`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:213:69`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               [report_meta, ref_meta.findAll {it.key != 'ref_path' && it.key != 'gff'}]
                                                                       ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:208:87`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:217:87`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               [ "${report_meta.id}_reference_data.tsv", ref_meta.keySet().collect{'"' + it + '"'}.join('\t') + "\n" + ref_meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n" ]
                                                                                         ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:208:150`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:217:150`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               [ "${report_meta.id}_reference_data.tsv", ref_meta.keySet().collect{'"' + it + '"'}.join('\t') + "\n" + ref_meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n" ]
                                                                                                                                                        ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:210:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:219:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map {[[id: it.getSimpleName().replace('_reference_data', '')], it]}
                       ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:210:73`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:219:73`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map {[[id: it.getSimpleName().replace('_reference_data', '')], it]}
                                                                           ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:214:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:223:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
                       ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:214:41`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:223:41`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
                                           ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:216:15`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/pathogensurveillance.nf:225:15`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map{ sample_meta, report_meta, sendsketch -> [report_meta, sendsketch] }
                 ^^^^^^^^^^^
-  ```
-
-- Warning: `workflows/pathogensurveillance.nf:222:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-          .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
-                      ^^
-  ```
-
-- Warning: `workflows/pathogensurveillance.nf:222:41`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-          .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
-                                          ^^
-  ```
-
-- Warning: `workflows/pathogensurveillance.nf:225:16`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-          .map { sample_meta, report_meta, family_stats ->
-                 ^^^^^^^^^^^
   ```
 
 - Warning: `workflows/pathogensurveillance.nf:231:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
@@ -3515,175 +3480,196 @@
                                           ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:233:15`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/pathogensurveillance.nf:234:16`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+          .map { sample_meta, report_meta, family_stats ->
+                 ^^^^^^^^^^^
+  ```
+
+- Warning: `workflows/pathogensurveillance.nf:240:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+
+  ```nextflow
+          .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+                      ^^
+  ```
+
+- Warning: `workflows/pathogensurveillance.nf:240:41`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+
+  ```nextflow
+          .map{ [[id: it.sample_id], [id: it.report_group_ids]] }
+                                          ^^
+  ```
+
+- Warning: `workflows/pathogensurveillance.nf:242:15`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map{ sample_meta, report_meta, ref_meta_file ->
                 ^^^^^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:238:50`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:247:50`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               [report_meta, ref_meta_files.findAll{it != null}]
                                                    ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:243:29`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/pathogensurveillance.nf:252:29`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { report_meta, ref_meta, fasta -> [report_meta, fasta] }
                               ^^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:248:29`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/pathogensurveillance.nf:257:29`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { report_meta, ref_meta, tree -> [report_meta, tree] }
                               ^^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:257:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:266:21`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map {[[id: it.getSimpleName()], it]}
                       ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:257:42`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:266:42`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map {[[id: it.getSimpleName()], it]}
                                            ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:277:17`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:286:17`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
-          .filter{it[0] != null} // remove extra item if messages is empty
+          .filter{it[0] != null}
                   ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:278:15`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:287:15`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
-          .map{ it.size() == 16 ? it + [null] : it } // adds placeholder if messages is empty
+          .map{ it.size() == 16 ? it + [null] : it }
                 ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:278:33`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:287:33`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
-          .map{ it.size() == 16 ? it + [null] : it } // adds placeholder if messages is empty
+          .map{ it.size() == 16 ? it + [null] : it }
                                   ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:278:47`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:287:47`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
-          .map{ it.size() == 16 ? it + [null] : it } // adds placeholder if messages is empty
+          .map{ it.size() == 16 ? it + [null] : it }
                                                 ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:279:18`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:288:18`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
-          .filter{ it.size() == 17 } // remove any malformed inputs
+          .filter{ it.size() == 17 }
                    ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:280:15`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:289:15`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
-          .map{ it.collect{ it ?: [] } } //replace nulls with empty lists
+          .map{ it.collect{ it ?: [] } }
                 ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:280:27`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:289:27`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
-          .map{ it.collect{ it ?: [] } } //replace nulls with empty lists
+          .map{ it.collect{ it ?: [] } }
                             ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:285:9`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/pathogensurveillance.nf:294:9`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
-          Channel.fromPath("${projectDir}/assets/.pathogensurveillance_output.json", checkIfExists: true).first() // .first converts it to a value channel so it can be reused for multiple reports.
+          Channel.fromPath("${projectDir}/assets/.pathogensurveillance_output.json", checkIfExists: true).first()
           ^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:290:9`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/pathogensurveillance.nf:299:9`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
-          Channel.fromPath("${projectDir}/assets/main_report", checkIfExists: true).first() // .first converts it to a value channel so it can be reused for multiple reports.
+          Channel.fromPath("${projectDir}/assets/main_report", checkIfExists: true).first()
           ^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:309:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/pathogensurveillance.nf:318:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       Channel.value(
       ^^^^^^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:328:34`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:337:34`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               sample_meta.findAll {it.key != 'paths' && it.key != 'ref_metas' && it.key != 'ref_ids'}
                                    ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:328:55`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:337:55`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               sample_meta.findAll {it.key != 'paths' && it.key != 'ref_metas' && it.key != 'ref_ids'}
                                                         ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:328:80`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:337:80`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               sample_meta.findAll {it.key != 'paths' && it.key != 'ref_metas' && it.key != 'ref_ids'}
                                                                                  ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:337:48`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:346:48`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               sample_meta.keySet().collect{'"' + it + '"'}.join('\t') + "\n" + sample_meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n"
                                                  ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:337:114`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:346:114`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               sample_meta.keySet().collect{'"' + it + '"'}.join('\t') + "\n" + sample_meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n"
                                                                                                                    ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:347:34`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:356:34`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               ref_meta[0].findAll {it.key != 'ref_path' && it.key != 'gff'}
                                    ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:347:58`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:356:58`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               ref_meta[0].findAll {it.key != 'ref_path' && it.key != 'gff'}
                                                            ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:356:45`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:365:45`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               ref_meta.keySet().collect{'"' + it + '"'}.join('\t') + "\n" + ref_meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n"
                                               ^^
   ```
 
-- Warning: `workflows/pathogensurveillance.nf:356:108`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `workflows/pathogensurveillance.nf:365:108`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               ref_meta.keySet().collect{'"' + it + '"'}.join('\t') + "\n" + ref_meta.values().collect{'"' + (it ?: '') + '"'}.join('\t') + "\n"

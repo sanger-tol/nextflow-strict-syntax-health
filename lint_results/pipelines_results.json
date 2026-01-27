@@ -209,11 +209,11 @@
   "demo": {
     "full_name": "nf-core/demo",
     "html_url": "https://github.com/nf-core/demo",
-    "commit": "0a6e9fc237d1729d5d6e500ad3637c140751232a",
-    "errors": 6,
-    "warnings": 17,
+    "commit": "60ebcaa3959374ad2827f51275d5627a5cc821d6",
+    "errors": 0,
+    "warnings": 0,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": true
   },
   "demultiplex": {
     "full_name": "nf-core/demultiplex",
@@ -506,7 +506,7 @@
   "mag": {
     "full_name": "nf-core/mag",
     "html_url": "https://github.com/nf-core/mag",
-    "commit": "3cbc2a6b864648a7fc383d63202e58c9a98094d2",
+    "commit": "63ecfcf0e41d74431bdf060765cbbeb3dc589fcc",
     "errors": 0,
     "warnings": 35,
     "parse_error": false,
@@ -695,9 +695,9 @@
   "pacsomatic": {
     "full_name": "nf-core/pacsomatic",
     "html_url": "https://github.com/nf-core/pacsomatic",
-    "commit": "d7c9e4ce9b9d17200f43ddf1fcc33eb969cd0a4f",
+    "commit": "24c84cb371b0339c1d65a4de9451671945e19772",
     "errors": 7,
-    "warnings": 113,
+    "warnings": 115,
     "parse_error": false,
     "prints_help": null
   },
@@ -740,9 +740,9 @@
   "pathogensurveillance": {
     "full_name": "nf-core/pathogensurveillance",
     "html_url": "https://github.com/nf-core/pathogensurveillance",
-    "commit": "d6f11d94e27b234076c1626a479dbf5b04cf97a8",
-    "errors": 40,
-    "warnings": 486,
+    "commit": "0618739f2e98020cfc54f46d4b18ee3e0c93eea1",
+    "errors": 36,
+    "warnings": 488,
     "parse_error": false,
     "prints_help": null
   },
@@ -785,11 +785,11 @@
   "proteinannotator": {
     "full_name": "nf-core/proteinannotator",
     "html_url": "https://github.com/nf-core/proteinannotator",
-    "commit": "cd6f6176f2a922c95f6b4987736a917a99dea2a3",
+    "commit": "c51c2d11a06aae42a60532f7f59a85b48816b2d7",
     "errors": 0,
-    "warnings": 8,
+    "warnings": 0,
     "parse_error": false,
-    "prints_help": false
+    "prints_help": true
   },
   "proteinfamilies": {
     "full_name": "nf-core/proteinfamilies",

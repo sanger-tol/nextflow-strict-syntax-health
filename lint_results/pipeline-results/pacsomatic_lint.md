@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-01-16T15:16:42.240038400Z
+- Generated: 2026-01-27T00:17:45.425967157Z
 - Nextflow version: 25.12.0-edge
-- Summary: 7 errors, 113 warnings
+- Summary: 7 errors, 115 warnings
 
 ## :x: Errors
 
@@ -13,42 +13,42 @@
                   ^
   ```
 
-- Error: `nextflow.config:349:34`: `manifest` is not defined
+- Error: `nextflow.config:350:34`: `manifest` is not defined
 
   ```nextflow
   \033[0;35m  nf-core/pacsomatic ${manifest.version}\033[0m
                                    ^^^^^^^^
   ```
 
-- Error: `nextflow.config:352:26`: `manifest` is not defined
+- Error: `nextflow.config:353:26`: `manifest` is not defined
 
   ```nextflow
           afterText = """${manifest.doi ? "\n* The pipeline\n" : ""}${manifest.doi.tokenize(",").collect { "    https://doi.org/${it.trim().replace('https://doi.org/','')}"}.join("\n")}${manifest.doi ? "\n" : ""}
                            ^^^^^^^^
   ```
 
-- Error: `nextflow.config:352:69`: `manifest` is not defined
+- Error: `nextflow.config:353:69`: `manifest` is not defined
 
   ```nextflow
           afterText = """${manifest.doi ? "\n* The pipeline\n" : ""}${manifest.doi.tokenize(",").collect { "    https://doi.org/${it.trim().replace('https://doi.org/','')}"}.join("\n")}${manifest.doi ? "\n" : ""}
                                                                       ^^^^^^^^
   ```
 
-- Error: `nextflow.config:352:186`: `manifest` is not defined
+- Error: `nextflow.config:353:186`: `manifest` is not defined
 
   ```nextflow
           afterText = """${manifest.doi ? "\n* The pipeline\n" : ""}${manifest.doi.tokenize(",").collect { "    https://doi.org/${it.trim().replace('https://doi.org/','')}"}.join("\n")}${manifest.doi ? "\n" : ""}
                                                                                                                                                                                            ^^^^^^^^
   ```
 
-- Error: `nextflow.config:361:22`: `validation` is not defined
+- Error: `nextflow.config:362:22`: `validation` is not defined
 
   ```nextflow
           beforeText = validation.help.beforeText
                        ^^^^^^^^^^
   ```
 
-- Error: `nextflow.config:362:21`: `validation` is not defined
+- Error: `nextflow.config:363:21`: `validation` is not defined
 
   ```nextflow
           afterText = validation.help.afterText
@@ -169,7 +169,7 @@
           ^^^^
   ```
 
-- Warning: `nextflow.config:352:129`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `nextflow.config:353:129`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           afterText = """${manifest.doi ? "\n* The pipeline\n" : ""}${manifest.doi.tokenize(",").collect { "    https://doi.org/${it.trim().replace('https://doi.org/','')}"}.join("\n")}${manifest.doi ? "\n" : ""}
@@ -421,32 +421,39 @@
       ^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_pacsomatic_pipeline/main.nf:31:5`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/utils_nfcore_pacsomatic_pipeline/main.nf:32:5`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
       monochrome_logs   // boolean: Do not use coloured log outputs
       ^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_pacsomatic_pipeline/main.nf:34:5`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/utils_nfcore_pacsomatic_pipeline/main.nf:35:5`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
       input             //  string: Path to input samplesheet
       ^^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_pacsomatic_pipeline/main.nf:38:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/local/utils_nfcore_pacsomatic_pipeline/main.nf:39:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_versions = Channel.empty()
                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_pacsomatic_pipeline/main.nf:76:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/local/utils_nfcore_pacsomatic_pipeline/main.nf:84:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       Channel
       ^^^^^^^
+  ```
+
+- Warning: `subworkflows/local/utils_pacsomatic_pipeline/main.nf:95:32`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+              } catch (Exception e) {
+                                 ^
   ```
 
 - Warning: `subworkflows/nf-core/bam_sort_stats_samtools/main.nf:16:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
@@ -530,6 +537,13 @@
 
   ```nextflow
           : Channel.value([[:], []])
+            ^^^^^^^
+  ```
+
+- Warning: `workflows/pacsomatic.nf:71:11`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+
+  ```nextflow
+          ? Channel.value([[:], file(params.annotsv_cache, checkIfExists: true)])
             ^^^^^^^
   ```
 
