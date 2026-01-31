@@ -209,7 +209,7 @@
   "demo": {
     "full_name": "nf-core/demo",
     "html_url": "https://github.com/nf-core/demo",
-    "commit": "60ebcaa3959374ad2827f51275d5627a5cc821d6",
+    "commit": "0dc6156702616de6ad5524942b4fb555814a8b70",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -263,7 +263,7 @@
   "diseasemodulediscovery": {
     "full_name": "nf-core/diseasemodulediscovery",
     "html_url": "https://github.com/nf-core/diseasemodulediscovery",
-    "commit": "776ac36b571cda533fd84161ce8c4b32d18ec870",
+    "commit": "992cec334828cefb6478a8ee66ff676ad369c186",
     "errors": 69,
     "warnings": 80,
     "parse_error": false,
@@ -299,9 +299,9 @@
   "eager": {
     "full_name": "nf-core/eager",
     "html_url": "https://github.com/nf-core/eager",
-    "commit": "18f10105719880c5cd4ba7215dc6703bb1737dec",
+    "commit": "2d477bba6fd50c4652fff3be01bce3dc362ba0e9",
     "errors": 115,
-    "warnings": 361,
+    "warnings": 362,
     "parse_error": false,
     "prints_help": null
   },
@@ -443,9 +443,9 @@
   "hlatyping": {
     "full_name": "nf-core/hlatyping",
     "html_url": "https://github.com/nf-core/hlatyping",
-    "commit": "64d7a5d5026b5ccf0be8cc2e64fafa9878ca6c8e",
-    "errors": 17,
-    "warnings": 16,
+    "commit": "4e899b2c9dc5b76339d6aeb931da8f9f5b47d1fc",
+    "errors": 9,
+    "warnings": 15,
     "parse_error": false,
     "prints_help": null
   },
@@ -659,7 +659,7 @@
   "nanostring": {
     "full_name": "nf-core/nanostring",
     "html_url": "https://github.com/nf-core/nanostring",
-    "commit": "d139c2a96f7bdce34c18628b50c48f94383d5f37",
+    "commit": "915f51d2d8892f3c702cdc59e9ab997372375a40",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -713,7 +713,7 @@
   "pairgenomealign": {
     "full_name": "nf-core/pairgenomealign",
     "html_url": "https://github.com/nf-core/pairgenomealign",
-    "commit": "94af0c6ac4641a8913030cb10ede5eca0d68285d",
+    "commit": "ac36580daedb9c3e1d9b32730d5008c8d53b64df",
     "errors": 2,
     "warnings": 22,
     "parse_error": false,
@@ -803,7 +803,7 @@
   "proteinfold": {
     "full_name": "nf-core/proteinfold",
     "html_url": "https://github.com/nf-core/proteinfold",
-    "commit": "3d9a87b849880907bf41c95f07f54da84ab1906c",
+    "commit": "418de16ba88d3d8003dd8b8b1dd0deed05a8f9ee",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -839,11 +839,11 @@
   "rangeland": {
     "full_name": "nf-core/rangeland",
     "html_url": "https://github.com/nf-core/rangeland",
-    "commit": "3e498c915b5090140edc2f7aeb4aa9abe51cad3d",
+    "commit": "fd80310dca04690e3a164a68c50979c094f6a244",
     "errors": 0,
     "warnings": 1,
     "parse_error": false,
-    "prints_help": false
+    "prints_help": true
   },
   "raredisease": {
     "full_name": "nf-core/raredisease",
@@ -929,7 +929,7 @@
   "rnaseq": {
     "full_name": "nf-core/rnaseq",
     "html_url": "https://github.com/nf-core/rnaseq",
-    "commit": "5bc823af0753519428447f8b2fc6148ff6aebf4e",
+    "commit": "67a7076d01628cfa65679492158d2a9f43f9d5dd",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -974,11 +974,11 @@
   "scdownstream": {
     "full_name": "nf-core/scdownstream",
     "html_url": "https://github.com/nf-core/scdownstream",
-    "commit": "1fc97f0fb32fb9cf798aa1e56e54d293b7477d7c",
-    "errors": 1,
-    "warnings": 23,
+    "commit": "aa83347b08a3efc74ac2d85fe4113f9ea90491f6",
+    "errors": 0,
+    "warnings": 19,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "scnanoseq": {
     "full_name": "nf-core/scnanoseq",

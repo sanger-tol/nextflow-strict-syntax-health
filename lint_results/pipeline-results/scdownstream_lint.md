@@ -1,17 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-01-30T00:23:14.394052716Z
+- Generated: 2026-01-31T00:22:37.437436075Z
 - Nextflow version: 25.12.0-edge
-- Summary: 1 error, 23 warnings
-
-## :x: Errors
-
-- Error: `nextflow.config:239:9`: Invalid include source: '/home/runner/work/strict-syntax-health/strict-syntax-health/pipelines/scdownstream/conf/test_offline.config'
-
-  ```nextflow
-          includeConfig 'conf/test_offline.config'
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  ```
+- Summary: 19 warnings
 
 ## :warning: Warnings
 
@@ -146,32 +137,4 @@
   ```nextflow
       max_epochs = task.ext.max_epochs ?: null
       ^^^^^^^^^^
-  ```
-
-- Warning: `subworkflows/local/utils_nfcore_scdownstream_pipeline/main.nf:31:5`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-      monochrome_logs   // boolean: Do not use coloured log outputs
-      ^^^^^^^^^^^^^^^
-  ```
-
-- Warning: `subworkflows/local/utils_nfcore_scdownstream_pipeline/main.nf:34:5`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-      input             //  string: Path to input samplesheet
-      ^^^^^
-  ```
-
-- Warning: `subworkflows/local/utils_nfcore_scdownstream_pipeline/main.nf:172:79`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def integration_methods = params.integration_methods.split(',').collect { it.trim().toLowerCase() }
-                                                                                ^^
-  ```
-
-- Warning: `subworkflows/nf-core/h5ad_removebackground_barcodes_cellbender_anndata/main.nf:13:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
   ```

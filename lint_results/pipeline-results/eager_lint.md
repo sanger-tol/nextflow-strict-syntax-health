@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-01-22T00:19:18.967622724Z
+- Generated: 2026-01-31T00:20:36.214050620Z
 - Nextflow version: 25.12.0-edge
-- Summary: 115 errors, 361 warnings
+- Summary: 115 errors, 362 warnings
 
 ## :x: Errors
 
@@ -947,6 +947,13 @@
   ```
 
 - Warning: `modules/nf-core/mapdamage2/main.nf:40:9`: Variable was declared but not used
+
+  ```nextflow
+      def prefix = task.ext.prefix ?: "${meta.id}"
+          ^^^^^^
+  ```
+
+- Warning: `modules/nf-core/mapdamage2/main.nf:54:9`: Variable was declared but not used
 
   ```nextflow
       def prefix = task.ext.prefix ?: "${meta.id}"

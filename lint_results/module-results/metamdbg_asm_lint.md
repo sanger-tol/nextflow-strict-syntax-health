@@ -1,14 +1,5 @@
 # Nextflow lint results
 
-- Generated: 2026-01-30T00:23:49.998086+00:00
+- Generated: 2026-01-31T00:23:25.925548+00:00
 - Nextflow version: 25.12.0-edge
-- Summary: 1 warning
-
-## :warning: Warnings
-
-- Warning: `modules/nf-core/metamdbg/asm/main.nf:42:9`: Variable was declared but not used
-
-  ```nextflow
-      def args = task.ext.args ?: ''
-          ^^^^^^^^^^
-  ```
+- Summary: No issues found
