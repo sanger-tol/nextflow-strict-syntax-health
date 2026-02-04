@@ -11,12 +11,12 @@ The goal is for all nf-core pipelines to run without errors using strict syntax.
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-02-03 00:25:55 UTC
+- **Last updated:** 2026-02-04 00:21:03 UTC
 - **Nextflow version:** 25.12.0-edge
 
 ## Pipelines
 
-- **Total:** 0 parse errors, 3349 errors, 9538 warnings across 131 pipelines
+- **Total:** 0 parse errors, 3349 errors, 9537 warnings across 131 pipelines
 - **Zero errors:** 29 pipelines (22.1%)
 
 |                    Errors                    |                     Warnings                     |
@@ -96,7 +96,7 @@ The goal is for all nf-core pipelines to run without errors using strict syntax.
 | :x: [detaxizer](https://github.com/nf-core/detaxizer)                                        |     No      |     13 |       61 |      -      |         [View](lint_results/pipeline-results/detaxizer_lint.md)         |                                    -                                    |
 | :x: [differentialabundance](https://github.com/nf-core/differentialabundance)                |     No      |     13 |       48 |      -      |   [View](lint_results/pipeline-results/differentialabundance_lint.md)   |                                    -                                    |
 | :x: [crisprseq](https://github.com/nf-core/crisprseq)                                        |     No      |     13 |       45 |      -      |         [View](lint_results/pipeline-results/crisprseq_lint.md)         |                                    -                                    |
-| :x: [sopa](https://github.com/nf-core/sopa)                                                  |     No      |     13 |       17 |      -      |           [View](lint_results/pipeline-results/sopa_lint.md)            |                                    -                                    |
+| :x: [sopa](https://github.com/nf-core/sopa)                                                  |     No      |     13 |       16 |      -      |           [View](lint_results/pipeline-results/sopa_lint.md)            |                                    -                                    |
 | :x: [drop](https://github.com/nf-core/drop)                                                  |     No      |     12 |       77 |      -      |           [View](lint_results/pipeline-results/drop_lint.md)            |                                    -                                    |
 | :x: [pacvar](https://github.com/nf-core/pacvar)                                              |     No      |     12 |       54 |      -      |          [View](lint_results/pipeline-results/pacvar_lint.md)           |                                    -                                    |
 | :x: [smrnaseq](https://github.com/nf-core/smrnaseq)                                          |     No      |     11 |       74 |      -      |         [View](lint_results/pipeline-results/smrnaseq_lint.md)          |                                    -                                    |
@@ -164,15 +164,15 @@ The goal is for all nf-core pipelines to run without errors using strict syntax.
 
 ## Modules
 
-- **Total:** 0 parse errors, 62 errors, 604 warnings across 1366 modules
-- **Zero errors:** 1325 modules (97.0%)
+- **Total:** 0 parse errors, 61 errors, 603 warnings across 1366 modules
+- **Zero errors:** 1326 modules (97.1%)
 
 |                   Errors                   |                    Warnings                    |
 | :----------------------------------------: | :--------------------------------------------: |
 | ![Errors](lint_results/modules_errors.png) | ![Warnings](lint_results/modules_warnings.png) |
 
 <details>
-<summary>Module Results (41 modules with errors)</summary>
+<summary>Module Results (40 modules with errors)</summary>
 
 | Module                                                                                                                              | Parse Error | Errors | Warnings |                                Lint Output                                 |
 | ----------------------------------------------------------------------------------------------------------------------------------- | :---------: | -----: | -------: | :------------------------------------------------------------------------: |
@@ -201,7 +201,6 @@ The goal is for all nf-core pipelines to run without errors using strict syntax.
 | :x: [shinyngs_app](https://github.com/nf-core/modules/tree/master/modules/nf-core/shinyngs/app)                                     |     No      |      1 |        1 |          [View](lint_results/module-results/shinyngs_app_lint.md)          |
 | :x: [svanalyzer_svbenchmark](https://github.com/nf-core/modules/tree/master/modules/nf-core/svanalyzer/svbenchmark)                 |     No      |      1 |        1 |     [View](lint_results/module-results/svanalyzer_svbenchmark_lint.md)     |
 | :x: [cellrangeratac_mkfastq](https://github.com/nf-core/modules/tree/master/modules/nf-core/cellrangeratac/mkfastq)                 |     No      |      1 |        0 |     [View](lint_results/module-results/cellrangeratac_mkfastq_lint.md)     |
-| :x: [cnvnator_cnvnator](https://github.com/nf-core/modules/tree/master/modules/nf-core/cnvnator/cnvnator)                           |     No      |      1 |        0 |       [View](lint_results/module-results/cnvnator_cnvnator_lint.md)        |
 | :x: [dastool_scaffolds2bin](https://github.com/nf-core/modules/tree/master/modules/nf-core/dastool/scaffolds2bin)                   |     No      |      1 |        0 |     [View](lint_results/module-results/dastool_scaffolds2bin_lint.md)      |
 | :x: [dragen_germline](https://github.com/nf-core/modules/tree/master/modules/nf-core/dragen/germline)                               |     No      |      1 |        0 |        [View](lint_results/module-results/dragen_germline_lint.md)         |
 | :x: [happy_sompy](https://github.com/nf-core/modules/tree/master/modules/nf-core/happy/sompy)                                       |     No      |      1 |        0 |          [View](lint_results/module-results/happy_sompy_lint.md)           |
@@ -218,27 +217,28 @@ The goal is for all nf-core pipelines to run without errors using strict syntax.
 | :x: [vg_deconstruct](https://github.com/nf-core/modules/tree/master/modules/nf-core/vg/deconstruct)                                 |     No      |      1 |        0 |         [View](lint_results/module-results/vg_deconstruct_lint.md)         |
 | :x: [vsearch_sort](https://github.com/nf-core/modules/tree/master/modules/nf-core/vsearch/sort)                                     |     No      |      1 |        0 |          [View](lint_results/module-results/vsearch_sort_lint.md)          |
 
-_Modules with zero errors are not shown above (1325 modules). They may still have warnings. See the [modules results directory](lint_results/module-results/) for all lint outputs._
+_Modules with zero errors are not shown above (1326 modules). They may still have warnings. See the [modules results directory](lint_results/module-results/) for all lint outputs._
 
 </details>
 
 ## Subworkflows
 
-- **Total:** 0 parse errors, 6 errors, 162 warnings across 104 subworkflows
-- **Zero errors:** 101 subworkflows (97.1%)
+- **Total:** 0 parse errors, 7 errors, 161 warnings across 105 subworkflows
+- **Zero errors:** 101 subworkflows (96.2%)
 
 |                     Errors                      |                      Warnings                       |
 | :---------------------------------------------: | :-------------------------------------------------: |
 | ![Errors](lint_results/subworkflows_errors.png) | ![Warnings](lint_results/subworkflows_warnings.png) |
 
 <details>
-<summary>Subworkflow Results (3 subworkflows with errors)</summary>
+<summary>Subworkflow Results (4 subworkflows with errors)</summary>
 
 | Subworkflow                                                                                                                                    | Parse Error | Errors | Warnings |                                    Lint Output                                     |
 | ---------------------------------------------------------------------------------------------------------------------------------------------- | :---------: | -----: | -------: | :--------------------------------------------------------------------------------: |
 | :x: [fastq_taxonomic_profile_metaphlan](https://github.com/nf-core/modules/tree/master/subworkflows/nf-core/fastq_taxonomic_profile_metaphlan) |     No      |      4 |        3 | [View](lint_results/subworkflow-results/fastq_taxonomic_profile_metaphlan_lint.md) |
 | :x: [dia_proteomics_analysis](https://github.com/nf-core/modules/tree/master/subworkflows/nf-core/dia_proteomics_analysis)                     |     No      |      1 |        7 |      [View](lint_results/subworkflow-results/dia_proteomics_analysis_lint.md)      |
 | :x: [bam_split_by_region](https://github.com/nf-core/modules/tree/master/subworkflows/nf-core/bam_split_by_region)                             |     No      |      1 |        0 |        [View](lint_results/subworkflow-results/bam_split_by_region_lint.md)        |
+| :x: [vcf_gather_bcftools](https://github.com/nf-core/modules/tree/master/subworkflows/nf-core/vcf_gather_bcftools)                             |     No      |      1 |        0 |        [View](lint_results/subworkflow-results/vcf_gather_bcftools_lint.md)        |
 
 _Subworkflows with zero errors are not shown above (101 subworkflows). They may still have warnings. See the [subworkflows results directory](lint_results/subworkflow-results/) for all lint outputs._
 

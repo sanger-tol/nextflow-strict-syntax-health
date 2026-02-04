@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "d79f6bc5514d2d297ef51be1ee44373f63d55769",
+  "_repo_commit": "ec745b2ac17ea5cba73fa97c16df3f0d135d76f2",
   "abricate_run": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/abricate/run",
     "errors": 0,
@@ -1472,7 +1472,7 @@
   },
   "cnvnator_cnvnator": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/cnvnator/cnvnator",
-    "errors": 1,
+    "errors": 0,
     "warnings": 0,
     "parse_error": false
   },
@@ -7371,7 +7371,7 @@
   "svdb_build": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/svdb/build",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 0,
     "parse_error": false
   },
   "svdb_merge": {

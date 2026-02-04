@@ -74,7 +74,7 @@
   "cageseq": {
     "full_name": "nf-core/cageseq",
     "html_url": "https://github.com/nf-core/cageseq",
-    "commit": "7bd1b5847e2d705b7a80edd105ca00ca5f4577b5",
+    "commit": "6884bcab7b826916aceb4c59a67e4411b605fefd",
     "errors": 62,
     "warnings": 69,
     "parse_error": false,
@@ -308,7 +308,7 @@
   "epitopeprediction": {
     "full_name": "nf-core/epitopeprediction",
     "html_url": "https://github.com/nf-core/epitopeprediction",
-    "commit": "ba00f34e52645ca888b2a9507f2f8901058a1fbc",
+    "commit": "9ea0f11be7fd9c489e896091fc83d9a43373f7b4",
     "errors": 20,
     "warnings": 22,
     "parse_error": false,
@@ -533,7 +533,7 @@
   "mcmicro": {
     "full_name": "nf-core/mcmicro",
     "html_url": "https://github.com/nf-core/mcmicro",
-    "commit": "d27bf2c2fba85cf61922c632190819843398b2a9",
+    "commit": "9d3a5233d222087e1d11616100429fb43e9f4dce",
     "errors": 21,
     "warnings": 42,
     "parse_error": false,
@@ -965,7 +965,7 @@
   "sarek": {
     "full_name": "nf-core/sarek",
     "html_url": "https://github.com/nf-core/sarek",
-    "commit": "8356eb346f2c9e47e8d76584b9f03d6a54640619",
+    "commit": "882d030ffcdac7b596cbf03d4d4c30e99e5b2b22",
     "errors": 150,
     "warnings": 614,
     "parse_error": false,
@@ -974,7 +974,7 @@
   "scdownstream": {
     "full_name": "nf-core/scdownstream",
     "html_url": "https://github.com/nf-core/scdownstream",
-    "commit": "aa83347b08a3efc74ac2d85fe4113f9ea90491f6",
+    "commit": "d24bddeabe225070d27577a99e5f6a65e546642d",
     "errors": 0,
     "warnings": 19,
     "parse_error": false,
@@ -1037,9 +1037,9 @@
   "sopa": {
     "full_name": "nf-core/sopa",
     "html_url": "https://github.com/nf-core/sopa",
-    "commit": "36b2b5bee4cfba1646c2d1ea17b76273f8303b92",
+    "commit": "77e04a5d8a57b42805c284c31cbc6c30177c6820",
     "errors": 13,
-    "warnings": 17,
+    "warnings": 16,
     "parse_error": false,
     "prints_help": null
   },

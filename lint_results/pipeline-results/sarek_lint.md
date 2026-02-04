@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-02-03T00:24:20.058781573Z
+- Generated: 2026-02-04T00:19:34.740458196Z
 - Nextflow version: 25.12.0-edge
 - Summary: 150 errors, 614 warnings
 
@@ -1114,133 +1114,133 @@
                                                      ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:22:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:21:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? it : null }
                                                                            ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:32:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:31:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? it : null }
                                                                            ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:41:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:40:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? it : null }
                                                                            ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:51:84`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:50:84`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? "cnvkit/${it}" : null }
                                                                                      ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:62:84`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:61:84`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? "cnvkit/${it}" : null }
                                                                                      ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:71:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:70:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? it : null }
                                                                            ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:80:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:79:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? it : null }
                                                                            ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:89:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:88:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? it : null }
                                                                            ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:98:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:97:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? it : null }
                                                                            ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:107:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:106:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? it : null }
                                                                            ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:116:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:115:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? it : null }
                                                                            ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:125:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:124:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? it : null }
                                                                            ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:134:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:133:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? it : null }
                                                                            ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:143:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:142:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? it : null }
                                                                            ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:152:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:151:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? it : null }
                                                                            ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:161:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:160:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? it : null }
                                                                            ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:176:78`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:175:78`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { (params.save_reference || params.build_only_index) && !it.equals('versions.yml') ? it : null }
                                                                                ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:176:106`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:175:106`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { (params.save_reference || params.build_only_index) && !it.equals('versions.yml') ? it : null }
                                                                                                            ^^
   ```
 
-- Warning: `conf/modules/prepare_genome.config:187:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `conf/modules/prepare_genome.config:186:74`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               saveAs: { params.save_reference || params.build_only_index ? it : null }

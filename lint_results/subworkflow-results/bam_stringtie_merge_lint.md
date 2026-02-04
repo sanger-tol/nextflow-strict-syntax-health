@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-02-03T00:25:38.232874+00:00
+- Generated: 2026-02-04T00:20:47.274817+00:00
 - Nextflow version: 25.12.0-edge
 - Summary: 3 warnings
 
@@ -20,7 +20,7 @@
                           ^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/nf-core/bam_stringtie_merge/main.nf:22:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/nf-core/bam_stringtie_merge/main.nf:21:16`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           .map { it[1] }

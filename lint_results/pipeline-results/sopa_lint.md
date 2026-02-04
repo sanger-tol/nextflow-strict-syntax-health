@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-01-29T00:22:14.896990210Z
+- Generated: 2026-02-04T00:20:03.731235572Z
 - Nextflow version: 25.12.0-edge
-- Summary: 13 errors, 17 warnings
+- Summary: 13 errors, 16 warnings
 
 ## :x: Errors
 
@@ -134,28 +134,21 @@
                     ^^
   ```
 
-- Warning: `subworkflows/local/spaceranger.nf:37:85`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      ch_spaceranger_input = ch_spaceranger_combined.map { create_channel_spaceranger(it) }
-                                                                                      ^^
-  ```
-
-- Warning: `subworkflows/local/spaceranger.nf:43:20`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/local/spaceranger.nf:42:20`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_reference = Channel.empty()
                      ^^^^^^^
   ```
 
-- Warning: `subworkflows/local/spaceranger.nf:62:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/local/spaceranger.nf:61:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       ch_probeset = Channel.empty()
                     ^^^^^^^
   ```
 
-- Warning: `subworkflows/local/spaceranger.nf:91:9`: Variable was declared but not used
+- Warning: `subworkflows/local/spaceranger.nf:90:9`: Variable was declared but not used
 
   ```nextflow
       def get_file_from_meta = { key ->
