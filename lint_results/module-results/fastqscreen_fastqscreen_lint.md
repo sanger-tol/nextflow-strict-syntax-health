@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-02-04T00:20:34.594178+00:00
+- Generated: 2026-02-05T00:23:58.537864+00:00
 - Nextflow version: 25.12.0-edge
 - Summary: 2 warnings
 
@@ -13,7 +13,7 @@
           ^^^^^^^^^^
   ```
 
-- Warning: `modules/nf-core/fastqscreen/fastqscreen/main.nf:42:9`: Variable was declared but not used
+- Warning: `modules/nf-core/fastqscreen/fastqscreen/main.nf:41:9`: Variable was declared but not used
 
   ```nextflow
       def prefix = task.ext.prefix ?: "${meta.id}"

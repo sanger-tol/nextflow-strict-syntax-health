@@ -1,40 +1,10 @@
 # Nextflow lint results
 
-- Generated: 2026-02-04T00:20:34.633988+00:00
+- Generated: 2026-02-05T00:23:58.570437+00:00
 - Nextflow version: 25.12.0-edge
-- Summary: 2 errors, 5 warnings
-
-## :x: Errors
-
-- Error: `modules/nf-core/krakentools/extractkrakenreads/main.nf:14:15`: `meta` is already declared
-
-  ```nextflow
-      tuple val(meta), path(classified_reads_fastq)
-                ^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/krakentools/extractkrakenreads/main.nf:15:15`: `meta` is already declared
-
-  ```nextflow
-      tuple val(meta), path(report)
-                ^^^^^^^^^^
-  ```
+- Summary: 3 warnings
 
 ## :warning: Warnings
-
-- Warning: `modules/nf-core/krakentools/extractkrakenreads/main.nf:13:15`: Variable was declared but not used
-
-  ```nextflow
-      tuple val(meta), path(classified_reads_assignment)
-                ^^^^^^^^^^
-  ```
-
-- Warning: `modules/nf-core/krakentools/extractkrakenreads/main.nf:14:15`: Variable was declared but not used
-
-  ```nextflow
-      tuple val(meta), path(classified_reads_fastq)
-                ^^^^^^^^^^
-  ```
 
 - Warning: `modules/nf-core/krakentools/extractkrakenreads/main.nf:55:9`: Variable was declared but not used
 

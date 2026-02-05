@@ -1,24 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-02-04T00:20:34.713791+00:00
+- Generated: 2026-02-05T00:23:58.641337+00:00
 - Nextflow version: 25.12.0-edge
-- Summary: 2 errors, 1 warning
-
-## :x: Errors
-
-- Error: `modules/nf-core/svtyper/svtypersso/main.nf:25:9`: `vcf` is already declared
-
-  ```nextflow
-      def vcf    = vcf ? "--input_vcf ${vcf}" : ""
-          ^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/svtyper/svtypersso/main.nf:26:9`: `fasta` is already declared
-
-  ```nextflow
-      def fasta  = fasta ? "--ref_fasta ${fasta}" : ""
-          ^^^^^^^^^^
-  ```
+- Summary: 1 warning
 
 ## :warning: Warnings
 

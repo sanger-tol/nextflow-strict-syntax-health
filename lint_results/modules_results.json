@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "ec745b2ac17ea5cba73fa97c16df3f0d135d76f2",
+  "_repo_commit": "e4ddbdf46b37c889dfce35c96e87ace2e790b1ef",
   "abricate_run": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/abricate/run",
     "errors": 0,
@@ -992,7 +992,7 @@
   },
   "blobtk_plot": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/blobtk/plot",
-    "errors": 2,
+    "errors": 1,
     "warnings": 0,
     "parse_error": false
   },
@@ -1208,8 +1208,8 @@
   },
   "cellranger_count": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/cellranger/count",
-    "errors": 1,
-    "warnings": 2,
+    "errors": 0,
+    "warnings": 1,
     "parse_error": false
   },
   "cellranger_mkfastq": {
@@ -1268,7 +1268,7 @@
   },
   "cellrangerarc_mkref": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/cellrangerarc/mkref",
-    "errors": 1,
+    "errors": 0,
     "warnings": 1,
     "parse_error": false
   },
@@ -1364,7 +1364,7 @@
   },
   "chewbbaca_createschema": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/chewbbaca/createschema",
-    "errors": 2,
+    "errors": 0,
     "warnings": 2,
     "parse_error": false
   },
@@ -3434,7 +3434,7 @@
   },
   "happy_sompy": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/happy/sompy",
-    "errors": 1,
+    "errors": 0,
     "warnings": 0,
     "parse_error": false
   },
@@ -3578,7 +3578,7 @@
   },
   "hmmer_hmmfetch": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/hmmer/hmmfetch",
-    "errors": 1,
+    "errors": 0,
     "warnings": 1,
     "parse_error": false
   },
@@ -3668,7 +3668,7 @@
   },
   "ichorcna_createpon": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/ichorcna/createpon",
-    "errors": 1,
+    "errors": 0,
     "warnings": 0,
     "parse_error": false
   },
@@ -3818,13 +3818,13 @@
   },
   "jvarkit_sam2tsv": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/jvarkit/sam2tsv",
-    "errors": 1,
+    "errors": 0,
     "warnings": 0,
     "parse_error": false
   },
   "jvarkit_vcf2table": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/jvarkit/vcf2table",
-    "errors": 1,
+    "errors": 0,
     "warnings": 0,
     "parse_error": false
   },
@@ -4004,8 +4004,8 @@
   },
   "krakentools_extractkrakenreads": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/krakentools/extractkrakenreads",
-    "errors": 2,
-    "warnings": 5,
+    "errors": 0,
+    "warnings": 3,
     "parse_error": false
   },
   "krakentools_kreport2krona": {
@@ -6314,8 +6314,8 @@
   },
   "sam2lca_analyze": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/sam2lca/analyze",
-    "errors": 1,
-    "warnings": 1,
+    "errors": 0,
+    "warnings": 0,
     "parse_error": false
   },
   "sambamba_depth": {
@@ -6620,7 +6620,7 @@
   },
   "segemehl_align": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/segemehl/align",
-    "errors": 1,
+    "errors": 0,
     "warnings": 0,
     "parse_error": false
   },
@@ -7364,7 +7364,7 @@
   },
   "svanalyzer_svbenchmark": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/svanalyzer/svbenchmark",
-    "errors": 1,
+    "errors": 0,
     "warnings": 1,
     "parse_error": false
   },
@@ -7424,13 +7424,13 @@
   },
   "svtyper_svtyper": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/svtyper/svtyper",
-    "errors": 2,
-    "warnings": 1,
+    "errors": 0,
+    "warnings": 0,
     "parse_error": false
   },
   "svtyper_svtypersso": {
     "html_url": "https://github.com/nf-core/modules/tree/master/modules/nf-core/svtyper/svtypersso",
-    "errors": 2,
+    "errors": 0,
     "warnings": 1,
     "parse_error": false
   },

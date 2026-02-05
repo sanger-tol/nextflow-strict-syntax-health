@@ -1,17 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-02-04T00:20:34.711988+00:00
+- Generated: 2026-02-05T00:23:58.640019+00:00
 - Nextflow version: 25.12.0-edge
-- Summary: 1 error, 1 warning
-
-## :x: Errors
-
-- Error: `modules/nf-core/svanalyzer/svbenchmark/main.nf:36:9`: `bed` is already declared
-
-  ```nextflow
-      def bed = bed ? "-includebed $bed" : ""
-          ^^^^^^^^^^
-  ```
+- Summary: 1 warning
 
 ## :warning: Warnings
 

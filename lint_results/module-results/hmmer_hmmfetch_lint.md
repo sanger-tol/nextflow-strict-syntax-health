@@ -1,17 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-02-04T00:20:34.623456+00:00
+- Generated: 2026-02-05T00:23:58.561768+00:00
 - Nextflow version: 25.12.0-edge
-- Summary: 1 error, 1 warning
-
-## :x: Errors
-
-- Error: `modules/nf-core/hmmer/hmmfetch/main.nf:32:9`: `index` is already declared
-
-  ```nextflow
-      def index   = ! key && ! keyfile ? '--index' : ''
-          ^^^^^^^^^^
-  ```
+- Summary: 1 warning
 
 ## :warning: Warnings
 

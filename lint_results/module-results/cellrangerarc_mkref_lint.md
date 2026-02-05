@@ -1,17 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-02-04T00:20:34.570433+00:00
+- Generated: 2026-02-05T00:23:58.516497+00:00
 - Nextflow version: 25.12.0-edge
-- Summary: 1 error, 1 warning
-
-## :x: Errors
-
-- Error: `modules/nf-core/cellrangerarc/mkref/main.nf:30:9`: `reference_config` is already declared
-
-  ```nextflow
-      def reference_config = reference_config.name
-          ^^^^^^^^^^
-  ```
+- Summary: 1 warning
 
 ## :warning: Warnings
 

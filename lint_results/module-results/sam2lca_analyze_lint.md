@@ -1,23 +1,5 @@
 # Nextflow lint results
 
-- Generated: 2026-02-04T00:20:34.690091+00:00
+- Generated: 2026-02-05T00:23:58.620874+00:00
 - Nextflow version: 25.12.0-edge
-- Summary: 1 error, 1 warning
-
-## :x: Errors
-
-- Error: `modules/nf-core/sam2lca/analyze/main.nf:28:9`: `database` is already declared
-
-  ```nextflow
-      def database = database ? "${database}" : "sam2lca_db"
-          ^^^^^^^^^^
-  ```
-
-## :warning: Warnings
-
-- Warning: `modules/nf-core/sam2lca/analyze/main.nf:45:9`: Variable was declared but not used
-
-  ```nextflow
-      def args = task.ext.args ?: ''
-          ^^^^^^^^^^
-  ```
+- Summary: No issues found

@@ -1,19 +1,19 @@
 # Nextflow lint results
 
-- Generated: 2026-02-04T00:20:34.717486+00:00
+- Generated: 2026-02-05T00:23:58.644344+00:00
 - Nextflow version: 25.12.0-edge
 - Summary: 2 warnings
 
 ## :warning: Warnings
 
-- Warning: `modules/nf-core/tcoffee/tcs/main.nf:23:9`: Variable was declared but not used
+- Warning: `modules/nf-core/tcoffee/tcs/main.nf:24:9`: Variable was declared but not used
 
   ```nextflow
       def args          = task.ext.args ?: ''
           ^^^^^^^^^^
   ```
 
-- Warning: `modules/nf-core/tcoffee/tcs/main.nf:63:9`: Variable was declared but not used
+- Warning: `modules/nf-core/tcoffee/tcs/main.nf:58:9`: Variable was declared but not used
 
   ```nextflow
       def args = task.ext.args ?: ''

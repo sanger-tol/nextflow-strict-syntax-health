@@ -1,24 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-02-04T00:20:34.572825+00:00
+- Generated: 2026-02-05T00:23:58.518419+00:00
 - Nextflow version: 25.12.0-edge
-- Summary: 2 errors, 2 warnings
-
-## :x: Errors
-
-- Error: `modules/nf-core/chewbbaca/createschema/main.nf:28:9`: `prodigal_tf` is already declared
-
-  ```nextflow
-      def prodigal_tf = prodigal_tf ? "--ptf ${prodigal_tf}" : ""
-          ^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/chewbbaca/createschema/main.nf:29:9`: `cds` is already declared
-
-  ```nextflow
-      def cds = cds ? "--cds ${cds}" : ""
-          ^^^^^^^^^^
-  ```
+- Summary: 2 warnings
 
 ## :warning: Warnings
 

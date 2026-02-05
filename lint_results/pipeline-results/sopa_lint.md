@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-02-04T00:20:03.731235572Z
+- Generated: 2026-02-05T00:23:27.988113102Z
 - Nextflow version: 25.12.0-edge
 - Summary: 13 errors, 16 warnings
 
@@ -176,21 +176,21 @@
       ^^^^^^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_sopa_pipeline/main.nf:283:51`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/utils_nfcore_sopa_pipeline/main.nf:274:51`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
       assert TRANSCRIPT_BASED_METHODS.count { params[it] } <= 1 : "Only one of ${TRANSCRIPT_BASED_METHODS} may be used"
                                                     ^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_sopa_pipeline/main.nf:284:49`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/utils_nfcore_sopa_pipeline/main.nf:275:49`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
       assert STAINING_BASED_METHODS.count { params[it] } <= 1 : "Only one of ${STAINING_BASED_METHODS} may be used"
                                                   ^^
   ```
 
-- Warning: `subworkflows/local/utils_nfcore_sopa_pipeline/main.nf:286:58`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/utils_nfcore_sopa_pipeline/main.nf:277:58`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
           assert NON_VALID_STARDIST_METHODS.every { !params[it] } : "'stardist' cannot be combined with transcript-based methods, except proseg."

@@ -1,14 +1,5 @@
 # Nextflow lint results
 
-- Generated: 2026-02-04T00:20:34.629532+00:00
+- Generated: 2026-02-05T00:23:58.566741+00:00
 - Nextflow version: 25.12.0-edge
-- Summary: 1 error
-
-## :x: Errors
-
-- Error: `modules/nf-core/jvarkit/vcf2table/main.nf:25:9`: `regions_file` is already declared
-
-  ```nextflow
-      def regions_file = regions_file? (tbi ? " --regions-file" : " --targets-file")+" \"${regions_file}\" ":""
-          ^^^^^^^^^^
-  ```
+- Summary: No issues found

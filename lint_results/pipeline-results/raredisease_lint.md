@@ -1,17 +1,10 @@
 # Nextflow lint results
 
-- Generated: 2026-02-03T00:23:54.559993635Z
+- Generated: 2026-02-05T00:23:20.211113269Z
 - Nextflow version: 25.12.0-edge
-- Summary: 28 errors, 54 warnings
+- Summary: 5 errors, 43 warnings
 
 ## :x: Errors
-
-- Error: `modules/nf-core/bcftools/view/main.nf:60:9`: `index` is already declared
-
-  ```nextflow
-      def index = args.contains("--write-index=tbi") || args.contains("-W=tbi") ? "tbi" :
-          ^^^^^
-  ```
 
 - Error: `modules/nf-core/bwa/index/main.nf:14:27`: `bwa` is not defined
 
@@ -41,160 +34,6 @@
                                                                ^^^^^
   ```
 
-- Error: `modules/nf-core/sentieon/bwaindex/tests/nextflow.config:3:24`: `$SENTIEON_LICSRVR_IP` is not defined
-
-  ```nextflow
-      SENTIEON_LICENSE = $SENTIEON_LICSRVR_IP
-                         ^^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/bwaindex/tests/nextflow.config:5:26`: `$SENTIEON_AUTH_MECH` is not defined
-
-  ```nextflow
-      SENTIEON_AUTH_MECH = $SENTIEON_AUTH_MECH
-                           ^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/bwamem/tests/nextflow.config:3:25`: `SENTIEON_LICSRVR_IP` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_LICENSE = "$SENTIEON_LICSRVR_IP"
-                          ^^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/bwamem/tests/nextflow.config:5:27`: `SENTIEON_AUTH_MECH` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_AUTH_MECH = "$SENTIEON_AUTH_MECH"
-                            ^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/bwamem/tests/nextflow_out_cram.config:3:25`: `SENTIEON_LICSRVR_IP` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_LICENSE = "$SENTIEON_LICSRVR_IP"
-                          ^^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/bwamem/tests/nextflow_out_cram.config:5:27`: `SENTIEON_AUTH_MECH` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_AUTH_MECH = "$SENTIEON_AUTH_MECH"
-                            ^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/datametrics/tests/nextflow.config:3:25`: `SENTIEON_LICSRVR_IP` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_LICENSE = "$SENTIEON_LICSRVR_IP"
-                          ^^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/datametrics/tests/nextflow.config:5:27`: `SENTIEON_AUTH_MECH` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_AUTH_MECH = "$SENTIEON_AUTH_MECH"
-                            ^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/dedup/tests/nextflow.config:3:25`: `SENTIEON_LICSRVR_IP` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_LICENSE = "$SENTIEON_LICSRVR_IP"
-                          ^^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/dedup/tests/nextflow.config:5:27`: `SENTIEON_AUTH_MECH` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_AUTH_MECH = "$SENTIEON_AUTH_MECH"
-                            ^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/dedup/tests/nextflow_rmdup.config:3:25`: `SENTIEON_LICSRVR_IP` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_LICENSE = "$SENTIEON_LICSRVR_IP"
-                          ^^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/dedup/tests/nextflow_rmdup.config:5:27`: `SENTIEON_AUTH_MECH` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_AUTH_MECH = "$SENTIEON_AUTH_MECH"
-                            ^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/dnamodelapply/tests/nextflow.config:3:25`: `SENTIEON_LICSRVR_IP` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_LICENSE = "$SENTIEON_LICSRVR_IP"
-                          ^^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/dnamodelapply/tests/nextflow.config:5:27`: `SENTIEON_AUTH_MECH` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_AUTH_MECH = "$SENTIEON_AUTH_MECH"
-                            ^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/dnascope/tests/nextflow.config:3:25`: `SENTIEON_LICSRVR_IP` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_LICENSE = "$SENTIEON_LICSRVR_IP"
-                          ^^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/dnascope/tests/nextflow.config:5:27`: `SENTIEON_AUTH_MECH` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_AUTH_MECH = "$SENTIEON_AUTH_MECH"
-                            ^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/readwriter/tests/nextflow.config:3:25`: `SENTIEON_LICSRVR_IP` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_LICENSE = "$SENTIEON_LICSRVR_IP"
-                          ^^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/readwriter/tests/nextflow.config:5:27`: `SENTIEON_AUTH_MECH` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_AUTH_MECH = "$SENTIEON_AUTH_MECH"
-                            ^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/readwriter/tests/nextflow_outputcram.config:3:25`: `SENTIEON_LICSRVR_IP` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_LICENSE = "$SENTIEON_LICSRVR_IP"
-                          ^^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/readwriter/tests/nextflow_outputcram.config:5:27`: `SENTIEON_AUTH_MECH` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_AUTH_MECH = "$SENTIEON_AUTH_MECH"
-                            ^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/wgsmetrics/tests/nextflow.config:3:25`: `SENTIEON_LICSRVR_IP` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_LICENSE = "$SENTIEON_LICSRVR_IP"
-                          ^^^^^^^^^^^^^^^^^^^^
-  ```
-
-- Error: `modules/nf-core/sentieon/wgsmetrics/tests/nextflow.config:5:27`: `SENTIEON_AUTH_MECH` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-      SENTIEON_AUTH_MECH = "$SENTIEON_AUTH_MECH"
-                            ^^^^^^^^^^^^^^^^^^^
-  ```
-
 - Error: `tests/nextflow.config:28:27`: `SENTIEON_AUTH_MECH` is not defined (hint: use `env('...')` to access environment variable)
 
   ```nextflow
@@ -203,27 +42,6 @@
   ```
 
 ## :warning: Warnings
-
-- Warning: `modules/nf-core/bcftools/merge/main.nf:28:58`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def input = (vcfs.collect().size() > 1) ? vcfs.sort{ it.name } : vcfs
-                                                           ^^
-  ```
-
-- Warning: `modules/nf-core/bcftools/norm/main.nf:56:65`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-          if (['--write-index=tbi', '-W=tbi'].any { args.contains(it) }  && extension == 'vcf.gz') {
-                                                                  ^^
-  ```
-
-- Warning: `modules/nf-core/bcftools/norm/main.nf:58:126`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-          } else if (['--write-index=tbi', '-W=tbi', '--write-index=csi', '-W=csi', '--write-index', '-W'].any { args.contains(it) }) {
-                                                                                                                               ^^
-  ```
 
 - Warning: `modules/nf-core/bwa/mem/main.nf:56:9`: Variable was declared but not used
 
@@ -442,60 +260,11 @@
           ^^^^
   ```
 
-- Warning: `modules/nf-core/manta/germline/main.nf:33:46`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def input_files = input.collect{"--bam ${it}"}.join(' ')
-                                               ^^
-  ```
-
 - Warning: `modules/nf-core/picard/renamesampleinvcf/main.nf:47:9`: Variable was declared but not used
 
   ```nextflow
       def args = task.ext.args ?: ''
           ^^^^
-  ```
-
-- Warning: `modules/nf-core/samtools/stats/main.nf:22:9`: Variable was declared but not used
-
-  ```nextflow
-      def args = task.ext.args ?: ''
-          ^^^^
-  ```
-
-- Warning: `modules/nf-core/sentieon/datametrics/main.nf:36:41`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def input  = bam.sort().collect{"-i $it"}.join(' ')
-                                          ^^
-  ```
-
-- Warning: `modules/nf-core/sentieon/dedup/main.nf:36:38`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def input_list = bam.collect{"-i $it"}.join(' ')
-                                       ^^
-  ```
-
-- Warning: `modules/nf-core/sentieon/readwriter/main.nf:30:39`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def input_str       = input.sort{ it.getName() }.collect{"-i $it"}.join(' ')
-                                        ^^
-  ```
-
-- Warning: `modules/nf-core/sentieon/readwriter/main.nf:30:66`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def input_str       = input.sort{ it.getName() }.collect{"-i $it"}.join(' ')
-                                                                   ^^
-  ```
-
-- Warning: `modules/nf-core/sentieon/wgsmetrics/main.nf:28:43`: Implicit closure parameter is deprecated, declare an explicit parameter instead
-
-  ```nextflow
-      def input    = bam.sort().collect{"-i $it"}.join(' ')
-                                            ^^
   ```
 
 - Warning: `modules/nf-core/svdb/merge/main.nf:38:53`: Implicit closure parameter is deprecated, declare an explicit parameter instead
@@ -568,16 +337,9 @@
           ^^^^^^^^^
   ```
 
-- Warning: `subworkflows/nf-core/vcf_filter_bcftools_ensemblvep/main.nf:14:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `subworkflows/nf-core/vcf_filter_bcftools_ensemblvep/main.nf:14:5`: Variable was declared but not used
 
   ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
-  ```
-
-- Warning: `subworkflows/nf-core/vcf_filter_bcftools_ensemblvep/main.nf:15:14`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      ch_tbi = Channel.empty()
-               ^^^^^^^
+      ch_versions = channel.empty()
+      ^^^^^^^^^^^
   ```
