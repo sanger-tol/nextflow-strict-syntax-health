@@ -1,6 +1,7 @@
 # sanger-tol Strict Syntax Health Report
 
 This repository tracks the health of sanger-tol pipelines, modules, and subworkflows with respect to Nextflow's _strict syntax_ linting.
+It is a merge sanger-tol-ification of the upstream nf-core <https://github.com/nf-core/strict-syntax-health>.
 
 The [Nextflow docs](https://www.nextflow.io/docs/latest/strict-syntax.html) describes the differences from standard Nextflow syntax and includes many examples to help with migration and fixing errors.
 Strict syntax is backwards compatible with existing Nextflow code, but enforces stricter rules to catch common errors and improve code quality.
@@ -11,7 +12,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-02-06 15:26:17 UTC
+- **Last updated:** 2026-02-06 15:51:51 UTC
 - **Nextflow version:** 25.12.0-edge
 
 ## Pipelines
@@ -60,12 +61,30 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | ![Errors](lint_results/modules_errors.png) | ![Warnings](lint_results/modules_warnings.png) |
 
 <details>
-<summary>Module Results (0 modules with errors)</summary>
+<summary>Module Results (20 modules)</summary>
 
-| Module | Parse Error | Errors | Warnings | Lint Output |
-| ------ | :---------: | -----: | -------: | :---------: |
-
-_Modules with zero errors are not shown above (20 modules). They may still have warnings. See the [modules results directory](lint_results/module-results/) for all lint outputs._
+| Module                                                                                                                                                                 | Parse Error | Errors | Warnings |                                  Lint Output                                   |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: | -----: | -------: | :----------------------------------------------------------------------------: |
+| :white_check_mark: [telomere_windows](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/telomere/windows)                                     |     No      |      0 |        1 |          [View](lint_results/module-results/telomere_windows_lint.md)          |
+| :white_check_mark: [ancestral_extract](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract)                                   |     No      |      0 |        0 |         [View](lint_results/module-results/ancestral_extract_lint.md)          |
+| :white_check_mark: [ancestral_plot](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/plot)                                         |     No      |      0 |        0 |           [View](lint_results/module-results/ancestral_plot_lint.md)           |
+| :white_check_mark: [bedtools_bamtobedsort](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/bedtools/bamtobedsort)                           |     No      |      0 |        0 |       [View](lint_results/module-results/bedtools_bamtobedsort_lint.md)        |
+| :white_check_mark: [blobtoolkit_generatecsv](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/blobtoolkit/generatecsv)                       |     No      |      0 |        0 |      [View](lint_results/module-results/blobtoolkit_generatecsv_lint.md)       |
+| :white_check_mark: [blobtoolkit_generateparamsfile](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/blobtoolkit/generateparamsfile)         |     No      |      0 |        0 |   [View](lint_results/module-results/blobtoolkit_generateparamsfile_lint.md)   |
+| :white_check_mark: [cramalign_bwamem2alignhic](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/cramalign/bwamem2alignhic)                   |     No      |      0 |        0 |     [View](lint_results/module-results/cramalign_bwamem2alignhic_lint.md)      |
+| :white_check_mark: [cramalign_gencramchunks](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/cramalign/gencramchunks)                       |     No      |      0 |        0 |      [View](lint_results/module-results/cramalign_gencramchunks_lint.md)       |
+| :white_check_mark: [cramalign_minimap2align](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/cramalign/minimap2align)                       |     No      |      0 |        0 |      [View](lint_results/module-results/cramalign_minimap2align_lint.md)       |
+| :white_check_mark: [cramalign_minimap2alignhic](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/cramalign/minimap2alignhic)                 |     No      |      0 |        0 |     [View](lint_results/module-results/cramalign_minimap2alignhic_lint.md)     |
+| :white_check_mark: [curationpretext_generateparamsfile](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/curationpretext/generateparamsfile) |     No      |      0 |        0 | [View](lint_results/module-results/curationpretext_generateparamsfile_lint.md) |
+| :white_check_mark: [fastxalign_minimap2align](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/fastxalign/minimap2align)                     |     No      |      0 |        0 |      [View](lint_results/module-results/fastxalign_minimap2align_lint.md)      |
+| :white_check_mark: [fastxalign_pyfastxindex](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/fastxalign/pyfastxindex)                       |     No      |      0 |        0 |      [View](lint_results/module-results/fastxalign_pyfastxindex_lint.md)       |
+| :white_check_mark: [longranger_align](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/longranger/align)                                     |     No      |      0 |        0 |          [View](lint_results/module-results/longranger_align_lint.md)          |
+| :white_check_mark: [longranger_mkref](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/longranger/mkref)                                     |     No      |      0 |        0 |          [View](lint_results/module-results/longranger_mkref_lint.md)          |
+| :white_check_mark: [samtools_mergedup](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/samtools/mergedup)                                   |     No      |      0 |        0 |         [View](lint_results/module-results/samtools_mergedup_lint.md)          |
+| :white_check_mark: [telomere_extract](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/telomere/extract)                                     |     No      |      0 |        0 |          [View](lint_results/module-results/telomere_extract_lint.md)          |
+| :white_check_mark: [telomere_regions](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/telomere/regions)                                     |     No      |      0 |        0 |          [View](lint_results/module-results/telomere_regions_lint.md)          |
+| :white_check_mark: [yahs_makepairsfile](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/yahs/makepairsfile)                                 |     No      |      0 |        0 |         [View](lint_results/module-results/yahs_makepairsfile_lint.md)         |
+| :white_check_mark: [yak_count](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/yak/count)                                                   |     No      |      0 |        0 |             [View](lint_results/module-results/yak_count_lint.md)              |
 
 </details>
 
@@ -79,12 +98,22 @@ _Modules with zero errors are not shown above (20 modules). They may still have 
 | ![Errors](lint_results/subworkflows_errors.png) | ![Warnings](lint_results/subworkflows_warnings.png) |
 
 <details>
-<summary>Subworkflow Results (0 subworkflows with errors)</summary>
+<summary>Subworkflow Results (12 subworkflows)</summary>
 
-| Subworkflow | Parse Error | Errors | Warnings | Lint Output |
-| ----------- | :---------: | -----: | -------: | :---------: |
-
-_Subworkflows with zero errors are not shown above (12 subworkflows). They may still have warnings. See the [subworkflows results directory](lint_results/subworkflow-results/) for all lint outputs._
+| Subworkflow                                                                                                                                                         | Parse Error | Errors | Warnings |                                   Lint Output                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: | -----: | -------: | :-----------------------------------------------------------------------------: |
+| :white_check_mark: [ancestral_annotation](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation)                     |     No      |      0 |        0 |      [View](lint_results/subworkflow-results/ancestral_annotation_lint.md)      |
+| :white_check_mark: [bam2cool](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/bam2cool)                                             |     No      |      0 |        0 |            [View](lint_results/subworkflow-results/bam2cool_lint.md)            |
+| :white_check_mark: [bam_samtools_merge_markdup](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/bam_samtools_merge_markdup)         |     No      |      0 |        0 |   [View](lint_results/subworkflow-results/bam_samtools_merge_markdup_lint.md)   |
+| :white_check_mark: [cram_map_illumina_hic](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/cram_map_illumina_hic)                   |     No      |      0 |        0 |     [View](lint_results/subworkflow-results/cram_map_illumina_hic_lint.md)      |
+| :white_check_mark: [cram_map_long_reads](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/cram_map_long_reads)                       |     No      |      0 |        0 |      [View](lint_results/subworkflow-results/cram_map_long_reads_lint.md)       |
+| :white_check_mark: [fasta_bam_scaffolding_yahs](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_bam_scaffolding_yahs)         |     No      |      0 |        0 |   [View](lint_results/subworkflow-results/fasta_bam_scaffolding_yahs_lint.md)   |
+| :white_check_mark: [fasta_purge_retained_haplotype](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_purge_retained_haplotype) |     No      |      0 |        0 | [View](lint_results/subworkflow-results/fasta_purge_retained_haplotype_lint.md) |
+| :white_check_mark: [fastx_map_long_reads](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fastx_map_long_reads)                     |     No      |      0 |        0 |      [View](lint_results/subworkflow-results/fastx_map_long_reads_lint.md)      |
+| :white_check_mark: [gap_finder](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/gap_finder)                                         |     No      |      0 |        0 |           [View](lint_results/subworkflow-results/gap_finder_lint.md)           |
+| :white_check_mark: [genome_statistics](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/genome_statistics)                           |     No      |      0 |        0 |       [View](lint_results/subworkflow-results/genome_statistics_lint.md)        |
+| :white_check_mark: [pairs_create_contact_maps](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/pairs_create_contact_maps)           |     No      |      0 |        0 |   [View](lint_results/subworkflow-results/pairs_create_contact_maps_lint.md)    |
+| :white_check_mark: [telo_finder](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/telo_finder)                                       |     No      |      0 |        0 |          [View](lint_results/subworkflow-results/telo_finder_lint.md)           |
 
 </details>
 
