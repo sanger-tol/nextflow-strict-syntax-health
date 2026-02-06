@@ -216,16 +216,16 @@ def link_nfcore_modules():
     import subprocess
     nfcore_link = MODULES_DIR / "modules" / "nf-core"
     nfcore_target = NFCORE_MODULES_DIR / "modules" / "nf-core"
-    print(nfcore_link)
-    print(nfcore_link.absolute())
-    print(nfcore_link.exists())
-    print(nfcore_link.is_dir(), nfcore_link.is_file(), nfcore_link.is_symlink())
-    print(subprocess.check_output(["ls", "-l", str(nfcore_link.parent)]).decode())
-    print(nfcore_target)
-    print(nfcore_target.absolute())
-    print(nfcore_target.exists())
-    print(nfcore_target.is_dir(), nfcore_target.is_file(), nfcore_target.is_symlink())
-    print(subprocess.check_output(["ls", "-l", str(nfcore_target.parent)]).decode())
+    console.print(nfcore_link)
+    console.print(nfcore_link.absolute())
+    console.print(nfcore_link.exists())
+    console.print(nfcore_link.is_dir(), nfcore_link.is_file(), nfcore_link.is_symlink())
+    console.print(subprocess.check_output(["ls", "-l", str(nfcore_link.parent)]).decode())
+    console.print(nfcore_target)
+    console.print(nfcore_target.absolute())
+    console.print(nfcore_target.exists())
+    console.print(nfcore_target.is_dir(), nfcore_target.is_file(), nfcore_target.is_symlink())
+    console.print(subprocess.check_output(["ls", "-l", str(nfcore_target.parent)]).decode())
     nfcore_link.symlink_to(nfcore_target.absolute(), target_is_directory=True)
     # # Use a relative target for portability
     # relative_target = os.path.relpath(nfcore_target, nfcore_link.parent)
