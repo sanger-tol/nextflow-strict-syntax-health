@@ -16,10 +16,12 @@ from rich.table import Table
 # API URLs
 PIPELINES_URL = "https://pipelines.tol.sanger.ac.uk/pipelines.json"
 MODULES_REPO_URL = "https://github.com/sanger-tol/nf-core-modules.git"
+NFCORE_MODULES_REPO_URL = "https://github.com/nf-core/modules.git"
 
 # Directory paths
 PIPELINES_DIR = Path("pipelines")
 MODULES_DIR = Path("modules")
+NFCORE_MODULES_DIR = Path("nf-core-modules")
 LINT_RESULTS_DIR = Path("lint_results")
 
 # Pipelines.json now lives inside pipelines/
@@ -172,6 +174,42 @@ def check_modules_repo_unchanged(
             cache_matches = False
 
     return cache_matches, remote_commit
+
+
+def clone_nfcore_modules_repo() -> str:
+    """Clone or update the nf-core/modules repository.
+
+    Returns:
+        The current commit hash of the cloned/updated repository.
+    """
+    if NFCORE_MODULES_DIR.exists():
+        console.print("Updating nf-core/modules repository...")
+        subprocess.run(
+            ["git", "-C", str(NFCORE_MODULES_DIR), "fetch", "--quiet", "origin", "master"],
+            check=True,
+            capture_output=True,
+        )
+        subprocess.run(
+            ["git", "-C", str(NFCORE_MODULES_DIR), "checkout", "--quiet", "master"],
+            check=True,
+            capture_output=True,
+        )
+        subprocess.run(
+            ["git", "-C", str(NFCORE_MODULES_DIR), "pull", "--quiet"],
+            check=True,
+            capture_output=True,
+        )
+    else:
+        console.print("Cloning nf-core/modules repository...")
+        subprocess.run(
+            ["git", "clone", "--quiet", "--depth", "1", NFCORE_MODULES_REPO_URL, str(NFCORE_MODULES_DIR)],
+            check=True,
+            capture_output=True,
+        )
+
+    commit_hash = get_local_commit_hash(NFCORE_MODULES_DIR)
+    console.print(f"nf-core/modules repository ready at {NFCORE_MODULES_DIR} ({commit_hash[:8]})")
+    return commit_hash
 
 
 def clone_modules_repo() -> str:
@@ -1759,6 +1797,12 @@ def main(
         else:
             # Clone/update the repo
             repo_commit = clone_modules_repo()
+
+        # Always refresh the nf-core/modules repo
+        clone_nfcore_modules_repo()
+
+        # Always check the symlink
+        (MODULES_DIR / "modules" / "nf-core").symlink_to( os.path.join(os.pardir, os.pardir, os.pardir, str(NFCORE_MODULES_DIR / "modules" / "nf-core")) )
 
         if not skip_modules:
             if modules_repo_unchanged:
