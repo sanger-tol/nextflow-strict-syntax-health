@@ -213,29 +213,16 @@ def clone_nfcore_modules_repo() -> str:
 
 
 def link_nfcore_modules():
-    import subprocess
     nfcore_link = MODULES_DIR / "modules" / "nf-core"
     nfcore_target = NFCORE_MODULES_DIR / "modules" / "nf-core"
-    console.print(nfcore_link)
-    console.print(nfcore_link.absolute())
-    console.print(nfcore_link.exists())
-    console.print(nfcore_link.is_dir(), nfcore_link.is_file(), nfcore_link.is_symlink())
-    console.print(subprocess.check_output(["ls", "-l", str(nfcore_link.parent)]).decode())
-    console.print(nfcore_target)
-    console.print(nfcore_target.absolute())
-    console.print(nfcore_target.exists())
-    console.print(nfcore_target.is_dir(), nfcore_target.is_file(), nfcore_target.is_symlink())
-    console.print(subprocess.check_output(["ls", "-l", str(nfcore_target.parent)]).decode())
-    nfcore_link.symlink_to(nfcore_target.absolute(), target_is_directory=True)
-    # # Use a relative target for portability
+    # Use a relative target for portability
     relative_target = os.path.relpath(nfcore_target, nfcore_link.parent)
-    console.print(relative_target)
-    # if nfcore_link.is_symlink():
-    #     nfcore_link.unlink()
-    # elif nfcore_link.exists():
-    #     console.print(f"[red]Error: {nfcore_link} exists and is not a symlink[/red]")
-    #     sys.exit(1)
-    # nfcore_link.symlink_to(relative_target, target_is_directory=True)
+    if nfcore_link.is_symlink():
+        nfcore_link.unlink()
+    elif nfcore_link.exists():
+        console.print(f"[red]Error: {nfcore_link} exists and is not a symlink[/red]")
+        sys.exit(1)
+    nfcore_link.symlink_to(relative_target, target_is_directory=True)
 
 
 def clone_modules_repo() -> str:
@@ -1816,7 +1803,6 @@ def main(
             check_modules=not skip_modules,
             check_subworkflows=not skip_subworkflows,
         )
-        modules_repo_unchanged = False
 
         if modules_repo_unchanged:
             console.print(f"[dim]sanger-tol/nf-core-modules repo unchanged at {remote_commit[:8]} - using cached results[/dim]")
