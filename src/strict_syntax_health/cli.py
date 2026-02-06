@@ -1612,7 +1612,7 @@ def generate_readme(
     if module_results:
         lines.extend(
             _generate_results_section(
-                module_results, "modules", "module", MODULES_LINT_RESULTS_DIR, include_charts, show_only_errors=True
+                module_results, "modules", "module", MODULES_LINT_RESULTS_DIR, include_charts
             )
         )
 
@@ -1624,7 +1624,6 @@ def generate_readme(
                 "subworkflow",
                 SUBWORKFLOWS_LINT_RESULTS_DIR,
                 include_charts,
-                show_only_errors=True,
             )
         )
 
