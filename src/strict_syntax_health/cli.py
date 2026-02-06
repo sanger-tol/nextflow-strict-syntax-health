@@ -14,8 +14,8 @@ from rich.console import Console
 from rich.table import Table
 
 # API URLs
-PIPELINES_URL = "https://nf-co.re/pipelines.json"
-MODULES_REPO_URL = "https://github.com/nf-core/modules.git"
+PIPELINES_URL = "https://pipelines.tol.sanger.ac.uk/pipelines.json"
+MODULES_REPO_URL = "https://github.com/sanger-tol/nf-core-modules.git"
 
 # Directory paths
 PIPELINES_DIR = Path("pipelines")
@@ -136,7 +136,7 @@ def load_pipelines() -> list[dict]:
 def check_modules_repo_unchanged(
     no_cache: bool = False, check_modules: bool = True, check_subworkflows: bool = True
 ) -> tuple[bool, str | None]:
-    """Check if the nf-core/modules repo is unchanged from cache (without cloning).
+    """Check if the sanger-tol/nf-core-modules repo is unchanged from cache (without cloning).
 
     Args:
         no_cache: If True, always return False (treat as changed)
@@ -152,7 +152,7 @@ def check_modules_repo_unchanged(
         return False, None
 
     # Get remote commit hash WITHOUT cloning
-    remote_commit = get_remote_commit_hash(MODULES_REPO_URL, "refs/heads/master")
+    remote_commit = get_remote_commit_hash(MODULES_REPO_URL, "refs/heads/main")
     if remote_commit is None:
         return False, None
 
@@ -175,20 +175,20 @@ def check_modules_repo_unchanged(
 
 
 def clone_modules_repo() -> str:
-    """Clone or update the nf-core/modules repository.
+    """Clone or update the sanger-tol/nf-core-modules repository.
 
     Returns:
         The current commit hash of the cloned/updated repository.
     """
     if MODULES_DIR.exists():
-        console.print("Updating nf-core/modules repository...")
+        console.print("Updating sanger-tol/nf-core-modules repository...")
         subprocess.run(
-            ["git", "-C", str(MODULES_DIR), "fetch", "--quiet", "origin", "master"],
+            ["git", "-C", str(MODULES_DIR), "fetch", "--quiet", "origin", "main"],
             check=True,
             capture_output=True,
         )
         subprocess.run(
-            ["git", "-C", str(MODULES_DIR), "checkout", "--quiet", "master"],
+            ["git", "-C", str(MODULES_DIR), "checkout", "--quiet", "main"],
             check=True,
             capture_output=True,
         )
@@ -198,7 +198,7 @@ def clone_modules_repo() -> str:
             capture_output=True,
         )
     else:
-        console.print("Cloning nf-core/modules repository...")
+        console.print("Cloning sanger-tol/nf-core-modules repository...")
         subprocess.run(
             ["git", "clone", "--quiet", "--depth", "1", MODULES_REPO_URL, str(MODULES_DIR)],
             check=True,
@@ -206,13 +206,13 @@ def clone_modules_repo() -> str:
         )
 
     commit_hash = get_local_commit_hash(MODULES_DIR)
-    console.print(f"nf-core/modules repository ready at {MODULES_DIR} ({commit_hash[:8]})")
+    console.print(f"sanger-tol/nf-core-modules repository ready at {MODULES_DIR} ({commit_hash[:8]})")
     return commit_hash
 
 
 def discover_modules() -> list[dict]:
-    """Discover all modules in the nf-core/modules repository."""
-    modules_path = MODULES_DIR / "modules" / "nf-core"
+    """Discover all modules in the sanger-tol/nf-core-modules repository."""
+    modules_path = MODULES_DIR / "modules" / "sanger-tol"
     if not modules_path.exists():
         console.print(f"[red]Modules path not found: {modules_path}[/red]")
         return []
@@ -235,7 +235,7 @@ def discover_modules() -> list[dict]:
                         "name": name,
                         "path": subcommand_dir,
                         "html_url": (
-                            f"https://github.com/nf-core/modules/tree/master/modules/nf-core/"
+                            f"https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/"
                             f"{tool_dir.name}/{subcommand_dir.name}"
                         ),
                     }
@@ -246,8 +246,8 @@ def discover_modules() -> list[dict]:
 
 
 def discover_subworkflows() -> list[dict]:
-    """Discover all subworkflows in the nf-core/modules repository."""
-    subworkflows_path = MODULES_DIR / "subworkflows" / "nf-core"
+    """Discover all subworkflows in the sanger-tol/nf-core-modules repository."""
+    subworkflows_path = MODULES_DIR / "subworkflows" / "sanger-tol"
     if not subworkflows_path.exists():
         console.print(f"[red]Subworkflows path not found: {subworkflows_path}[/red]")
         return []
@@ -263,7 +263,7 @@ def discover_subworkflows() -> list[dict]:
                     "name": subworkflow_dir.name,
                     "path": subworkflow_dir,
                     "html_url": (
-                        f"https://github.com/nf-core/modules/tree/master/subworkflows/nf-core/{subworkflow_dir.name}"
+                        f"https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/{subworkflow_dir.name}"
                     ),
                 }
             )
@@ -383,7 +383,7 @@ def lint_directory_bulk(repo_path: Path, target_path: Path) -> dict:
 
     Args:
         repo_path: The repository root path (used as cwd)
-        target_path: The directory to lint (e.g., modules/nf-core or subworkflows/nf-core)
+        target_path: The directory to lint (e.g., modules/sanger-tol or subworkflows/sanger-tol)
     """
     try:
         relative_path = target_path.relative_to(repo_path)
@@ -412,7 +412,7 @@ def _extract_component_name_from_path(filepath: str, component_type: str) -> str
     """Extract component name from a file path.
 
     Args:
-        filepath: Path like 'modules/nf-core/bwa/mem/main.nf' or 'subworkflows/nf-core/foo/main.nf'
+        filepath: Path like 'modules/sanger-tol/bwa/mem/main.nf' or 'subworkflows/sanger-tol/foo/main.nf'
         component_type: Either 'modules' or 'subworkflows'
 
     Returns:
@@ -420,20 +420,20 @@ def _extract_component_name_from_path(filepath: str, component_type: str) -> str
     """
     parts = Path(filepath).parts
 
-    # Find the nf-core part and extract the component name
+    # Find the sanger-tol part and extract the component name
     try:
-        nf_core_idx = parts.index("nf-core")
+        sanger_tol_idx = parts.index("sanger-tol")
     except ValueError:
         return None
 
     if component_type == "modules":
-        # modules/nf-core/tool/subcommand/main.nf -> tool_subcommand
-        if len(parts) > nf_core_idx + 2:
-            return f"{parts[nf_core_idx + 1]}_{parts[nf_core_idx + 2]}"
+        # modules/sanger-tol/tool/subcommand/main.nf -> tool_subcommand
+        if len(parts) > sanger_tol_idx + 2:
+            return f"{parts[sanger_tol_idx + 1]}_{parts[sanger_tol_idx + 2]}"
     else:
-        # subworkflows/nf-core/name/main.nf -> name
-        if len(parts) > nf_core_idx + 1:
-            return parts[nf_core_idx + 1]
+        # subworkflows/sanger-tol/name/main.nf -> name
+        if len(parts) > sanger_tol_idx + 1:
+            return parts[sanger_tol_idx + 1]
 
     return None
 
@@ -851,8 +851,8 @@ def _run_modules_lint_bulk(modules: list[dict], nextflow_version: str) -> list[d
     """Lint all modules at once using bulk lint (much faster)."""
     console.print(f"Running bulk lint on {len(modules)} modules...")
 
-    # Run lint once on the entire modules/nf-core directory
-    modules_path = MODULES_DIR / "modules" / "nf-core"
+    # Run lint once on the entire modules/sanger-tol directory
+    modules_path = MODULES_DIR / "modules" / "sanger-tol"
     bulk_result = lint_directory_bulk(MODULES_DIR, modules_path)
 
     # Group results by component name
@@ -977,8 +977,8 @@ def _run_subworkflows_lint_bulk(subworkflows: list[dict], nextflow_version: str)
     """Lint all subworkflows at once using bulk lint (much faster)."""
     console.print(f"Running bulk lint on {len(subworkflows)} subworkflows...")
 
-    # Run lint once on the entire subworkflows/nf-core directory
-    subworkflows_path = MODULES_DIR / "subworkflows" / "nf-core"
+    # Run lint once on the entire subworkflows/sanger-tol directory
+    subworkflows_path = MODULES_DIR / "subworkflows" / "sanger-tol"
     bulk_result = lint_directory_bulk(MODULES_DIR, subworkflows_path)
 
     # Group results by component name
@@ -1015,7 +1015,7 @@ def _run_subworkflows_lint_bulk(subworkflows: list[dict], nextflow_version: str)
 
 
 def display_results(
-    results: list[dict], title: str = "nf-core Strict Syntax Health", show_prints_help: bool = False
+    results: list[dict], title: str = "sanger-tol Strict Syntax Health", show_prints_help: bool = False
 ) -> None:
     """Display results in a rich table."""
     table = Table(title=title)
@@ -1521,9 +1521,9 @@ def generate_readme(
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
     lines = [
-        "# nf-core Strict Syntax Health Report",
+        "# sanger-tol Strict Syntax Health Report",
         "",
-        "This repository tracks the health of nf-core pipelines, modules, and subworkflows "
+        "This repository tracks the health of sanger-tol pipelines, modules, and subworkflows "
         "with respect to Nextflow's _strict syntax_ linting.",
         "",
         "The [Nextflow docs](https://www.nextflow.io/docs/latest/strict-syntax.html) describes the differences "
@@ -1531,7 +1531,7 @@ def generate_readme(
         "Strict syntax is backwards compatible with existing Nextflow code, "
         "but enforces stricter rules to catch common errors and improve code quality.",
         "",
-        "The goal is for all nf-core pipelines to run without errors using strict syntax.",
+        "The goal is for all sanger-tol pipelines to run without errors using strict syntax.",
         "",
         "> [!IMPORTANT]",
         "> See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) "
@@ -1580,7 +1580,7 @@ def generate_readme(
         [
             "## About",
             "",
-            "This report is generated daily by running `nextflow lint` on each nf-core pipeline, module, "
+            "This report is generated daily by running `nextflow lint` on each sanger-tol pipeline, module, "
             "and subworkflow.",
             "The linting checks for strict syntax compliance in Nextflow DSL2 code.",
             "",
@@ -1687,7 +1687,7 @@ def main(
     generate_charts_only: bool,
     no_cache: bool,
 ) -> None:
-    """Check nf-core pipelines, modules, and subworkflows for Nextflow strict syntax linting issues."""
+    """Check sanger-tol pipelines, modules, and subworkflows for Nextflow strict syntax linting issues."""
     if update_pipelines:
         update_pipelines_json()
 
@@ -1737,7 +1737,7 @@ def main(
             console.print(f"Filtering to {len(pipelines)} pipeline(s): {', '.join(p['name'] for p in pipelines)}")
 
         pipeline_results = run_pipeline_lint(pipelines, no_cache=no_cache)
-        display_results(pipeline_results, title="nf-core Pipeline Strict Syntax Health", show_prints_help=True)
+        display_results(pipeline_results, title="sanger-tol Pipeline Strict Syntax Health", show_prints_help=True)
         # Save results for aggregation (only when not filtering specific pipelines)
         if not pipeline:
             save_results_for_type("pipelines", pipeline_results)
@@ -1754,7 +1754,7 @@ def main(
         )
 
         if modules_repo_unchanged:
-            console.print(f"[dim]nf-core/modules repo unchanged at {remote_commit[:8]} - using cached results[/dim]")
+            console.print(f"[dim]sanger-tol/nf-core-modules repo unchanged at {remote_commit[:8]} - using cached results[/dim]")
             repo_commit = remote_commit
         else:
             # Clone/update the repo
@@ -1767,7 +1767,7 @@ def main(
                 # we can just use the cached results directly
                 modules_cache = load_results_dict_for_type("modules")
                 # Build modules list from cache keys (excluding _repo_commit)
-                base_url = "https://github.com/nf-core/modules/tree/master/modules/nf-core"
+                base_url = "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol"
                 modules = [
                     {"name": name, "html_url": f"{base_url}/{name.replace('_', '/')}"}
                     for name in modules_cache.keys()
@@ -1788,7 +1788,7 @@ def main(
 
                 module_results = run_modules_lint(modules, nextflow_version)
 
-            display_results(module_results, title="nf-core Module Strict Syntax Health")
+            display_results(module_results, title="sanger-tol Module Strict Syntax Health")
             # Save results for aggregation (only when not filtering specific modules)
             if not module:
                 save_results_for_type("modules", module_results, repo_commit=repo_commit)
@@ -1797,7 +1797,7 @@ def main(
             if modules_repo_unchanged:
                 # Use cached results
                 subworkflows_cache = load_results_dict_for_type("subworkflows")
-                base_url = "https://github.com/nf-core/modules/tree/master/subworkflows/nf-core"
+                base_url = "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol"
                 subworkflows = [
                     {"name": name, "html_url": f"{base_url}/{name}"}
                     for name in subworkflows_cache.keys()
@@ -1820,7 +1820,7 @@ def main(
 
                 subworkflow_results = run_subworkflows_lint(subworkflows, nextflow_version)
 
-            display_results(subworkflow_results, title="nf-core Subworkflow Strict Syntax Health")
+            display_results(subworkflow_results, title="sanger-tol Subworkflow Strict Syntax Health")
             # Save results for aggregation (only when not filtering specific subworkflows)
             if not subworkflow:
                 save_results_for_type("subworkflows", subworkflow_results, repo_commit=repo_commit)

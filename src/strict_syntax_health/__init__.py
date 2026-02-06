@@ -1,4 +1,4 @@
-"""Monitor nf-core pipelines for Nextflow strict syntax linting errors."""
+"""Monitor sanger-tol pipelines for Nextflow strict syntax linting errors."""
 
 from importlib.metadata import version
 

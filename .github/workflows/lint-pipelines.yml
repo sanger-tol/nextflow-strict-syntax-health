@@ -1,4 +1,4 @@
-name: Lint nf-core Pipelines
+name: Lint sanger-tol Pipelines
 
 on:
   schedule:
