@@ -136,9 +136,10 @@ def load_pipelines() -> list[dict]:
 
 
 def check_modules_repo_unchanged(
+    url: str, prefix: str = "", branch: str = "refs/heads/main",
     no_cache: bool = False, check_modules: bool = True, check_subworkflows: bool = True
 ) -> tuple[bool, str | None]:
-    """Check if the sanger-tol/nf-core-modules repo is unchanged from cache (without cloning).
+    """Check if the repo is unchanged from cache (without cloning).
 
     Args:
         no_cache: If True, always return False (treat as changed)
@@ -154,7 +155,7 @@ def check_modules_repo_unchanged(
         return False, None
 
     # Get remote commit hash WITHOUT cloning
-    remote_commit = get_remote_commit_hash(MODULES_REPO_URL, "refs/heads/main")
+    remote_commit = get_remote_commit_hash(url, branch)
     if remote_commit is None:
         return False, None
 
@@ -162,13 +163,13 @@ def check_modules_repo_unchanged(
     cache_matches = True
 
     if check_modules:
-        modules_cache = load_results_dict_for_type("modules")
+        modules_cache = load_results_dict_for_type(f"{prefix}modules")
         modules_repo_commit = modules_cache.get("_repo_commit")
         if modules_repo_commit != remote_commit:
             cache_matches = False
 
     if check_subworkflows:
-        subworkflows_cache = load_results_dict_for_type("subworkflows")
+        subworkflows_cache = load_results_dict_for_type(f"{prefix}subworkflows")
         subworkflows_repo_commit = subworkflows_cache.get("_repo_commit")
         if subworkflows_repo_commit != remote_commit:
             cache_matches = False
@@ -1799,23 +1800,28 @@ def main(
         # Only use cache when linting ALL modules/subworkflows (no -m/-s filters)
         use_modules_cache = not module and not subworkflow and not no_cache
         modules_repo_unchanged, remote_commit = check_modules_repo_unchanged(
+            MODULES_REPO_URL,
             no_cache=not use_modules_cache,
             check_modules=not skip_modules,
             check_subworkflows=not skip_subworkflows,
+        ) and check_modules_repo_unchanged(
+            NFCORE_MODULES_REPO_URL,
+            prefix="nfcore",
+            no_cache=not use_modules_cache,
+            check_modules=not skip_modules,
+            check_subworkflows=False,
         )
 
         if modules_repo_unchanged:
-            console.print(f"[dim]sanger-tol/nf-core-modules repo unchanged at {remote_commit[:8]} - using cached results[/dim]")
+            console.print(f"[dim]modules repos unchanged at {remote_commit[:8]} - using cached results[/dim]")
             repo_commit = remote_commit
         else:
-            # Clone/update the repo
+            # Clone/update the sanger-tol repo
             repo_commit = clone_modules_repo()
-
-        # Always refresh the nf-core/modules repo
-        clone_nfcore_modules_repo()
-
-        # Always check the symlink
-        link_nfcore_modules()
+            # Clone/update the nf-core repo
+            clone_nfcore_modules_repo()
+            # Setup the symlink
+            link_nfcore_modules()
 
         if not skip_modules:
             if modules_repo_unchanged:
