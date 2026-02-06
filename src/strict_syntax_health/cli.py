@@ -215,14 +215,15 @@ def clone_nfcore_modules_repo() -> str:
 def link_nfcore_modules():
     nfcore_link = MODULES_DIR / "modules" / "nf-core"
     nfcore_target = NFCORE_MODULES_DIR / "modules" / "nf-core"
-    # Use a relative target for portability
-    relative_target = os.path.relpath(nfcore_target, nfcore_link.parent)
-    if nfcore_link.is_symlink():
-        nfcore_link.unlink()
-    elif nfcore_link.exists():
-        console.print(f"[red]Error: {nfcore_link} exists and is not a symlink[/red]")
-        sys.exit(1)
-    nfcore_link.symlink_to(relative_target, target_is_directory=True)
+    nfcore_link.symlink_to(nfcore_target.absolute(), target_is_directory=True)
+    # # Use a relative target for portability
+    # relative_target = os.path.relpath(nfcore_target, nfcore_link.parent)
+    # if nfcore_link.is_symlink():
+    #     nfcore_link.unlink()
+    # elif nfcore_link.exists():
+    #     console.print(f"[red]Error: {nfcore_link} exists and is not a symlink[/red]")
+    #     sys.exit(1)
+    # nfcore_link.symlink_to(relative_target, target_is_directory=True)
 
 
 def clone_modules_repo() -> str:
