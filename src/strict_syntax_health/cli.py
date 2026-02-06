@@ -228,7 +228,8 @@ def link_nfcore_modules():
     console.print(subprocess.check_output(["ls", "-l", str(nfcore_target.parent)]).decode())
     nfcore_link.symlink_to(nfcore_target.absolute(), target_is_directory=True)
     # # Use a relative target for portability
-    # relative_target = os.path.relpath(nfcore_target, nfcore_link.parent)
+    relative_target = os.path.relpath(nfcore_target, nfcore_link.parent)
+    console.print(relative_target)
     # if nfcore_link.is_symlink():
     #     nfcore_link.unlink()
     # elif nfcore_link.exists():
