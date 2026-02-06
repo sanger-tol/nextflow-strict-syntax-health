@@ -1803,6 +1803,7 @@ def main(
 
         # Always check the symlink
         (MODULES_DIR / "modules" / "nf-core").symlink_to( os.path.join(os.pardir, os.pardir, os.pardir, str(NFCORE_MODULES_DIR / "modules" / "nf-core")) )
+        modules_repo_unchanged = False
 
         if not skip_modules:
             if modules_repo_unchanged:
