@@ -222,7 +222,7 @@ def link_nfcore_modules():
     elif nfcore_link.exists():
         console.print(f"[red]Error: {nfcore_link} exists and is not a symlink[/red]")
         sys.exit(1)
-    nfcore_link.symlink_to(relative_target)
+    nfcore_link.symlink_to(relative_target, target_is_directory=True)
 
 
 def clone_modules_repo() -> str:
