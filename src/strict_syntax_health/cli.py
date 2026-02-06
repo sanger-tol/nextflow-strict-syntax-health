@@ -1815,6 +1815,7 @@ def main(
             check_modules=not skip_modules,
             check_subworkflows=not skip_subworkflows,
         )
+        modules_repo_unchanged = False
 
         if modules_repo_unchanged:
             console.print(f"[dim]sanger-tol/nf-core-modules repo unchanged at {remote_commit[:8]} - using cached results[/dim]")
@@ -1828,7 +1829,6 @@ def main(
 
         # Always check the symlink
         link_nfcore_modules()
-        modules_repo_unchanged = False
 
         if not skip_modules:
             if modules_repo_unchanged:
