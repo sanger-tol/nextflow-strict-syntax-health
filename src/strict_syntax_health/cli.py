@@ -1575,7 +1575,7 @@ def generate_readme(
         "",
         "This repository tracks the health of sanger-tol pipelines, modules, and subworkflows "
         "with respect to Nextflow's _strict syntax_ linting.",
-        "It is a merge sanger-tol-ification of the upstream nf-core <https://github.com/nf-core/strict-syntax-health>.",
+        "It is a mere sanger-tol-ification of the upstream nf-core <https://github.com/nf-core/strict-syntax-health>.",
         "",
         "The [Nextflow docs](https://www.nextflow.io/docs/latest/strict-syntax.html) describes the differences "
         "from standard Nextflow syntax and includes many examples to help with migration and fixing errors.",
