@@ -1066,11 +1066,11 @@ def _run_subworkflows_lint_bulk(subworkflows: list[dict], nextflow_version: str)
 
 
 def display_results(
-    results: list[dict], title: str = "sanger-tol Strict Syntax Health", show_prints_help: bool = False
+    results: list[dict], type: str, show_prints_help: bool = False
 ) -> None:
     """Display results in a rich table."""
-    table = Table(title=title)
-    table.add_column("Pipeline", style="cyan")
+    table = Table(f"sanger-tol {type.capitalize()} Strict Syntax Health")
+    table.add_column(type.capitalize(), style="cyan")
     table.add_column("Parse Error", justify="right")
     table.add_column("Errors", justify="right")
     table.add_column("Warnings", justify="right")
@@ -1788,7 +1788,7 @@ def main(
             console.print(f"Filtering to {len(pipelines)} pipeline(s): {', '.join(p['name'] for p in pipelines)}")
 
         pipeline_results = run_pipeline_lint(pipelines, no_cache=no_cache)
-        display_results(pipeline_results, title="sanger-tol Pipeline Strict Syntax Health", show_prints_help=True)
+        display_results(pipeline_results, type="pipeline", show_prints_help=True)
         # Save results for aggregation (only when not filtering specific pipelines)
         if not pipeline:
             save_results_for_type("pipelines", pipeline_results)
@@ -1845,7 +1845,7 @@ def main(
 
                 module_results = run_modules_lint(modules, nextflow_version)
 
-            display_results(module_results, title="sanger-tol Module Strict Syntax Health")
+            display_results(module_results, type="module")
             # Save results for aggregation (only when not filtering specific modules)
             if not module:
                 save_results_for_type("modules", module_results, repo_commit=repo_commit)
@@ -1877,7 +1877,7 @@ def main(
 
                 subworkflow_results = run_subworkflows_lint(subworkflows, nextflow_version)
 
-            display_results(subworkflow_results, title="sanger-tol Subworkflow Strict Syntax Health")
+            display_results(subworkflow_results, type="subworkflow")
             # Save results for aggregation (only when not filtering specific subworkflows)
             if not subworkflow:
                 save_results_for_type("subworkflows", subworkflow_results, repo_commit=repo_commit)
