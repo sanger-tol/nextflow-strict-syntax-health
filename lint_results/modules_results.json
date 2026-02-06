@@ -1,1 +1,123 @@
-{}
+{
+  "_repo_commit": "289c3b945135c409277d73bd0c2b51506f8f7169",
+  "ancestral_extract": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "ancestral_plot": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/plot",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "bedtools_bamtobedsort": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/bedtools/bamtobedsort",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "blobtoolkit_generatecsv": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/blobtoolkit/generatecsv",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "blobtoolkit_generateparamsfile": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/blobtoolkit/generateparamsfile",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "cramalign_bwamem2alignhic": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/cramalign/bwamem2alignhic",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "cramalign_gencramchunks": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/cramalign/gencramchunks",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "cramalign_minimap2align": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/cramalign/minimap2align",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "cramalign_minimap2alignhic": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/cramalign/minimap2alignhic",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "curationpretext_generateparamsfile": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/curationpretext/generateparamsfile",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "fastxalign_minimap2align": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/fastxalign/minimap2align",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "fastxalign_pyfastxindex": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/fastxalign/pyfastxindex",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "longranger_align": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/longranger/align",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "longranger_mkref": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/longranger/mkref",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "samtools_mergedup": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/samtools/mergedup",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "telomere_extract": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/telomere/extract",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "telomere_regions": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/telomere/regions",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "telomere_windows": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/telomere/windows",
+    "errors": 0,
+    "warnings": 1,
+    "parse_error": false
+  },
+  "yahs_makepairsfile": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/yahs/makepairsfile",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "yak_count": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/yak/count",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  }
+}

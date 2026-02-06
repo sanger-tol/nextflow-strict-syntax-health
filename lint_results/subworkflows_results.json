@@ -1,1 +1,75 @@
-{}
+{
+  "_repo_commit": "289c3b945135c409277d73bd0c2b51506f8f7169",
+  "ancestral_annotation": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
+    "errors": 3,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "bam2cool": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/bam2cool",
+    "errors": 13,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "bam_samtools_merge_markdup": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/bam_samtools_merge_markdup",
+    "errors": 10,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "cram_map_illumina_hic": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/cram_map_illumina_hic",
+    "errors": 16,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "cram_map_long_reads": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/cram_map_long_reads",
+    "errors": 12,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "fasta_bam_scaffolding_yahs": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_bam_scaffolding_yahs",
+    "errors": 20,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "fasta_purge_retained_haplotype": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_purge_retained_haplotype",
+    "errors": 43,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "fastx_map_long_reads": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fastx_map_long_reads",
+    "errors": 4,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "gap_finder": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/gap_finder",
+    "errors": 7,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "genome_statistics": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/genome_statistics",
+    "errors": 28,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "pairs_create_contact_maps": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/pairs_create_contact_maps",
+    "errors": 24,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "telo_finder": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/telo_finder",
+    "errors": 4,
+    "warnings": 0,
+    "parse_error": false
+  }
+}

@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "date": "2026-02-06",
+    "total": 12,
+    "parse_errors": 0,
+    "errors_zero": 0,
+    "errors_low": 3,
+    "errors_high": 9,
+    "warnings_zero": 12,
+    "warnings_low": 0,
+    "warnings_high": 0
+  }
+]

@@ -1,1 +1,173 @@
-{}
+{
+  "ascc": {
+    "full_name": "sanger-tol/ascc",
+    "html_url": "https://github.com/sanger-tol/ascc",
+    "commit": "4d5733ba39197ec6c991f546c6bc180827e9710e",
+    "errors": 1,
+    "warnings": 7,
+    "parse_error": false,
+    "prints_help": null
+  },
+  "blobtoolkit": {
+    "full_name": "sanger-tol/blobtoolkit",
+    "html_url": "https://github.com/sanger-tol/blobtoolkit",
+    "commit": "22b59d9b4866309d60e29801da7e13a1d74318c4",
+    "errors": 60,
+    "warnings": 94,
+    "parse_error": false,
+    "prints_help": null
+  },
+  "curationpretext": {
+    "full_name": "sanger-tol/curationpretext",
+    "html_url": "https://github.com/sanger-tol/curationpretext",
+    "commit": "76a158521850c6aac85bc275d9bea437eab9cc05",
+    "errors": 13,
+    "warnings": 53,
+    "parse_error": false,
+    "prints_help": null
+  },
+  "ear": {
+    "full_name": "sanger-tol/ear",
+    "html_url": "https://github.com/sanger-tol/ear",
+    "commit": "2b15915ec8c6faa676452dc92153dbd1505f2426",
+    "errors": 0,
+    "warnings": 52,
+    "parse_error": false,
+    "prints_help": false
+  },
+  "ensemblgenedownload": {
+    "full_name": "sanger-tol/ensemblgenedownload",
+    "html_url": "https://github.com/sanger-tol/ensemblgenedownload",
+    "commit": "8aad3228752d9dd67d2fd47788d753bd7dfe488a",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false,
+    "prints_help": false
+  },
+  "ensemblrepeatdownload": {
+    "full_name": "sanger-tol/ensemblrepeatdownload",
+    "html_url": "https://github.com/sanger-tol/ensemblrepeatdownload",
+    "commit": "328e3ec6af4fcb46e4835b5d6fa076d2f099d5a7",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false,
+    "prints_help": false
+  },
+  "genealignment": {
+    "full_name": "sanger-tol/genealignment",
+    "html_url": "https://github.com/sanger-tol/genealignment",
+    "commit": "f3d7d0552c40b3e7c1e341d316bf32e698202e98",
+    "errors": 61,
+    "warnings": 28,
+    "parse_error": false,
+    "prints_help": null
+  },
+  "genomeassembly": {
+    "full_name": "sanger-tol/genomeassembly",
+    "html_url": "https://github.com/sanger-tol/genomeassembly",
+    "commit": "ee2acbdbd66979663e8134137a988fd8e06661bc",
+    "errors": 5,
+    "warnings": 31,
+    "parse_error": false,
+    "prints_help": null
+  },
+  "genomenote": {
+    "full_name": "sanger-tol/genomenote",
+    "html_url": "https://github.com/sanger-tol/genomenote",
+    "commit": "38b892e4f630bb0d19c24835d5b67db2bcc0871c",
+    "errors": 27,
+    "warnings": 82,
+    "parse_error": false,
+    "prints_help": null
+  },
+  "insdcdownload": {
+    "full_name": "sanger-tol/insdcdownload",
+    "html_url": "https://github.com/sanger-tol/insdcdownload",
+    "commit": "5e0560cb2ea5b591f328da0f32ecf8056d55b0df",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false,
+    "prints_help": false
+  },
+  "metagenomeassembly": {
+    "full_name": "sanger-tol/metagenomeassembly",
+    "html_url": "https://github.com/sanger-tol/metagenomeassembly",
+    "commit": "6c825f949f925bfe01f39db4b56de52425491d4c",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false,
+    "prints_help": true
+  },
+  "nfmicrofinder": {
+    "full_name": "sanger-tol/nfmicrofinder",
+    "html_url": "https://github.com/sanger-tol/nfmicrofinder",
+    "commit": "858b2a0750328215449ee36589940538c305e9c8",
+    "errors": 0,
+    "warnings": 21,
+    "parse_error": false,
+    "prints_help": false
+  },
+  "purging": {
+    "full_name": "sanger-tol/purging",
+    "html_url": "https://github.com/sanger-tol/purging",
+    "commit": "401c68cc7ea9eed6e50a2784a38e96f32306d0fe",
+    "errors": 0,
+    "warnings": 5,
+    "parse_error": false,
+    "prints_help": false
+  },
+  "readmapping": {
+    "full_name": "sanger-tol/readmapping",
+    "html_url": "https://github.com/sanger-tol/readmapping",
+    "commit": "2a0e5ec0d782abe5abdc269b47295bec17048725",
+    "errors": 0,
+    "warnings": 4,
+    "parse_error": false,
+    "prints_help": false
+  },
+  "sequencecomposition": {
+    "full_name": "sanger-tol/sequencecomposition",
+    "html_url": "https://github.com/sanger-tol/sequencecomposition",
+    "commit": "6091e1a90820a531bd186366bf51509f97be627c",
+    "errors": 0,
+    "warnings": 2,
+    "parse_error": false,
+    "prints_help": false
+  },
+  "treeval": {
+    "full_name": "sanger-tol/treeval",
+    "html_url": "https://github.com/sanger-tol/treeval",
+    "commit": "75e0d13ee7d171c5fe17e883f755f769e088baa1",
+    "errors": 21,
+    "warnings": 177,
+    "parse_error": false,
+    "prints_help": null
+  },
+  "variantcalling": {
+    "full_name": "sanger-tol/variantcalling",
+    "html_url": "https://github.com/sanger-tol/variantcalling",
+    "commit": "b3417355985a9c013eac7298df24524d253506e6",
+    "errors": 11,
+    "warnings": 53,
+    "parse_error": false,
+    "prints_help": null
+  },
+  "variantcomposition": {
+    "full_name": "sanger-tol/variantcomposition",
+    "html_url": "https://github.com/sanger-tol/variantcomposition",
+    "commit": "2d760717c6d31914486675046bcbbfd692c77cec",
+    "errors": 1,
+    "warnings": 17,
+    "parse_error": false,
+    "prints_help": null
+  },
+  "zippypretext": {
+    "full_name": "sanger-tol/zippypretext",
+    "html_url": "https://github.com/sanger-tol/zippypretext",
+    "commit": "d32f0ae3722b7faaccccda37df8dae43a2e039fb",
+    "errors": 5,
+    "warnings": 15,
+    "parse_error": false,
+    "prints_help": null
+  }
+}
