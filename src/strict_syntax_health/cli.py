@@ -212,6 +212,19 @@ def clone_nfcore_modules_repo() -> str:
     return commit_hash
 
 
+def link_nfcore_modules():
+    nfcore_link = MODULES_DIR / "modules" / "nf-core"
+    nfcore_target = NFCORE_MODULES_DIR / "modules" / "nf-core"
+    # Use a relative target for portability
+    relative_target = os.path.relpath(nfcore_target, nfcore_link.parent)
+    if nfcore_link.is_symlink():
+        nfcore_link.unlink()
+    elif nfcore_link.exists():
+        console.print(f"[red]Error: {nfcore_link} exists and is not a symlink[/red]")
+        sys.exit(1)
+    nfcore_link.symlink_to(relative_target)
+
+
 def clone_modules_repo() -> str:
     """Clone or update the sanger-tol/nf-core-modules repository.
 
@@ -1802,7 +1815,7 @@ def main(
         clone_nfcore_modules_repo()
 
         # Always check the symlink
-        (MODULES_DIR / "modules" / "nf-core").symlink_to( os.path.join(os.pardir, os.pardir, os.pardir, str(NFCORE_MODULES_DIR / "modules" / "nf-core")) )
+        link_nfcore_modules()
         modules_repo_unchanged = False
 
         if not skip_modules:
