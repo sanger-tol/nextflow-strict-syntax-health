@@ -20,7 +20,7 @@
   "curationpretext": {
     "full_name": "sanger-tol/curationpretext",
     "html_url": "https://github.com/sanger-tol/curationpretext",
-    "commit": "76a158521850c6aac85bc275d9bea437eab9cc05",
+    "commit": "5873f73e05a305d76cb87d65be88fd1ea4d6deec",
     "errors": 13,
     "warnings": 53,
     "parse_error": false,
@@ -38,20 +38,20 @@
   "ensemblgenedownload": {
     "full_name": "sanger-tol/ensemblgenedownload",
     "html_url": "https://github.com/sanger-tol/ensemblgenedownload",
-    "commit": "8aad3228752d9dd67d2fd47788d753bd7dfe488a",
+    "commit": "c515aa9c9d7b9c0cefcc2a8946016f012d365f3f",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": false
+    "prints_help": true
   },
   "ensemblrepeatdownload": {
     "full_name": "sanger-tol/ensemblrepeatdownload",
     "html_url": "https://github.com/sanger-tol/ensemblrepeatdownload",
-    "commit": "328e3ec6af4fcb46e4835b5d6fa076d2f099d5a7",
+    "commit": "bd11b270fe554f7107e26e7383180c901322eeaf",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": false
+    "prints_help": true
   },
   "genealignment": {
     "full_name": "sanger-tol/genealignment",
@@ -83,11 +83,11 @@
   "insdcdownload": {
     "full_name": "sanger-tol/insdcdownload",
     "html_url": "https://github.com/sanger-tol/insdcdownload",
-    "commit": "5e0560cb2ea5b591f328da0f32ecf8056d55b0df",
+    "commit": "189383871a9ad6bdf1f6dd71539222eff7f2f344",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": false
+    "prints_help": true
   },
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
@@ -128,11 +128,11 @@
   "sequencecomposition": {
     "full_name": "sanger-tol/sequencecomposition",
     "html_url": "https://github.com/sanger-tol/sequencecomposition",
-    "commit": "6091e1a90820a531bd186366bf51509f97be627c",
+    "commit": "5aa55e8aed7b5388323869ab1502e664bd51d6fc",
     "errors": 0,
-    "warnings": 2,
+    "warnings": 1,
     "parse_error": false,
-    "prints_help": false
+    "prints_help": true
   },
   "treeval": {
     "full_name": "sanger-tol/treeval",
