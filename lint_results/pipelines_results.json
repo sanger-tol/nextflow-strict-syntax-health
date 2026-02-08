@@ -74,11 +74,11 @@
   "genomenote": {
     "full_name": "sanger-tol/genomenote",
     "html_url": "https://github.com/sanger-tol/genomenote",
-    "commit": "38b892e4f630bb0d19c24835d5b67db2bcc0871c",
-    "errors": 27,
-    "warnings": 82,
+    "commit": "17b6c8bcad48eb2c9711aa994498eed2ea5423db",
+    "errors": 0,
+    "warnings": 0,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": true
   },
   "insdcdownload": {
     "full_name": "sanger-tol/insdcdownload",
@@ -119,11 +119,11 @@
   "readmapping": {
     "full_name": "sanger-tol/readmapping",
     "html_url": "https://github.com/sanger-tol/readmapping",
-    "commit": "2a0e5ec0d782abe5abdc269b47295bec17048725",
+    "commit": "c2e78b54695176e528eebe5005400eb7604159f7",
     "errors": 0,
     "warnings": 4,
     "parse_error": false,
-    "prints_help": false
+    "prints_help": true
   },
   "sequencecomposition": {
     "full_name": "sanger-tol/sequencecomposition",
