@@ -65,11 +65,11 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "ee2acbdbd66979663e8134137a988fd8e06661bc",
-    "errors": 5,
-    "warnings": 31,
+    "commit": "77b8df319ff32bb29bdde923441c82d94a1f8f9d",
+    "errors": 0,
+    "warnings": 25,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "genomenote": {
     "full_name": "sanger-tol/genomenote",
@@ -83,7 +83,7 @@
   "insdcdownload": {
     "full_name": "sanger-tol/insdcdownload",
     "html_url": "https://github.com/sanger-tol/insdcdownload",
-    "commit": "189383871a9ad6bdf1f6dd71539222eff7f2f344",
+    "commit": "72ac6587fa81c4acd7bbd95bbc7a949b5d725aee",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -146,11 +146,11 @@
   "variantcalling": {
     "full_name": "sanger-tol/variantcalling",
     "html_url": "https://github.com/sanger-tol/variantcalling",
-    "commit": "b3417355985a9c013eac7298df24524d253506e6",
-    "errors": 11,
-    "warnings": 53,
+    "commit": "1b0f1f959b5a49d46c3a1fecb800ee7b6f6e8d5d",
+    "errors": 0,
+    "warnings": 0,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": true
   },
   "variantcomposition": {
     "full_name": "sanger-tol/variantcomposition",

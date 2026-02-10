@@ -12,13 +12,13 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-02-09 00:10:53 UTC
+- **Last updated:** 2026-02-10 00:13:10 UTC
 - **Nextflow version:** 26.01.0-edge
 
 ## Pipelines
 
-- **Total:** 0 parse errors, 178 errors, 558 warnings across 19 pipelines
-- **Zero errors:** 10 pipelines (52.6%)
+- **Total:** 0 parse errors, 162 errors, 499 warnings across 19 pipelines
+- **Zero errors:** 12 pipelines (63.2%)
 
 |                    Errors                    |                     Warnings                     |
 | :------------------------------------------: | :----------------------------------------------: |
@@ -33,12 +33,11 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :x: [blobtoolkit](https://github.com/sanger-tol/blobtoolkit)                                    |     No      |     60 |       94 |      -      |      [View](lint_results/pipeline-results/blobtoolkit_lint.md)      |                                    -                                    |
 | :x: [treeval](https://github.com/sanger-tol/treeval)                                            |     No      |     21 |      177 |      -      |        [View](lint_results/pipeline-results/treeval_lint.md)        |                                    -                                    |
 | :x: [curationpretext](https://github.com/sanger-tol/curationpretext)                            |     No      |     13 |       53 |      -      |    [View](lint_results/pipeline-results/curationpretext_lint.md)    |                                    -                                    |
-| :x: [variantcalling](https://github.com/sanger-tol/variantcalling)                              |     No      |     11 |       53 |      -      |    [View](lint_results/pipeline-results/variantcalling_lint.md)     |                                    -                                    |
-| :x: [genomeassembly](https://github.com/sanger-tol/genomeassembly)                              |     No      |      5 |       31 |      -      |    [View](lint_results/pipeline-results/genomeassembly_lint.md)     |                                    -                                    |
 | :x: [zippypretext](https://github.com/sanger-tol/zippypretext)                                  |     No      |      5 |       15 |      -      |     [View](lint_results/pipeline-results/zippypretext_lint.md)      |                                    -                                    |
 | :x: [variantcomposition](https://github.com/sanger-tol/variantcomposition)                      |     No      |      1 |       17 |      -      |  [View](lint_results/pipeline-results/variantcomposition_lint.md)   |                                    -                                    |
 | :x: [ascc](https://github.com/sanger-tol/ascc)                                                  |     No      |      1 |        7 |      -      |         [View](lint_results/pipeline-results/ascc_lint.md)          |                                    -                                    |
 | :x: [ear](https://github.com/sanger-tol/ear)                                                    |     No      |      0 |       52 |     No      |          [View](lint_results/pipeline-results/ear_lint.md)          |          [View](lint_results/prints-help-results/ear_help.txt)          |
+| :x: [genomeassembly](https://github.com/sanger-tol/genomeassembly)                              |     No      |      0 |       25 |     No      |    [View](lint_results/pipeline-results/genomeassembly_lint.md)     |    [View](lint_results/prints-help-results/genomeassembly_help.txt)     |
 | :x: [nfmicrofinder](https://github.com/sanger-tol/nfmicrofinder)                                |     No      |      0 |       21 |     No      |     [View](lint_results/pipeline-results/nfmicrofinder_lint.md)     |     [View](lint_results/prints-help-results/nfmicrofinder_help.txt)     |
 | :x: [purging](https://github.com/sanger-tol/purging)                                            |     No      |      0 |        5 |     No      |        [View](lint_results/pipeline-results/purging_lint.md)        |        [View](lint_results/prints-help-results/purging_help.txt)        |
 | :white_check_mark: [readmapping](https://github.com/sanger-tol/readmapping)                     |     No      |      0 |        4 |     Yes     |      [View](lint_results/pipeline-results/readmapping_lint.md)      |      [View](lint_results/prints-help-results/readmapping_help.txt)      |
@@ -48,6 +47,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :white_check_mark: [genomenote](https://github.com/sanger-tol/genomenote)                       |     No      |      0 |        0 |     Yes     |      [View](lint_results/pipeline-results/genomenote_lint.md)       |      [View](lint_results/prints-help-results/genomenote_help.txt)       |
 | :white_check_mark: [insdcdownload](https://github.com/sanger-tol/insdcdownload)                 |     No      |      0 |        0 |     Yes     |     [View](lint_results/pipeline-results/insdcdownload_lint.md)     |     [View](lint_results/prints-help-results/insdcdownload_help.txt)     |
 | :white_check_mark: [metagenomeassembly](https://github.com/sanger-tol/metagenomeassembly)       |     No      |      0 |        0 |     Yes     |  [View](lint_results/pipeline-results/metagenomeassembly_lint.md)   |  [View](lint_results/prints-help-results/metagenomeassembly_help.txt)   |
+| :white_check_mark: [variantcalling](https://github.com/sanger-tol/variantcalling)               |     No      |      0 |        0 |     Yes     |    [View](lint_results/pipeline-results/variantcalling_lint.md)     |    [View](lint_results/prints-help-results/variantcalling_help.txt)     |
 
 </details>
 

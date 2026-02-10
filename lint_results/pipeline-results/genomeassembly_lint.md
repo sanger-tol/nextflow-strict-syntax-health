@@ -1,45 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-02-06T15:23:47.618080477Z
-- Nextflow version: 25.12.0-edge
-- Summary: 5 errors, 31 warnings
-
-## :x: Errors
-
-- Error: `conf/base.config:112:17`: Unexpected input: 'reference'
-
-  ```nextflow
-                  reference.size())
-                  ^
-  ```
-
-- Error: `conf/longranger_lsf_sanger.config:26:28`: `LSF_BINDIR` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-          "--env APPEND_PATH=$LSF_BINDIR:$LSF_SERVERDIR:/software/singularity/3.11.4/bin"
-                             ^^^^^^^^^^^
-  ```
-
-- Error: `conf/longranger_lsf_sanger.config:26:40`: `LSF_SERVERDIR` is not defined (hint: use `env('...')` to access environment variable)
-
-  ```nextflow
-          "--env APPEND_PATH=$LSF_BINDIR:$LSF_SERVERDIR:/software/singularity/3.11.4/bin"
-                                         ^^^^^^^^^^^^^^
-  ```
-
-- Error: `conf/modules.config:41:13`: `hapdir` was assigned but not declared
-
-  ```nextflow
-              hapdir = meta._hap ?: "hap1"
-              ^^^^^^
-  ```
-
-- Error: `conf/modules.config:42:42`: `hapdir` is not defined
-
-  ```nextflow
-              subdir_name = "scaffolding_${hapdir}/yahs/"
-                                           ^^^^^^
-  ```
+- Generated: 2026-02-10T00:12:05.405641796Z
+- Nextflow version: 26.01.0-edge
+- Summary: 25 warnings
 
 ## :warning: Warnings
 
@@ -99,67 +62,67 @@
           ^^^^
   ```
 
-- Warning: `modules/nf-core/merquryfk/hapmaker/main.nf:27:52`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `modules/nf-core/merquryfk/hapmaker/main.nf:30:52`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
       input_mat       = matktab   ? "${matktab.find{ it.toString().endsWith(".ktab") }.toString() - ~/\.ktab/}"   : ''
                                                      ^^
   ```
 
-- Warning: `modules/nf-core/merquryfk/hapmaker/main.nf:28:52`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `modules/nf-core/merquryfk/hapmaker/main.nf:31:52`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
       input_pat       = patktab   ? "${patktab.find{ it.toString().endsWith(".ktab") }.toString() - ~/\.ktab/}"   : ''
                                                      ^^
   ```
 
-- Warning: `modules/nf-core/merquryfk/hapmaker/main.nf:29:54`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `modules/nf-core/merquryfk/hapmaker/main.nf:32:54`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
       def input_child = childktab ? "${childktab.find{ it.toString().endsWith(".ktab") }.toString() - ~/\.ktab/}" : ''
                                                        ^^
   ```
 
-- Warning: `modules/nf-core/merquryfk/hapmaker/main.nf:51:9`: Variable was declared but not used
+- Warning: `modules/nf-core/merquryfk/hapmaker/main.nf:43:9`: Variable was declared but not used
 
   ```nextflow
       def args  = task.ext.args ?: ''
           ^^^^
   ```
 
-- Warning: `modules/nf-core/merquryfk/hapmaker/main.nf:52:44`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `modules/nf-core/merquryfk/hapmaker/main.nf:44:44`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
       input_mat = matktab ? "${matktab.find{ it.toString().endsWith(".ktab") }.toString() - ~/\.ktab/}" : ''
                                              ^^
   ```
 
-- Warning: `modules/nf-core/merquryfk/hapmaker/main.nf:53:44`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `modules/nf-core/merquryfk/hapmaker/main.nf:45:44`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
       input_pat = patktab ? "${patktab.find{ it.toString().endsWith(".ktab") }.toString() - ~/\.ktab/}" : ''
                                              ^^
   ```
 
-- Warning: `modules/nf-core/merquryfk/merquryfk/main.nf:45:52`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `modules/nf-core/merquryfk/merquryfk/main.nf:39:56`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
-      fk_ktab     = fastk_ktab ? "${fastk_ktab.find{ it.toString().endsWith(".ktab") }}" : ''
-                                                     ^^
+      def fk_ktab     = fastk_ktab ? "${fastk_ktab.find{ it.toString().endsWith(".ktab") }}" : ''
+                                                         ^^
   ```
 
-- Warning: `modules/nf-core/merquryfk/merquryfk/main.nf:46:51`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `modules/nf-core/merquryfk/merquryfk/main.nf:40:55`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
-      mat_hapktab = mathaptab  ? "${mathaptab.find{ it.toString().endsWith(".ktab") }}"  : ''
-                                                    ^^
+      def mat_hapktab = mathaptab  ? "${mathaptab.find{ it.toString().endsWith(".ktab") }}"  : ''
+                                                        ^^
   ```
 
-- Warning: `modules/nf-core/merquryfk/merquryfk/main.nf:47:51`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `modules/nf-core/merquryfk/merquryfk/main.nf:41:55`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
-      pat_hapktab = pathaptab  ? "${pathaptab.find{ it.toString().endsWith(".ktab") }}"  : ''
-                                                    ^^
+      def pat_hapktab = pathaptab  ? "${pathaptab.find{ it.toString().endsWith(".ktab") }}"  : ''
+                                                        ^^
   ```
 
 - Warning: `modules/nf-core/minimap2/align/main.nf:67:9`: Variable was declared but not used
@@ -176,13 +139,6 @@
           ^^^^
   ```
 
-- Warning: `modules/nf-core/yak/count/main.nf:39:9`: Variable was declared but not used
-
-  ```nextflow
-      def args = task.ext.args ?: ''
-          ^^^^
-  ```
-
 - Warning: `modules/sanger-tol/samtools/mergedup/main.nf:56:9`: Variable was declared but not used
 
   ```nextflow
@@ -190,18 +146,11 @@
           ^^^^
   ```
 
-- Warning: `subworkflows/local/raw_assembly/main.nf:95:19`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `modules/sanger-tol/yak/count/main.nf:36:9`: Variable was declared but not used
 
   ```nextflow
-          .filter { meta, asm ->
-                    ^^^^
-  ```
-
-- Warning: `subworkflows/local/utils_nfcore_genomeassembly_pipeline/main.nf:33:5`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-      monochrome_logs   // boolean: Do not use coloured log outputs
-      ^^^^^^^^^^^^^^^
+      def args = task.ext.args ?: ''
+          ^^^^
   ```
 
 - Warning: `subworkflows/nf-core/bam_stats_samtools/main.nf:15:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
@@ -218,42 +167,14 @@
                     ^^^^^^^
   ```
 
-- Warning: `workflows/genomeassembly.nf:107:39`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-          .multiMap { meta, hap1, hap2, meta_reads, reads ->
-                                        ^^^^^^^^^^
-  ```
-
-- Warning: `workflows/genomeassembly.nf:169:15`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      ch_haps = Channel.of("hap1", "hap2")
-                ^^^^^^^
-  ```
-
-- Warning: `workflows/genomeassembly.nf:256:19`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-          .filter { meta, asm -> asm }
-                    ^^^^
-  ```
-
-- Warning: `workflows/genomeassembly.nf:292:26`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-              .map { meta, reads -> [meta, meta.species] }
-                           ^^^^^
-  ```
-
-- Warning: `workflows/genomeassembly.nf:309:26`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/genomeassembly.nf:73:26`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       def topic_versions = Channel.topic("versions")
                            ^^^^^^^
   ```
 
-- Warning: `workflows/genomeassembly.nf:333:17`: Variable was declared but not used
+- Warning: `workflows/genomeassembly.nf:97:17`: Variable was declared but not used
 
   ```nextflow
           ).set { ch_collated_versions }
