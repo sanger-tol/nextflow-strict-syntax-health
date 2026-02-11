@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "289c3b945135c409277d73bd0c2b51506f8f7169",
+  "_repo_commit": "aab0cbe6374273c0e88764f6cccc7e781b10cbab",
   "ancestral_extract": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract",
     "errors": 0,
@@ -14,6 +14,12 @@
   },
   "bedtools_bamtobedsort": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/bedtools/bamtobedsort",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "blast_blastn": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/blast/blastn",
     "errors": 0,
     "warnings": 0,
     "parse_error": false

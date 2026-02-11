@@ -1,8 +1,8 @@
 {
-  "_repo_commit": "289c3b945135c409277d73bd0c2b51506f8f7169",
+  "_repo_commit": "aab0cbe6374273c0e88764f6cccc7e781b10cbab",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
-    "errors": 0,
+    "errors": 1,
     "warnings": 0,
     "parse_error": false
   },
@@ -14,7 +14,7 @@
   },
   "bam_samtools_merge_markdup": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/bam_samtools_merge_markdup",
-    "errors": 0,
+    "errors": 2,
     "warnings": 0,
     "parse_error": false
   },
@@ -32,7 +32,7 @@
   },
   "fasta_bam_scaffolding_yahs": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_bam_scaffolding_yahs",
-    "errors": 0,
+    "errors": 2,
     "warnings": 0,
     "parse_error": false
   },
@@ -57,7 +57,13 @@
   "genome_statistics": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/genome_statistics",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 1,
+    "parse_error": false
+  },
+  "pacbio_preprocess": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/pacbio_preprocess",
+    "errors": 0,
+    "warnings": 10,
     "parse_error": false
   },
   "pairs_create_contact_maps": {
