@@ -83,7 +83,7 @@
   "insdcdownload": {
     "full_name": "sanger-tol/insdcdownload",
     "html_url": "https://github.com/sanger-tol/insdcdownload",
-    "commit": "72ac6587fa81c4acd7bbd95bbc7a949b5d725aee",
+    "commit": "648b4302f555da5fc7af8239a5e301bb82d7fa21",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -128,9 +128,9 @@
   "sequencecomposition": {
     "full_name": "sanger-tol/sequencecomposition",
     "html_url": "https://github.com/sanger-tol/sequencecomposition",
-    "commit": "5aa55e8aed7b5388323869ab1502e664bd51d6fc",
+    "commit": "8abc8cf9667aa0fa956743b763075a5f9149b248",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 0,
     "parse_error": false,
     "prints_help": true
   },

@@ -12,12 +12,12 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-02-11 00:14:42 UTC
-- **Nextflow version:** 26.01.0-edge
+- **Last updated:** 2026-02-12 00:10:08 UTC
+- **Nextflow version:** 26.01.1-edge
 
 ## Pipelines
 
-- **Total:** 0 parse errors, 161 errors, 482 warnings across 19 pipelines
+- **Total:** 0 parse errors, 161 errors, 481 warnings across 19 pipelines
 - **Zero errors:** 13 pipelines (68.4%)
 
 |                    Errors                    |                     Warnings                     |
@@ -40,12 +40,12 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :x: [nfmicrofinder](https://github.com/sanger-tol/nfmicrofinder)                                |     No      |      0 |       21 |     No      |     [View](lint_results/pipeline-results/nfmicrofinder_lint.md)     |     [View](lint_results/prints-help-results/nfmicrofinder_help.txt)     |
 | :x: [purging](https://github.com/sanger-tol/purging)                                            |     No      |      0 |        5 |     No      |        [View](lint_results/pipeline-results/purging_lint.md)        |        [View](lint_results/prints-help-results/purging_help.txt)        |
 | :white_check_mark: [readmapping](https://github.com/sanger-tol/readmapping)                     |     No      |      0 |        4 |     Yes     |      [View](lint_results/pipeline-results/readmapping_lint.md)      |      [View](lint_results/prints-help-results/readmapping_help.txt)      |
-| :white_check_mark: [sequencecomposition](https://github.com/sanger-tol/sequencecomposition)     |     No      |      0 |        1 |     Yes     |  [View](lint_results/pipeline-results/sequencecomposition_lint.md)  |  [View](lint_results/prints-help-results/sequencecomposition_help.txt)  |
 | :white_check_mark: [ensemblgenedownload](https://github.com/sanger-tol/ensemblgenedownload)     |     No      |      0 |        0 |     Yes     |  [View](lint_results/pipeline-results/ensemblgenedownload_lint.md)  |  [View](lint_results/prints-help-results/ensemblgenedownload_help.txt)  |
 | :white_check_mark: [ensemblrepeatdownload](https://github.com/sanger-tol/ensemblrepeatdownload) |     No      |      0 |        0 |     Yes     | [View](lint_results/pipeline-results/ensemblrepeatdownload_lint.md) | [View](lint_results/prints-help-results/ensemblrepeatdownload_help.txt) |
 | :white_check_mark: [genomenote](https://github.com/sanger-tol/genomenote)                       |     No      |      0 |        0 |     Yes     |      [View](lint_results/pipeline-results/genomenote_lint.md)       |      [View](lint_results/prints-help-results/genomenote_help.txt)       |
 | :white_check_mark: [insdcdownload](https://github.com/sanger-tol/insdcdownload)                 |     No      |      0 |        0 |     Yes     |     [View](lint_results/pipeline-results/insdcdownload_lint.md)     |     [View](lint_results/prints-help-results/insdcdownload_help.txt)     |
 | :white_check_mark: [metagenomeassembly](https://github.com/sanger-tol/metagenomeassembly)       |     No      |      0 |        0 |     Yes     |  [View](lint_results/pipeline-results/metagenomeassembly_lint.md)   |  [View](lint_results/prints-help-results/metagenomeassembly_help.txt)   |
+| :white_check_mark: [sequencecomposition](https://github.com/sanger-tol/sequencecomposition)     |     No      |      0 |        0 |     Yes     |  [View](lint_results/pipeline-results/sequencecomposition_lint.md)  |  [View](lint_results/prints-help-results/sequencecomposition_help.txt)  |
 | :white_check_mark: [variantcalling](https://github.com/sanger-tol/variantcalling)               |     No      |      0 |        0 |     Yes     |    [View](lint_results/pipeline-results/variantcalling_lint.md)     |    [View](lint_results/prints-help-results/variantcalling_help.txt)     |
 | :white_check_mark: [variantcomposition](https://github.com/sanger-tol/variantcomposition)       |     No      |      0 |        0 |     Yes     |  [View](lint_results/pipeline-results/variantcomposition_lint.md)   |  [View](lint_results/prints-help-results/variantcomposition_help.txt)   |
 
@@ -53,7 +53,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 
 ## Modules
 
-- **Total:** 0 parse errors, 0 errors, 1 warnings across 21 modules
+- **Total:** 0 parse errors, 0 errors, 0 warnings across 21 modules
 - **Zero errors:** 21 modules (100.0%)
 
 |                   Errors                   |                    Warnings                    |
@@ -65,7 +65,6 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 
 | Module                                                                                                                                                                 | Parse Error | Errors | Warnings |                                  Lint Output                                   |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: | -----: | -------: | :----------------------------------------------------------------------------: |
-| :white_check_mark: [telomere_windows](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/telomere/windows)                                     |     No      |      0 |        1 |          [View](lint_results/module-results/telomere_windows_lint.md)          |
 | :white_check_mark: [ancestral_extract](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract)                                   |     No      |      0 |        0 |         [View](lint_results/module-results/ancestral_extract_lint.md)          |
 | :white_check_mark: [ancestral_plot](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/plot)                                         |     No      |      0 |        0 |           [View](lint_results/module-results/ancestral_plot_lint.md)           |
 | :white_check_mark: [bedtools_bamtobedsort](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/bedtools/bamtobedsort)                           |     No      |      0 |        0 |       [View](lint_results/module-results/bedtools_bamtobedsort_lint.md)        |
@@ -84,6 +83,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :white_check_mark: [samtools_mergedup](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/samtools/mergedup)                                   |     No      |      0 |        0 |         [View](lint_results/module-results/samtools_mergedup_lint.md)          |
 | :white_check_mark: [telomere_extract](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/telomere/extract)                                     |     No      |      0 |        0 |          [View](lint_results/module-results/telomere_extract_lint.md)          |
 | :white_check_mark: [telomere_regions](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/telomere/regions)                                     |     No      |      0 |        0 |          [View](lint_results/module-results/telomere_regions_lint.md)          |
+| :white_check_mark: [telomere_windows](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/telomere/windows)                                     |     No      |      0 |        0 |          [View](lint_results/module-results/telomere_windows_lint.md)          |
 | :white_check_mark: [yahs_makepairsfile](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/yahs/makepairsfile)                                 |     No      |      0 |        0 |         [View](lint_results/module-results/yahs_makepairsfile_lint.md)         |
 | :white_check_mark: [yak_count](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/yak/count)                                                   |     No      |      0 |        0 |             [View](lint_results/module-results/yak_count_lint.md)              |
 
@@ -91,8 +91,8 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 
 ## Subworkflows
 
-- **Total:** 0 parse errors, 5 errors, 11 warnings across 13 subworkflows
-- **Zero errors:** 10 subworkflows (76.9%)
+- **Total:** 0 parse errors, 0 errors, 11 warnings across 13 subworkflows
+- **Zero errors:** 13 subworkflows (100.0%)
 
 |                     Errors                      |                      Warnings                       |
 | :---------------------------------------------: | :-------------------------------------------------: |
@@ -103,14 +103,14 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 
 | Subworkflow                                                                                                                                                         | Parse Error | Errors | Warnings |                                   Lint Output                                   |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: | -----: | -------: | :-----------------------------------------------------------------------------: |
-| :x: [bam_samtools_merge_markdup](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/bam_samtools_merge_markdup)                        |     No      |      2 |        0 |   [View](lint_results/subworkflow-results/bam_samtools_merge_markdup_lint.md)   |
-| :x: [fasta_bam_scaffolding_yahs](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_bam_scaffolding_yahs)                        |     No      |      2 |        0 |   [View](lint_results/subworkflow-results/fasta_bam_scaffolding_yahs_lint.md)   |
-| :x: [ancestral_annotation](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation)                                    |     No      |      1 |        0 |      [View](lint_results/subworkflow-results/ancestral_annotation_lint.md)      |
 | :white_check_mark: [pacbio_preprocess](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/pacbio_preprocess)                           |     No      |      0 |       10 |       [View](lint_results/subworkflow-results/pacbio_preprocess_lint.md)        |
 | :white_check_mark: [genome_statistics](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/genome_statistics)                           |     No      |      0 |        1 |       [View](lint_results/subworkflow-results/genome_statistics_lint.md)        |
+| :white_check_mark: [ancestral_annotation](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation)                     |     No      |      0 |        0 |      [View](lint_results/subworkflow-results/ancestral_annotation_lint.md)      |
 | :white_check_mark: [bam2cool](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/bam2cool)                                             |     No      |      0 |        0 |            [View](lint_results/subworkflow-results/bam2cool_lint.md)            |
+| :white_check_mark: [bam_samtools_merge_markdup](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/bam_samtools_merge_markdup)         |     No      |      0 |        0 |   [View](lint_results/subworkflow-results/bam_samtools_merge_markdup_lint.md)   |
 | :white_check_mark: [cram_map_illumina_hic](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/cram_map_illumina_hic)                   |     No      |      0 |        0 |     [View](lint_results/subworkflow-results/cram_map_illumina_hic_lint.md)      |
 | :white_check_mark: [cram_map_long_reads](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/cram_map_long_reads)                       |     No      |      0 |        0 |      [View](lint_results/subworkflow-results/cram_map_long_reads_lint.md)       |
+| :white_check_mark: [fasta_bam_scaffolding_yahs](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_bam_scaffolding_yahs)         |     No      |      0 |        0 |   [View](lint_results/subworkflow-results/fasta_bam_scaffolding_yahs_lint.md)   |
 | :white_check_mark: [fasta_purge_retained_haplotype](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_purge_retained_haplotype) |     No      |      0 |        0 | [View](lint_results/subworkflow-results/fasta_purge_retained_haplotype_lint.md) |
 | :white_check_mark: [fastx_map_long_reads](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fastx_map_long_reads)                     |     No      |      0 |        0 |      [View](lint_results/subworkflow-results/fastx_map_long_reads_lint.md)      |
 | :white_check_mark: [gap_finder](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/gap_finder)                                         |     No      |      0 |        0 |           [View](lint_results/subworkflow-results/gap_finder_lint.md)           |

@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "aab0cbe6374273c0e88764f6cccc7e781b10cbab",
+  "_repo_commit": "47a2bbee12a89655364a9d8a1bc2811f1ce19c09",
   "ancestral_extract": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract",
     "errors": 0,
@@ -111,7 +111,7 @@
   "telomere_windows": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/telomere/windows",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 0,
     "parse_error": false
   },
   "yahs_makepairsfile": {
