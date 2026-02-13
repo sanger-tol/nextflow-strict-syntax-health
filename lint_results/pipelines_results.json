@@ -11,11 +11,11 @@
   "blobtoolkit": {
     "full_name": "sanger-tol/blobtoolkit",
     "html_url": "https://github.com/sanger-tol/blobtoolkit",
-    "commit": "22b59d9b4866309d60e29801da7e13a1d74318c4",
-    "errors": 60,
-    "warnings": 94,
+    "commit": "6cacd1d4771527466c9405349e1eaf5059711140",
+    "errors": 0,
+    "warnings": 7,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": true
   },
   "curationpretext": {
     "full_name": "sanger-tol/curationpretext",
@@ -65,11 +65,11 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "77b8df319ff32bb29bdde923441c82d94a1f8f9d",
+    "commit": "52b78f87b7e6689671657cfc860c339a8665707a",
     "errors": 0,
-    "warnings": 25,
+    "warnings": 1,
     "parse_error": false,
-    "prints_help": false
+    "prints_help": true
   },
   "genomenote": {
     "full_name": "sanger-tol/genomenote",
@@ -83,7 +83,7 @@
   "insdcdownload": {
     "full_name": "sanger-tol/insdcdownload",
     "html_url": "https://github.com/sanger-tol/insdcdownload",
-    "commit": "648b4302f555da5fc7af8239a5e301bb82d7fa21",
+    "commit": "741cba1be8779ebe6441f10d1332b8722f86364d",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -119,9 +119,9 @@
   "readmapping": {
     "full_name": "sanger-tol/readmapping",
     "html_url": "https://github.com/sanger-tol/readmapping",
-    "commit": "c2e78b54695176e528eebe5005400eb7604159f7",
+    "commit": "efc2a7d9ba8e719c9396a9d3f11e2a880ce2d466",
     "errors": 0,
-    "warnings": 4,
+    "warnings": 0,
     "parse_error": false,
     "prints_help": true
   },

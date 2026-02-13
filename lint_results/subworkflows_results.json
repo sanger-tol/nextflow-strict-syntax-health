@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "47a2bbee12a89655364a9d8a1bc2811f1ce19c09",
+  "_repo_commit": "0dab9230b5f226d0c83673b2ac89b724994eae82",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -26,6 +26,12 @@
   },
   "cram_map_long_reads": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/cram_map_long_reads",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "fasta_10x_polishing_longranger_freebayes": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_10x_polishing_longranger_freebayes",
     "errors": 0,
     "warnings": 0,
     "parse_error": false
@@ -57,13 +63,13 @@
   "genome_statistics": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/genome_statistics",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 0,
     "parse_error": false
   },
   "pacbio_preprocess": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/pacbio_preprocess",
     "errors": 0,
-    "warnings": 10,
+    "warnings": 0,
     "parse_error": false
   },
   "pairs_create_contact_maps": {

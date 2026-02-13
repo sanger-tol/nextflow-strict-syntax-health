@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "47a2bbee12a89655364a9d8a1bc2811f1ce19c09",
+  "_repo_commit": "0dab9230b5f226d0c83673b2ac89b724994eae82",
   "ancestral_extract": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract",
     "errors": 0,
@@ -8,6 +8,12 @@
   },
   "ancestral_plot": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/plot",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "bedchunks_create": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/bedchunks/create",
     "errors": 0,
     "warnings": 0,
     "parse_error": false
