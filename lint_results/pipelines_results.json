@@ -137,11 +137,11 @@
   "treeval": {
     "full_name": "sanger-tol/treeval",
     "html_url": "https://github.com/sanger-tol/treeval",
-    "commit": "75e0d13ee7d171c5fe17e883f755f769e088baa1",
-    "errors": 21,
-    "warnings": 177,
+    "commit": "3751dd58ee743a16700ab618311500402d0f5b85",
+    "errors": 0,
+    "warnings": 1,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "variantcalling": {
     "full_name": "sanger-tol/variantcalling",
