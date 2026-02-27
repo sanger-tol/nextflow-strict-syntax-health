@@ -1,14 +1,21 @@
 # Nextflow lint results
 
-- Generated: 2026-02-21T00:08:11.463783434Z
+- Generated: 2026-02-27T00:11:36.034985700Z
 - Nextflow version: 26.01.1-edge
-- Summary: 1 warning
+- Summary: 2 warnings
 
 ## :warning: Warnings
 
-- Warning: `subworkflows/local/generate_sorted_genome/main.nf:31:23`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `modules/local/selfcomp/splitfasta/main.nf:25:9`: Variable was declared but not used
 
   ```nextflow
-          .view{"SIZES: $it"}
-                        ^^
+      def VERSION     = "1.7.8-1"
+          ^^^^^^^
+  ```
+
+- Warning: `modules/local/selfcomp/splitfasta/main.nf:32:9`: Variable was declared but not used
+
+  ```nextflow
+      def VERSION     = "1.7.8-1"
+          ^^^^^^^
   ```
