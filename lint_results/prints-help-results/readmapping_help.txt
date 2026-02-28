@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.01.1-edge
 
 Downloading plugin nf-schema@2.5.1
-Launching `./main.nf` [mighty_watson] revision: 861ae59bc6
+Launching `./main.nf` [tender_shockley] revision: 861ae59bc6
 
 WARN: Unrecognized config option 'timeline.fields'
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
@@ -35,16 +35,12 @@ Cloud infrastructure.
   --outfmt                      [string]  Format for output alignment files. Accepts options: "bam" or "cram". [default: cram] 
   --compression                 [string]  Output file compression type. Currently accepts: "none" or "crumble" [default: crumble] 
   --merge_output                [boolean] Merge output alignment files by samples [default: true] 
-  --hifi_adapter_db             [string]  Path to directory or tar.gz archive for pre-built PacBio adapter database. [default: 
-${projectDir}/assets/HiFi_adapter_DB.tar.gz]  
-  --hifi_adapter_yaml           [string]  Path to YAML file containing guide for trimming/filtering PacBio data. See hifi-trimmer docs for 
+  --pacbio_adapter_fasta        [string]  Path to FASTA file contains adapter sequences for PacBio HiFi reads. [default: 
+${projectDir}/assets/HiFi_adapter.fasta]  
+  --pacbio_adapter_yaml         [string]  Path to YAML file containing guide for trimming/filtering PacBio data. See hifi-trimmer docs for 
 details: https://github.com/sanger-tol/hifi-trimmer [default: 
 ${projectDir}/assets/HiFi_adapter.yaml]  
-  --uli_adapter                 [string]  Path to FASTA file containing the PacBio ULI adapter sequence. 
-  --trim_uli_adapter            [boolean] Enable trimming of the PacBio ULI adapter from input reads. [default: false] 
-  --hic_markdup                 [boolean] Enable Hi-C duplicate marking (using 'samtools markdup'). [default: true] 
-  --filter_pacbio               [boolean] Enable filtering and trimming for PacBio reads with hifi-trimmer, if provided reads are already 
-trimmed, please set to false. [default: true]  
+  --pacbio_uli_adapter          [string]  Path to FASTA file containing the PacBio ULI adapter sequence. 
   --email                       [string]  Email address for completion summary. 
 
 Reference genome options
@@ -55,7 +51,10 @@ Reference genome options
 Aligner options
   --short_aligner               [string]  Alignment method to use for short-reads (options are: "minimap2" or "bwamem2"  (accepted: 
 minimap2, bwamem2) [default: bwamem2]  
-  --chunk_size                  [integer] Chunk size for parallel processing of CRAM files, in number of containers [default: 10000] 
+  --long_reads_map_chunk_size   [integer] Chunk size for parallel alignment of long read data, in number of sequences [default: 10000] 
+ 
+  --short_reads_map_chunk_size  [integer] Chunk size for parallel alignment of short read data, in number of cram containers [default: 
+10000]  
 
 Generic options
   --multiqc_title               [string]          MultiQC report title. Printed as page header, used for filename if not otherwise specified. 

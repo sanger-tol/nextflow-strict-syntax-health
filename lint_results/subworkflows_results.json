@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "61c5cb9eec8b71dd5ddf151931de0784c53cf635",
+  "_repo_commit": "d06e377fd7cecda4655e29b6102c94a401b92c49",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -57,7 +57,7 @@
   "gap_finder": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/gap_finder",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 2,
     "parse_error": false
   },
   "genome_statistics": {
