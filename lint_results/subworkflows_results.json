@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "d06e377fd7cecda4655e29b6102c94a401b92c49",
+  "_repo_commit": "f1b89a108c788e2d535ee64431092d2bd21884f4",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -42,6 +42,12 @@
     "warnings": 0,
     "parse_error": false
   },
+  "fasta_compress_index": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_compress_index",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
   "fasta_purge_retained_haplotype": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_purge_retained_haplotype",
     "errors": 0,
@@ -74,6 +80,12 @@
   },
   "pairs_create_contact_maps": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/pairs_create_contact_maps",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "soft_masked_fasta_repeats": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/soft_masked_fasta_repeats",
     "errors": 0,
     "warnings": 0,
     "parse_error": false
