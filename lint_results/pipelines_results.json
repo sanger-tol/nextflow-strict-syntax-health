@@ -20,11 +20,11 @@
   "curationpretext": {
     "full_name": "sanger-tol/curationpretext",
     "html_url": "https://github.com/sanger-tol/curationpretext",
-    "commit": "5873f73e05a305d76cb87d65be88fd1ea4d6deec",
-    "errors": 13,
-    "warnings": 53,
+    "commit": "e812c0ff7fba726408715c9da9b1780bd819ca93",
+    "errors": 0,
+    "warnings": 6,
     "parse_error": false,
-    "prints_help": null
+    "prints_help": false
   },
   "ear": {
     "full_name": "sanger-tol/ear",
