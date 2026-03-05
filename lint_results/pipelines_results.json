@@ -20,9 +20,9 @@
   "curationpretext": {
     "full_name": "sanger-tol/curationpretext",
     "html_url": "https://github.com/sanger-tol/curationpretext",
-    "commit": "e812c0ff7fba726408715c9da9b1780bd819ca93",
+    "commit": "2411055980b42c8a989bf8363fd3c337ad45ffbe",
     "errors": 0,
-    "warnings": 6,
+    "warnings": 0,
     "parse_error": false,
     "prints_help": false
   },
@@ -38,7 +38,7 @@
   "ensemblgenedownload": {
     "full_name": "sanger-tol/ensemblgenedownload",
     "html_url": "https://github.com/sanger-tol/ensemblgenedownload",
-    "commit": "c515aa9c9d7b9c0cefcc2a8946016f012d365f3f",
+    "commit": "27069deb1c33ccd82b5426d4fd948cf65b839a6d",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -47,7 +47,7 @@
   "ensemblrepeatdownload": {
     "full_name": "sanger-tol/ensemblrepeatdownload",
     "html_url": "https://github.com/sanger-tol/ensemblrepeatdownload",
-    "commit": "bd11b270fe554f7107e26e7383180c901322eeaf",
+    "commit": "6fb99a14d1018a6f834d10afd229d967fe2a3373",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -83,7 +83,7 @@
   "insdcdownload": {
     "full_name": "sanger-tol/insdcdownload",
     "html_url": "https://github.com/sanger-tol/insdcdownload",
-    "commit": "741cba1be8779ebe6441f10d1332b8722f86364d",
+    "commit": "19d5dcf0342483a300dd9dab4ba29a02167e15e5",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
