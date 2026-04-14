@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-03-24T10:44:17.565111062Z
-- Nextflow version: 26.03.0-edge
-- Summary: 7 warnings
+- Generated: 2026-04-14T00:17:27.534352449Z
+- Nextflow version: 26.03.2-edge
+- Summary: 9 warnings
 
 ## :warning: Warnings
 
@@ -53,4 +53,18 @@
   ```nextflow
       def args = task.ext.args ?: ''
           ^^^^
+  ```
+
+- Warning: `subworkflows/local/busco_diamond_blastp.nf:237:5`: Variable was declared but not used
+
+  ```nextflow
+      multiqc = BUSCO_BUSCO.out.short_summaries_txt
+      ^^^^^^^
+  ```
+
+- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:16:5`: Variable was declared but not used
+
+  ```nextflow
+      valid_config = checkConfigProvided()
+      ^^^^^^^^^^^^
   ```

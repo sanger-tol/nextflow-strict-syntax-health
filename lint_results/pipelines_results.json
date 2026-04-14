@@ -12,9 +12,9 @@
   "blobtoolkit": {
     "full_name": "sanger-tol/blobtoolkit",
     "html_url": "https://github.com/sanger-tol/blobtoolkit",
-    "commit": "6cacd1d4771527466c9405349e1eaf5059711140",
+    "commit": "a4d90f313e7009acf0cc61b161670b91bd205b9b",
     "errors": 0,
-    "warnings": 7,
+    "warnings": 9,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -72,9 +72,9 @@
   "genomenote": {
     "full_name": "sanger-tol/genomenote",
     "html_url": "https://github.com/sanger-tol/genomenote",
-    "commit": "17b6c8bcad48eb2c9711aa994498eed2ea5423db",
+    "commit": "6abb4e4c8cefbca6815c65c93025f020483fefec",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 3,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -132,9 +132,9 @@
   "sequencecomposition": {
     "full_name": "sanger-tol/sequencecomposition",
     "html_url": "https://github.com/sanger-tol/sequencecomposition",
-    "commit": "8e85805b5431b40de1aa16561b794c19a69cdc19",
+    "commit": "402891aeafec1b961c2d174e7e191c8e7b9cdcd1",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 1,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -162,9 +162,9 @@
   "variantcalling": {
     "full_name": "sanger-tol/variantcalling",
     "html_url": "https://github.com/sanger-tol/variantcalling",
-    "commit": "1b0f1f959b5a49d46c3a1fecb800ee7b6f6e8d5d",
+    "commit": "5c2517bfb229823941e83c2d1fefdfa803ebb040",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 2,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
