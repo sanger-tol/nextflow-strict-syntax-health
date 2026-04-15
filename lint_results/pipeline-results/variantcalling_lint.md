@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-04-14T00:18:16.101470546Z
+- Generated: 2026-04-15T00:18:30.466242898Z
 - Nextflow version: 26.03.2-edge
-- Summary: 2 warnings
+- Summary: 1 warning
 
 ## :warning: Warnings
 
@@ -10,12 +10,5 @@
 
   ```nextflow
       valid_config = checkConfigProvided()
-      ^^^^^^^^^^^^
-  ```
-
-- Warning: `workflows/variantcalling.nf:38:5`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-      ch_positions // channel: positions to include or exclude in the variant calling
       ^^^^^^^^^^^^
   ```
