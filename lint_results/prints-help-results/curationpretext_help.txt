@@ -1,9 +1,9 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.03.0-edge
+ N E X T F L O W   ~  version 26.03.2-edge
 
-Launching `./main.nf` [special_stallman] revision: 138610ecf1
+Launching `./main.nf` [fervent_leavitt] revision: 138610ecf1
 
 WARN: Unrecognized config option 'trace.override'
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'

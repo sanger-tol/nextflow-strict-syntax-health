@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-03-24T10:44:51.643175222Z
-- Nextflow version: 26.03.0-edge
-- Summary: 52 warnings
+- Generated: 2026-04-16T23:46:06.117733552Z
+- Nextflow version: 26.03.2-edge
+- Summary: 57 warnings
 
 ## :warning: Warnings
 
@@ -123,6 +123,27 @@
   ```nextflow
           : Channel.empty()
             ^^^^^^^
+  ```
+
+- Warning: `subworkflows/local/yaml_input/main.nf:35:5`: Variable was declared but not used
+
+  ```nextflow
+      reference_hap1 = ch_hap1
+      ^^^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/local/yaml_input/main.nf:40:5`: Variable was declared but not used
+
+  ```nextflow
+      reference_hap2 = ch_hap2
+      ^^^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/local/yaml_input/main.nf:45:5`: Variable was declared but not used
+
+  ```nextflow
+      reference_haplotigs = ch_haplotigs
+      ^^^^^^^^^^^^^^^^^^^
   ```
 
 - Warning: `subworkflows/local/yaml_input/main.nf:51:31`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
@@ -356,6 +377,13 @@
                                                                                                                ^^^^^^^
   ```
 
+- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:16:5`: Variable was declared but not used
+
+  ```nextflow
+      valid_config = checkConfigProvided()
+      ^^^^^^^^^^^^
+  ```
+
 - Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
@@ -368,4 +396,11 @@
   ```nextflow
       ch_versions = Channel.empty()
                     ^^^^^^^
+  ```
+
+- Warning: `workflows/ear.nf:249:16`: Variable was declared but not used
+
+  ```nextflow
+          .set { versions }
+                 ^^^^^^^^
   ```

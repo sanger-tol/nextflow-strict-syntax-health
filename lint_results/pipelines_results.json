@@ -12,7 +12,7 @@
   "blobtoolkit": {
     "full_name": "sanger-tol/blobtoolkit",
     "html_url": "https://github.com/sanger-tol/blobtoolkit",
-    "commit": "72eab2720df8a76debe4f143f9228437c3ab8682",
+    "commit": "9b6ac29e3554a4f6a805af544a6ae71bff89c7b5",
     "errors": 0,
     "warnings": 4,
     "parse_error": false,
@@ -24,7 +24,7 @@
     "html_url": "https://github.com/sanger-tol/curationpretext",
     "commit": "bc04469c6643f295803bc43d98cbb72c4c7170c3",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 6,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -34,7 +34,7 @@
     "html_url": "https://github.com/sanger-tol/ear",
     "commit": "2b15915ec8c6faa676452dc92153dbd1505f2426",
     "errors": 0,
-    "warnings": 52,
+    "warnings": 57,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": true
@@ -44,7 +44,7 @@
     "html_url": "https://github.com/sanger-tol/ensemblgenedownload",
     "commit": "27069deb1c33ccd82b5426d4fd948cf65b839a6d",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 1,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -54,7 +54,7 @@
     "html_url": "https://github.com/sanger-tol/ensemblrepeatdownload",
     "commit": "6fb99a14d1018a6f834d10afd229d967fe2a3373",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 1,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -62,7 +62,7 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "977424af05ac1b9954f8cb03a52b5247b6296810",
+    "commit": "b4e1b9ca1afde9b852c033c904f880f967887f6c",
     "errors": 0,
     "warnings": 1,
     "parse_error": false,
@@ -84,7 +84,7 @@
     "html_url": "https://github.com/sanger-tol/insdcdownload",
     "commit": "19d5dcf0342483a300dd9dab4ba29a02167e15e5",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 1,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -94,7 +94,7 @@
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
     "commit": "571ad869c0ebbbb8a93f76412ddf427e71e66c1b",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 1,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -104,7 +104,7 @@
     "html_url": "https://github.com/sanger-tol/nfmicrofinder",
     "commit": "858b2a0750328215449ee36589940538c305e9c8",
     "errors": 0,
-    "warnings": 21,
+    "warnings": 22,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": true
@@ -114,7 +114,7 @@
     "html_url": "https://github.com/sanger-tol/purging",
     "commit": "401c68cc7ea9eed6e50a2784a38e96f32306d0fe",
     "errors": 0,
-    "warnings": 5,
+    "warnings": 6,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": false
@@ -124,7 +124,7 @@
     "html_url": "https://github.com/sanger-tol/readmapping",
     "commit": "ed9f0ab0e73b7bb58d995556d9c349f4a25e34df",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 3,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -144,7 +144,7 @@
     "html_url": "https://github.com/sanger-tol/tollongc",
     "commit": "caba54f6ebbdbe81024924ed4a3e06d4545c7f54",
     "errors": 0,
-    "warnings": 8,
+    "warnings": 9,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": false
@@ -152,7 +152,7 @@
   "treeval": {
     "full_name": "sanger-tol/treeval",
     "html_url": "https://github.com/sanger-tol/treeval",
-    "commit": "c041b044b1c80868c0f7447cea428eea5e7d2fa6",
+    "commit": "a1ddd74c6aa4305558dc8954f5943c1bec9727a6",
     "errors": 0,
     "warnings": 3,
     "parse_error": false,
@@ -174,7 +174,7 @@
     "html_url": "https://github.com/sanger-tol/variantcomposition",
     "commit": "51027361a9075f6ecbd6a072713ad18c15bee277",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 1,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -184,7 +184,7 @@
     "html_url": "https://github.com/sanger-tol/zippypretext",
     "commit": "d32f0ae3722b7faaccccda37df8dae43a2e039fb",
     "errors": 5,
-    "warnings": 15,
+    "warnings": 16,
     "parse_error": false,
     "prints_help": null,
     "has_versions_mix": true

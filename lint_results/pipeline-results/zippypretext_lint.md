@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-03-24T10:48:34.774878849Z
-- Nextflow version: 26.03.0-edge
-- Summary: 5 errors, 15 warnings
+- Generated: 2026-04-16T23:49:50.047676929Z
+- Nextflow version: 26.03.2-edge
+- Summary: 5 errors, 16 warnings
 
 ## :x: Errors
 
@@ -132,6 +132,13 @@
   ```nextflow
       MAKE_HEADER.out.header.map{ header_id, header -> header}.set{ch_header}
                                   ^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:16:5`: Variable was declared but not used
+
+  ```nextflow
+      valid_config = checkConfigProvided()
+      ^^^^^^^^^^^^
   ```
 
 - Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead

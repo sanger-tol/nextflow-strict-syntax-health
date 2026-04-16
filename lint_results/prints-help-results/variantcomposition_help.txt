@@ -1,9 +1,9 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.03.0-edge
+ N E X T F L O W   ~  version 26.03.2-edge
 
-Launching `./main.nf` [distraught_einstein] revision: ae6905034f
+Launching `./main.nf` [ecstatic_mcclintock] revision: ae6905034f
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
