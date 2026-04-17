@@ -187,29 +187,36 @@ def check_modules_repo_unchanged(
     return cache_matches, remote_commit
 
 
-def clone_nfcore_modules_repo() -> str:
+def clone_nfcore_modules_repo(no_update: bool = False) -> str:
     """Clone or update the nf-core/modules repository.
+
+    Args:
+        no_update: If True and the repo directory already exists, skip all git
+            fetch/checkout/pull operations and use the directory as-is.
 
     Returns:
         The current commit hash of the cloned/updated repository.
     """
     if NFCORE_MODULES_DIR.exists():
-        console.print("Updating nf-core/modules repository...")
-        subprocess.run(
-            ["git", "-C", str(NFCORE_MODULES_DIR), "fetch", "--quiet", "origin", "master"],
-            check=True,
-            capture_output=True,
-        )
-        subprocess.run(
-            ["git", "-C", str(NFCORE_MODULES_DIR), "checkout", "--quiet", "master"],
-            check=True,
-            capture_output=True,
-        )
-        subprocess.run(
-            ["git", "-C", str(NFCORE_MODULES_DIR), "pull", "--quiet"],
-            check=True,
-            capture_output=True,
-        )
+        if no_update:
+            console.print("Using existing nf-core/modules repository (no-update)...")
+        else:
+            console.print("Updating nf-core/modules repository...")
+            subprocess.run(
+                ["git", "-C", str(NFCORE_MODULES_DIR), "fetch", "--quiet", "origin", "master"],
+                check=True,
+                capture_output=True,
+            )
+            subprocess.run(
+                ["git", "-C", str(NFCORE_MODULES_DIR), "checkout", "--quiet", "master"],
+                check=True,
+                capture_output=True,
+            )
+            subprocess.run(
+                ["git", "-C", str(NFCORE_MODULES_DIR), "pull", "--quiet"],
+                check=True,
+                capture_output=True,
+            )
     else:
         console.print("Cloning nf-core/modules repository...")
         subprocess.run(
@@ -236,29 +243,36 @@ def link_nfcore_modules():
     nfcore_link.symlink_to(relative_target, target_is_directory=True)
 
 
-def clone_modules_repo() -> str:
+def clone_modules_repo(no_update: bool = False) -> str:
     """Clone or update the sanger-tol/nf-core-modules repository.
+
+    Args:
+        no_update: If True and the repo directory already exists, skip all git
+            fetch/checkout/pull operations and use the directory as-is.
 
     Returns:
         The current commit hash of the cloned/updated repository.
     """
     if MODULES_DIR.exists():
-        console.print("Updating sanger-tol/nf-core-modules repository...")
-        subprocess.run(
-            ["git", "-C", str(MODULES_DIR), "fetch", "--quiet", "origin", "main"],
-            check=True,
-            capture_output=True,
-        )
-        subprocess.run(
-            ["git", "-C", str(MODULES_DIR), "checkout", "--quiet", "main"],
-            check=True,
-            capture_output=True,
-        )
-        subprocess.run(
-            ["git", "-C", str(MODULES_DIR), "pull", "--quiet"],
-            check=True,
-            capture_output=True,
-        )
+        if no_update:
+            console.print("Using existing sanger-tol/nf-core-modules repository (no-update)...")
+        else:
+            console.print("Updating sanger-tol/nf-core-modules repository...")
+            subprocess.run(
+                ["git", "-C", str(MODULES_DIR), "fetch", "--quiet", "origin", "main"],
+                check=True,
+                capture_output=True,
+            )
+            subprocess.run(
+                ["git", "-C", str(MODULES_DIR), "checkout", "--quiet", "main"],
+                check=True,
+                capture_output=True,
+            )
+            subprocess.run(
+                ["git", "-C", str(MODULES_DIR), "pull", "--quiet"],
+                check=True,
+                capture_output=True,
+            )
     else:
         console.print("Cloning sanger-tol/nf-core-modules repository...")
         subprocess.run(
@@ -479,33 +493,41 @@ def discover_subworkflows() -> list[dict]:
     return subworkflows
 
 
-def clone_pipeline(pipeline: dict) -> Path:
-    """Clone a pipeline repository, preferring the 'dev' branch."""
+def clone_pipeline(pipeline: dict, no_update: bool = False) -> Path:
+    """Clone a pipeline repository, preferring the 'dev' branch.
+
+    Args:
+        no_update: If True and the repo directory already exists, skip all git
+            fetch/checkout/pull operations and use the directory as-is.
+    """
     repo_path = PIPELINES_DIR / pipeline["name"]
 
     if repo_path.exists():
-        console.print(f"  Pipeline already cloned: {pipeline['name']}")
-        # Try to checkout dev branch, fall back to default if it doesn't exist
-        try:
+        if no_update:
+            console.print(f"  Using existing pipeline (no-update): {pipeline['name']}")
+        else:
+            console.print(f"  Pipeline already cloned: {pipeline['name']}")
+            # Try to checkout dev branch, fall back to default if it doesn't exist
+            try:
+                subprocess.run(
+                    ["git", "-C", str(repo_path), "fetch", "--quiet", "origin", "dev"],
+                    check=True,
+                    capture_output=True,
+                )
+                subprocess.run(
+                    ["git", "-C", str(repo_path), "checkout", "--quiet", "dev"],
+                    check=True,
+                    capture_output=True,
+                )
+            except subprocess.CalledProcessError:
+                # dev branch doesn't exist, stay on current branch
+                pass
+            # Pull latest changes
             subprocess.run(
-                ["git", "-C", str(repo_path), "fetch", "--quiet", "origin", "dev"],
+                ["git", "-C", str(repo_path), "pull", "--quiet"],
                 check=True,
                 capture_output=True,
             )
-            subprocess.run(
-                ["git", "-C", str(repo_path), "checkout", "--quiet", "dev"],
-                check=True,
-                capture_output=True,
-            )
-        except subprocess.CalledProcessError:
-            # dev branch doesn't exist, stay on current branch
-            pass
-        # Pull latest changes
-        subprocess.run(
-            ["git", "-C", str(repo_path), "pull", "--quiet"],
-            check=True,
-            capture_output=True,
-        )
     else:
         console.print(f"  Cloning {pipeline['full_name']}...")
         PIPELINES_DIR.mkdir(parents=True, exist_ok=True)
@@ -885,12 +907,14 @@ def lint_component_markdown(repo_path: Path, name: str, output_dir: Path, target
     console.print(f"  Saved lint output to {output_file}")
 
 
-def run_pipeline_lint(pipelines: list[dict], no_cache: bool = False) -> list[dict]:
+def run_pipeline_lint(pipelines: list[dict], no_cache: bool = False, no_update: bool = False) -> list[dict]:
     """Clone and lint all pipelines, using commit cache to skip unchanged repos.
 
     Args:
         pipelines: List of pipeline dicts with name, full_name, html_url
         no_cache: If True, ignore cache and re-lint everything
+        no_update: If True, use existing pipeline directories as-is without git pull/fetch.
+            Cache comparisons use the local commit hash instead of querying the remote.
     """
     commits_cache = load_results_dict_for_type("pipelines")
     results = []
@@ -901,12 +925,20 @@ def run_pipeline_lint(pipelines: list[dict], no_cache: bool = False) -> list[dic
         name = pipeline["name"]
         cached = commits_cache.get(name)
 
-        # BEFORE cloning: check if we can skip by comparing remote commit hash
+        # BEFORE cloning: check if we can skip by comparing commit hash
         if not no_cache and cached:
-            # Try dev branch first, then HEAD (default branch)
-            remote_commit = get_remote_commit_hash(pipeline["html_url"], "refs/heads/dev")
-            if remote_commit is None:
-                remote_commit = get_remote_commit_hash(pipeline["html_url"], "HEAD")
+            repo_path = PIPELINES_DIR / name
+            if no_update and repo_path.exists():
+                # Use local commit hash - no network call needed
+                try:
+                    remote_commit = get_local_commit_hash(repo_path)
+                except subprocess.CalledProcessError:
+                    remote_commit = None
+            else:
+                # Try dev branch first, then HEAD (default branch)
+                remote_commit = get_remote_commit_hash(pipeline["html_url"], "refs/heads/dev")
+                if remote_commit is None:
+                    remote_commit = get_remote_commit_hash(pipeline["html_url"], "HEAD")
 
             # Check if we need to run prints_help test for pipelines with zero errors
             # that were cached before this feature was added
@@ -946,7 +978,7 @@ def run_pipeline_lint(pipelines: list[dict], no_cache: bool = False) -> list[dic
         console.print(f"Processing pipeline {name}...")
 
         try:
-            repo_path = clone_pipeline(pipeline)
+            repo_path = clone_pipeline(pipeline, no_update=no_update)
             commit_hash = get_local_commit_hash(repo_path)
             lint_result = lint_pipeline(repo_path)
             lint_component_markdown(repo_path, name, PIPELINES_LINT_RESULTS_DIR)
@@ -2396,6 +2428,16 @@ def send_slack_report(
     help="Ignore commit cache and re-lint everything (by default, unchanged repos are skipped)",
 )
 @click.option(
+    "--no-update",
+    is_flag=True,
+    help=(
+        "Use existing pipelines/, modules/, and nf-core-modules/ directories as-is without "
+        "fetching or pulling from remote. Directories that do not exist are still cloned. "
+        "Useful in CI when the repos are restored from a cache. "
+        "Combine with --no-cache to force re-linting of every file."
+    ),
+)
+@click.option(
     "--slack-webhook",
     envvar="SLACK_WEBHOOK_URL",
     default=None,
@@ -2417,6 +2459,7 @@ def main(
     skip_subworkflows: bool,
     generate_charts_only: bool,
     no_cache: bool,
+    no_update: bool,
     slack_webhook: str | None,
 ) -> None:
     """Check sanger-tol pipelines, modules, and subworkflows for Nextflow strict syntax linting issues."""
@@ -2485,7 +2528,7 @@ def main(
                 sys.exit(1)
             console.print(f"Filtering to {len(pipelines)} pipeline(s): {', '.join(p['name'] for p in pipelines)}")
 
-        pipeline_results = run_pipeline_lint(pipelines, no_cache=no_cache)
+        pipeline_results = run_pipeline_lint(pipelines, no_cache=no_cache, no_update=no_update)
         display_results(pipeline_results, type_name="pipeline", show_prints_help=True)
         # Save results for aggregation (only when not filtering specific pipelines)
         if not pipeline:
@@ -2496,29 +2539,64 @@ def main(
         # Check if we can skip cloning by using cached results
         # Only use cache when linting ALL modules/subworkflows (no -m/-s filters)
         use_modules_cache = not module and not subworkflow and not no_cache
-        modules_repo_unchanged, remote_commit = check_modules_repo_unchanged(
-            MODULES_REPO_URL,
-            no_cache=not use_modules_cache,
-            check_modules=not skip_modules,
-            check_subworkflows=not skip_subworkflows,
-        ) and check_modules_repo_unchanged(
-            NFCORE_MODULES_REPO_URL,
-            prefix="nfcore",
-            no_cache=not use_modules_cache,
-            check_modules=not skip_modules,
-            check_subworkflows=False,
-        )
+
+        if no_update and MODULES_DIR.exists():
+            # Use local commit hash directly - no network call needed
+            repo_commit = get_local_commit_hash(MODULES_DIR)
+            modules_repo_unchanged = False  # always lint; cache key will be compared below per-component
+            if use_modules_cache:
+                # Compare local hash against the stored cache to decide whether to re-lint
+                modules_cache = load_results_dict_for_type("modules")
+                swf_cache = load_results_dict_for_type("subworkflows")
+                local_commit = repo_commit
+                caches_match = (
+                    (skip_modules or modules_cache.get("_repo_commit") == local_commit)
+                    and (skip_subworkflows or swf_cache.get("_repo_commit") == local_commit)
+                )
+                if caches_match:
+                    modules_repo_unchanged = True
+                else:
+                    # Dirs exist and are up to date locally; skip network ops
+                    clone_modules_repo(no_update=True)
+                    clone_nfcore_modules_repo(no_update=True)
+                    link_nfcore_modules()
+            else:
+                # --no-cache: still skip git pull but do lint
+                clone_modules_repo(no_update=True)
+                clone_nfcore_modules_repo(no_update=True)
+                link_nfcore_modules()
+        else:
+            modules_repo_unchanged, remote_commit = check_modules_repo_unchanged(
+                MODULES_REPO_URL,
+                no_cache=not use_modules_cache,
+                check_modules=not skip_modules,
+                check_subworkflows=not skip_subworkflows,
+            ) and check_modules_repo_unchanged(
+                NFCORE_MODULES_REPO_URL,
+                prefix="nfcore",
+                no_cache=not use_modules_cache,
+                check_modules=not skip_modules,
+                check_subworkflows=False,
+            )
+
+            if modules_repo_unchanged:
+                repo_commit = remote_commit
+            else:
+                # Clone/update the sanger-tol repo
+                repo_commit = clone_modules_repo()
+                # Clone/update the nf-core repo
+                clone_nfcore_modules_repo()
+                # Setup the symlink
+                link_nfcore_modules()
 
         if modules_repo_unchanged:
-            console.print(f"[dim]modules repos unchanged at {remote_commit[:8]} - using cached results[/dim]")
-            repo_commit = remote_commit
-        else:
-            # Clone/update the sanger-tol repo
-            repo_commit = clone_modules_repo()
-            # Clone/update the nf-core repo
-            clone_nfcore_modules_repo()
-            # Setup the symlink
-            link_nfcore_modules()
+            _display_commit = None
+            if repo_commit:
+                _display_commit = repo_commit
+            elif locals().get("remote_commit"):
+                _display_commit = locals().get("remote_commit")
+            display_short = _display_commit[:8] if _display_commit else "unknown"
+            console.print(f"[dim]modules repos unchanged at {display_short} - using cached results[/dim]")
 
         if not skip_modules:
             if modules_repo_unchanged:
