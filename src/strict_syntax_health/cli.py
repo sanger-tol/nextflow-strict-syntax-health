@@ -2377,64 +2377,89 @@ def send_slack_report(
 @click.option(
     "--update-readme",
     is_flag=True,
-    help="Update the README.md file with the results",
+    help=(
+        "Update the README.md file with generated results. This writes the README with "
+        "the latest charts and per-item lint reports produced during this run."
+    ),
 )
 @click.option(
     "--update-pipelines",
     is_flag=True,
-    help="Download the latest pipelines.json from nf-co.re before running",
+    help=(
+        "Download the latest pipelines.json from nf-co.re before running. "
+        "This always fetches and writes `pipelines/pipelines.json` even when "
+        "`--no-update` is specified."
+    ),
 )
 @click.option(
     "--pipeline",
     "-p",
     multiple=True,
-    help="Only process specific pipeline(s) by name (can be used multiple times)",
+    help=(
+        "Only process the named pipeline(s). Repeatable. When provided, only these "
+        "pipelines are linted (no other pipelines are processed).")
 )
 @click.option(
     "--module",
     "-m",
     multiple=True,
-    help="Only process specific module(s) by name (can be used multiple times)",
+    help=(
+        "Only process the named module(s). Repeatable. When provided, only these "
+        "modules are linted (no other modules are processed)."
+    ),
 )
 @click.option(
     "--subworkflow",
     "-s",
     multiple=True,
-    help="Only process specific subworkflow(s) by name (can be used multiple times)",
+    help=(
+        "Only process the named subworkflow(s). Repeatable. When provided, only these "
+        "subworkflows are linted (no other subworkflows are processed)."
+    ),
 )
 @click.option(
     "--skip-pipelines",
     is_flag=True,
-    help="Skip linting pipelines",
+    help=(
+        "Skip linting pipelines. Modules and subworkflows may still be linted unless "
+        "their respective skip flags are also set."
+    ),
 )
 @click.option(
     "--skip-modules",
     is_flag=True,
-    help="Skip linting modules",
+    help="Skip linting modules (sanger-tol/nf-core-modules).",
 )
 @click.option(
     "--skip-subworkflows",
     is_flag=True,
-    help="Skip linting subworkflows",
+    help="Skip linting subworkflows from sanger-tol/nf-core-modules.",
 )
 @click.option(
     "--generate-charts-only",
     is_flag=True,
-    help="Only generate charts and README from existing history files (no linting)",
+    help=(
+        "Only generate charts and update the README from existing history files. "
+        "Skips all linting, cloning, and network operations."
+    ),
 )
 @click.option(
     "--no-cache",
     is_flag=True,
-    help="Ignore commit cache and re-lint everything (by default, unchanged repos are skipped)",
+    help=(
+        "Ignore the stored commit cache and re-lint all items. By default unchanged "
+        "repositories are skipped using the cache; this forces fresh linting."
+    ),
 )
 @click.option(
     "--no-update",
     is_flag=True,
     help=(
-        "Use existing pipelines/, modules/, and nf-core-modules/ directories as-is without "
-        "fetching or pulling from remote. Directories that do not exist are still cloned. "
-        "Useful in CI when the repos are restored from a cache. "
-        "Combine with --no-cache to force re-linting of every file."
+        "Skip git network operations for existing checkout directories (pipelines/, modules/, "
+        "nf-core-modules/). Missing dirs are still cloned. "
+        "Note: this does NOT affect `--update-pipelines`, which always downloads the "
+        "pipelines JSON. Combine with `--no-cache` to force re-linting while still avoiding "
+        "git fetch/pull on existing checkouts."
     ),
 )
 @click.option(
