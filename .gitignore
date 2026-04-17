@@ -1,7 +1,7 @@
 # Cloned repositories and downloaded data
-pipelines/
-modules/
-nf-core-modules/
+pipelines
+modules
+nf-core-modules
 
 # Python
 __pycache__/
