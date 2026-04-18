@@ -1,12 +1,12 @@
 # Nextflow lint results
 
-- Generated: 2026-04-16T23:48:22.134098657Z
+- Generated: 2026-04-18T00:15:26.675660542Z
 - Nextflow version: 26.03.2-edge
 - Summary: 3 warnings
 
 ## :warning: Warnings
 
-- Warning: `subworkflows/local/align_short.nf:37:25`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/align_short.nf:39:25`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .branch { meta, cram ->

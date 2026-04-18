@@ -12,13 +12,13 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-04-17 00:15:14 UTC
+- **Last updated:** 2026-04-18 00:16:18 UTC
 - **Nextflow version:** 26.03.2-edge
 
 ## Pipelines
 
 - **Strict syntax:** 0 parse errors, 6 errors, 166 warnings across 19 pipelines
-- **Versions Mix:** 7/19 (36.8%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
+- **Versions Mix:** 8/19 (42.1%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
 - **Zero issues:** 0 pipelines (0.0%)
 
 |                    Errors                    |                     Warnings                     |
@@ -51,7 +51,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :x: [insdcdownload](https://github.com/sanger-tol/insdcdownload)                 |     No      |      0 |        1 |     Yes     |      :white_check_mark:       |     [View](lint_results/pipeline-results/insdcdownload_lint.md)     |     [View](lint_results/prints-help-results/insdcdownload_help.txt)     |
 | :x: [metagenomeassembly](https://github.com/sanger-tol/metagenomeassembly)       |     No      |      0 |        1 |     Yes     | :negative_squared_cross_mark: |  [View](lint_results/pipeline-results/metagenomeassembly_lint.md)   |  [View](lint_results/prints-help-results/metagenomeassembly_help.txt)   |
 | :x: [sequencecomposition](https://github.com/sanger-tol/sequencecomposition)     |     No      |      0 |        1 |     Yes     |      :white_check_mark:       |  [View](lint_results/pipeline-results/sequencecomposition_lint.md)  |  [View](lint_results/prints-help-results/sequencecomposition_help.txt)  |
-| :x: [variantcalling](https://github.com/sanger-tol/variantcalling)               |     No      |      0 |        1 |     Yes     | :negative_squared_cross_mark: |    [View](lint_results/pipeline-results/variantcalling_lint.md)     |    [View](lint_results/prints-help-results/variantcalling_help.txt)     |
+| :x: [variantcalling](https://github.com/sanger-tol/variantcalling)               |     No      |      0 |        1 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/variantcalling_lint.md)     |    [View](lint_results/prints-help-results/variantcalling_help.txt)     |
 | :x: [variantcomposition](https://github.com/sanger-tol/variantcomposition)       |     No      |      0 |        1 |     Yes     | :negative_squared_cross_mark: |  [View](lint_results/pipeline-results/variantcomposition_lint.md)   |  [View](lint_results/prints-help-results/variantcomposition_help.txt)   |
 
 </details>

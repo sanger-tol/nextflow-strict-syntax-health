@@ -3,9 +3,9 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
  N E X T F L O W   ~  version 26.03.2-edge
 
-Launching `./main.nf` [exotic_curry] revision: 861ae59bc6
+Downloading plugin nf-schema@2.5.1
+Launching `./main.nf` [astonishing_feynman] revision: 861ae59bc6
 
-WARN: Unrecognized config option 'timeline.fields'
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
 
