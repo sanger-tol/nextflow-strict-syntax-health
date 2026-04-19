@@ -1,15 +1,15 @@
 # Nextflow lint results
 
-- Generated: 2026-04-16T23:45:33.224708923Z
+- Generated: 2026-04-19T00:14:18.316923011Z
 - Nextflow version: 26.03.2-edge
 - Summary: 4 warnings
 
 ## :warning: Warnings
 
-- Warning: `conf/modules.config:79:23`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `conf/modules.config:136:23`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
-              saveAs: { filename -> "${meta.id}.coverage.1k.bed.gz" }
+              saveAs: { filename ->
                         ^^^^^^^^
   ```
 
@@ -27,7 +27,7 @@
       ^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/blobtoolkit.nf:180:26`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/blobtoolkit.nf:178:26`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       def topic_versions = Channel.topic("versions")
