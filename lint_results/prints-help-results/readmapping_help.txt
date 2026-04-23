@@ -1,10 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.03.2-edge
+ N E X T F L O W   ~  version 26.03.3-edge
 
 Downloading plugin nf-schema@2.5.1
-Launching `./main.nf` [astonishing_feynman] revision: 861ae59bc6
+Launching `./main.nf` [nostalgic_borg] revision: 861ae59bc6
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
@@ -18,7 +18,7 @@ WARN: Unrecognized config option 'validation.monochromeLogs'
  |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
                       __/ |
                      |___/
-  sanger-tol/readmapping 1.4.0dev
+  sanger-tol/readmapping 2.0.0
 ------------------------------------------------------
         Typical pipeline command:
 
@@ -35,7 +35,7 @@ Cloud infrastructure.
   --compression                 [string]  Output file compression type. Currently accepts: "none" or "crumble" [default: crumble] 
   --merge_output                [string]  Set to a non-empty string to merge output alignment files by specimens. The string is used to name 
 the output directory  
-  --coverage_binsize            [integer] Bin size (in bp) used for computing coverage depth in the output bedGraph file. [default: 1000] 
+  --window_size                 [integer] Bin size (in bp) used for computing coverage depth in the output bedGraph file. [default: 1000] 
  
   --pacbio_adapter_fasta        [string]  Path to FASTA file contains adapter sequences for PacBio HiFi reads. [default: 
 ${projectDir}/assets/HiFi_adapter.fasta]  
