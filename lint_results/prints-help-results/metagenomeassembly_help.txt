@@ -1,9 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.03.2-edge
+ N E X T F L O W   ~  version 26.03.3-edge
 
-Launching `./main.nf` [cheeky_leibniz] revision: fd2737f5ed
+Downloading plugin nf-schema@2.5.1
+Launching `./main.nf` [hungry_colden] revision: fd2737f5ed
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
@@ -33,7 +34,8 @@ Cloud infrastructure.
   --email                             [string] Email address for completion summary. 
 
 Assembly options
-  --enable_metamdbg                   [boolean] Enable assembly with metaMDBG. [default: true] 
+  --assembler                         [string] Which assembler to use for metagenome assembly.  (accepted: metamdbg, myloasm) [default: 
+metamdbg]  
 
 Assembly QC options
   --enable_rrna_prediction            [boolean] Predict ribosomal RNA (rRNA) genes in assemblies using Infernal and the included Rfam covariance 
