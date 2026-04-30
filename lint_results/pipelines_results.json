@@ -62,9 +62,9 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "3145cbb447a81bd9d5e0b2af7621a927935d60e1",
+    "commit": "0f7592311b4c7e1d2a51d989ab32a6ce26df1b13",
     "errors": 0,
-    "warnings": 2,
+    "warnings": 1,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -92,9 +92,9 @@
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "5713d027f21ec5780193604973bf2665d2f7b9d8",
+    "commit": "75756dbe34b3eb3625162e128de86be5d3d9ffd7",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 4,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true

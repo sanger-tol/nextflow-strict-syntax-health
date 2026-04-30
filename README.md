@@ -12,12 +12,12 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-04-29 00:22:39 UTC
-- **Nextflow version:** 26.03.4-edge
+- **Last updated:** 2026-04-30 00:22:45 UTC
+- **Nextflow version:** 26.04.0
 
 ## Pipelines
 
-- **Strict syntax:** 0 parse errors, 6 errors, 167 warnings across 19 pipelines
+- **Strict syntax:** 0 parse errors, 6 errors, 169 warnings across 19 pipelines
 - **Versions Mix:** 8/19 (42.1%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
 - **Zero issues:** 0 pipelines (0.0%)
 
@@ -42,14 +42,14 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :x: [curationpretext](https://github.com/sanger-tol/curationpretext)             |     No      |      0 |        6 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/curationpretext_lint.md)    |    [View](lint_results/prints-help-results/curationpretext_help.txt)    |
 | :x: [purging](https://github.com/sanger-tol/purging)                             |     No      |      0 |        6 |     No      |      :white_check_mark:       |        [View](lint_results/pipeline-results/purging_lint.md)        |        [View](lint_results/prints-help-results/purging_help.txt)        |
 | :x: [blobtoolkit](https://github.com/sanger-tol/blobtoolkit)                     |     No      |      0 |        4 |     Yes     | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/blobtoolkit_lint.md)      |      [View](lint_results/prints-help-results/blobtoolkit_help.txt)      |
+| :x: [metagenomeassembly](https://github.com/sanger-tol/metagenomeassembly)       |     No      |      0 |        4 |     Yes     | :negative_squared_cross_mark: |  [View](lint_results/pipeline-results/metagenomeassembly_lint.md)   |  [View](lint_results/prints-help-results/metagenomeassembly_help.txt)   |
 | :x: [genomenote](https://github.com/sanger-tol/genomenote)                       |     No      |      0 |        3 |     Yes     | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/genomenote_lint.md)       |      [View](lint_results/prints-help-results/genomenote_help.txt)       |
 | :x: [readmapping](https://github.com/sanger-tol/readmapping)                     |     No      |      0 |        3 |     Yes     | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/readmapping_lint.md)      |      [View](lint_results/prints-help-results/readmapping_help.txt)      |
 | :x: [treeval](https://github.com/sanger-tol/treeval)                             |     No      |      0 |        3 |     No      | :negative_squared_cross_mark: |        [View](lint_results/pipeline-results/treeval_lint.md)        |        [View](lint_results/prints-help-results/treeval_help.txt)        |
-| :x: [genomeassembly](https://github.com/sanger-tol/genomeassembly)               |     No      |      0 |        2 |     Yes     | :negative_squared_cross_mark: |    [View](lint_results/pipeline-results/genomeassembly_lint.md)     |    [View](lint_results/prints-help-results/genomeassembly_help.txt)     |
 | :x: [ensemblgenedownload](https://github.com/sanger-tol/ensemblgenedownload)     |     No      |      0 |        1 |     Yes     |      :white_check_mark:       |  [View](lint_results/pipeline-results/ensemblgenedownload_lint.md)  |  [View](lint_results/prints-help-results/ensemblgenedownload_help.txt)  |
 | :x: [ensemblrepeatdownload](https://github.com/sanger-tol/ensemblrepeatdownload) |     No      |      0 |        1 |     Yes     |      :white_check_mark:       | [View](lint_results/pipeline-results/ensemblrepeatdownload_lint.md) | [View](lint_results/prints-help-results/ensemblrepeatdownload_help.txt) |
+| :x: [genomeassembly](https://github.com/sanger-tol/genomeassembly)               |     No      |      0 |        1 |     Yes     | :negative_squared_cross_mark: |    [View](lint_results/pipeline-results/genomeassembly_lint.md)     |    [View](lint_results/prints-help-results/genomeassembly_help.txt)     |
 | :x: [insdcdownload](https://github.com/sanger-tol/insdcdownload)                 |     No      |      0 |        1 |     Yes     |      :white_check_mark:       |     [View](lint_results/pipeline-results/insdcdownload_lint.md)     |     [View](lint_results/prints-help-results/insdcdownload_help.txt)     |
-| :x: [metagenomeassembly](https://github.com/sanger-tol/metagenomeassembly)       |     No      |      0 |        1 |     Yes     | :negative_squared_cross_mark: |  [View](lint_results/pipeline-results/metagenomeassembly_lint.md)   |  [View](lint_results/prints-help-results/metagenomeassembly_help.txt)   |
 | :x: [sequencecomposition](https://github.com/sanger-tol/sequencecomposition)     |     No      |      0 |        1 |     Yes     |      :white_check_mark:       |  [View](lint_results/pipeline-results/sequencecomposition_lint.md)  |  [View](lint_results/prints-help-results/sequencecomposition_help.txt)  |
 | :x: [variantcalling](https://github.com/sanger-tol/variantcalling)               |     No      |      0 |        1 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/variantcalling_lint.md)     |    [View](lint_results/prints-help-results/variantcalling_help.txt)     |
 | :x: [variantcomposition](https://github.com/sanger-tol/variantcomposition)       |     No      |      0 |        1 |     Yes     | :negative_squared_cross_mark: |  [View](lint_results/pipeline-results/variantcomposition_lint.md)   |  [View](lint_results/prints-help-results/variantcomposition_help.txt)   |
