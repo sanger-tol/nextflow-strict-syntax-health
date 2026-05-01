@@ -1,5 +1,14 @@
 # Nextflow lint results
 
-- Generated: 2026-04-30T00:22:30.658488+00:00
+- Generated: 2026-05-01T00:20:47.045191+00:00
 - Nextflow version: 26.04.0
-- Summary: No issues found
+- Summary: 1 error
+
+## :x: Errors
+
+- Error: `subworkflows/sanger-tol/fasta_compress_index/main.nf:17:27`: Incorrect number of call arguments, expected 2 but received 1
+
+  ```nextflow
+      ch_compressed_fasta = SAMTOOLS_BGZIP(ch_fasta).fasta
+                            ^^^^^^^^^^
+  ```
