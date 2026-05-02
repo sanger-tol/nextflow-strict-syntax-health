@@ -72,7 +72,7 @@
   "genomenote": {
     "full_name": "sanger-tol/genomenote",
     "html_url": "https://github.com/sanger-tol/genomenote",
-    "commit": "6abb4e4c8cefbca6815c65c93025f020483fefec",
+    "commit": "268d2ccf66f731a6e2ddb7ca6a25a938a5f86eaf",
     "errors": 0,
     "warnings": 3,
     "parse_error": false,
@@ -92,7 +92,7 @@
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "75756dbe34b3eb3625162e128de86be5d3d9ffd7",
+    "commit": "571484ce49ab840339cad9a073b2849b980068a6",
     "errors": 0,
     "warnings": 4,
     "parse_error": false,

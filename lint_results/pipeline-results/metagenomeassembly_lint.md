@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-04-30T00:22:08.744218187Z
+- Generated: 2026-05-02T00:19:16.722393409Z
 - Nextflow version: 26.04.0
 - Summary: 4 warnings
 
@@ -13,13 +13,6 @@
       ^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:16:5`: Variable was declared but not used
-
-  ```nextflow
-      valid_config = checkConfigProvided()
-      ^^^^^^^^^^^^
-  ```
-
 - Warning: `workflows/metagenomeassembly.nf:37:5`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
@@ -27,9 +20,16 @@
       ^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/metagenomeassembly.nf:134:55`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/metagenomeassembly.nf:135:55`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
                   BINNING.out.contig2bin.filter { meta, c2b -> meta.binner != "circular" },
                                                         ^^^
+  ```
+
+- Warning: `workflows/metagenomeassembly.nf:241:9`: Variable was declared but not used
+
+  ```nextflow
+      def ch_collated_versions = softwareVersionsToYAML(ch_versions.mix(topic_versions.versions_file))
+          ^^^^^^^^^^^^^^^^^^^^
   ```
