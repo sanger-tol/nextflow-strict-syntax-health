@@ -3,7 +3,8 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
  N E X T F L O W   ~  version 26.04.0
 
-Launching `./main.nf` [jolly_faggin] revision: 5830318dcb
+Downloading plugin nf-schema@2.5.1
+Launching `./main.nf` [condescending_shaw] revision: 905524fe4d
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
@@ -51,6 +52,8 @@ decreases memory usage at the expense of runtime. [default: 1]
 Read mapping options
   --long_read_mapping_reads_per_chunk [integer] When mapping long reads, how many long reads to map to the assembly in a single chunk. [default: 
 1000000]  
+  --minimum_hifi_perc_identity        [integer] The minimum required percent identity of a read mapping to the assembly to be counted during 
+coverage estimation for MetaBat2 and MaxBin2. [default: 99]  
   --hic_aligner                       [string]  Which Hi-C aligner to use - either bwa-mem2 or minimap2.  (accepted: bwamem2, minimap2) 
 [default: bwamem2]  
   --hic_mapping_cram_bin_size         [integer] When mapping Hi-C, map each CRAM file in slices of this size. [default: 10000] 
@@ -58,17 +61,21 @@ Read mapping options
 
 Binning options
   --enable_binning                    [boolean] Enable binning of metagenomes into genome bins. [default: true] 
-  --extract_circular_contigs          [boolean] Extract circular contigs and treat them as bins. [default: true] 
-  --enable_metabat2                   [boolean] Enable binning with Metabat2. [default: true] 
-  --enable_maxbin2                    [boolean] Enable binning with MaxBin2. [default: true] 
-  --enable_metator                    [boolean] Enable binning with MetaTor. [default: true] 
-  --minimum_circular_contig_length    [integer] The minimum length of a circular contig required to be treated as a bin. [default: 300000] 
   --minimum_contig_size               [integer] The minimum size of contig to be considered when binning. This option applies to MetaBat2, MaxBin2, 
 and Bin3C, but not Metator. [default: 3000]  
-  --minimum_hifi_perc_identity        [integer] The minimum required percent identity of a read mapping to the assembly to be counted during 
-coverage estimation for MetaBat2 and MaxBin2. [default: 99]  
   --minimum_bin_size                  [integer] The minimum size of a bin, in basepairs, to be emitted. This parameter is currently respected by 
 MetaBat2 but not Metator or MaxBin2. [default: 150000]  
+  --extract_circular_contigs          [boolean] Extract circular contigs and treat them as bins. [default: true] 
+  --minimum_circular_contig_length    [integer] The minimum length of a circular contig required to be treated as a bin. [default: 250000] 
+  --enable_metabat2                   [boolean] Enable binning with Metabat2. [default: true] 
+  --enable_maxbin2                    [boolean] Enable binning with MaxBin2. 
+  --enable_comebin                    [boolean] Enable binning with Comebin. [default: true] 
+  --enable_vamb                       [boolean] Enable binning with VAMB. [default: true] 
+  --enable_semibin2                   [boolean] Enable binning with Semibin. [default: true] 
+  --semibin_environment_model         [string]  Pre-trained model to use with semibin for binning. Defaults to "global", see the SemiBin2 docs for 
+full details: https://semibin.readthedocs.io/en/latest/usage/ [default: global]  
+  --enable_metator                    [boolean] Enable binning with MetaTor. [default: true] 
+  --hic_enzymes                       [string]  A comma-separated list of Hi-C enzymes to use for binning with MetaTOR. 
 
 Bin refinement options
   --enable_bin_refinement             [boolean] Enable refinement of genome bins. [default: true] 
