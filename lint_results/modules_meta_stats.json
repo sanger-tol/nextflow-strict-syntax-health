@@ -1,9 +1,9 @@
 {
-  "total": 52,
-  "with_topic_versions": 32,
+  "total": 55,
+  "with_topic_versions": 34,
   "without_topic_versions": 0,
   "subworkflow_with_versions": 0,
-  "subworkflow_without_versions": 20,
+  "subworkflow_without_versions": 21,
   "details": [
     {
       "name": "ancestral_extract",
@@ -125,6 +125,13 @@
       "type": "module"
     },
     {
+      "name": "find_concatenate",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/find/concatenate/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
       "name": "generatecontactsindex",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/generatecontactsindex/meta.yml",
       "has_topics": true,
@@ -169,6 +176,13 @@
     {
       "name": "mask_unmask",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/mask/unmask/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "minimap2_align",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/minimap2/align/meta.yml",
       "has_topics": true,
       "has_versions": true,
       "type": "module"
@@ -322,6 +336,12 @@
     {
       "name": "pairs_create_contact_maps",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/pairs_create_contact_maps/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "read_coverage",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/read_coverage/main.nf",
       "has_versions": false,
       "type": "subworkflow"
     },

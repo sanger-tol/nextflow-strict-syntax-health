@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "c0cce5eec838cf3996156f4089b2c0f93fd73f60",
+  "_repo_commit": "6af7f5e8aecfe4cfdba1929d19e32e37e41843a7",
   "ancestral_extract": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract",
     "errors": 0,
@@ -102,6 +102,12 @@
     "warnings": 0,
     "parse_error": false
   },
+  "find_concatenate": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/find/concatenate",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
   "generatecontactsindex": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/generatecontactsindex",
     "errors": 0,
@@ -140,6 +146,12 @@
   },
   "mask_unmask": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/mask/unmask",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "minimap2_align": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/minimap2/align",
     "errors": 0,
     "warnings": 0,
     "parse_error": false

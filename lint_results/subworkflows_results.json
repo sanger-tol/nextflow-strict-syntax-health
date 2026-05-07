@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "c0cce5eec838cf3996156f4089b2c0f93fd73f60",
+  "_repo_commit": "6af7f5e8aecfe4cfdba1929d19e32e37e41843a7",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -44,7 +44,7 @@
   },
   "fasta_compress_index": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_compress_index",
-    "errors": 1,
+    "errors": 0,
     "warnings": 0,
     "parse_error": false
   },
@@ -92,6 +92,12 @@
   },
   "pairs_create_contact_maps": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/pairs_create_contact_maps",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "read_coverage": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/read_coverage",
     "errors": 0,
     "warnings": 0,
     "parse_error": false
