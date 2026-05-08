@@ -1,9 +1,9 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.03.2-edge
+ N E X T F L O W   ~  version 26.04.0
 
-Launching `./main.nf` [shrivelled_torvalds] revision: f8d94a1576
+Launching `./main.nf` [magical_gates] revision: f8d94a1576
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
@@ -17,7 +17,7 @@ WARN: Unrecognized config option 'validation.monochromeLogs'
  |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
                       __/ |
                      |___/
-  sanger-tol/variantcalling 1.2.0dev
+  sanger-tol/variantcalling 2.0.0
 ------------------------------------------------------
         Typical pipeline command:
 
@@ -27,22 +27,26 @@ help message of that parameter will be printed.
 or `--helpFull`.  
 
 Input/output options
-  --input       [string] Path to comma-separated file containing information about the samples in the experiment. 
-  --outdir      [string] The output directory where the results will be saved. You have to use absolute paths to storage on 
+  --input                  [string] Path to comma-separated file containing information about the samples in the experiment. 
+  --deepvariant_parameters [string] Command-line parameters to pass to DeepVariant. 
+  --outdir                 [string] The output directory where the results will be saved. You have to use absolute paths to storage on 
 Cloud infrastructure.  
-  --vector_db   [string] Path to directory or tar.gz archive for pre-built PacBio vector database. [default: 
+  --vector_db              [string] Path to directory or tar.gz archive for pre-built PacBio vector database. [default: 
 ${projectDir}/assets/vectorDB.tar.gz]  
-  --email       [string] Email address for completion summary. 
+  --merge_output           [string] Non-empty string used as the suffix and output directory name for merged data files [default: 
+merge]  
+  --email                  [string] Email address for completion summary. 
 
 Reference genome options
-  --fasta       [string]  Path to FASTA genome file, either fasta or fasta.gz. 
-  --align       [boolean] Align the input reads to the reference 
-  --interval    [string]  Interval bed file. 
+  --fasta                  [string]  Path to FASTA genome file, either fasta or fasta.gz. 
+  --align                  [boolean] Align the input reads to the reference [default: false] 
+  --filter_pacbio          [boolean] Filter the PacBio reads for leftover adaptors [default: true] 
+  --interval               [string]  Interval bed file. 
 
 Generic options
-  --help        [boolean, string] Display the help message. 
-  --help_full   [boolean]         Display the full detailed help message. 
-  --show_hidden [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
+  --help                   [boolean, string] Display the help message. 
+  --help_full              [boolean]         Display the full detailed help message. 
+  --show_hidden            [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
  
  !! Hiding 16 param(s), use the `--showHidden` parameter to show them !!
 ------------------------------------------------------

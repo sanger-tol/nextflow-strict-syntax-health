@@ -62,9 +62,9 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "c77dc89b42a6cd275b879df03cb39a43c214db00",
+    "commit": "9f774e543644b5c23c5e0f716907e97db50f2a35",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 0,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -122,7 +122,7 @@
   "readmapping": {
     "full_name": "sanger-tol/readmapping",
     "html_url": "https://github.com/sanger-tol/readmapping",
-    "commit": "4972f3c202125e820f757c9fcc4572cac96ed3e5",
+    "commit": "a1ce0aa60866a8cfda95cff4524cc33dfa481649",
     "errors": 0,
     "warnings": 3,
     "parse_error": false,
@@ -162,7 +162,7 @@
   "variantcalling": {
     "full_name": "sanger-tol/variantcalling",
     "html_url": "https://github.com/sanger-tol/variantcalling",
-    "commit": "29afbd83f5fc9e9db5ccdddc92d1a92e2b5d8bd5",
+    "commit": "486e5a5325b9ed69a90ba164b48f0973fd36b4d1",
     "errors": 0,
     "warnings": 1,
     "parse_error": false,
