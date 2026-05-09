@@ -1,9 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.03.2-edge
+ N E X T F L O W   ~  version 26.04.0
 
-Launching `./main.nf` [fervent_leavitt] revision: 138610ecf1
+Downloading plugin nf-schema@2.5.1
+Launching `./main.nf` [desperate_brazil] revision: 138610ecf1
 
 WARN: Unrecognized config option 'trace.override'
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
@@ -28,32 +29,33 @@ help message of that parameter will be printed.
 or `--helpFull`.  
 
 Input/output options
-  --input           [string]  Input fasta file 
-  --split_telomere  [boolean] Split the telomere file into 5' and 3' files for seperate ingestion into the HiC maps [default: 
+  --input               [string]  Input fasta file 
+  --split_telomere      [boolean] Split the telomere file into 5' and 3' files for seperate ingestion into the HiC maps [default: 
 false]  
-  --skip_tracks     [string]  Skip generation for specified tracks 
-  --reads           [array]   Input longread fasta files 
-  --read_type       [string]  Type of longread data  (accepted: hifi, clr, ont, illumina) 
-  --cram            [array]   Input cram files 
-  --teloseq         [string]  Telomeric Motif for search. Defaults to TTAGGG 
-  --map_order       [string]  HiC map scaffold order. Default to unsorted  (accepted: length, unsorted) 
-  --aligner         [string]  Aligner for use {minimap2, bwamem2} in generating map  (accepted: bwamem2, minimap2, AUTO) 
-  --run_hires       [boolean] Run High Resolution pretext maps 
-  --run_ultra       [string]  Run Ultra resolution pretext maps  (accepted: yes, no, force) 
-  --cram_chunk_size [integer] Chunk size for splitting CRAM files [default: 10000] 
-  --pre_mapped_bam  [string]  Pre-mapped BAM file 
-  --snapshot_order  [string]  Order of scaffolds in the png 
-  --outdir          [string]  The output directory where the results will be saved. You have to use absolute paths to storage on 
+  --skip_tracks         [string]  Skip generation for specified tracks 
+  --reads               [array]   Input longread fasta files 
+  --read_type           [string]  Type of longread data  (accepted: hifi, clr, ont, illumina) 
+  --cram                [array]   Input cram files 
+  --teloseq             [string]  Telomeric Motif for search. Defaults to TTAGGG 
+  --map_order           [string]  HiC map scaffold order. Default to unsorted  (accepted: length, unsorted) 
+  --aligner             [string]  Aligner for use {minimap2, bwamem2} in generating map  (accepted: bwamem2, minimap2, AUTO) 
+  --run_hires           [boolean] Run High Resolution pretext maps 
+  --run_ultra           [string]  Run Ultra resolution pretext maps  (accepted: yes, no, force) 
+  --cram_chunk_size     [integer] Chunk size for splitting CRAM files [default: 10000] 
+  --pre_mapped_bam      [string]  Pre-mapped BAM file 
+  --snapshot_order      [string]  Order of scaffolds in the png 
+  --snapshot_generation [boolean] Generate a snapshot of the pretext output 
+  --outdir              [string]  The output directory where the results will be saved. You have to use absolute paths to storage on 
 Cloud infrastructure.  
-  --email           [string]  Email address for completion summary. 
-  --sample          [string]  A Name for the sample 
-  --all_output      [boolean] Output all files [default: false] 
-  --multi_mapping   [number]  MAPQ values used to filter reads. [default: 0] 
+  --email               [string]  Email address for completion summary. 
+  --sample              [string]  A Name for the sample 
+  --all_output          [boolean] Output all files [default: false] 
+  --multi_mapping       [number]  MAPQ values used to filter reads. [default: 0] 
 
 Generic options
-  --help            [boolean, string] Display the help message. 
-  --help_full       [boolean]         Display the full detailed help message. 
-  --show_hidden     [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
+  --help                [boolean, string] Display the help message. 
+  --help_full           [boolean]         Display the full detailed help message. 
+  --show_hidden         [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
  
  !! Hiding 16 param(s), use the `--showHidden` parameter to show them !!
 ------------------------------------------------------

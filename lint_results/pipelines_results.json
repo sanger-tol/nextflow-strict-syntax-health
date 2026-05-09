@@ -22,7 +22,7 @@
   "curationpretext": {
     "full_name": "sanger-tol/curationpretext",
     "html_url": "https://github.com/sanger-tol/curationpretext",
-    "commit": "bc04469c6643f295803bc43d98cbb72c4c7170c3",
+    "commit": "0b80dedb143fcc4c2c976399c7d11570e5ad441c",
     "errors": 0,
     "warnings": 6,
     "parse_error": false,
@@ -72,9 +72,9 @@
   "genomenote": {
     "full_name": "sanger-tol/genomenote",
     "html_url": "https://github.com/sanger-tol/genomenote",
-    "commit": "268d2ccf66f731a6e2ddb7ca6a25a938a5f86eaf",
+    "commit": "a392b8b52cf698d54ea82865b5d86e93fd1b4577",
     "errors": 0,
-    "warnings": 3,
+    "warnings": 5,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true

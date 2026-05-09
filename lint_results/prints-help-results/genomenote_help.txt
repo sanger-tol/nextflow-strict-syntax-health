@@ -3,8 +3,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
  N E X T F L O W   ~  version 26.04.0
 
-Downloading plugin nf-schema@2.5.1
-Launching `./main.nf` [infallible_gates] revision: 26aae0a5ce
+Launching `./main.nf` [special_bell] revision: 26aae0a5ce
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
@@ -47,13 +46,14 @@ pretext, both) [default: both]
   --btk_online_location     [string]  Location of an online blobtoolkit "blobdir" 
   --outdir                  [string]  The output directory where the results will be saved. You have to use absolute paths to storage on 
 Cloud infrastructure. [default: results]  
+  --merge_output            [string]  Non-empty string used as the suffix and output directory name for merged data files [default: 
+merge]  
   --email                   [string]  Email address for completion summary. 
   --multiqc_title           [string]  MultiQC report title. Printed as page header, used for filename if not otherwise specified. 
   --cool_order              [string]  Path to a file that contains the sequence names in the order you want to represent them on the 
 contact-map.  
   --genome_notes_api        [string]  URL for Genome Notes Portal API . 
   --note_template           [string]  The path to a genome note template file. 
-  --annotation_set          [string]  Path to annotation file :gff. 
   --image_format            [string]  Select the format of the output images.  (accepted: png, svg) [default: png] 
 
 Reference genome options
