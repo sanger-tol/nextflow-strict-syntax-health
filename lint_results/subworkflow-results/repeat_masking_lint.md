@@ -1,5 +1,14 @@
 # Nextflow lint results
 
-- Generated: 2026-05-13T00:23:30.223753+00:00
+- Generated: 2026-05-14T00:25:58.032974+00:00
 - Nextflow version: 26.04.1
-- Summary: No issues found
+- Summary: 1 warning
+
+## :warning: Warnings
+
+- Warning: `subworkflows/sanger-tol/repeat_masking/main.nf:31:5`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+      repeat_intervals = WINDOWMASKER_USTAT.out.intervals
+      ^^^^^^^^^^
+  ```
