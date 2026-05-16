@@ -122,9 +122,9 @@
   "readmapping": {
     "full_name": "sanger-tol/readmapping",
     "html_url": "https://github.com/sanger-tol/readmapping",
-    "commit": "a1ce0aa60866a8cfda95cff4524cc33dfa481649",
+    "commit": "58234e7c4fe27d18626dc3fa6dac908f5fb5a0bf",
     "errors": 0,
-    "warnings": 3,
+    "warnings": 10,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -132,9 +132,9 @@
   "sequencecomposition": {
     "full_name": "sanger-tol/sequencecomposition",
     "html_url": "https://github.com/sanger-tol/sequencecomposition",
-    "commit": "4eec33d9120bf05c66866af8bab00086ed99f350",
+    "commit": "dffd980364c3d5aeccdac6b58597ab32e1043602",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 7,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -162,9 +162,9 @@
   "variantcalling": {
     "full_name": "sanger-tol/variantcalling",
     "html_url": "https://github.com/sanger-tol/variantcalling",
-    "commit": "f0ad4edc73f0acd1183fb86048e05aa09a5f16f3",
+    "commit": "e6a5185343da58f76ea8cb5c7a8833da814382b8",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 8,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
