@@ -1,6 +1,6 @@
 {
-  "total": 55,
-  "with_topic_versions": 34,
+  "total": 53,
+  "with_topic_versions": 32,
   "without_topic_versions": 0,
   "subworkflow_with_versions": 0,
   "subworkflow_without_versions": 21,
@@ -209,22 +209,8 @@
       "type": "module"
     },
     {
-      "name": "telomere_extract",
-      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/telomere/extract/meta.yml",
-      "has_topics": true,
-      "has_versions": true,
-      "type": "module"
-    },
-    {
-      "name": "telomere_regions",
-      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/telomere/regions/meta.yml",
-      "has_topics": true,
-      "has_versions": true,
-      "type": "module"
-    },
-    {
-      "name": "telomere_windows",
-      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/telomere/windows/meta.yml",
+      "name": "telomere_findtelomere",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/telomere/findtelomere/meta.yml",
       "has_topics": true,
       "has_versions": true,
       "type": "module"

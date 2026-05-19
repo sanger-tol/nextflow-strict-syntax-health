@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "8320a8ae392a1628670ec85a2b614032503517cb",
+  "_repo_commit": "6581818593568c7a569e900a1d92a1b5c56133dd",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -123,7 +123,7 @@
   "telo_finder": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/telo_finder",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 1,
     "parse_error": false
   }
 }
