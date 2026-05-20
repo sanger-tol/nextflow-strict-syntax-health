@@ -12,12 +12,22 @@
   "blobtoolkit": {
     "full_name": "sanger-tol/blobtoolkit",
     "html_url": "https://github.com/sanger-tol/blobtoolkit",
-    "commit": "c0bc65f655ef92eb584bbb0aba1e98fe90e8fca0",
+    "commit": "35b948ff66f4f638abcc2ff17459a495ac1cd71e",
     "errors": 0,
     "warnings": 13,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": true
+  },
+  "busco": {
+    "full_name": "sanger-tol/busco",
+    "html_url": "https://github.com/sanger-tol/busco",
+    "commit": "4be19cbef7d764aca87cc83a2cd03aa57dae5428",
+    "errors": 1,
+    "warnings": 10,
+    "parse_error": false,
+    "prints_help": null,
+    "has_versions_mix": false
   },
   "curationpretext": {
     "full_name": "sanger-tol/curationpretext",
