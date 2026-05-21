@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "8f5eaab4309d63bd48d6956e80eca1697ec66726",
+  "_repo_commit": "0f178ada6d402e7f07cfb7566dfcdbd11161de92",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -111,19 +111,19 @@
   "repeat_masking": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/repeat_masking",
     "errors": 0,
-    "warnings": 2,
+    "warnings": 0,
     "parse_error": false
   },
   "soft_masked_fasta_repeats": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/soft_masked_fasta_repeats",
     "errors": 0,
-    "warnings": 2,
+    "warnings": 0,
     "parse_error": false
   },
   "telo_finder": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/telo_finder",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 0,
     "parse_error": false
   }
 }
