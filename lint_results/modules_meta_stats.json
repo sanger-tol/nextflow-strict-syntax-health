@@ -1,9 +1,9 @@
 {
-  "total": 53,
-  "with_topic_versions": 32,
+  "total": 55,
+  "with_topic_versions": 33,
   "without_topic_versions": 0,
   "subworkflow_with_versions": 0,
-  "subworkflow_without_versions": 21,
+  "subworkflow_without_versions": 22,
   "details": [
     {
       "name": "ancestral_extract",
@@ -64,6 +64,13 @@
     {
       "name": "blobtoolkit_generateparamsfile",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/blobtoolkit/generateparamsfile/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "busco_buscofulltabletogenebedgraph",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/busco/buscofulltabletogenebedgraph/meta.yml",
       "has_topics": true,
       "has_versions": true,
       "type": "module"
@@ -244,6 +251,12 @@
     {
       "name": "bam_samtools_merge_markdup",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/bam_samtools_merge_markdup/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "busco_gene",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/busco_gene/main.nf",
       "has_versions": false,
       "type": "subworkflow"
     },
