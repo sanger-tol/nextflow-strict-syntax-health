@@ -1,14 +1,42 @@
 # Nextflow lint results
 
-- Generated: 2026-04-16T23:49:37.565199042Z
-- Nextflow version: 26.03.2-edge
-- Summary: 1 warning
+- Generated: 2026-05-25T00:23:45.295949906Z
+- Nextflow version: 26.04.2
+- Summary: 5 warnings
 
 ## :warning: Warnings
+
+- Warning: `main.nf:44:5`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+      multiqc_report = VARIANTCOMPOSITION.out.multiqc_report // channel: /path/to/multiqc_report.html
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/nf-core/utils_nextflow_pipeline/main.nf:43:5`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+      dummy_emit = true
+      ^^^^^^^^^^^^^^^
+  ```
 
 - Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:16:5`: Variable was declared but not used
 
   ```nextflow
       valid_config = checkConfigProvided()
       ^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:20:5`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+      valid_config
+      ^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/nf-core/utils_nfschema_plugin/main.nf:72:5`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+      dummy_emit = true
+      ^^^^^^^^^^^^^^^
   ```
