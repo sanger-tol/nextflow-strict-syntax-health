@@ -1,6 +1,6 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.04.1
+ N E X T F L O W   ~  version 26.04.2
 
-Nextflow version 26.04.1 does not match version required by pipeline: >=25.04.0, <26.04
+Nextflow version 26.04.2 does not match version required by pipeline: >=25.04.0, <26.04

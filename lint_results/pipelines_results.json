@@ -12,7 +12,7 @@
   "blobtoolkit": {
     "full_name": "sanger-tol/blobtoolkit",
     "html_url": "https://github.com/sanger-tol/blobtoolkit",
-    "commit": "35b948ff66f4f638abcc2ff17459a495ac1cd71e",
+    "commit": "c3319b579b2866cff3e64695820a3579f6b3ae33",
     "errors": 0,
     "warnings": 13,
     "parse_error": false,
@@ -132,7 +132,7 @@
   "readmapping": {
     "full_name": "sanger-tol/readmapping",
     "html_url": "https://github.com/sanger-tol/readmapping",
-    "commit": "58234e7c4fe27d18626dc3fa6dac908f5fb5a0bf",
+    "commit": "6f9ddc007a2a01090cffe2699bd23b8e1761b1d9",
     "errors": 0,
     "warnings": 10,
     "parse_error": false,

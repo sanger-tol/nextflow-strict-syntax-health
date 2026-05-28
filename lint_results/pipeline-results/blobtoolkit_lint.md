@@ -1,7 +1,7 @@
 # Nextflow lint results
 
-- Generated: 2026-05-20T00:27:33.802648248Z
-- Nextflow version: 26.04.1
+- Generated: 2026-05-28T00:25:33.028220960Z
+- Nextflow version: 26.04.2
 - Summary: 13 warnings
 
 ## :warning: Warnings
@@ -90,7 +90,7 @@
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/blobtoolkit.nf:172:26`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/blobtoolkit.nf:175:26`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
 
   ```nextflow
       def topic_versions = Channel.topic("versions")
