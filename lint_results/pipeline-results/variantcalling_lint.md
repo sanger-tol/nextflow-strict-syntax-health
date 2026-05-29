@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-05-16T00:21:51.287511728Z
-- Nextflow version: 26.04.1
-- Summary: 8 warnings
+- Generated: 2026-05-29T00:29:53.565963804Z
+- Nextflow version: 26.04.3
+- Summary: 10 warnings
 
 ## :warning: Warnings
 
@@ -13,7 +13,14 @@
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/input_filter_split.nf:64:5`: Emit name should be omitted when there is only one emit
+- Warning: `subworkflows/local/input_filter_split.nf:19:48`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+      ch_fasta_for_split = fasta.map { meta, fa, fai -> [meta, fa] }
+                                                 ^^^
+  ```
+
+- Warning: `subworkflows/local/input_filter_split.nf:48:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
       reads_fasta = cram_crai_fasta_fai // channel: [ val(meta), cram, crai, intervals, val(meta_fasta), fasta, [], fai ]
@@ -55,7 +62,14 @@
       ^^^^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/variantcalling.nf:162:5`: Emit name should be omitted when there is only one emit
+- Warning: `workflows/variantcalling.nf:54:16`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+      }.branch { meta, fa ->
+                 ^^^^
+  ```
+
+- Warning: `workflows/variantcalling.nf:169:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
       versions = ch_collated_versions // channel: [ path(versions.yml) ]

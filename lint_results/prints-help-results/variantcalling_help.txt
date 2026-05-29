@@ -1,9 +1,9 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.04.1
+ N E X T F L O W   ~  version 26.04.3
 
-Launching `./main.nf` [voluminous_albattani] revision: d2af9367c2
+Launching `./main.nf` [shrivelled_morse] revision: d2af9367c2
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'

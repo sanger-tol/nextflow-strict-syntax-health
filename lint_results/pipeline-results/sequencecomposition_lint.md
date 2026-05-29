@@ -1,12 +1,12 @@
 # Nextflow lint results
 
-- Generated: 2026-05-16T00:21:38.041573941Z
-- Nextflow version: 26.04.1
+- Generated: 2026-05-29T00:29:40.504188693Z
+- Nextflow version: 26.04.3
 - Summary: 7 warnings
 
 ## :warning: Warnings
 
-- Warning: `subworkflows/local/fasta_windows.nf:73:5`: Emit name should be omitted when there is only one emit
+- Warning: `subworkflows/local/fasta_windows.nf:72:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
       bedgraph = ch_bedgraph
@@ -48,7 +48,7 @@
       ^^^^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/sequencecomposition.nf:85:5`: Emit name should be omitted when there is only one emit
+- Warning: `workflows/sequencecomposition.nf:84:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
       versions = ch_collated_versions // channel: [ path(versions.yml) ]

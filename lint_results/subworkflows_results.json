@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "3f839f322c58648b0e1c598c5ce705b4f5501bc4",
+  "_repo_commit": "b8abde9d0ce22cbdd9ff87069d18b346d72d7869",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -21,7 +21,7 @@
   "busco_gene": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/busco_gene",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 0,
     "parse_error": false
   },
   "cram_map_illumina_hic": {

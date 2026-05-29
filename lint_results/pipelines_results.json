@@ -122,9 +122,9 @@
   "purging": {
     "full_name": "sanger-tol/purging",
     "html_url": "https://github.com/sanger-tol/purging",
-    "commit": "401c68cc7ea9eed6e50a2784a38e96f32306d0fe",
+    "commit": "4ffdef63cd21a0f63d3360d65b3f0152403c3bc1",
     "errors": 0,
-    "warnings": 6,
+    "warnings": 10,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": false
@@ -142,7 +142,7 @@
   "sequencecomposition": {
     "full_name": "sanger-tol/sequencecomposition",
     "html_url": "https://github.com/sanger-tol/sequencecomposition",
-    "commit": "dffd980364c3d5aeccdac6b58597ab32e1043602",
+    "commit": "8371f90f1139b365ba9185595fe33524172a3614",
     "errors": 0,
     "warnings": 7,
     "parse_error": false,
@@ -172,9 +172,9 @@
   "variantcalling": {
     "full_name": "sanger-tol/variantcalling",
     "html_url": "https://github.com/sanger-tol/variantcalling",
-    "commit": "e6a5185343da58f76ea8cb5c7a8833da814382b8",
+    "commit": "2ff6cd76dab742c1337b14d356285048e3040ac2",
     "errors": 0,
-    "warnings": 8,
+    "warnings": 10,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
