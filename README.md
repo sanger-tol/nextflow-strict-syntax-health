@@ -12,7 +12,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-05-29 00:30:32 UTC
+- **Last updated:** 2026-05-30 00:27:48 UTC
 - **Nextflow version:** 26.04.3
 
 ## Pipelines
@@ -38,7 +38,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :x: [ascc](https://github.com/sanger-tol/ascc)                                    |     No      |      1 |       29 |      -      | :negative_squared_cross_mark: |         [View](lint_results/pipeline-results/ascc_lint.md)          |                                    -                                    |
 | :x: [ear](https://github.com/sanger-tol/ear)                                      |     No      |      0 |       57 |     No      | :negative_squared_cross_mark: |          [View](lint_results/pipeline-results/ear_lint.md)          |          [View](lint_results/prints-help-results/ear_help.txt)          |
 | :x: [nfmicrofinder](https://github.com/sanger-tol/nfmicrofinder)                  |     No      |      0 |       22 |     No      | :negative_squared_cross_mark: |     [View](lint_results/pipeline-results/nfmicrofinder_lint.md)     |     [View](lint_results/prints-help-results/nfmicrofinder_help.txt)     |
-| :x: [blobtoolkit](https://github.com/sanger-tol/blobtoolkit)                      |     No      |      0 |       13 |     No      | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/blobtoolkit_lint.md)      |      [View](lint_results/prints-help-results/blobtoolkit_help.txt)      |
+| :x: [blobtoolkit](https://github.com/sanger-tol/blobtoolkit)                      |     No      |      0 |       13 |     Yes     | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/blobtoolkit_lint.md)      |      [View](lint_results/prints-help-results/blobtoolkit_help.txt)      |
 | :x: [purging](https://github.com/sanger-tol/purging)                              |     No      |      0 |       10 |     No      |      :white_check_mark:       |        [View](lint_results/pipeline-results/purging_lint.md)        |        [View](lint_results/prints-help-results/purging_help.txt)        |
 | :x: [readmapping](https://github.com/sanger-tol/readmapping)                      |     No      |      0 |       10 |     Yes     | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/readmapping_lint.md)      |      [View](lint_results/prints-help-results/readmapping_help.txt)      |
 | :x: [variantcalling](https://github.com/sanger-tol/variantcalling)                |     No      |      0 |       10 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/variantcalling_lint.md)     |    [View](lint_results/prints-help-results/variantcalling_help.txt)     |

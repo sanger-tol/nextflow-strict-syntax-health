@@ -12,11 +12,11 @@
   "blobtoolkit": {
     "full_name": "sanger-tol/blobtoolkit",
     "html_url": "https://github.com/sanger-tol/blobtoolkit",
-    "commit": "c3319b579b2866cff3e64695820a3579f6b3ae33",
+    "commit": "3ad8a2b8e347e929cf414f6576a35fcf8421a6ee",
     "errors": 0,
     "warnings": 13,
     "parse_error": false,
-    "prints_help": false,
+    "prints_help": true,
     "has_versions_mix": true
   },
   "busco": {
