@@ -12,7 +12,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-05-30 00:27:48 UTC
+- **Last updated:** 2026-05-31 00:27:26 UTC
 - **Nextflow version:** 26.04.3
 
 ## Pipelines
