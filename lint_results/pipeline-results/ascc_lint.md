@@ -1,12 +1,12 @@
 # Nextflow lint results
 
-- Generated: 2026-04-16T23:45:25.646909861Z
-- Nextflow version: 26.03.2-edge
-- Summary: 1 error, 29 warnings
+- Generated: 2026-06-02T00:32:50.179529849Z
+- Nextflow version: 26.04.3
+- Summary: 1 error, 35 warnings
 
 ## :x: Errors
 
-- Error: `main.nf:161:1`: Statements cannot be mixed with script declarations -- move statements into a process, workflow, or function
+- Error: `main.nf:159:1`: Statements cannot be mixed with script declarations -- move statements into a process, workflow, or function
 
   ```nextflow
   workflow.onComplete {
@@ -106,14 +106,14 @@
       ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/get_kmers_profile/main.nf:93:5`: Variable was declared but not used
+- Warning: `subworkflows/local/get_kmers_profile/main.nf:101:5`: Variable was declared but not used
 
   ```nextflow
       kmers_results = collected_files_for_combine
       ^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/get_kmers_profile/main.nf:115:5`: Variable was declared but not used
+- Warning: `subworkflows/local/get_kmers_profile/main.nf:123:5`: Variable was declared but not used
 
   ```nextflow
       combined_csv    = KMER_COUNT_DIM_REDUCTION_COMBINE_CSV.out.csv
@@ -197,6 +197,13 @@
       ^^^^^^^^
   ```
 
+- Warning: `subworkflows/nf-core/utils_nextflow_pipeline/main.nf:43:5`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+      dummy_emit = true
+      ^^^^^^^^^^^^^^^
+  ```
+
 - Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:16:5`: Variable was declared but not used
 
   ```nextflow
@@ -204,16 +211,51 @@
       ^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/ascc_genomic.nf:799:37`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:20:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
-          ej_reference_tuple.filter { meta, file ->
-                                      ^^^^
+      valid_config
+      ^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/ascc_genomic.nf:799:43`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/nf-core/utils_nfschema_plugin/main.nf:72:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
-          ej_reference_tuple.filter { meta, file ->
-                                            ^^^^
+      dummy_emit = true
+      ^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `workflows/ascc.nf:141:5`: Emit name should be omitted when there is only one emit
+
+  ```nextflow
+      versions       = ch_collated_versions                 // channel: [ path(versions.yml) ]
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `workflows/ascc_genomic.nf:809:18`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+          .filter{ meta, file ->
+                   ^^^^
+  ```
+
+- Warning: `workflows/ascc_genomic.nf:809:24`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+          .filter{ meta, file ->
+                         ^^^^
+  ```
+
+- Warning: `workflows/ascc_organellar.nf:588:18`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+          .filter{ meta, file ->
+                   ^^^^
+  ```
+
+- Warning: `workflows/ascc_organellar.nf:588:24`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+          .filter{ meta, file ->
+                         ^^^^
   ```

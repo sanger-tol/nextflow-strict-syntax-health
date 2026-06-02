@@ -12,12 +12,12 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-06-01 00:25:22 UTC
+- **Last updated:** 2026-06-02 00:33:44 UTC
 - **Nextflow version:** 26.04.3
 
 ## Pipelines
 
-- **Strict syntax:** 0 parse errors, 6 errors, 215 warnings across 20 pipelines
+- **Strict syntax:** 0 parse errors, 6 errors, 221 warnings across 20 pipelines
 - **Versions Mix:** 9/20 (45.0%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
 - **Zero issues:** 1 pipelines (5.0%)
 
@@ -35,7 +35,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | Pipeline                                                                          | Parse Error | Errors | Warnings | Prints Help |         Versions Mix          |                             Lint Output                             |                               Help Output                               |
 | --------------------------------------------------------------------------------- | :---------: | -----: | -------: | :---------: | :---------------------------: | :-----------------------------------------------------------------: | :---------------------------------------------------------------------: |
 | :x: [zippypretext](https://github.com/sanger-tol/zippypretext)                    |     No      |      5 |       16 |      -      | :negative_squared_cross_mark: |     [View](lint_results/pipeline-results/zippypretext_lint.md)      |                                    -                                    |
-| :x: [ascc](https://github.com/sanger-tol/ascc)                                    |     No      |      1 |       29 |      -      | :negative_squared_cross_mark: |         [View](lint_results/pipeline-results/ascc_lint.md)          |                                    -                                    |
+| :x: [ascc](https://github.com/sanger-tol/ascc)                                    |     No      |      1 |       35 |      -      | :negative_squared_cross_mark: |         [View](lint_results/pipeline-results/ascc_lint.md)          |                                    -                                    |
 | :x: [ear](https://github.com/sanger-tol/ear)                                      |     No      |      0 |       57 |     No      | :negative_squared_cross_mark: |          [View](lint_results/pipeline-results/ear_lint.md)          |          [View](lint_results/prints-help-results/ear_help.txt)          |
 | :x: [nfmicrofinder](https://github.com/sanger-tol/nfmicrofinder)                  |     No      |      0 |       22 |     No      | :negative_squared_cross_mark: |     [View](lint_results/pipeline-results/nfmicrofinder_lint.md)     |     [View](lint_results/prints-help-results/nfmicrofinder_help.txt)     |
 | :x: [blobtoolkit](https://github.com/sanger-tol/blobtoolkit)                      |     No      |      0 |       13 |     Yes     | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/blobtoolkit_lint.md)      |      [View](lint_results/prints-help-results/blobtoolkit_help.txt)      |
