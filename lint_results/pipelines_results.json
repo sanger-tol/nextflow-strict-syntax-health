@@ -2,9 +2,9 @@
   "ascc": {
     "full_name": "sanger-tol/ascc",
     "html_url": "https://github.com/sanger-tol/ascc",
-    "commit": "dcf9c0383ea420b0deab86e179b716b1fa860594",
-    "errors": 1,
-    "warnings": 35,
+    "commit": "439349c2251cc9eb509022ebfb416c95e0e073d8",
+    "errors": 2,
+    "warnings": 34,
     "parse_error": false,
     "prints_help": null,
     "has_versions_mix": true

@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-06-02T00:32:50.179529849Z
+- Generated: 2026-06-03T00:36:44.194949955Z
 - Nextflow version: 26.04.3
-- Summary: 1 error, 35 warnings
+- Summary: 2 errors, 34 warnings
 
 ## :x: Errors
 
@@ -11,6 +11,13 @@
   ```nextflow
   workflow.onComplete {
   ^
+  ```
+
+- Error: `subworkflows/local/pe_mapping/main.nf:73:5`: Incorrect number of call arguments, expected 2 but received 4
+
+  ```nextflow
+      SAMTOOLS_MERGE(
+      ^
   ```
 
 ## :warning: Warnings
@@ -26,13 +33,6 @@
 
   ```nextflow
       def args           = task.ext.args ?: ''
-          ^^^^
-  ```
-
-- Warning: `modules/sanger-tol/samtools/mergedup/main.nf:56:9`: Variable was declared but not used
-
-  ```nextflow
-      def args      = task.ext.args  ?: ''
           ^^^^
   ```
 
@@ -127,14 +127,14 @@
       ^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/run_fcsgx/main.nf:50:5`: Variable was declared but not used
+- Warning: `subworkflows/local/run_fcsgx/main.nf:48:5`: Variable was declared but not used
 
   ```nextflow
       fcsgx_taxonomy_rpt  = FCSGX_RUNGX.out.taxonomy_report
       ^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/run_fcsgx/main.nf:74:5`: Variable was declared but not used
+- Warning: `subworkflows/local/run_fcsgx/main.nf:72:5`: Variable was declared but not used
 
   ```nextflow
       fcsgxresult     = PARSE_FCSGX_RESULT.out.fcsgxresult
