@@ -3,7 +3,8 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
  N E X T F L O W   ~  version 26.04.3
 
-Launching `./main.nf` [shrivelled_morse] revision: d2af9367c2
+Downloading plugin nf-schema@2.5.1
+Launching `./main.nf` [voluminous_lorenz] revision: d2af9367c2
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
@@ -35,6 +36,8 @@ Cloud infrastructure.
 ${projectDir}/assets/vectorDB.tar.gz]  
   --merge_output           [string] Non-empty string used as the suffix and output directory name for merged data files [default: 
 merge]  
+  --flag_hom_alts          [string] Name of the sample, specimen, or run, for which to flag homozygous alternative genotypes. The suffix 
+'/merge' can be used in conjunction with --merge_output.  
   --email                  [string] Email address for completion summary. 
 
 Reference genome options

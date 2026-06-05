@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-05-29T00:29:53.565963804Z
+- Generated: 2026-06-05T00:29:19.353883609Z
 - Nextflow version: 26.04.3
 - Summary: 10 warnings
 
@@ -62,14 +62,14 @@
       ^^^^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/variantcalling.nf:54:16`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/variantcalling.nf:55:16`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
       }.branch { meta, fa ->
                  ^^^^
   ```
 
-- Warning: `workflows/variantcalling.nf:169:5`: Emit name should be omitted when there is only one emit
+- Warning: `workflows/variantcalling.nf:186:5`: Emit name should be omitted when there is only one emit
 
   ```nextflow
       versions = ch_collated_versions // channel: [ path(versions.yml) ]
