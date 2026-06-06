@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.04.3
 
 Downloading plugin nf-schema@2.5.1
-Launching `./main.nf` [voluminous_lorenz] revision: d2af9367c2
+Launching `./main.nf` [astonishing_koch] revision: d2af9367c2
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
@@ -18,7 +18,7 @@ WARN: Unrecognized config option 'validation.monochromeLogs'
  |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
                       __/ |
                      |___/
-  sanger-tol/variantcalling 2.0.1
+  sanger-tol/variantcalling 2.0.2
 ------------------------------------------------------
         Typical pipeline command:
 
