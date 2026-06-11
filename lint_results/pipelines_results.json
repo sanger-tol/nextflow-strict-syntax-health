@@ -82,9 +82,9 @@
   "genomenote": {
     "full_name": "sanger-tol/genomenote",
     "html_url": "https://github.com/sanger-tol/genomenote",
-    "commit": "a392b8b52cf698d54ea82865b5d86e93fd1b4577",
+    "commit": "a546b2a8bb474179dd5a1a06647906ef02c2d8bc",
     "errors": 0,
-    "warnings": 5,
+    "warnings": 10,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true

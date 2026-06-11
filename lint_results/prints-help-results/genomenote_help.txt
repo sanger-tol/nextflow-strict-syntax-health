@@ -1,9 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.04.0
+ N E X T F L O W   ~  version 26.04.3
 
-Launching `./main.nf` [special_bell] revision: 26aae0a5ce
+Downloading plugin nf-schema@2.5.1
+Launching `./main.nf` [focused_brattain] revision: 26aae0a5ce
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
@@ -52,7 +53,6 @@ merge]
   --multiqc_title           [string]  MultiQC report title. Printed as page header, used for filename if not otherwise specified. 
   --cool_order              [string]  Path to a file that contains the sequence names in the order you want to represent them on the 
 contact-map.  
-  --genome_notes_api        [string]  URL for Genome Notes Portal API . 
   --note_template           [string]  The path to a genome note template file. 
   --image_format            [string]  Select the format of the output images.  (accepted: png, svg) [default: png] 
 
@@ -68,7 +68,7 @@ Generic options
   --help_full               [boolean]         Display the full detailed help message. 
   --show_hidden             [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
  
- !! Hiding 28 param(s), use the `--showHidden` parameter to show them !!
+ !! Hiding 27 param(s), use the `--showHidden` parameter to show them !!
 ------------------------------------------------------
 
 * The pipeline
