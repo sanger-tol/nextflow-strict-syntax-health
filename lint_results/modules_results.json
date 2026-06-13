@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "5a83ae2eb3c73f92562aa03459effa41ca275f67",
+  "_repo_commit": "b551dfefd78841f3bcd2b13535290baa280ab931",
   "ancestral_extract": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract",
     "errors": 0,
@@ -8,6 +8,12 @@
   },
   "ancestral_plot": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/plot",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "api_scripts_get_lineage_odbs": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/api_scripts/get_lineage_odbs",
     "errors": 0,
     "warnings": 0,
     "parse_error": false

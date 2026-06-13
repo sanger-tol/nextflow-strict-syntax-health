@@ -1,6 +1,6 @@
 {
-  "total": 55,
-  "with_topic_versions": 33,
+  "total": 56,
+  "with_topic_versions": 34,
   "without_topic_versions": 0,
   "subworkflow_with_versions": 0,
   "subworkflow_without_versions": 22,
@@ -15,6 +15,13 @@
     {
       "name": "ancestral_plot",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/ancestral/plot/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "api_scripts_get_lineage_odbs",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/api_scripts/get_lineage_odbs/meta.yml",
       "has_topics": true,
       "has_versions": true,
       "type": "module"
