@@ -38,7 +38,7 @@
   },
   "fasta_10x_polishing_longranger_freebayes": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_10x_polishing_longranger_freebayes",
-    "errors": 0,
+    "errors": 1,
     "warnings": 0,
     "parse_error": false
   },
