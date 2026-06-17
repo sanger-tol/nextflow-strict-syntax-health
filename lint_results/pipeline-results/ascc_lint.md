@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-06-03T00:36:44.194949955Z
+- Generated: 2026-06-17T00:32:34.239253738Z
 - Nextflow version: 26.04.3
 - Summary: 2 errors, 34 warnings
 
@@ -232,14 +232,14 @@
       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/ascc_genomic.nf:809:18`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/ascc_genomic.nf:811:18`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .filter{ meta, file ->
                    ^^^^
   ```
 
-- Warning: `workflows/ascc_genomic.nf:809:24`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/ascc_genomic.nf:811:24`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .filter{ meta, file ->
