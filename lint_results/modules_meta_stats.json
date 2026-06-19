@@ -1,9 +1,9 @@
 {
-  "total": 56,
-  "with_topic_versions": 34,
+  "total": 60,
+  "with_topic_versions": 37,
   "without_topic_versions": 0,
   "subworkflow_with_versions": 0,
-  "subworkflow_without_versions": 22,
+  "subworkflow_without_versions": 23,
   "details": [
     {
       "name": "ancestral_extract",
@@ -202,6 +202,27 @@
       "type": "module"
     },
     {
+      "name": "pretext_juicerc",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/pretext/juicerc/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "pretext_makepairs",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/pretext/makepairs/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "pretext_pretext2asm",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/pretext/pretext2asm/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
       "name": "pretextannotate",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/pretextannotate/meta.yml",
       "has_topics": true,
@@ -372,6 +393,12 @@
     {
       "name": "telo_finder",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/telo_finder/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "zippypretext",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/zippypretext/main.nf",
       "has_versions": false,
       "type": "subworkflow"
     }

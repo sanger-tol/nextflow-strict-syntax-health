@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "b551dfefd78841f3bcd2b13535290baa280ab931",
+  "_repo_commit": "e83e64b0f571493ad01a50335e51c8dfa7f5500f",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -21,7 +21,7 @@
   "busco_gene": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/busco_gene",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 1,
     "parse_error": false
   },
   "cram_map_illumina_hic": {
@@ -38,7 +38,7 @@
   },
   "fasta_10x_polishing_longranger_freebayes": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_10x_polishing_longranger_freebayes",
-    "errors": 1,
+    "errors": 0,
     "warnings": 0,
     "parse_error": false
   },
@@ -129,7 +129,13 @@
   "telo_finder": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/telo_finder",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 1,
+    "parse_error": false
+  },
+  "zippypretext": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/zippypretext",
+    "errors": 0,
+    "warnings": 3,
     "parse_error": false
   }
 }

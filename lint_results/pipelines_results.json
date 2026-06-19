@@ -32,9 +32,9 @@
   "curationpretext": {
     "full_name": "sanger-tol/curationpretext",
     "html_url": "https://github.com/sanger-tol/curationpretext",
-    "commit": "0b80dedb143fcc4c2c976399c7d11570e5ad441c",
+    "commit": "d987ee68e9882feda73b261881da2f2310e61843",
     "errors": 0,
-    "warnings": 6,
+    "warnings": 11,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -162,7 +162,7 @@
   "treeval": {
     "full_name": "sanger-tol/treeval",
     "html_url": "https://github.com/sanger-tol/treeval",
-    "commit": "12a423b3e3ca5e0ae909260f7e74dfaefea558a1",
+    "commit": "ed1730b4fab4e5d06281feae9fa071e16964aac7",
     "errors": 0,
     "warnings": 9,
     "parse_error": false,

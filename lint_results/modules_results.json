@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "b551dfefd78841f3bcd2b13535290baa280ab931",
+  "_repo_commit": "e83e64b0f571493ad01a50335e51c8dfa7f5500f",
   "ancestral_extract": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract",
     "errors": 0,
@@ -164,6 +164,24 @@
   },
   "minimap2_align": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/minimap2/align",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "pretext_juicerc": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/pretext/juicerc",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "pretext_makepairs": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/pretext/makepairs",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "pretext_pretext2asm": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/pretext/pretext2asm",
     "errors": 0,
     "warnings": 0,
     "parse_error": false
