@@ -12,8 +12,8 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-06-19 00:37:54 UTC
-- **Nextflow version:** 26.04.3
+- **Last updated:** 2026-06-20 00:29:27 UTC
+- **Nextflow version:** 26.05.0-edge
 
 ## Pipelines
 
@@ -118,7 +118,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 
 ## Subworkflows
 
-- **Strict syntax:** 0 parse errors, 0 errors, 5 warnings across 23 subworkflows
+- **Strict syntax:** 0 parse errors, 0 errors, 0 warnings across 23 subworkflows
 - **Versions channel:** 23/23 (100.0%) subworkflows do not emit a `versions` output channel
 - **Zero errors:** 23 subworkflows (100.0%)
 
@@ -131,12 +131,10 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 
 | Subworkflow                                                                                                                                                                             | Parse Error | Errors | Warnings |  versions channel  |                                        Lint Output                                        |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: | -----: | -------: | :----------------: | :---------------------------------------------------------------------------------------: |
-| :white_check_mark: [zippypretext](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/zippypretext)                                                         |     No      |      0 |        3 | :white_check_mark: |               [View](lint_results/subworkflow-results/zippypretext_lint.md)               |
-| :white_check_mark: [busco_gene](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/busco_gene)                                                             |     No      |      0 |        1 | :white_check_mark: |                [View](lint_results/subworkflow-results/busco_gene_lint.md)                |
-| :white_check_mark: [telo_finder](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/telo_finder)                                                           |     No      |      0 |        1 | :white_check_mark: |               [View](lint_results/subworkflow-results/telo_finder_lint.md)                |
 | :white_check_mark: [ancestral_annotation](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation)                                         |     No      |      0 |        0 | :white_check_mark: |           [View](lint_results/subworkflow-results/ancestral_annotation_lint.md)           |
 | :white_check_mark: [bam2cool](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/bam2cool)                                                                 |     No      |      0 |        0 | :white_check_mark: |                 [View](lint_results/subworkflow-results/bam2cool_lint.md)                 |
 | :white_check_mark: [bam_samtools_merge_markdup](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/bam_samtools_merge_markdup)                             |     No      |      0 |        0 | :white_check_mark: |        [View](lint_results/subworkflow-results/bam_samtools_merge_markdup_lint.md)        |
+| :white_check_mark: [busco_gene](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/busco_gene)                                                             |     No      |      0 |        0 | :white_check_mark: |                [View](lint_results/subworkflow-results/busco_gene_lint.md)                |
 | :white_check_mark: [cram_map_illumina_hic](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/cram_map_illumina_hic)                                       |     No      |      0 |        0 | :white_check_mark: |          [View](lint_results/subworkflow-results/cram_map_illumina_hic_lint.md)           |
 | :white_check_mark: [cram_map_long_reads](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/cram_map_long_reads)                                           |     No      |      0 |        0 | :white_check_mark: |           [View](lint_results/subworkflow-results/cram_map_long_reads_lint.md)            |
 | :white_check_mark: [fasta_10x_polishing_longranger_freebayes](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_10x_polishing_longranger_freebayes) |     No      |      0 |        0 | :white_check_mark: | [View](lint_results/subworkflow-results/fasta_10x_polishing_longranger_freebayes_lint.md) |
@@ -154,6 +152,8 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :white_check_mark: [repeat_density](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/repeat_density)                                                     |     No      |      0 |        0 | :white_check_mark: |              [View](lint_results/subworkflow-results/repeat_density_lint.md)              |
 | :white_check_mark: [repeat_masking](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/repeat_masking)                                                     |     No      |      0 |        0 | :white_check_mark: |              [View](lint_results/subworkflow-results/repeat_masking_lint.md)              |
 | :white_check_mark: [soft_masked_fasta_repeats](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/soft_masked_fasta_repeats)                               |     No      |      0 |        0 | :white_check_mark: |        [View](lint_results/subworkflow-results/soft_masked_fasta_repeats_lint.md)         |
+| :white_check_mark: [telo_finder](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/telo_finder)                                                           |     No      |      0 |        0 | :white_check_mark: |               [View](lint_results/subworkflow-results/telo_finder_lint.md)                |
+| :white_check_mark: [zippypretext](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/zippypretext)                                                         |     No      |      0 |        0 | :white_check_mark: |               [View](lint_results/subworkflow-results/zippypretext_lint.md)               |
 
 </details>
 

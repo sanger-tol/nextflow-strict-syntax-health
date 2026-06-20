@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "e83e64b0f571493ad01a50335e51c8dfa7f5500f",
+  "_repo_commit": "efd91f9b069da7f52e2e9953dc02ec31d0eae0de",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -21,7 +21,7 @@
   "busco_gene": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/busco_gene",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 0,
     "parse_error": false
   },
   "cram_map_illumina_hic": {
@@ -129,13 +129,13 @@
   "telo_finder": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/telo_finder",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 0,
     "parse_error": false
   },
   "zippypretext": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/zippypretext",
     "errors": 0,
-    "warnings": 3,
+    "warnings": 0,
     "parse_error": false
   }
 }
