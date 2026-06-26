@@ -1,10 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.04.2
+ N E X T F L O W   ~  version 26.05.0-edge
 
 Downloading plugin nf-schema@2.5.1
-Launching `./main.nf` [pensive_angela] revision: ae6905034f
+Launching `./main.nf` [backstabbing_agnesi] revision: ae6905034f
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
@@ -35,12 +35,19 @@ Cloud infrastructure. [default: results]
   --multiqc_title               [string] MultiQC report title. Printed as page header, used for filename if not otherwise specified. 
 
 Variant Analysis Options
+  --vcftools_filter             [string]  VCFtools site/genotype filtering arguments applied to all VCFtools analyses. 
+  --site_pi_filter              [string]  Command-line parameters to pass to VCFtools per-base nucleotide diversity function. 
   --include_positions           [string]  Path to a file with a set of sites on the basis of a list of positions to include. Each line of the 
 input file should contain a (tab-separated) chromosome and position.  
   --exclude_positions           [string]  Path to a file with a set of sites on the basis of a list of positions to exclude. Each line of the 
 input file should contain a (tab-separated) chromosome and position.  
+  --het_filter                  [string]  Command-line parameters to pass to VCFtools heterozygosity function. 
+  --snp_density_filter          [string]  Command-line parameters to pass to VCFtools SNP density function. 
   --snp_density_window          [integer] The window size (in base pairs) used to calculate SNP density across the genome. [default: 1000] 
  
+  --af_filter                   [string]  Command-line parameters to pass to VCFtools allele frequency function. 
+  --indel_len_filter            [string]  Command-line parameters to pass to VCFtools InDel size distribution function. 
+  --roh_filter                  [string]  Command-line parameters to pass to BCFtools RoH function. 
   --roh_threshold               [number]  Allele frequency threshold for identifying runs of homozygosity (ROH). Sites with unknown or lower 
 allele frequency will be skipped. [default: 0.4]  
 
