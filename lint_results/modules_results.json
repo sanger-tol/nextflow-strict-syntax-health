@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "efd91f9b069da7f52e2e9953dc02ec31d0eae0de",
+  "_repo_commit": "31885550afcf2f6973e2fdc3aff37c36fb54551d",
   "ancestral_extract": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract",
     "errors": 0,
@@ -12,8 +12,8 @@
     "warnings": 0,
     "parse_error": false
   },
-  "api_scripts_get_lineage_odbs": {
-    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/api_scripts/get_lineage_odbs",
+  "apiscripts_getlineageodbs": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/apiscripts/getlineageodbs",
     "errors": 0,
     "warnings": 0,
     "parse_error": false
@@ -56,6 +56,12 @@
   },
   "blobtoolkit_generateparamsfile": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/blobtoolkit/generateparamsfile",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "busco_busco": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/busco/busco",
     "errors": 0,
     "warnings": 0,
     "parse_error": false
