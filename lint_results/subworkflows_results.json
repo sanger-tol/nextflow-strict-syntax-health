@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "31885550afcf2f6973e2fdc3aff37c36fb54551d",
+  "_repo_commit": "08165c2ce0fb3b9c7e5dd3f0166f398dfc3f55ed",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -93,7 +93,7 @@
   "odbsearch_busco_restructure": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/odbsearch_busco_restructure",
     "errors": 0,
-    "warnings": 5,
+    "warnings": 3,
     "parse_error": false
   },
   "pacbio_preprocess": {
