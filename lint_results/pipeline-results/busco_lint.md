@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-06-13T00:33:18.737690041Z
-- Nextflow version: 26.04.3
-- Summary: 6 warnings
+- Generated: 2026-07-04T00:22:54.470550208Z
+- Nextflow version: 26.06.0-edge
+- Summary: 9 warnings
 
 ## :warning: Warnings
 
@@ -46,4 +46,25 @@
   ```nextflow
       dummy_emit = true
       ^^^^^^^^^^^^^^^
+  ```
+
+- Warning: `subworkflows/sanger-tol/odbsearch_busco_restructure/main.nf:40:16`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+          .map { id, meta, odb, ref_meta, ref -> [ ref_meta, odb, ref ] }  // meta == ref_meta thanks to APISCRIPTS_GETLINEAGEODBS
+                 ^^
+  ```
+
+- Warning: `subworkflows/sanger-tol/odbsearch_busco_restructure/main.nf:40:20`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+          .map { id, meta, odb, ref_meta, ref -> [ ref_meta, odb, ref ] }  // meta == ref_meta thanks to APISCRIPTS_GETLINEAGEODBS
+                     ^^^^
+  ```
+
+- Warning: `subworkflows/sanger-tol/odbsearch_busco_restructure/main.nf:41:30`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+          .unique { meta, odb, ref ->
+                               ^^^
   ```
