@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "ab3b7f0d1dfdce7003c56a082c1bda02d4953f9f",
+  "_repo_commit": "7f5fd9f1aec442199072d597cd6ac9bdcc764eca",
   "ancestral_extract": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract",
     "errors": 0,
@@ -140,6 +140,24 @@
   },
   "hifiasm": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/hifiasm",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "longc_annotatefrag": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/longc/annotatefrag",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "longc_digestreads": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/longc/digestreads",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "longc_pairtoolsparse2": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/longc/pairtoolsparse2",
     "errors": 0,
     "warnings": 0,
     "parse_error": false

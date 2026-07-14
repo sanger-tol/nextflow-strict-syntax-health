@@ -1,6 +1,6 @@
 {
-  "total": 62,
-  "with_topic_versions": 38,
+  "total": 65,
+  "with_topic_versions": 41,
   "without_topic_versions": 0,
   "subworkflow_with_versions": 0,
   "subworkflow_without_versions": 24,
@@ -169,6 +169,27 @@
     {
       "name": "hifiasm",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/hifiasm/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "longc_annotatefrag",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/longc/annotatefrag/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "longc_digestreads",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/longc/digestreads/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "longc_pairtoolsparse2",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/longc/pairtoolsparse2/meta.yml",
       "has_topics": true,
       "has_versions": true,
       "type": "module"

@@ -12,7 +12,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-07-13 00:20:12 UTC
+- **Last updated:** 2026-07-14 00:20:08 UTC
 - **Nextflow version:** 26.06.0-edge
 
 ## Pipelines
@@ -59,9 +59,9 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 
 ## Modules
 
-- **Strict syntax:** 0 parse errors, 0 errors, 0 warnings across 38 modules
-- **Topic + Version:** 38/38 (100.0%) modules have `topics:` and `versions:` in meta.yml
-- **Zero errors:** 38 modules (100.0%)
+- **Strict syntax:** 0 parse errors, 0 errors, 0 warnings across 41 modules
+- **Topic + Version:** 41/41 (100.0%) modules have `topics:` and `versions:` in meta.yml
+- **Zero errors:** 41 modules (100.0%)
 
 |                   Errors                   |                    Warnings                    |
 | :----------------------------------------: | :--------------------------------------------: |
@@ -72,7 +72,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | ![Topic Version Usage](lint_results/modules_topic_versions.png) |
 
 <details>
-<summary>Module Results (38 modules)</summary>
+<summary>Module Results (41 modules)</summary>
 
 | Module                                                                                                                                                                 | Parse Error | Errors | Warnings |     `topics:`      |    `versions:`     |                                  Lint Output                                   |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: | -----: | -------: | :----------------: | :----------------: | :----------------------------------------------------------------------------: |
@@ -100,6 +100,9 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :white_check_mark: [generatecontactsindex](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/generatecontactsindex)                           |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |       [View](lint_results/module-results/generatecontactsindex_lint.md)        |
 | :white_check_mark: [gnk_fastasort](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/gnk/fastasort)                                           |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |           [View](lint_results/module-results/gnk_fastasort_lint.md)            |
 | :white_check_mark: [hifiasm](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/hifiasm)                                                       |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |              [View](lint_results/module-results/hifiasm_lint.md)               |
+| :white_check_mark: [longc_annotatefrag](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/longc/annotatefrag)                                 |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |         [View](lint_results/module-results/longc_annotatefrag_lint.md)         |
+| :white_check_mark: [longc_digestreads](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/longc/digestreads)                                   |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |         [View](lint_results/module-results/longc_digestreads_lint.md)          |
+| :white_check_mark: [longc_pairtoolsparse2](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/longc/pairtoolsparse2)                           |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |       [View](lint_results/module-results/longc_pairtoolsparse2_lint.md)        |
 | :white_check_mark: [longranger_align](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/longranger/align)                                     |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |          [View](lint_results/module-results/longranger_align_lint.md)          |
 | :white_check_mark: [longranger_mkref](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/longranger/mkref)                                     |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |          [View](lint_results/module-results/longranger_mkref_lint.md)          |
 | :white_check_mark: [mask_softmask2bed](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/mask/softmask2bed)                                   |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |         [View](lint_results/module-results/mask_softmask2bed_lint.md)          |
