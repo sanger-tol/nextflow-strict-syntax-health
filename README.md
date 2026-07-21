@@ -12,12 +12,12 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-07-20 00:21:22 UTC
+- **Last updated:** 2026-07-21 00:22:56 UTC
 - **Nextflow version:** 26.07.0-edge
 
 ## Pipelines
 
-- **Strict syntax:** 0 parse errors, 7 errors, 236 warnings across 20 pipelines
+- **Strict syntax:** 0 parse errors, 7 errors, 225 warnings across 20 pipelines
 - **Versions Mix:** 9/20 (45.0%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
 - **Zero issues:** 1 pipelines (5.0%)
 
@@ -38,7 +38,6 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :x: [ascc](https://github.com/sanger-tol/ascc)                                    |     No      |      2 |       34 |      -      | :negative_squared_cross_mark: |         [View](lint_results/pipeline-results/ascc_lint.md)          |                                    -                                    |
 | :x: [ear](https://github.com/sanger-tol/ear)                                      |     No      |      0 |       57 |     No      | :negative_squared_cross_mark: |          [View](lint_results/pipeline-results/ear_lint.md)          |          [View](lint_results/prints-help-results/ear_help.txt)          |
 | :x: [nfmicrofinder](https://github.com/sanger-tol/nfmicrofinder)                  |     No      |      0 |       22 |     No      | :negative_squared_cross_mark: |     [View](lint_results/pipeline-results/nfmicrofinder_lint.md)     |     [View](lint_results/prints-help-results/nfmicrofinder_help.txt)     |
-| :x: [blobtoolkit](https://github.com/sanger-tol/blobtoolkit)                      |     No      |      0 |       13 |     Yes     | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/blobtoolkit_lint.md)      |      [View](lint_results/prints-help-results/blobtoolkit_help.txt)      |
 | :x: [curationpretext](https://github.com/sanger-tol/curationpretext)              |     No      |      0 |       11 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/curationpretext_lint.md)    |    [View](lint_results/prints-help-results/curationpretext_help.txt)    |
 | :x: [genomenote](https://github.com/sanger-tol/genomenote)                        |     No      |      0 |       10 |     Yes     | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/genomenote_lint.md)       |      [View](lint_results/prints-help-results/genomenote_help.txt)       |
 | :x: [purging](https://github.com/sanger-tol/purging)                              |     No      |      0 |       10 |     No      |      :white_check_mark:       |        [View](lint_results/pipeline-results/purging_lint.md)        |        [View](lint_results/prints-help-results/purging_help.txt)        |
@@ -50,6 +49,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :x: [busco](https://github.com/sanger-tol/busco)                                  |     No      |      0 |        6 |     No      |      :white_check_mark:       |         [View](lint_results/pipeline-results/busco_lint.md)         |         [View](lint_results/prints-help-results/busco_help.txt)         |
 | :x: [variantcomposition](https://github.com/sanger-tol/variantcomposition)        |     No      |      0 |        5 |     Yes     | :negative_squared_cross_mark: |  [View](lint_results/pipeline-results/variantcomposition_lint.md)   |  [View](lint_results/prints-help-results/variantcomposition_help.txt)   |
 | :x: [metagenomeassembly](https://github.com/sanger-tol/metagenomeassembly)        |     No      |      0 |        4 |     Yes     | :negative_squared_cross_mark: |  [View](lint_results/pipeline-results/metagenomeassembly_lint.md)   |  [View](lint_results/prints-help-results/metagenomeassembly_help.txt)   |
+| :x: [blobtoolkit](https://github.com/sanger-tol/blobtoolkit)                      |     No      |      0 |        2 |     Yes     | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/blobtoolkit_lint.md)      |      [View](lint_results/prints-help-results/blobtoolkit_help.txt)      |
 | :x: [ensemblgenedownload](https://github.com/sanger-tol/ensemblgenedownload)      |     No      |      0 |        1 |     Yes     |      :white_check_mark:       |  [View](lint_results/pipeline-results/ensemblgenedownload_lint.md)  |  [View](lint_results/prints-help-results/ensemblgenedownload_help.txt)  |
 | :x: [ensemblrepeatdownload](https://github.com/sanger-tol/ensemblrepeatdownload)  |     No      |      0 |        1 |     Yes     |      :white_check_mark:       | [View](lint_results/pipeline-results/ensemblrepeatdownload_lint.md) | [View](lint_results/prints-help-results/ensemblrepeatdownload_help.txt) |
 | :x: [insdcdownload](https://github.com/sanger-tol/insdcdownload)                  |     No      |      0 |        1 |     Yes     |      :white_check_mark:       |     [View](lint_results/pipeline-results/insdcdownload_lint.md)     |     [View](lint_results/prints-help-results/insdcdownload_help.txt)     |
