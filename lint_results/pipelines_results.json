@@ -22,9 +22,9 @@
   "busco": {
     "full_name": "sanger-tol/busco",
     "html_url": "https://github.com/sanger-tol/busco",
-    "commit": "92ec169f87f8c2ee82bbc61231514d961925bde4",
+    "commit": "f1c298136225de51ce8099c8533a4ab0f3b4caeb",
     "errors": 0,
-    "warnings": 6,
+    "warnings": 1,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": false
