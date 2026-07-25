@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "7f5fd9f1aec442199072d597cd6ac9bdcc764eca",
+  "_repo_commit": "574e94eb0810df8183eccf75d2e200d5bbdf9016",
   "ancestral_extract": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract",
     "errors": 0,
@@ -22,6 +22,24 @@
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/asmstats",
     "errors": 0,
     "warnings": 0,
+    "parse_error": false
+  },
+  "autofilter_autofilter": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/autofilter/autofilter",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "autofilter_contaminationcheck": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/autofilter/contaminationcheck",
+    "errors": 0,
+    "warnings": 1,
+    "parse_error": false
+  },
+  "autofilter_filterfasta": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/autofilter/filterfasta",
+    "errors": 0,
+    "warnings": 1,
     "parse_error": false
   },
   "bedchunks_create": {
@@ -116,6 +134,18 @@
   },
   "fastxalign_pyfastxindex": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/fastxalign/pyfastxindex",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "fcsgx_parseresults": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/fcsgx/parseresults",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "fcsgx_rungx": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/fcsgx/rungx",
     "errors": 0,
     "warnings": 0,
     "parse_error": false

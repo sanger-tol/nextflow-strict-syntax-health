@@ -1,6 +1,6 @@
 {
-  "total": 65,
-  "with_topic_versions": 41,
+  "total": 70,
+  "with_topic_versions": 46,
   "without_topic_versions": 0,
   "subworkflow_with_versions": 0,
   "subworkflow_without_versions": 24,
@@ -29,6 +29,27 @@
     {
       "name": "asmstats",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/asmstats/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "autofilter_autofilter",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/autofilter/autofilter/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "autofilter_contaminationcheck",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/autofilter/contaminationcheck/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "autofilter_filterfasta",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/autofilter/filterfasta/meta.yml",
       "has_topics": true,
       "has_versions": true,
       "type": "module"
@@ -141,6 +162,20 @@
     {
       "name": "fastxalign_pyfastxindex",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/fastxalign/pyfastxindex/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "fcsgx_parseresults",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/fcsgx/parseresults/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "fcsgx_rungx",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/fcsgx/rungx/meta.yml",
       "has_topics": true,
       "has_versions": true,
       "type": "module"
