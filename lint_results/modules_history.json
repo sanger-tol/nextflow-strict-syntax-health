@@ -2126,5 +2126,18 @@
     "warnings_high": 0,
     "meta_with_topic_versions": 46,
     "meta_without_topic_versions": 0
+  },
+  {
+    "date": "2026-07-27",
+    "total": 46,
+    "parse_errors": 0,
+    "errors_zero": 46,
+    "errors_low": 0,
+    "errors_high": 0,
+    "warnings_zero": 44,
+    "warnings_low": 2,
+    "warnings_high": 0,
+    "meta_with_topic_versions": 46,
+    "meta_without_topic_versions": 0
   }
 ]
