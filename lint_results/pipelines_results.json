@@ -132,9 +132,9 @@
   "readmapping": {
     "full_name": "sanger-tol/readmapping",
     "html_url": "https://github.com/sanger-tol/readmapping",
-    "commit": "6f9ddc007a2a01090cffe2699bd23b8e1761b1d9",
+    "commit": "acbfdd57a63fe1cd61f6c4a2cacd796bf94d5e6c",
     "errors": 0,
-    "warnings": 10,
+    "warnings": 2,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
