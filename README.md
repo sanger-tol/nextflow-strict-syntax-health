@@ -12,7 +12,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-07-31 00:24:30 UTC
+- **Last updated:** 2026-08-01 00:20:22 UTC
 - **Nextflow version:** 26.07.0-edge
 
 ## Pipelines
@@ -59,7 +59,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 
 ## Modules
 
-- **Strict syntax:** 0 parse errors, 0 errors, 2 warnings across 46 modules
+- **Strict syntax:** 0 parse errors, 0 errors, 0 warnings across 46 modules
 - **Topic + Version:** 46/46 (100.0%) modules have `topics:` and `versions:` in meta.yml
 - **Zero errors:** 46 modules (100.0%)
 
@@ -76,13 +76,13 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 
 | Module                                                                                                                                                                 | Parse Error | Errors | Warnings |     `topics:`      |    `versions:`     |                                  Lint Output                                   |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: | -----: | -------: | :----------------: | :----------------: | :----------------------------------------------------------------------------: |
-| :white_check_mark: [autofilter_contaminationcheck](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/autofilter/contaminationcheck)           |     No      |      0 |        1 | :white_check_mark: | :white_check_mark: |   [View](lint_results/module-results/autofilter_contaminationcheck_lint.md)    |
-| :white_check_mark: [autofilter_filterfasta](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/autofilter/filterfasta)                         |     No      |      0 |        1 | :white_check_mark: | :white_check_mark: |       [View](lint_results/module-results/autofilter_filterfasta_lint.md)       |
 | :white_check_mark: [ancestral_extract](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract)                                   |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |         [View](lint_results/module-results/ancestral_extract_lint.md)          |
 | :white_check_mark: [ancestral_plot](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/plot)                                         |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |           [View](lint_results/module-results/ancestral_plot_lint.md)           |
 | :white_check_mark: [apiscripts_getlineageodbs](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/apiscripts/getlineageodbs)                   |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |     [View](lint_results/module-results/apiscripts_getlineageodbs_lint.md)      |
 | :white_check_mark: [asmstats](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/asmstats)                                                     |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |              [View](lint_results/module-results/asmstats_lint.md)              |
 | :white_check_mark: [autofilter_autofilter](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/autofilter/autofilter)                           |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |       [View](lint_results/module-results/autofilter_autofilter_lint.md)        |
+| :white_check_mark: [autofilter_contaminationcheck](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/autofilter/contaminationcheck)           |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |   [View](lint_results/module-results/autofilter_contaminationcheck_lint.md)    |
+| :white_check_mark: [autofilter_filterfasta](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/autofilter/filterfasta)                         |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |       [View](lint_results/module-results/autofilter_filterfasta_lint.md)       |
 | :white_check_mark: [bedchunks_create](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/bedchunks/create)                                     |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |          [View](lint_results/module-results/bedchunks_create_lint.md)          |
 | :white_check_mark: [bedtools_bamtobedsort](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/bedtools/bamtobedsort)                           |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |       [View](lint_results/module-results/bedtools_bamtobedsort_lint.md)        |
 | :white_check_mark: [bgziptabix](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/bgziptabix)                                                 |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |             [View](lint_results/module-results/bgziptabix_lint.md)             |
