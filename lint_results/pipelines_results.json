@@ -72,7 +72,7 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "5ee4ca40fb6c1cffc06b26b02b10ae06d50cd823",
+    "commit": "320a317d986cbcb56d7a362e3c7533cedf02864a",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
