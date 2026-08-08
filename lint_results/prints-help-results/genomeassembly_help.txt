@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.07.0-edge
 
 Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [nauseous_franklin] revision: 980892b90a
+Launching `./main.nf` [mighty_curran] revision: edd884eb0e
 
 
 ------------------------------------------------------
@@ -59,6 +59,9 @@ Hi-C mapping and scaffolding options
   --hic_mapping_cram_chunk_size         [integer] Number of CRAM slices to include per CRAM file per mapping chunk. Lower values mean more Hi-C 
 mapping jobs are spawned, but each should have a lower run time. [default: 10000]  
   --hic_mapping_minq                    [integer] Minimum MapQ score for a Hi-C read to be retained for scaffolding. [default: 10] 
+  --build_pretext_map                   [boolean] Build a Pretext representation of the Hi-C contact map. [default: true] 
+  --build_juicer_map                    [boolean] Build a Hi-C contact map for visualisation with Juicer. [default: true] 
+  --build_cooler_map                    [boolean] Build a Hi-C contact map for visualisation with Cooler. [default: true] 
   --scaffolding_cool_bin_size           [integer] Bin size to use when building cooler contact maps. [default: 1000] 
 
 Assembly QC options
