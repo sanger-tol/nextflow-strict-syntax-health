@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "7b6c533cd1c62f114a66e6f98aeab4a96d7999d5",
+  "_repo_commit": "80b2be8997ba15f7901f8e97f749993c13364c7a",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -106,6 +106,12 @@
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/pairs_create_contact_maps",
     "errors": 0,
     "warnings": 0,
+    "parse_error": false
+  },
+  "pretext_accessory_files": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/pretext_accessory_files",
+    "errors": 0,
+    "warnings": 2,
     "parse_error": false
   },
   "read_coverage": {

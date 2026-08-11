@@ -102,12 +102,12 @@
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "e9773d3a40ce73ab30260261887348161e28d4d3",
+    "commit": "4ecee28d968a348c304f20d42d7002e810350e48",
     "errors": 0,
-    "warnings": 4,
+    "warnings": 0,
     "parse_error": false,
     "prints_help": true,
-    "has_versions_mix": true
+    "has_versions_mix": false
   },
   "nfmicrofinder": {
     "full_name": "sanger-tol/nfmicrofinder",

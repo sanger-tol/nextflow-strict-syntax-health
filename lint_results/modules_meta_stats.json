@@ -1,9 +1,9 @@
 {
-  "total": 70,
+  "total": 71,
   "with_topic_versions": 46,
   "without_topic_versions": 0,
   "subworkflow_with_versions": 0,
-  "subworkflow_without_versions": 24,
+  "subworkflow_without_versions": 25,
   "details": [
     {
       "name": "ancestral_extract",
@@ -432,6 +432,12 @@
     {
       "name": "pairs_create_contact_maps",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/pairs_create_contact_maps/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "pretext_accessory_files",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/pretext_accessory_files/main.nf",
       "has_versions": false,
       "type": "subworkflow"
     },
