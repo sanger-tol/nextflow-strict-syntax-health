@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "80b2be8997ba15f7901f8e97f749993c13364c7a",
+  "_repo_commit": "71fb25b96e03e6a16588b48d15279e792cdc7579",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -66,6 +66,12 @@
     "warnings": 0,
     "parse_error": false
   },
+  "fcsgx_parsecsv": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fcsgx_parsecsv",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
   "feature_density": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/feature_density",
     "errors": 0,
@@ -111,7 +117,7 @@
   "pretext_accessory_files": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/pretext_accessory_files",
     "errors": 0,
-    "warnings": 2,
+    "warnings": 0,
     "parse_error": false
   },
   "read_coverage": {

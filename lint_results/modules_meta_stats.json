@@ -1,9 +1,9 @@
 {
-  "total": 71,
+  "total": 72,
   "with_topic_versions": 46,
   "without_topic_versions": 0,
   "subworkflow_with_versions": 0,
-  "subworkflow_without_versions": 25,
+  "subworkflow_without_versions": 26,
   "details": [
     {
       "name": "ancestral_extract",
@@ -390,6 +390,12 @@
     {
       "name": "fastx_map_long_reads",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/fastx_map_long_reads/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "fcsgx_parsecsv",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/fcsgx_parsecsv/main.nf",
       "has_versions": false,
       "type": "subworkflow"
     },
