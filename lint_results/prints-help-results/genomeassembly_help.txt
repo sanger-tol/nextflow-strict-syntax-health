@@ -3,8 +3,8 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
  N E X T F L O W   ~  version 26.07.0-edge
 
-Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [mighty_curran] revision: edd884eb0e
+Downloading plugin nf-schema@2.7.2
+Launching `./main.nf` [goofy_gutenberg] revision: df7df3aab1
 
 
 ------------------------------------------------------
@@ -66,6 +66,8 @@ mapping jobs are spawned, but each should have a lower run time. [default: 10000
 
 Assembly QC options
   --busco_lineage_directory             [string] Path to a local directory containing pre-downloade BUSCO lineages. 
+  --busco_lineage                       [string] Name of the BUSCO lineage to use for assembly QC. Defaults to "auto_euk" which will automatically 
+try to choose the most appropriate eukaryotic BUSCO lineage. [default: auto_euk]  
 
 Organelle assembly options
   --mitohifi_min_ref_len                [integer] The minimum size of a reference organellar genome to use in reference-based organelle assembly with 
