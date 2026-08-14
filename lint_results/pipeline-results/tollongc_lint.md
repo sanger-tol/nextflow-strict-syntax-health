@@ -1,52 +1,10 @@
 # Nextflow lint results
 
-- Generated: 2026-04-16T23:48:47.452300782Z
-- Nextflow version: 26.03.2-edge
-- Summary: 9 warnings
+- Generated: 2026-08-14T00:14:28.577758349Z
+- Nextflow version: 26.07.0-edge
+- Summary: 2 warnings
 
 ## :warning: Warnings
-
-- Warning: `subworkflows/local/utils_nfcore_tollongc_pipeline/main.nf:31:5`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-      monochrome_logs   // boolean: Do not use coloured log outputs
-      ^^^^^^^^^^^^^^^
-  ```
-
-- Warning: `subworkflows/local/utils_nfcore_tollongc_pipeline/main.nf:34:5`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-      input             //  string: Path to input samplesheet
-      ^^^^^
-  ```
-
-- Warning: `subworkflows/local/utils_nfcore_tollongc_pipeline/main.nf:38:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
-  ```
-
-- Warning: `subworkflows/local/utils_nfcore_tollongc_pipeline/main.nf:70:5`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      Channel
-      ^^^^^^^
-  ```
-
-- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:16:5`: Variable was declared but not used
-
-  ```nextflow
-      valid_config = checkConfigProvided()
-      ^^^^^^^^^^^^
-  ```
-
-- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:101:98`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      return ch_versions.unique().map { version -> processVersionsFromYAML(version) }.unique().mix(Channel.of(workflowVersionToYAML()))
-                                                                                                   ^^^^^^^
-  ```
 
 - Warning: `workflows/tollongc.nf:19:5`: Parameter was not used -- prefix with `_` to suppress warning
 
@@ -55,16 +13,9 @@
       ^^^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/tollongc.nf:22:19`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
+- Warning: `workflows/tollongc.nf:46:9`: Variable was declared but not used
 
   ```nextflow
-      ch_versions = Channel.empty()
-                    ^^^^^^^
-  ```
-
-- Warning: `workflows/tollongc.nf:33:17`: Variable was declared but not used
-
-  ```nextflow
-          ).set { ch_collated_versions }
-                  ^^^^^^^^^^^^^^^^^^^^
+      def ch_collated_versions = softwareVersionsToYAML(ch_versions.mix(topic_versions.versions_file))
+          ^^^^^^^^^^^^^^^^^^^^
   ```
