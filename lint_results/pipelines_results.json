@@ -72,7 +72,7 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "b802a6a0fe2610d220883fc28977ceb0973b4f02",
+    "commit": "03113818da8a1a5022c6a2f3b0d24e50fc11fae1",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -102,9 +102,9 @@
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "0d15e8ff127a19d65f3e4a8841e9af348dd324fb",
+    "commit": "6c87400b07fd9259f32271431b2bbba51363e9e2",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 2,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -112,9 +112,9 @@
   "nfmicrofinder": {
     "full_name": "sanger-tol/nfmicrofinder",
     "html_url": "https://github.com/sanger-tol/nfmicrofinder",
-    "commit": "858b2a0750328215449ee36589940538c305e9c8",
+    "commit": "925727df404435618b149704ce22ba6e3249174d",
     "errors": 0,
-    "warnings": 22,
+    "warnings": 0,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": true
@@ -182,21 +182,11 @@
   "variantcomposition": {
     "full_name": "sanger-tol/variantcomposition",
     "html_url": "https://github.com/sanger-tol/variantcomposition",
-    "commit": "c0ee5ef999f94ab1b30f4cda75d360eef3c7e6d9",
+    "commit": "f157bee4824bf7c706895694708b48ecb42123ba",
     "errors": 0,
-    "warnings": 5,
+    "warnings": 0,
     "parse_error": false,
     "prints_help": true,
-    "has_versions_mix": true
-  },
-  "zippypretext": {
-    "full_name": "sanger-tol/zippypretext",
-    "html_url": "https://github.com/sanger-tol/zippypretext",
-    "commit": "d32f0ae3722b7faaccccda37df8dae43a2e039fb",
-    "errors": 5,
-    "warnings": 16,
-    "parse_error": false,
-    "prints_help": null,
     "has_versions_mix": true
   }
 }
