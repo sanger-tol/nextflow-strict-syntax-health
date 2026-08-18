@@ -3,7 +3,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
  N E X T F L O W   ~  version 26.07.0-edge
 
-Launching `./main.nf` [loving_gutenberg] revision: b42ac12553
+Launching `./main.nf` [awesome_avogadro] revision: b42ac12553
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
@@ -47,8 +47,9 @@ input file should contain a (tab-separated) chromosome and position.
   --af_filter                   [string]  Command-line parameters to pass to VCFtools allele frequency function. 
   --indel_len_filter            [string]  Command-line parameters to pass to VCFtools InDel size distribution function. 
   --roh_filter                  [string]  Command-line parameters to pass to BCFtools RoH function. 
-  --roh_threshold               [number]  Allele frequency threshold for identifying runs of homozygosity (ROH). Sites with unknown or lower 
-allele frequency will be skipped. [default: 0.4]  
+  --af_tag                      [string]  Name of the INFO tag in the input VCF that contains allele frequencies. 
+  --af_default_value            [number]  Default allele frequency when no value could be found in the allele-frequency file or in the VCF 
+file itself. [default: 0.4]  
 
 Generic options
   --multiqc_methods_description [string]          Custom MultiQC yaml file containing HTML including a methods description. 

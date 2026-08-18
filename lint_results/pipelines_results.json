@@ -72,7 +72,7 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "03113818da8a1a5022c6a2f3b0d24e50fc11fae1",
+    "commit": "81843dcbd1fce1740cccd8b530e4654c243ec7b0",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -82,9 +82,9 @@
   "genomenote": {
     "full_name": "sanger-tol/genomenote",
     "html_url": "https://github.com/sanger-tol/genomenote",
-    "commit": "a546b2a8bb474179dd5a1a06647906ef02c2d8bc",
+    "commit": "ea2d508a98802b7942c9c750e999f2528af827ab",
     "errors": 0,
-    "warnings": 10,
+    "warnings": 0,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -102,7 +102,7 @@
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "6c87400b07fd9259f32271431b2bbba51363e9e2",
+    "commit": "0879660aeff40abcd9d96d9022a8c3dd171b5170",
     "errors": 0,
     "warnings": 2,
     "parse_error": false,
@@ -182,9 +182,9 @@
   "variantcomposition": {
     "full_name": "sanger-tol/variantcomposition",
     "html_url": "https://github.com/sanger-tol/variantcomposition",
-    "commit": "f157bee4824bf7c706895694708b48ecb42123ba",
+    "commit": "ae7179501a744dc2664eb796137f7b52e8789287",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 3,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
