@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-07-22T00:20:18.943985345Z
+- Generated: 2026-08-19T00:07:11.083324967Z
 - Nextflow version: 26.07.0-edge
-- Summary: 2 warnings
+- Summary: 1 warning
 
 ## :warning: Warnings
 
@@ -11,11 +11,4 @@
   ```nextflow
               saveAs: { filename ->
                         ^^^^^^^^
-  ```
-
-- Warning: `workflows/blobtoolkit.nf:175:26`: The use of `Channel` to access channel factories is deprecated -- use `channel` instead
-
-  ```nextflow
-      def topic_versions = Channel.topic("versions")
-                           ^^^^^^^
   ```

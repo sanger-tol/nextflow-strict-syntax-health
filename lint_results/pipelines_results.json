@@ -12,9 +12,9 @@
   "blobtoolkit": {
     "full_name": "sanger-tol/blobtoolkit",
     "html_url": "https://github.com/sanger-tol/blobtoolkit",
-    "commit": "8621a485f2d59ca085808520161f4520d6260592",
+    "commit": "f5f62cf72e21bded573e13a044e076ae1b9b9f6b",
     "errors": 0,
-    "warnings": 2,
+    "warnings": 1,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -72,11 +72,11 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "81843dcbd1fce1740cccd8b530e4654c243ec7b0",
+    "commit": "46442524ac420350415dc9daa241be823eb32c47",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": true,
+    "prints_help": false,
     "has_versions_mix": true
   },
   "genomenote": {
@@ -102,7 +102,7 @@
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "0879660aeff40abcd9d96d9022a8c3dd171b5170",
+    "commit": "791f6d518b3174fe7d87895327582e46c6dd992c",
     "errors": 0,
     "warnings": 2,
     "parse_error": false,
@@ -172,9 +172,9 @@
   "variantcalling": {
     "full_name": "sanger-tol/variantcalling",
     "html_url": "https://github.com/sanger-tol/variantcalling",
-    "commit": "9c8e40a29994948a6421b05560fc3b43472d1ed3",
+    "commit": "6144a455cde8e76596918ec3b4b6e75101d4a2ca",
     "errors": 0,
-    "warnings": 10,
+    "warnings": 2,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
