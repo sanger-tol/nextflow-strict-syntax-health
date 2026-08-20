@@ -52,9 +52,9 @@
   "ensemblgenedownload": {
     "full_name": "sanger-tol/ensemblgenedownload",
     "html_url": "https://github.com/sanger-tol/ensemblgenedownload",
-    "commit": "27069deb1c33ccd82b5426d4fd948cf65b839a6d",
+    "commit": "ca84b70bb971fec3ca2178f071df32ded63fcb16",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 0,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -62,9 +62,9 @@
   "ensemblrepeatdownload": {
     "full_name": "sanger-tol/ensemblrepeatdownload",
     "html_url": "https://github.com/sanger-tol/ensemblrepeatdownload",
-    "commit": "6fb99a14d1018a6f834d10afd229d967fe2a3373",
+    "commit": "e3f243aa61fb4db1c42462d2d80ffd0de6d15c5a",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 0,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -72,11 +72,11 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "46442524ac420350415dc9daa241be823eb32c47",
+    "commit": "a599452821d32811aab2b9d4a52f166ab4478d05",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
-    "prints_help": false,
+    "prints_help": true,
     "has_versions_mix": true
   },
   "genomenote": {
@@ -102,7 +102,7 @@
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "791f6d518b3174fe7d87895327582e46c6dd992c",
+    "commit": "1fb3c94f784faf47ef3c129416a9af5f9307a545",
     "errors": 0,
     "warnings": 2,
     "parse_error": false,
@@ -112,11 +112,11 @@
   "nfmicrofinder": {
     "full_name": "sanger-tol/nfmicrofinder",
     "html_url": "https://github.com/sanger-tol/nfmicrofinder",
-    "commit": "925727df404435618b149704ce22ba6e3249174d",
+    "commit": "4ff04a9bec7e55f22e3ba8d53829ed4c9869a9fe",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 1,
     "parse_error": false,
-    "prints_help": false,
+    "prints_help": true,
     "has_versions_mix": true
   },
   "purging": {
@@ -132,7 +132,7 @@
   "readmapping": {
     "full_name": "sanger-tol/readmapping",
     "html_url": "https://github.com/sanger-tol/readmapping",
-    "commit": "4b224e03e6d896f3bcc468213d39e6c5c106067f",
+    "commit": "37414d9138e8e81a22c54d132ce34167ef12a2f1",
     "errors": 0,
     "warnings": 2,
     "parse_error": false,
@@ -182,7 +182,7 @@
   "variantcomposition": {
     "full_name": "sanger-tol/variantcomposition",
     "html_url": "https://github.com/sanger-tol/variantcomposition",
-    "commit": "ae7179501a744dc2664eb796137f7b52e8789287",
+    "commit": "60cfe6edc3ed0526dead8c7767b2bc880fa332cf",
     "errors": 0,
     "warnings": 3,
     "parse_error": false,
