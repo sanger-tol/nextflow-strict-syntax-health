@@ -92,7 +92,7 @@
   "insdcdownload": {
     "full_name": "sanger-tol/insdcdownload",
     "html_url": "https://github.com/sanger-tol/insdcdownload",
-    "commit": "19d5dcf0342483a300dd9dab4ba29a02167e15e5",
+    "commit": "386a18fa70fddd180697126a5e90b7c143b94a68",
     "errors": 0,
     "warnings": 1,
     "parse_error": false,
@@ -102,7 +102,7 @@
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "1fb3c94f784faf47ef3c129416a9af5f9307a545",
+    "commit": "8f81cb126510d22dc54511284b3531f36b50849a",
     "errors": 0,
     "warnings": 2,
     "parse_error": false,
@@ -132,7 +132,7 @@
   "readmapping": {
     "full_name": "sanger-tol/readmapping",
     "html_url": "https://github.com/sanger-tol/readmapping",
-    "commit": "37414d9138e8e81a22c54d132ce34167ef12a2f1",
+    "commit": "caf0c52dfb52f4741be5cb28700355010a26c491",
     "errors": 0,
     "warnings": 2,
     "parse_error": false,
@@ -142,9 +142,9 @@
   "sequencecomposition": {
     "full_name": "sanger-tol/sequencecomposition",
     "html_url": "https://github.com/sanger-tol/sequencecomposition",
-    "commit": "8371f90f1139b365ba9185595fe33524172a3614",
+    "commit": "03f0fda5853d3ee0c2eb5a339fc13772187e8dfa",
     "errors": 0,
-    "warnings": 7,
+    "warnings": 1,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false

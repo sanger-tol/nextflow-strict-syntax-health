@@ -1,14 +1,14 @@
 # Nextflow lint results
 
-- Generated: 2026-04-16T23:47:24.338164910Z
-- Nextflow version: 26.03.2-edge
+- Generated: 2026-08-21T00:07:44.486522326Z
+- Nextflow version: 26.08.0-edge
 - Summary: 1 warning
 
 ## :warning: Warnings
 
-- Warning: `subworkflows/nf-core/utils_nfcore_pipeline/main.nf:16:5`: Variable was declared but not used
+- Warning: `workflows/insdcdownload.nf:95:9`: Variable was declared but not used
 
   ```nextflow
-      valid_config = checkConfigProvided()
-      ^^^^^^^^^^^^
+      def ch_collated_versions = softwareVersionsToYAML(ch_versions.mix(topic_versions.versions_file))
+          ^^^^^^^^^^^^^^^^^^^^
   ```
