@@ -22,7 +22,7 @@
   "busco": {
     "full_name": "sanger-tol/busco",
     "html_url": "https://github.com/sanger-tol/busco",
-    "commit": "f1c298136225de51ce8099c8533a4ab0f3b4caeb",
+    "commit": "35490b580394a96bd4eb9a022ad2df880653f295",
     "errors": 0,
     "warnings": 1,
     "parse_error": false,
@@ -102,7 +102,7 @@
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "8f81cb126510d22dc54511284b3531f36b50849a",
+    "commit": "57c47bc7f54eca69d07fbb749de5aad28d1e38ca",
     "errors": 0,
     "warnings": 2,
     "parse_error": false,
@@ -182,7 +182,7 @@
   "variantcomposition": {
     "full_name": "sanger-tol/variantcomposition",
     "html_url": "https://github.com/sanger-tol/variantcomposition",
-    "commit": "60cfe6edc3ed0526dead8c7767b2bc880fa332cf",
+    "commit": "bc88af836e9702057b8d54256a6cadc396b01a0c",
     "errors": 0,
     "warnings": 3,
     "parse_error": false,
