@@ -4,10 +4,61 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.08.0-edge
 
 Downloading plugin nf-schema@2.5.1
-Launching `./main.nf` [ecstatic_mclean] revision: 486a0ed616
+Launching `./main.nf` [curious_kalman] revision: c92d491cbc
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
-ERROR ~ Unable to create help message: Specified param 'true' does not exist in JSON schema.
 
- -- Check script 'subworkflows/nf-core/utils_nfschema_plugin/main.nf' at line: 41 or see '.nextflow.log' file for more details
+------------------------------------------------------
+   _____                                _______    _
+  / ____|                              |__   __|  | |
+ | (___   __ _ _ __   __ _  ___ _ __  ___ | | ___ | |
+  \___ \ / _` | '_ \ / _` |/ _ \ '__||___|| |/ _ \| |
+  ____) | (_| | | | | (_| |  __/ |        | | (_) | |____
+ |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
+                      __/ |
+                     |___/
+  sanger-tol/busco 0.3.2
+------------------------------------------------------
+        Typical pipeline command:
+
+  nextflow run sanger-tol/busco -profile <docker/singularity/.../institute> --input samplesheet.csv --outdir <OUTDIR>
+
+help message of that parameter will be printed.  
+or `--helpFull`.  
+
+Input/output options
+  --fasta                       [string] Path/URL to one assembly FASTA file to analyse. 
+  --input                       [string] Path to a CSV samplesheet describing one or more assemblies. 
+  --taxid                       [number] Global NCBI taxid for lineage discovery. 
+  --lineage                     [string] Global explicit BUSCO lineage(s) to add. 
+  --mapping_directory           [string] Directory containing BUSCO taxid mapping files. 
+  --busco_db                    [string] Local BUSCO database directory (optional). 
+  --mode                        [string] Global lineage discovery mode(s): basal, latest, ancestral. 
+  --odb_versions                [string] ODB version(s) to use. 
+  --outdir                      [string] The output directory where the results will be saved. You have to use absolute paths to storage on 
+Cloud infrastructure.  
+  --email                       [string] Email address for completion summary. 
+  --multiqc_title               [string] MultiQC report title. Printed as page header, used for filename if not otherwise specified. 
+
+Execution
+  --use_work_dir_as_temp        [boolean] Use Nextflow work directory for temporary files where supported. 
+
+Generic options
+  --multiqc_methods_description [string]          Custom MultiQC yaml file containing HTML including a methods description. 
+  --help                        [boolean, string] Display the help message. 
+  --help_full                   [boolean]         Display the full detailed help message. 
+  --show_hidden                 [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
+ 
+ !! Hiding 17 param(s), use the `--showHidden` parameter to show them !!
+------------------------------------------------------
+
+* The pipeline
+    https://doi.org/10.5281/zenodo.20275259
+
+* The nf-core framework
+    https://doi.org/10.1038/s41587-020-0439-x
+
+* Software dependencies
+    https://github.com/sanger-tol/busco/blob/main/CITATIONS.md
+
