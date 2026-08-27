@@ -22,7 +22,7 @@
   "busco": {
     "full_name": "sanger-tol/busco",
     "html_url": "https://github.com/sanger-tol/busco",
-    "commit": "a212877ee569febb8f5cbc4ca37f02189cd38a21",
+    "commit": "ac4b7b73ef263fa9c15df06dce4a0f16f2b7f8bd",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -102,7 +102,7 @@
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "28fadbc296e511293e1d5eb296852bf76f8bd9a0",
+    "commit": "947f3a701dcde34b34a547b6639c1dfdcfff3ba0",
     "errors": 0,
     "warnings": 2,
     "parse_error": false,
