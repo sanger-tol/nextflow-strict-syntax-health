@@ -102,7 +102,7 @@
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "00c700e6613f77146557347ea39820f94b22c6f9",
+    "commit": "e50b8f7b21f88e35f610cbe9adecdf9b37f66c33",
     "errors": 0,
     "warnings": 2,
     "parse_error": false,
