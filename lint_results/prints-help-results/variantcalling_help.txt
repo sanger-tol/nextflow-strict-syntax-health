@@ -1,9 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.07.0-edge
+ N E X T F L O W   ~  version 26.08.0-edge
 
-Launching `./main.nf` [distraught_cantor] revision: 3adc20c595
+Downloading plugin nf-schema@2.5.1
+Launching `./main.nf` [pensive_babbage] revision: 3adc20c595
 
 WARN: Unrecognized config option 'validation.defaultIgnoreParams'
 WARN: Unrecognized config option 'validation.monochromeLogs'
@@ -17,7 +18,7 @@ WARN: Unrecognized config option 'validation.monochromeLogs'
  |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
                       __/ |
                      |___/
-  sanger-tol/variantcalling 2.0.2
+  sanger-tol/variantcalling 2.1.0
 ------------------------------------------------------
         Typical pipeline command:
 
