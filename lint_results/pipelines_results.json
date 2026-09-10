@@ -12,7 +12,7 @@
   "blobtoolkit": {
     "full_name": "sanger-tol/blobtoolkit",
     "html_url": "https://github.com/sanger-tol/blobtoolkit",
-    "commit": "f5f62cf72e21bded573e13a044e076ae1b9b9f6b",
+    "commit": "b6b1c260d88abfa56a1ccd0ffce818d676a62ca1",
     "errors": 0,
     "warnings": 1,
     "parse_error": false,
@@ -82,7 +82,7 @@
   "genomenote": {
     "full_name": "sanger-tol/genomenote",
     "html_url": "https://github.com/sanger-tol/genomenote",
-    "commit": "d00f3d156b6540e885b87df1f122a8d707eeab7f",
+    "commit": "e4a214cecf90e06e3f8f09bdb269c99d02df1e5f",
     "errors": 0,
     "warnings": 0,
     "parse_error": false,
@@ -172,7 +172,7 @@
   "variantcalling": {
     "full_name": "sanger-tol/variantcalling",
     "html_url": "https://github.com/sanger-tol/variantcalling",
-    "commit": "bc917a1107449f3f544bb35bae3e095672262124",
+    "commit": "aa76862c711429992df7d3ed421948d69d2f1c85",
     "errors": 0,
     "warnings": 2,
     "parse_error": false,
@@ -182,7 +182,7 @@
   "variantcomposition": {
     "full_name": "sanger-tol/variantcomposition",
     "html_url": "https://github.com/sanger-tol/variantcomposition",
-    "commit": "77f72ce134f9492d1893a5354dda98a5b02acb75",
+    "commit": "fcfcde335050d69df0b3854ec3c5453d6e29e271",
     "errors": 0,
     "warnings": 3,
     "parse_error": false,
