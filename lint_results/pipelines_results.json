@@ -172,7 +172,7 @@
   "variantcalling": {
     "full_name": "sanger-tol/variantcalling",
     "html_url": "https://github.com/sanger-tol/variantcalling",
-    "commit": "dbdf6e5abbc8b7c713371bcc2a98e29663a43c6c",
+    "commit": "9f8438ef8103d6fd8d4bf7c63aa2118aaa6b846a",
     "errors": 0,
     "warnings": 2,
     "parse_error": false,
@@ -182,7 +182,7 @@
   "variantcomposition": {
     "full_name": "sanger-tol/variantcomposition",
     "html_url": "https://github.com/sanger-tol/variantcomposition",
-    "commit": "fcfcde335050d69df0b3854ec3c5453d6e29e271",
+    "commit": "a54007d0a7eb31fcaf4b5162148d6dfb43ae86a3",
     "errors": 0,
     "warnings": 3,
     "parse_error": false,
