@@ -1,21 +1,35 @@
 # Nextflow lint results
 
-- Generated: 2026-08-21T00:08:17.990704493Z
+- Generated: 2026-09-19T00:07:49.904331594Z
 - Nextflow version: 26.08.0-edge
-- Summary: 2 warnings
+- Summary: 4 warnings
 
 ## :warning: Warnings
 
-- Warning: `subworkflows/local/merge_output.nf:21:107`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/align_long.nf:147:68`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
-              [meta + [id: meta.specimen + ".merged_${params.merge_output}", merge_source: sorted.collect { it[0] }.join("\n") + "\n", read_count: read_counts.sum()], sorted.collect { it[1] }]
-                                                                                                            ^^
+              [ meta + [ read_group: rg_args, add_rg: !rglines.any { it.contains('SM:') } ], bam ]
+                                                                     ^^
   ```
 
-- Warning: `subworkflows/local/merge_output.nf:21:183`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/sanger-tol/pacbio_preprocess/main.nf:70:69`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
-              [meta + [id: meta.specimen + ".merged_${params.merge_output}", merge_source: sorted.collect { it[0] }.join("\n") + "\n", read_count: read_counts.sum()], sorted.collect { it[1] }]
-                                                                                                                                                                                        ^^
+          ch_hifitrimmer_branch = ch_hifitrimmer_input.branch { meta, reads ->
+                                                                      ^^^^^
+  ```
+
+- Warning: `subworkflows/sanger-tol/pacbio_preprocess/main.nf:99:58`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+              .join(ch_hifitrimmer_branch.trim.map { meta, reads -> [ meta - meta.subMap('_adapter_yaml'), meta._adapter_yaml ] }, by: 0)
+                                                           ^^^^^
+  ```
+
+- Warning: `workflows/readmapping.nf:52:5`: Variable was declared but not used
+
+  ```nextflow
+      multiqc_report   = channel.empty()
+      ^^^^^^^^^^^^^^
   ```
