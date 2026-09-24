@@ -162,11 +162,11 @@
   "treeval": {
     "full_name": "sanger-tol/treeval",
     "html_url": "https://github.com/sanger-tol/treeval",
-    "commit": "b8c44620c323c4afcdc52a11c8a1cf149957da89",
+    "commit": "92cb5356f1890f380fda743331418c127ffc5006",
     "errors": 0,
-    "warnings": 3,
+    "warnings": 0,
     "parse_error": false,
-    "prints_help": false,
+    "prints_help": true,
     "has_versions_mix": true
   },
   "variantcalling": {
