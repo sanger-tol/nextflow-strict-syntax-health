@@ -132,12 +132,12 @@
   "readmapping": {
     "full_name": "sanger-tol/readmapping",
     "html_url": "https://github.com/sanger-tol/readmapping",
-    "commit": "591936a52fb1afa5498b2e27e67bd3fe76aba998",
+    "commit": "cedb0e6e97edb37c922e9e5aec52029c905789ee",
     "errors": 0,
-    "warnings": 4,
+    "warnings": 3,
     "parse_error": false,
     "prints_help": true,
-    "has_versions_mix": true
+    "has_versions_mix": false
   },
   "sequencecomposition": {
     "full_name": "sanger-tol/sequencecomposition",
