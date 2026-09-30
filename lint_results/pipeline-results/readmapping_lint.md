@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-09-26T00:07:54.855703772Z
+- Generated: 2026-09-30T00:08:44.910516979Z
 - Nextflow version: 26.09.1-edge
 - Summary: 3 warnings
 
@@ -13,7 +13,7 @@
           ^^^^
   ```
 
-- Warning: `subworkflows/local/align_long.nf:148:68`: Implicit closure parameter is deprecated, declare an explicit parameter instead
+- Warning: `subworkflows/local/align_long.nf:152:68`: Implicit closure parameter is deprecated, declare an explicit parameter instead
 
   ```nextflow
               [ meta + [ read_group: rg_args, add_rg: !rglines.any { it.contains('SM:') } ], bam ]
