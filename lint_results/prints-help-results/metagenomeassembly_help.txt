@@ -1,13 +1,11 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
 
- N E X T F L O W   ~  version 26.08.0-edge
+ N E X T F L O W   ~  version 26.09.2-edge
 
-Downloading plugin nf-schema@2.5.1
-Launching `./main.nf` [marvelous_joliot] revision: 581ed1c647
+Downloading plugin nf-schema@2.7.2
+Launching `./main.nf` [curious_mandelbrot] revision: 1179819510
 
-WARN: Unrecognized config option 'validation.defaultIgnoreParams'
-WARN: Unrecognized config option 'validation.monochromeLogs'
 
 ------------------------------------------------------
    _____                                _______    _
@@ -18,7 +16,7 @@ WARN: Unrecognized config option 'validation.monochromeLogs'
  |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
                       __/ |
                      |___/
-  sanger-tol/metagenomeassembly 1.5.0
+  sanger-tol/metagenomeassembly 2.0.0dev
 ------------------------------------------------------
     Typical pipeline command:
 
@@ -35,13 +33,9 @@ Cloud infrastructure.
 
 Assembly options
   --assembler                         [string]  Which assembler to use for metagenome assembly.  (accepted: metamdbg, myloasm) [default: 
-metamdbg]  
-  --enable_tiara                      [boolean] Enable domain-level classification of contigs with Tiara. If enabled, contigs classified using the 
-categories listed in --exclude_tiara_classifications will be excluded from binning. [default: 
-true]  
+myloasm]  
   --tiara_exclude_classifications     [string]  A comma-separated list of tiara classifications to use to exclude contigs from the assembly. Options 
-are 'bacteria', 'archaea', 'prokarya', 'eukarya', 'organelle' or 'unknown'. [default: 
-eukarya,organelle]  
+are 'bacteria', 'archaea', 'prokarya', 'eukarya', 'organelle' or 'unknown'.  
   --enable_genomad                    [boolean] Enable Genomad for classification of circular contigs for determination of plasmid status. 
 [default: true]  
   --genomad_db                        [string]  Path to a directory containing a Genomad database. If not provided, the database will be downloaded 
@@ -56,11 +50,13 @@ Read mapping options
 coverage estimation for MetaBat2 and MaxBin2. [default: 99]  
   --hic_aligner                       [string]  Which Hi-C aligner to use - either bwa-mem2 or minimap2.  (accepted: bwamem2, minimap2) 
 [default: bwamem2]  
-  --hic_mapping_cram_bin_size         [integer] When mapping Hi-C, map each CRAM file in slices of this size. [default: 10000] 
+  --hic_mapping_cram_slices_per_chunk [integer] When mapping Hi-C, map each CRAM file in slices of this size. [default: 10000] 
   --hic_mapping_minq                  [integer] Minimum map quality for a Hi-C read to be passed on for binning by Metator. [default: 10] 
+  --save_bams                         [boolean] Save the mapped BAM files to the output directory. 
 
 Binning options
   --enable_binning                    [boolean] Enable binning of metagenomes into genome bins. [default: true] 
+  --enable_multisplit                 [boolean] Enable multi-split binning modes when binning with SemiBin2 or VAMB. 
   --minimum_contig_size               [integer] The minimum size of contig to be considered when binning. [default: 3000] 
   --maximum_contig_size               [string]  The maximum size of contig to be considered when binning. 
   --minimum_bin_size                  [integer] The minimum size of a bin, in basepairs, to be emitted. [default: 150000] 
@@ -69,13 +65,11 @@ Binning options
   --enable_metabat2                   [boolean] Enable binning with Metabat2. [default: true] 
   --enable_maxbin2                    [boolean] Enable binning with MaxBin2. 
   --enable_comebin                    [boolean] Enable binning with Comebin. [default: true] 
+  --enable_semibin2                   [boolean] Enable binning with Semibin2 in single-sample mode. [default: true] 
   --enable_vamb                       [boolean] Enable binning with VAMB. [default: true] 
   --enable_taxvamb                    [boolean] Enable taxonomic classification of assembled contigs with centrifuger. These are passed to VAMB to 
 enable its taxonomic binning mode.  
   --centrifuger_db                    [string]  Path to a centrifuger <prefix>.1.cfg file. The other files are detected automatically. 
-  --enable_semibin2                   [boolean] Enable binning with Semibin2. [default: true] 
-  --semibin_environment_model         [string]  Pre-trained model to use with semibin for binning. Defaults to "global", see the SemiBin2 docs for 
-full details: https://semibin.readthedocs.io/en/latest/usage/ [default: global]  
   --enable_metator                    [boolean] Enable binning with MetaTor. [default: true] 
   --hic_enzymes                       [string]  A comma-separated list of Hi-C enzymes to use for binning with MetaTOR. 
 
@@ -86,17 +80,12 @@ Bin refinement options
 
 Bin QC options
   --enable_binqc                      [boolean] Enable quality checks of genome bins. [default: true] 
-  --enable_checkm2                    [boolean] Enable QC using CheckM2. [default: true] 
   --checkm2_db                        [string]  Path to a local diamond database file for CheckM2. If not provided, the CheckM2 database will 
 automatically be downloaded.  
-  --enable_trnascanse                 [boolean] Predict tRNAs in an assembly using tRNAscan-SE. [default: true] 
-  --enable_rrna_prediction            [boolean] Predict ribosomal RNA (rRNA) genes in assemblies using Infernal and the included Rfam covariance 
-models. [default: true]  
   --rfam_rrna_cm                      [string]  Covariance model for rRNA preditiction from RFAM. [default: ${projectDir}/assets/rRNA.cm] 
 
 Bin taxonomy options
   --enable_taxonomy                   [boolean] Enable taxonomic classification of genome bins. [default: true] 
-  --enable_gtdbtk                     [boolean] Enable taxonomic classification with GTDB-Tk. [default: true] 
   --gtdbtk_db                         [string]  Path to a directory containing the GTDB-Tk database. 
   --gtdbtk_place_species              [boolean] Skip the ANI screen check with skani when classifying genomes with GTDB-Tk. 
   --gtdbtk_use_full_tree              [boolean] Use the full bacterial phylogenetic tree when classifying bacterial genomes. This is enabled by 
@@ -112,12 +101,6 @@ https://data.ace.uq.edu.au/public/gtdb/data/releases/release232/232.0/ar53_metad
   --gtdbtk_min_completeness           [integer] Minimum CheckM2 completeness required for a bin to be classified by GTDB-Tk. [default: 50] 
   --gtdbtk_max_contamination          [integer] Maximum contamination allowed CheckM2 completeness for a bin to be classified by GTDB-Tk. 
 [default: 10]  
-
-Summary options
-  --completeness_score                [integer] Multiplier for completeness when scoring bins for the bin summary. Used in formula 
-(compleneness_score * completeness - contamination_score * contamination). [default: 1]  
-  --contamination_score               [number]  Multiplier for contamination when scoring bins for the bin summary. Used in formula 
-(compleneness_score * completeness - contamination_score * contamination). [default: 0.5]  
 
 Generic options
   --help                              [boolean, string] Display the help message. 

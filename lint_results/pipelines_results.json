@@ -4,7 +4,7 @@
     "html_url": "https://github.com/sanger-tol/ascc",
     "commit": "8e3d2a9dfe42ac761ec94ff37a647fb353045bfc",
     "errors": 2,
-    "warnings": 34,
+    "warnings": 10,
     "parse_error": false,
     "prints_help": null,
     "has_versions_mix": true
@@ -44,7 +44,7 @@
     "html_url": "https://github.com/sanger-tol/ear",
     "commit": "2b15915ec8c6faa676452dc92153dbd1505f2426",
     "errors": 0,
-    "warnings": 57,
+    "warnings": 52,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": true
@@ -102,9 +102,9 @@
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "e50b8f7b21f88e35f610cbe9adecdf9b37f66c33",
+    "commit": "131884af44c1956b1e91b915b73bc8c497461bc9",
     "errors": 0,
-    "warnings": 2,
+    "warnings": 7,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -124,7 +124,7 @@
     "html_url": "https://github.com/sanger-tol/purging",
     "commit": "4ffdef63cd21a0f63d3360d65b3f0152403c3bc1",
     "errors": 0,
-    "warnings": 10,
+    "warnings": 5,
     "parse_error": false,
     "prints_help": false,
     "has_versions_mix": false
