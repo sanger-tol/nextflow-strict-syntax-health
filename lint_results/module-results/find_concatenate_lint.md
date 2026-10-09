@@ -1,5 +1,14 @@
 # Nextflow lint results
 
-- Generated: 2026-10-08T15:38:05.016770+00:00
+- Generated: 2026-10-09T00:09:25.915721+00:00
 - Nextflow version: 26.09.2-edge
-- Summary: No issues found
+- Summary: 1 warning
+
+## :warning: Warnings
+
+- Warning: `modules/sanger-tol/find/concatenate/main.nf:20:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^^
+  ```
