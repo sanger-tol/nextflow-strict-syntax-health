@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.09.2-edge
 
 Downloading plugin nf-schema@2.6.1
-Launching `./main.nf` [agitated_cuvier] revision: 184cc9ce07
+Launching `./main.nf` [evil_pare] revision: 184cc9ce07
 
 
 ------------------------------------------------------
@@ -16,7 +16,7 @@ Launching `./main.nf` [agitated_cuvier] revision: 184cc9ce07
  |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
                       __/ |
                      |___/
-  sanger-tol/genomeassembly 1.0.1
+  sanger-tol/genomeassembly 1.1.0dev
 ------------------------------------------------------
         Typical pipeline command:
 
@@ -61,7 +61,7 @@ mapping jobs are spawned, but each should have a lower run time. [default: 10000
   --hic_mapping_minq                    [integer] Minimum MapQ score for a Hi-C read to be retained for scaffolding. [default: 10] 
   --save_hic_bam_files                  [boolean] Save Hi-C mapped BAM files to the output directory. 
   --build_pretext_map                   [boolean] Build a Pretext representation of the Hi-C contact map. [default: true] 
-  --build_juicer_map                    [boolean] Build a Hi-C contact map for visualisation with Juicer. [default: true] 
+  --build_juicer_map                    [boolean] Build a Hi-C contact map for visualisation with Juicer. [default: false] 
   --build_cooler_map                    [boolean] Build a Hi-C contact map for visualisation with Cooler. [default: true] 
   --scaffolding_cool_bin_size           [integer] Bin size to use when building cooler contact maps. [default: 1000] 
 

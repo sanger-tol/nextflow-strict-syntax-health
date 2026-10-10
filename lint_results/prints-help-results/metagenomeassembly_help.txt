@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.09.2-edge
 
 Downloading plugin nf-schema@2.7.2
-Launching `./main.nf` [curious_mandelbrot] revision: 1179819510
+Launching `./main.nf` [determined_mahavira] revision: 1179819510
 
 
 ------------------------------------------------------
@@ -16,7 +16,7 @@ Launching `./main.nf` [curious_mandelbrot] revision: 1179819510
  |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
                       __/ |
                      |___/
-  sanger-tol/metagenomeassembly 2.0.0dev
+  sanger-tol/metagenomeassembly 2.0.0
 ------------------------------------------------------
     Typical pipeline command:
 
