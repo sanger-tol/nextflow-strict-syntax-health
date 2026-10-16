@@ -74,7 +74,7 @@
   },
   "feature_density": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/feature_density",
-    "errors": 0,
+    "errors": 1,
     "warnings": 0,
     "parse_error": false
   },
