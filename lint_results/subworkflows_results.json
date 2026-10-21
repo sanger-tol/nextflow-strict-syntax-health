@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "d127cb0b5a8c8f93ce9ce7050e73b7ab4e543293",
+  "_repo_commit": "73aa773e105efaa81472f545352d094d14b713fc",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -42,6 +42,12 @@
     "warnings": 0,
     "parse_error": false
   },
+  "fasta_bam_scaffolding_ragtag_yahs": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_bam_scaffolding_ragtag_yahs",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
   "fasta_bam_scaffolding_yahs": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_bam_scaffolding_yahs",
     "errors": 0,
@@ -74,7 +80,7 @@
   },
   "feature_density": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/feature_density",
-    "errors": 1,
+    "errors": 0,
     "warnings": 0,
     "parse_error": false
   },

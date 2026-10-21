@@ -1,9 +1,9 @@
 {
-  "total": 72,
+  "total": 73,
   "with_topic_versions": 46,
   "without_topic_versions": 0,
   "subworkflow_with_versions": 0,
-  "subworkflow_without_versions": 26,
+  "subworkflow_without_versions": 27,
   "details": [
     {
       "name": "ancestral_extract",
@@ -366,6 +366,12 @@
     {
       "name": "fasta_10x_polishing_longranger_freebayes",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/fasta_10x_polishing_longranger_freebayes/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "fasta_bam_scaffolding_ragtag_yahs",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/fasta_bam_scaffolding_ragtag_yahs/main.nf",
       "has_versions": false,
       "type": "subworkflow"
     },

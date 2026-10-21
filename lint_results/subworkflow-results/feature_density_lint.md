@@ -1,14 +1,5 @@
 # Nextflow lint results
 
-- Generated: 2026-10-20T00:08:52.798834+00:00
-- Nextflow version: 26.10.2
-- Summary: 1 error
-
-## :x: Errors
-
-- Error: `subworkflows/sanger-tol/feature_density/main.nf:48:5`: Incorrect number of call arguments, expected 3 but received 2
-
-  ```nextflow
-      BEDTOOLS_INTERSECT(
-      ^^^^^^^^^^
-  ```
+- Generated: 2026-10-21T00:08:52.055459+00:00
+- Nextflow version: 26.10.3
+- Summary: No issues found
