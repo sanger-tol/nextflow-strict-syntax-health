@@ -12,14 +12,14 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-10-21 00:09:05 UTC
+- **Last updated:** 2026-10-22 00:06:54 UTC
 - **Nextflow version:** 26.10.3
 
 ## Pipelines
 
-- **Strict syntax:** 0 parse errors, 2 errors, 302 warnings across 19 pipelines
+- **Strict syntax:** 0 parse errors, 2 errors, 341 warnings across 19 pipelines
 - **Versions Mix:** 11/19 (57.9%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
-- **Zero issues:** 4 pipelines (21.1%)
+- **Zero issues:** 3 pipelines (15.8%)
 
 |                    Errors                    |                     Warnings                     |
 | :------------------------------------------: | :----------------------------------------------: |
@@ -40,6 +40,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :x: [genomeassembly](https://github.com/sanger-tol/genomeassembly)                              |     No      |      0 |       59 |     Yes     | :negative_squared_cross_mark: |    [View](lint_results/pipeline-results/genomeassembly_lint.md)     |    [View](lint_results/prints-help-results/genomeassembly_help.txt)     |
 | :x: [ear](https://github.com/sanger-tol/ear)                                                    |     No      |      0 |       52 |     No      | :negative_squared_cross_mark: |          [View](lint_results/pipeline-results/ear_lint.md)          |          [View](lint_results/prints-help-results/ear_help.txt)          |
 | :x: [readmapping](https://github.com/sanger-tol/readmapping)                                    |     No      |      0 |       40 |     Yes     |      :white_check_mark:       |      [View](lint_results/pipeline-results/readmapping_lint.md)      |      [View](lint_results/prints-help-results/readmapping_help.txt)      |
+| :x: [genomenote](https://github.com/sanger-tol/genomenote)                                      |     No      |      0 |       39 |     Yes     | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/genomenote_lint.md)       |      [View](lint_results/prints-help-results/genomenote_help.txt)       |
 | :x: [purging](https://github.com/sanger-tol/purging)                                            |     No      |      0 |        5 |     No      |      :white_check_mark:       |        [View](lint_results/pipeline-results/purging_lint.md)        |        [View](lint_results/prints-help-results/purging_help.txt)        |
 | :x: [variantcomposition](https://github.com/sanger-tol/variantcomposition)                      |     No      |      0 |        3 |     Yes     | :negative_squared_cross_mark: |  [View](lint_results/pipeline-results/variantcomposition_lint.md)   |  [View](lint_results/prints-help-results/variantcomposition_help.txt)   |
 | :x: [curationpretext](https://github.com/sanger-tol/curationpretext)                            |     No      |      0 |        2 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/curationpretext_lint.md)    |    [View](lint_results/prints-help-results/curationpretext_help.txt)    |
@@ -52,7 +53,6 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :white_check_mark: [busco](https://github.com/sanger-tol/busco)                                 |     No      |      0 |        0 |     Yes     |      :white_check_mark:       |         [View](lint_results/pipeline-results/busco_lint.md)         |         [View](lint_results/prints-help-results/busco_help.txt)         |
 | :white_check_mark: [ensemblgenedownload](https://github.com/sanger-tol/ensemblgenedownload)     |     No      |      0 |        0 |     Yes     |      :white_check_mark:       |  [View](lint_results/pipeline-results/ensemblgenedownload_lint.md)  |  [View](lint_results/prints-help-results/ensemblgenedownload_help.txt)  |
 | :white_check_mark: [ensemblrepeatdownload](https://github.com/sanger-tol/ensemblrepeatdownload) |     No      |      0 |        0 |     Yes     |      :white_check_mark:       | [View](lint_results/pipeline-results/ensemblrepeatdownload_lint.md) | [View](lint_results/prints-help-results/ensemblrepeatdownload_help.txt) |
-| :white_check_mark: [genomenote](https://github.com/sanger-tol/genomenote)                       |     No      |      0 |        0 |     Yes     | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/genomenote_lint.md)       |      [View](lint_results/prints-help-results/genomenote_help.txt)       |
 
 </details>
 
