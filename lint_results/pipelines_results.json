@@ -12,9 +12,9 @@
   "blobtoolkit": {
     "full_name": "sanger-tol/blobtoolkit",
     "html_url": "https://github.com/sanger-tol/blobtoolkit",
-    "commit": "b6b1c260d88abfa56a1ccd0ffce818d676a62ca1",
+    "commit": "81c75c47b89c4b25a4f7e1085744c421e957c8b1",
     "errors": 0,
-    "warnings": 1,
+    "warnings": 35,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -72,7 +72,7 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "c1c529fa9b1e6a6a9ad4ea73bf2b88adf865aae5",
+    "commit": "6d6980d0efe46bc3a2e7f0c8bf4ca07db63f272b",
     "errors": 0,
     "warnings": 59,
     "parse_error": false,
@@ -82,12 +82,22 @@
   "genomenote": {
     "full_name": "sanger-tol/genomenote",
     "html_url": "https://github.com/sanger-tol/genomenote",
-    "commit": "de683ed3c39984f0c5d00687ebd5574ab4977edf",
+    "commit": "ea93ed35ee4d4d8ac5d834377a162155d8d69c22",
     "errors": 0,
     "warnings": 39,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
+  },
+  "genomeprofiling": {
+    "full_name": "sanger-tol/genomeprofiling",
+    "html_url": "https://github.com/sanger-tol/genomeprofiling",
+    "commit": "ab4808db3e2c773d86d56fd4ca37e279bd68e4bf",
+    "errors": 0,
+    "warnings": 16,
+    "parse_error": false,
+    "prints_help": true,
+    "has_versions_mix": false
   },
   "insdcdownload": {
     "full_name": "sanger-tol/insdcdownload",
@@ -102,7 +112,7 @@
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "7280e600af0459d5b2a7239b5a99ab846331d4ad",
+    "commit": "4a76beb7d867b1a59aa9ad01f22ad18681f988f7",
     "errors": 0,
     "warnings": 62,
     "parse_error": false,

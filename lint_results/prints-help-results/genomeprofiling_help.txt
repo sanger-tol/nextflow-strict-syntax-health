@@ -1,0 +1,34 @@
+$ NXF_SYNTAX_PARSER=v2 nextflow run . --help
+
+
+ N E X T F L O W   ~  version 26.10.3
+
+Downloading plugin nf-schema@2.5.1
+Launching `./main.nf` [backstabbing_moriondo] revision: 872a9940c4
+
+WARN: Unrecognized config option 'validation.defaultIgnoreParams'
+WARN: Unrecognized config option 'validation.monochromeLogs'
+Typical pipeline command:
+
+  nextflow run sanger-tol/genomeprofiling -profile <docker/singularity/.../institute> --input <FASTA> --outdir <OUTDIR>
+
+help message of that parameter will be printed.  
+or `--helpFull`.  
+
+Input/output options
+  --input           [string]  Samplesheet path 
+  --outdir          [string]  The output directory where the results will be saved. You have to use absolute paths to storage on 
+Cloud infrastructure.  
+  --run_genomescope [boolean] Run GenomeScope2 on the input reads [default: true] 
+  --run_histex      [boolean] Run HistEx on the input reads [default: true] 
+  --replace_dots    [boolean] Replace dots in sequence headers with underscores [default: false] 
+  --email           [string]  Email address for completion summary. 
+
+Generic options
+  --help            [boolean, string] Display the help message. 
+  --help_full       [boolean]         Display the full detailed help message. 
+  --show_hidden     [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
+ 
+ !! Hiding 14 param(s), use the `--showHidden` parameter to show them !!
+------------------------------------------------------
+
