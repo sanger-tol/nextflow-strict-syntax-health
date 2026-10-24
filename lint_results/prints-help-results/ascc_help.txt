@@ -1,0 +1,115 @@
+$ NXF_SYNTAX_PARSER=v2 nextflow run . --help
+
+
+ N E X T F L O W   ~  version 26.10.3
+
+Downloading plugin nf-schema@2.7.3
+Launching `./main.nf` [reverent_venter] revision: 470364e1cd
+
+
+------------------------------------------------------
+   _____                                _______    _
+  / ____|                              |__   __|  | |
+ | (___   __ _ _ __   __ _  ___ _ __  ___ | | ___ | |
+  \___ \ / _` | '_ \ / _` |/ _ \ '__||___|| |/ _ \| |
+  ____) | (_| | | | | (_| |  __/ |        | | (_) | |____
+ |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
+                      __/ |
+                     |___/
+  sanger-tol/ascc 1.0.0
+------------------------------------------------------
+        Typical pipeline command:
+
+  nextflow run sanger-tol/ascc -profile <docker/singularity/.../institute> --input samplesheet.csv --outdir <OUTDIR>
+
+help message of that parameter will be printed.  
+or `--helpFull`.  
+
+Input/output options
+  --input                            [string]  Path to comma-separated file containing information about the samples in the experiment. 
+  --scientific_name                  [string]  Scientific name of sample according to NCBI 
+  --sample_id                        [string]  Sample ID 
+  --taxid                            [integer] TaxID according to NCBI 
+  --reads_path                       [array]   Array of files containing long read data in gzipped FASTA format. 
+  --reads_type                       [string]  Type of read (hifi)  (accepted: hifi, clr, ont, illumina) [default: hifi] 
+  --reads_layout                     [string]  Specify whether all reads are SINGLE or PAIRED end reads  (accepted: SINGLE, PAIRED) [default: 
+SINGLE]  
+  --pacbio_barcode_file              [string]  Fasta format file containing barcode data 
+  --pacbio_barcode_names             [string]  Comma-separated list of multiplexing barcodes used across the sequencing runs that generated the 
+assembly.  
+  --kmer_length                      [number]  Length of kmer to use in run [default: 7] 
+  --dimensionality_reduction_methods [array]   dimensionality_reduction_methods to use in runs 
+  --nt_database_path                 [string]  folder containing nt database 
+  --nt_database_prefix               [string]  Prefix of the NT database 
+  --nt_kraken_database_path          [string]  folder containing Kraken2 database 
+  --ncbi_taxonomy_path               [string]  folder containing dmp files 
+  --ncbi_ranked_lineage_path         [string]  Path to rankedlineage.dmp 
+  --busco_lineages_folder            [string]  BUSCO folder containing busco Lineages folder 
+  --busco_lineages                   [string]  CSV list of lineages to use in run 
+  --busco_lineage_mapping_file       [string]  Path to BUSCO lineage to taxid mapping file 
+  --fcs_gx_database_path             [string]  FCS_GX folder containing database 
+  --vecscreen_database_path          [string]  Vecscreen folder containing database 
+  --diamond_uniprot_database_path    [string]  Path to Uniprot Diamond DB 
+  --diamond_nr_database_path         [string]  Path to NR Diamond DB 
+  --seqkit_sliding                   [integer] Length of slide for Seqkit [default: 100000] 
+  --seqkit_window                    [integer] Length of the window for Seqkit [default: 6000] 
+  --n_neighbours                     [integer] Nearest Neighbour value - This is for the dimensional reduction of kmer counts (UMAP and t-SNE). 
+[default: 13]  
+  --filter_cutoff                    [integer] The length cutoff for the input fasta, scaffolds longer than this limit will be removed from 
+analysis. [default: 1900000000]  
+  --coverage_reads_per_chunk         [integer] Number of reads to map to a reference in a single chunk. [default: 1000000] 
+  --get_dictionary                   [boolean] Whether to get the samtools dictionary for the input FASTA file. [default: true] 
+  --replace_dots                     [boolean] Whether to replace dots in the input FASTA file with underscores. [default: false] 
+  --outdir                           [string]  The output directory where the results will be saved. You have to use absolute paths to storage on 
+Cloud infrastructure.  
+  --email                            [string]  Email address for completion summary. 
+  --run_kmers                        [string]  Run kmer jobs on assemblies  (accepted: genomic, off) [default: genomic] 
+  --run_tiara                        [string]  Run tiara jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
+  --run_coverage                     [string]  Run coverage jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
+  --run_nt_blast                     [string]  Run nt_blast jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
+  --run_html_report                  [string]  Run HTML report generation on assemblies  (accepted: genomic, organellar, both, off) [default: 
+off]  
+  --run_nr_diamond                   [string]  Run nr_diamond jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
+ 
+  --run_uniprot_diamond              [string]  Run uniprot_diamond jobs on assemblies  (accepted: genomic, organellar, both, off) [default: 
+both]  
+  --run_kraken                       [string]  Run kraken jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
+  --run_fcsgx                        [string]  Run fcsgx jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
+  --run_fcs_adaptor                  [string]  Run fcs_adaptor jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
+ 
+  --run_vecscreen                    [string]  Run vecscreen jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
+ 
+  --run_btk_busco                    [string]  Run btk_busco jobs on assemblies  (accepted: genomic, both, off) [default: genomic] 
+  --run_pacbio_barcodes              [string]  Run pacbio_barcodes jobs on assemblies  (accepted: genomic, organellar, both, off) [default: 
+both]  
+  --run_organellar_blast             [string]  Run organellar_blast jobs on assemblies  (accepted: genomic, both, off) [default: genomic] 
+  --run_autofilter_assembly          [string]  Run autofilter_assembly jobs on assemblies  (accepted: genomic, both, off) [default: both] 
+  --run_create_btk_dataset           [string]  Run create_btk_dataset jobs on assemblies  (accepted: genomic, organellar, both, off) [default: 
+both]  
+  --run_merge_datasets               [string]  Run merge_datasets jobs on assemblies  (accepted: genomic, both, off) [default: genomic] 
+  --run_decontaminate_fasta          [string]  Run decontaminate fasta, fasta will automatically be decontaminated if btk doesn't run  
+(accepted: genomic, both, off) [default: both]  
+  --btk_busco_run_mode               [string]  Should btk be run as mandatory or conditional on levels of contamination.  (accepted: mandatory, 
+conditional) [default: conditional]  
+  --genomic_only                     [boolean] Switch off the organellar workflow 
+  --fcs_override                     [boolean] Use provided fcs sampleshet 
+  --fcs_override_samplesheet         [string]  Override the internal FCS and provide your own. READ THE DOCS TO MAKE SURE IT IS GENERATED 
+CORRECTLY.  
+
+Generic options
+  --help                             [boolean, string] Display the help message. 
+  --help_full                        [boolean]         Display the full detailed help message. 
+  --show_hidden                      [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
+ 
+ !! Hiding 14 param(s), use the `--showHidden` parameter to show them !!
+------------------------------------------------------
+
+* The pipeline
+    https://doi.org/10.5281/zenodo.16754459
+
+* The nf-core framework
+    https://doi.org/10.5281/zenodo.16754459
+
+* Software dependencies
+    https://github.com/sanger-tol/ascc/blob/main/CITATIONS.md
+

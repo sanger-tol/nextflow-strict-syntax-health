@@ -2,11 +2,11 @@
   "ascc": {
     "full_name": "sanger-tol/ascc",
     "html_url": "https://github.com/sanger-tol/ascc",
-    "commit": "8e3d2a9dfe42ac761ec94ff37a647fb353045bfc",
-    "errors": 2,
-    "warnings": 10,
+    "commit": "4552e6f5d756ae385d68915916b1cce42be352ee",
+    "errors": 0,
+    "warnings": 56,
     "parse_error": false,
-    "prints_help": null,
+    "prints_help": true,
     "has_versions_mix": true
   },
   "blobtoolkit": {

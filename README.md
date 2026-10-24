@@ -12,12 +12,12 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-10-23 00:10:39 UTC
+- **Last updated:** 2026-10-24 00:09:30 UTC
 - **Nextflow version:** 26.10.3
 
 ## Pipelines
 
-- **Strict syntax:** 0 parse errors, 2 errors, 391 warnings across 20 pipelines
+- **Strict syntax:** 0 parse errors, 0 errors, 437 warnings across 20 pipelines
 - **Versions Mix:** 12/20 (60.0%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
 - **Zero issues:** 3 pipelines (15.0%)
 
@@ -34,10 +34,10 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 
 | Pipeline                                                                                        | Parse Error | Errors | Warnings | Prints Help |         Versions Mix          |                             Lint Output                             |                               Help Output                               |
 | ----------------------------------------------------------------------------------------------- | :---------: | -----: | -------: | :---------: | :---------------------------: | :-----------------------------------------------------------------: | :---------------------------------------------------------------------: |
-| :x: [ascc](https://github.com/sanger-tol/ascc)                                                  |     No      |      2 |       10 |      -      | :negative_squared_cross_mark: |         [View](lint_results/pipeline-results/ascc_lint.md)          |                                    -                                    |
 | :x: [metagenomeassembly](https://github.com/sanger-tol/metagenomeassembly)                      |     No      |      0 |       62 |     Yes     |      :white_check_mark:       |  [View](lint_results/pipeline-results/metagenomeassembly_lint.md)   |  [View](lint_results/prints-help-results/metagenomeassembly_help.txt)   |
 | :x: [treeval](https://github.com/sanger-tol/treeval)                                            |     No      |      0 |       61 |     Yes     | :negative_squared_cross_mark: |        [View](lint_results/pipeline-results/treeval_lint.md)        |        [View](lint_results/prints-help-results/treeval_help.txt)        |
 | :x: [genomeassembly](https://github.com/sanger-tol/genomeassembly)                              |     No      |      0 |       59 |     Yes     | :negative_squared_cross_mark: |    [View](lint_results/pipeline-results/genomeassembly_lint.md)     |    [View](lint_results/prints-help-results/genomeassembly_help.txt)     |
+| :x: [ascc](https://github.com/sanger-tol/ascc)                                                  |     No      |      0 |       56 |     Yes     | :negative_squared_cross_mark: |         [View](lint_results/pipeline-results/ascc_lint.md)          |         [View](lint_results/prints-help-results/ascc_help.txt)          |
 | :x: [ear](https://github.com/sanger-tol/ear)                                                    |     No      |      0 |       52 |     No      | :negative_squared_cross_mark: |          [View](lint_results/pipeline-results/ear_lint.md)          |          [View](lint_results/prints-help-results/ear_help.txt)          |
 | :x: [readmapping](https://github.com/sanger-tol/readmapping)                                    |     No      |      0 |       40 |     Yes     |      :white_check_mark:       |      [View](lint_results/pipeline-results/readmapping_lint.md)      |      [View](lint_results/prints-help-results/readmapping_help.txt)      |
 | :x: [genomenote](https://github.com/sanger-tol/genomenote)                                      |     No      |      0 |       39 |     Yes     | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/genomenote_lint.md)       |      [View](lint_results/prints-help-results/genomenote_help.txt)       |
