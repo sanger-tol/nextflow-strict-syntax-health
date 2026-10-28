@@ -1,6 +1,6 @@
 # Nextflow lint results
 
-- Generated: 2026-10-24T00:08:31.907188723Z
+- Generated: 2026-10-28T00:07:21.587385380Z
 - Nextflow version: 26.10.3
 - Summary: 56 warnings
 
@@ -363,35 +363,35 @@
       ^^^^^^^^
   ```
 
-- Warning: `workflows/ascc.nf:55:5`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/ascc.nf:56:5`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
       samtools_dict           // samtools dictionary
       ^^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/ascc.nf:97:5`: Variable was declared but not used
+- Warning: `workflows/ascc.nf:98:5`: Variable was declared but not used
 
   ```nextflow
       ch_assembly_type_lookup = genomic_genomes
       ^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/ascc.nf:134:23`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/ascc.nf:135:23`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { _meta, file, stats ->
                         ^^^^
   ```
 
-- Warning: `workflows/ascc.nf:305:25`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/ascc.nf:314:25`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .branch { meta, file ->
                           ^^^^
   ```
 
-- Warning: `workflows/ascc.nf:311:25`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/ascc.nf:320:25`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .branch { meta, file ->

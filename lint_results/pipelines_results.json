@@ -2,7 +2,7 @@
   "ascc": {
     "full_name": "sanger-tol/ascc",
     "html_url": "https://github.com/sanger-tol/ascc",
-    "commit": "4552e6f5d756ae385d68915916b1cce42be352ee",
+    "commit": "88ffcb85aed03136ff633cfb34fa2ba4504fc218",
     "errors": 0,
     "warnings": 56,
     "parse_error": false,
@@ -22,9 +22,9 @@
   "busco": {
     "full_name": "sanger-tol/busco",
     "html_url": "https://github.com/sanger-tol/busco",
-    "commit": "ac4b7b73ef263fa9c15df06dce4a0f16f2b7f8bd",
+    "commit": "dc12dd9a19f866904cef3ad4be95deef8f1728f4",
     "errors": 0,
-    "warnings": 0,
+    "warnings": 5,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -92,7 +92,7 @@
   "genomeprofiling": {
     "full_name": "sanger-tol/genomeprofiling",
     "html_url": "https://github.com/sanger-tol/genomeprofiling",
-    "commit": "ab4808db3e2c773d86d56fd4ca37e279bd68e4bf",
+    "commit": "fa6e3ea2cc391751f5a62be1c271aa19f59d2249",
     "errors": 0,
     "warnings": 16,
     "parse_error": false,
