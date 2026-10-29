@@ -12,14 +12,14 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-10-28 00:08:45 UTC
+- **Last updated:** 2026-10-29 00:07:55 UTC
 - **Nextflow version:** 26.10.3
 
 ## Pipelines
 
-- **Strict syntax:** 0 parse errors, 0 errors, 442 warnings across 20 pipelines
-- **Versions Mix:** 12/20 (60.0%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
-- **Zero issues:** 2 pipelines (10.0%)
+- **Strict syntax:** 0 parse errors, 0 errors, 444 warnings across 21 pipelines
+- **Versions Mix:** 13/21 (61.9%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
+- **Zero issues:** 2 pipelines (9.5%)
 
 |                    Errors                    |                     Warnings                     |
 | :------------------------------------------: | :----------------------------------------------: |
@@ -30,7 +30,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | ![Versions Mix](lint_results/pipelines_versions_mix.png) |
 
 <details>
-<summary>Pipeline Results (20 pipelines)</summary>
+<summary>Pipeline Results (21 pipelines)</summary>
 
 | Pipeline                                                                                        | Parse Error | Errors | Warnings | Prints Help |         Versions Mix          |                             Lint Output                             |                               Help Output                               |
 | ----------------------------------------------------------------------------------------------- | :---------: | -----: | -------: | :---------: | :---------------------------: | :-----------------------------------------------------------------: | :---------------------------------------------------------------------: |
@@ -47,6 +47,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :x: [purging](https://github.com/sanger-tol/purging)                                            |     No      |      0 |        5 |     No      |      :white_check_mark:       |        [View](lint_results/pipeline-results/purging_lint.md)        |        [View](lint_results/prints-help-results/purging_help.txt)        |
 | :x: [variantcomposition](https://github.com/sanger-tol/variantcomposition)                      |     No      |      0 |        3 |     Yes     | :negative_squared_cross_mark: |  [View](lint_results/pipeline-results/variantcomposition_lint.md)   |  [View](lint_results/prints-help-results/variantcomposition_help.txt)   |
 | :x: [curationpretext](https://github.com/sanger-tol/curationpretext)                            |     No      |      0 |        2 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/curationpretext_lint.md)    |    [View](lint_results/prints-help-results/curationpretext_help.txt)    |
+| :x: [tiara_fcsgx_analysis](https://github.com/sanger-tol/tiara_fcsgx_analysis)                  |     No      |      0 |        2 |     Yes     |      :white_check_mark:       | [View](lint_results/pipeline-results/tiara_fcsgx_analysis_lint.md)  | [View](lint_results/prints-help-results/tiara_fcsgx_analysis_help.txt)  |
 | :x: [tollongc](https://github.com/sanger-tol/tollongc)                                          |     No      |      0 |        2 |     Yes     |      :white_check_mark:       |       [View](lint_results/pipeline-results/tollongc_lint.md)        |       [View](lint_results/prints-help-results/tollongc_help.txt)        |
 | :x: [variantcalling](https://github.com/sanger-tol/variantcalling)                              |     No      |      0 |        2 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/variantcalling_lint.md)     |    [View](lint_results/prints-help-results/variantcalling_help.txt)     |
 | :x: [insdcdownload](https://github.com/sanger-tol/insdcdownload)                                |     No      |      0 |        1 |     Yes     |      :white_check_mark:       |     [View](lint_results/pipeline-results/insdcdownload_lint.md)     |     [View](lint_results/prints-help-results/insdcdownload_help.txt)     |

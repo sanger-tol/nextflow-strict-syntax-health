@@ -159,6 +159,16 @@
     "prints_help": true,
     "has_versions_mix": false
   },
+  "tiara_fcsgx_analysis": {
+    "full_name": "sanger-tol/tiara_fcsgx_analysis",
+    "html_url": "https://github.com/sanger-tol/tiara_fcsgx_analysis",
+    "commit": "eb8d8276b4401a189cf0693416c1fffcdadb1a3f",
+    "errors": 0,
+    "warnings": 2,
+    "parse_error": false,
+    "prints_help": true,
+    "has_versions_mix": false
+  },
   "tollongc": {
     "full_name": "sanger-tol/tollongc",
     "html_url": "https://github.com/sanger-tol/tollongc",
