@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-10-23T00:09:14.983609553Z
+- Generated: 2026-11-05T00:07:20.775128518Z
 - Nextflow version: 26.10.3
-- Summary: 59 warnings
+- Summary: 60 warnings
 
 ## :warning: Warnings
 
@@ -252,6 +252,13 @@
   ```
 
 - Warning: `modules/nf-core/purgedups/splitfa/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/ragtag/scaffold/main.nf:27:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:

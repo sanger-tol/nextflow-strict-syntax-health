@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-10-28T00:07:21.587385380Z
+- Generated: 2026-11-05T00:06:49.109337751Z
 - Nextflow version: 26.10.3
-- Summary: 56 warnings
+- Summary: 57 warnings
 
 ## :warning: Warnings
 
@@ -20,63 +20,63 @@
                            ^^
   ```
 
-- Warning: `modules/local/ascc/merge_tables/main.nf:31:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/ascc/merge_tables/main.nf:21:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/local/blobtoolkit/create_dataset/main.nf:31:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/blobtoolkit/create_dataset/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/local/blobtoolkit/merge_dataset/main.nf:14:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/blobtoolkit/merge_dataset/main.nf:15:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/local/decontaminate/clip_regions_fasta/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/decontaminate/clip_regions_fasta/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/local/decontaminate/generate_bed/main.nf:28:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/decontaminate/generate_bed/main.nf:23:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/local/filter/vecscreen_results/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/filter/vecscreen_results/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/local/generate_html_report/main.nf:36:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/generate_html_report/main.nf:25:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/local/get/kmer_counts/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/get/kmer_counts/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/local/get/lineage_for_kraken/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/get/lineage_for_kraken/main.nf:23:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
@@ -90,21 +90,21 @@
       ^^^^
   ```
 
-- Warning: `modules/local/kmer_count/dim_reduction/main.nf:22:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/kmer_count/dim_reduction/main.nf:29:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/local/kmer_count/dim_reduction_combine_csv/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/kmer_count/dim_reduction_combine_csv/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/local/reformat/npy_2_csv/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/reformat/npy_2_csv/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
@@ -118,21 +118,28 @@
       ^^^^
   ```
 
-- Warning: `modules/local/trailingns/trailingns/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/sanger-tol/btk/main.nf:34:9`: Variable was declared but not used
+
+  ```nextflow
+      def get_version = task.ext.version_data ?: "UNKNOWN - SETTING NOT SET"
+          ^^^^^^^^^^^
+  ```
+
+- Warning: `modules/local/trailingns/trailingns/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/local/vecscreen/chunk_assembly/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/vecscreen/chunk_assembly/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
       ^^^^
   ```
 
-- Warning: `modules/local/vecscreen/summarise/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/local/vecscreen/summarise/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
@@ -335,6 +342,13 @@
       ^^^^
   ```
 
+- Warning: `subworkflows/local/essential_jobs/main.nf:16:5`: Variable was declared but not used
+
+  ```nextflow
+      ch_versions = channel.empty()
+      ^^^^^^^^^^^
+  ```
+
 - Warning: `subworkflows/local/generate_html_report/main.nf:20:5`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
@@ -342,25 +356,18 @@
       ^^^^^^^^^^^
   ```
 
-- Warning: `subworkflows/local/organellar_blast/main.nf:37:25`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/organellar_blast/main.nf:34:25`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .unique { meta, file -> meta.id }
                           ^^^^
   ```
 
-- Warning: `subworkflows/local/organellar_blast/main.nf:58:16`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `subworkflows/local/organellar_blast/main.nf:53:16`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { og, meta, ref, db -> [meta, ref, db] }
                  ^^
-  ```
-
-- Warning: `subworkflows/local/utils_nfcore_ascc_pipeline/main.nf:200:5`: Variable was declared but not used
-
-  ```nextflow
-      versions = ch_versions.mix(PREPARE_BLASTDB.out.versions)
-      ^^^^^^^^
   ```
 
 - Warning: `workflows/ascc.nf:56:5`: Parameter was not used -- prefix with `_` to suppress warning
@@ -377,21 +384,21 @@
       ^^^^^^^^^^^^^^^^^^^^^^^
   ```
 
-- Warning: `workflows/ascc.nf:135:23`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/ascc.nf:134:23`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .map { _meta, file, stats ->
                         ^^^^
   ```
 
-- Warning: `workflows/ascc.nf:314:25`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/ascc.nf:309:25`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .branch { meta, file ->
                           ^^^^
   ```
 
-- Warning: `workflows/ascc.nf:320:25`: Parameter was not used -- prefix with `_` to suppress warning
+- Warning: `workflows/ascc.nf:315:25`: Parameter was not used -- prefix with `_` to suppress warning
 
   ```nextflow
           .branch { meta, file ->

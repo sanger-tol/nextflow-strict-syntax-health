@@ -1,9 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
+Nextflow 26.10.5 is available - Please consider updating your version to it
 
  N E X T F L O W   ~  version 26.10.3
 
-Launching `./main.nf` [chaotic_legentil] revision: 1179819510
+Launching `./main.nf` [berserk_varahamihira] revision: 1179819510
 
 
 ------------------------------------------------------
@@ -25,87 +26,133 @@ help message of that parameter will be printed.
 or `--helpFull`.  
 
 Input/output options
-  --input                             [string] Path to YAML file describing the input data. 
+  --input                             [string] Path to YAML file describing the input data. (This parameter has sub-parameters. Use '--help 
+input' to see all sub-parameters) 
   --outdir                            [string] The output directory where the results will be saved. You have to use absolute paths to storage on 
-Cloud infrastructure.  
-  --email                             [string] Email address for completion summary. 
+Cloud infrastructure. (This parameter has sub-parameters. Use '--help outdir' to see all 
+sub-parameters) 
+  --email                             [string] Email address for completion summary. (This parameter has sub-parameters. Use '--help email' 
+to see all sub-parameters) 
 
 Assembly options
   --assembler                         [string]  Which assembler to use for metagenome assembly.  (accepted: metamdbg, myloasm) [default: 
-myloasm]  
+myloasm] (This parameter has sub-parameters. Use '--help assembler' to see all sub-parameters) 
   --tiara_exclude_classifications     [string]  A comma-separated list of tiara classifications to use to exclude contigs from the assembly. Options 
-are 'bacteria', 'archaea', 'prokarya', 'eukarya', 'organelle' or 'unknown'.  
+are 'bacteria', 'archaea', 'prokarya', 'eukarya', 'organelle' or 'unknown'. (This parameter 
+has sub-parameters. Use '--help tiara_exclude_classifications' to see all sub-parameters) 
   --enable_genomad                    [boolean] Enable Genomad for classification of circular contigs for determination of plasmid status. 
-[default: true]  
+[default: true] (This parameter has sub-parameters. Use '--help enable_genomad' to see all 
+sub-parameters) 
   --genomad_db                        [string]  Path to a directory containing a Genomad database. If not provided, the database will be downloaded 
-automatically.  
+automatically. (This parameter has sub-parameters. Use '--help genomad_db' to see all 
+sub-parameters) 
   --genomad_splits                    [integer] The number of chunks to split the Genomad database into when running searches. Increasing this value 
-decreases memory usage at the expense of runtime. [default: 1]  
+decreases memory usage at the expense of runtime. [default: 1] (This parameter has 
+sub-parameters. Use '--help genomad_splits' to see all sub-parameters) 
 
 Read mapping options
   --long_read_mapping_reads_per_chunk [integer] When mapping long reads, how many long reads to map to the assembly in a single chunk. [default: 
-1000000]  
+1000000] (This parameter has sub-parameters. Use '--help long_read_mapping_reads_per_chunk' to 
+see all sub-parameters) 
   --minimum_hifi_perc_identity        [integer] The minimum required percent identity of a read mapping to the assembly to be counted during 
-coverage estimation for MetaBat2 and MaxBin2. [default: 99]  
+coverage estimation for MetaBat2 and MaxBin2. [default: 99] (This parameter has 
+sub-parameters. Use '--help minimum_hifi_perc_identity' to see all sub-parameters) 
   --hic_aligner                       [string]  Which Hi-C aligner to use - either bwa-mem2 or minimap2.  (accepted: bwamem2, minimap2) 
-[default: bwamem2]  
-  --hic_mapping_cram_slices_per_chunk [integer] When mapping Hi-C, map each CRAM file in slices of this size. [default: 10000] 
+[default: bwamem2] (This parameter has sub-parameters. Use '--help hic_aligner' to see all 
+sub-parameters) 
+  --hic_mapping_cram_slices_per_chunk [integer] When mapping Hi-C, map each CRAM file in slices of this size. [default: 10000] (This 
+parameter has sub-parameters. Use '--help hic_mapping_cram_slices_per_chunk' to see all 
+sub-parameters) 
   --hic_mapping_minq                  [integer] Minimum map quality for a Hi-C read to be passed on for binning by Metator. [default: 10] 
-  --save_bams                         [boolean] Save the mapped BAM files to the output directory. 
+(This parameter has sub-parameters. Use '--help hic_mapping_minq' to see all sub-parameters) 
+  --save_bams                         [boolean] Save the mapped BAM files to the output directory. (This parameter has sub-parameters. Use 
+'--help save_bams' to see all sub-parameters) 
 
 Binning options
-  --enable_binning                    [boolean] Enable binning of metagenomes into genome bins. [default: true] 
-  --enable_multisplit                 [boolean] Enable multi-split binning modes when binning with SemiBin2 or VAMB. 
-  --minimum_contig_size               [integer] The minimum size of contig to be considered when binning. [default: 3000] 
-  --maximum_contig_size               [string]  The maximum size of contig to be considered when binning. 
-  --minimum_bin_size                  [integer] The minimum size of a bin, in basepairs, to be emitted. [default: 150000] 
-  --extract_circular_contigs          [boolean] Extract circular contigs and treat them as bins. [default: true] 
+  --enable_binning                    [boolean] Enable binning of metagenomes into genome bins. [default: true] (This parameter has 
+sub-parameters. Use '--help enable_binning' to see all sub-parameters) 
+  --enable_multisplit                 [boolean] Enable multi-split binning modes when binning with SemiBin2 or VAMB. (This parameter has 
+sub-parameters. Use '--help enable_multisplit' to see all sub-parameters) 
+  --minimum_contig_size               [integer] The minimum size of contig to be considered when binning. [default: 3000] (This parameter 
+has sub-parameters. Use '--help minimum_contig_size' to see all sub-parameters) 
+  --maximum_contig_size               [string]  The maximum size of contig to be considered when binning. (This parameter has 
+sub-parameters. Use '--help maximum_contig_size' to see all sub-parameters) 
+  --minimum_bin_size                  [integer] The minimum size of a bin, in basepairs, to be emitted. [default: 150000] (This parameter 
+has sub-parameters. Use '--help minimum_bin_size' to see all sub-parameters) 
+  --extract_circular_contigs          [boolean] Extract circular contigs and treat them as bins. [default: true] (This parameter has 
+sub-parameters. Use '--help extract_circular_contigs' to see all sub-parameters) 
   --minimum_circular_contig_length    [integer] The minimum length of a circular contig required to be treated as a bin. [default: 250000] 
-  --enable_metabat2                   [boolean] Enable binning with Metabat2. [default: true] 
-  --enable_maxbin2                    [boolean] Enable binning with MaxBin2. 
-  --enable_comebin                    [boolean] Enable binning with Comebin. [default: true] 
-  --enable_semibin2                   [boolean] Enable binning with Semibin2 in single-sample mode. [default: true] 
-  --enable_vamb                       [boolean] Enable binning with VAMB. [default: true] 
+(This parameter has sub-parameters. Use '--help minimum_circular_contig_length' to see all 
+sub-parameters) 
+  --enable_metabat2                   [boolean] Enable binning with Metabat2. [default: true] (This parameter has sub-parameters. Use 
+'--help enable_metabat2' to see all sub-parameters) 
+  --enable_maxbin2                    [boolean] Enable binning with MaxBin2. (This parameter has sub-parameters. Use '--help enable_maxbin2' 
+to see all sub-parameters) 
+  --enable_comebin                    [boolean] Enable binning with Comebin. [default: true] (This parameter has sub-parameters. Use '--help 
+enable_comebin' to see all sub-parameters) 
+  --enable_semibin2                   [boolean] Enable binning with Semibin2 in single-sample mode. [default: true] (This parameter has 
+sub-parameters. Use '--help enable_semibin2' to see all sub-parameters) 
+  --enable_vamb                       [boolean] Enable binning with VAMB. [default: true] (This parameter has sub-parameters. Use '--help 
+enable_vamb' to see all sub-parameters) 
   --enable_taxvamb                    [boolean] Enable taxonomic classification of assembled contigs with centrifuger. These are passed to VAMB to 
-enable its taxonomic binning mode.  
-  --centrifuger_db                    [string]  Path to a centrifuger <prefix>.1.cfg file. The other files are detected automatically. 
-  --enable_metator                    [boolean] Enable binning with MetaTor. [default: true] 
-  --hic_enzymes                       [string]  A comma-separated list of Hi-C enzymes to use for binning with MetaTOR. 
+enable its taxonomic binning mode. (This parameter has sub-parameters. Use '--help 
+enable_taxvamb' to see all sub-parameters) 
+  --centrifuger_db                    [string]  Path to a centrifuger <prefix>.1.cfg file. The other files are detected automatically. (This 
+parameter has sub-parameters. Use '--help centrifuger_db' to see all sub-parameters) 
+  --enable_metator                    [boolean] Enable binning with MetaTor. [default: true] (This parameter has sub-parameters. Use '--help 
+enable_metator' to see all sub-parameters) 
+  --hic_enzymes                       [string]  A comma-separated list of Hi-C enzymes to use for binning with MetaTOR. (This parameter has 
+sub-parameters. Use '--help hic_enzymes' to see all sub-parameters) 
 
 Bin refinement options
-  --enable_bin_refinement             [boolean] Enable refinement of genome bins. [default: true] 
-  --enable_dastool                    [boolean] Enable bin refinement using DAS_Tool. [default: true] 
-  --enable_binette                    [boolean] Enable bin refinement using Binette. [default: true] 
+  --enable_bin_refinement             [boolean] Enable refinement of genome bins. [default: true] (This parameter has sub-parameters. Use 
+'--help enable_bin_refinement' to see all sub-parameters) 
+  --enable_dastool                    [boolean] Enable bin refinement using DAS_Tool. [default: true] (This parameter has sub-parameters. 
+Use '--help enable_dastool' to see all sub-parameters) 
+  --enable_binette                    [boolean] Enable bin refinement using Binette. [default: true] (This parameter has sub-parameters. Use 
+'--help enable_binette' to see all sub-parameters) 
 
 Bin QC options
-  --enable_binqc                      [boolean] Enable quality checks of genome bins. [default: true] 
+  --enable_binqc                      [boolean] Enable quality checks of genome bins. [default: true] (This parameter has sub-parameters. 
+Use '--help enable_binqc' to see all sub-parameters) 
   --checkm2_db                        [string]  Path to a local diamond database file for CheckM2. If not provided, the CheckM2 database will 
-automatically be downloaded.  
+automatically be downloaded. (This parameter has sub-parameters. Use '--help checkm2_db' to 
+see all sub-parameters) 
   --rfam_rrna_cm                      [string]  Covariance model for rRNA preditiction from RFAM. [default: ${projectDir}/assets/rRNA.cm] 
+(This parameter has sub-parameters. Use '--help rfam_rrna_cm' to see all sub-parameters) 
 
 Bin taxonomy options
-  --enable_taxonomy                   [boolean] Enable taxonomic classification of genome bins. [default: true] 
-  --gtdbtk_db                         [string]  Path to a directory containing the GTDB-Tk database. 
-  --gtdbtk_place_species              [boolean] Skip the ANI screen check with skani when classifying genomes with GTDB-Tk. 
+  --enable_taxonomy                   [boolean] Enable taxonomic classification of genome bins. [default: true] (This parameter has 
+sub-parameters. Use '--help enable_taxonomy' to see all sub-parameters) 
+  --gtdbtk_db                         [string]  Path to a directory containing the GTDB-Tk database. (This parameter has sub-parameters. Use 
+'--help gtdbtk_db' to see all sub-parameters) 
+  --gtdbtk_place_species              [boolean] Skip the ANI screen check with skani when classifying genomes with GTDB-Tk. (This parameter 
+has sub-parameters. Use '--help gtdbtk_place_species' to see all sub-parameters) 
   --gtdbtk_use_full_tree              [boolean] Use the full bacterial phylogenetic tree when classifying bacterial genomes. This is enabled by 
 default in the test profiles as it is required to use the mock database for testing. Enabling this 
 with the full GTDB database requires a minimum of 320GB of memory for the GTDB-TK classify process, 
-but will place all bins into a single tree.  
+but will place all bins into a single tree. (This parameter has sub-parameters. Use '--help 
+gtdbtk_use_full_tree' to see all sub-parameters) 
   --gtdb_bac120_metadata              [string]  Path to the GTDB-Tk bac120 metadata file. [default: 
 https://data.ace.uq.edu.au/public/gtdb/data/releases/release232/232.0/bac120_metadata_r232.tsv.gz] 
- 
+(This parameter has sub-parameters. Use '--help gtdb_bac120_metadata' to see all sub-parameters) 
   --gtdb_ar53_metadata                [string]  Path to the GTDB-Tk ar53 metadata file. [default: 
 https://data.ace.uq.edu.au/public/gtdb/data/releases/release232/232.0/ar53_metadata_r232.tsv.gz] 
- 
+(This parameter has sub-parameters. Use '--help gtdb_ar53_metadata' to see all sub-parameters) 
   --gtdbtk_min_completeness           [integer] Minimum CheckM2 completeness required for a bin to be classified by GTDB-Tk. [default: 50] 
+(This parameter has sub-parameters. Use '--help gtdbtk_min_completeness' to see all 
+sub-parameters) 
   --gtdbtk_max_contamination          [integer] Maximum contamination allowed CheckM2 completeness for a bin to be classified by GTDB-Tk. 
-[default: 10]  
+[default: 10] (This parameter has sub-parameters. Use '--help gtdbtk_max_contamination' to 
+see all sub-parameters) 
 
 Generic options
-  --help                              [boolean, string] Display the help message. 
-  --help_full                         [boolean]         Display the full detailed help message. 
+  --help                              [boolean, string] Display the help message. (This parameter has sub-parameters. Use '--help help' to see all 
+sub-parameters) 
+  --help_full                         [boolean]         Display the full detailed help message. (This parameter has sub-parameters. Use '--help 
+help_full' to see all sub-parameters) 
   --show_hidden                       [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
- 
+(This parameter has sub-parameters. Use '--help show_hidden' to see all sub-parameters) 
  !! Hiding 14 param(s), use the `--showHidden` parameter to show them !!
 ------------------------------------------------------
 

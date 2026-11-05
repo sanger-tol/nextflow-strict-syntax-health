@@ -2,9 +2,9 @@
   "ascc": {
     "full_name": "sanger-tol/ascc",
     "html_url": "https://github.com/sanger-tol/ascc",
-    "commit": "88ffcb85aed03136ff633cfb34fa2ba4504fc218",
+    "commit": "24296d695052dfd64ead41dfe18b698ab41c573f",
     "errors": 0,
-    "warnings": 56,
+    "warnings": 57,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -72,9 +72,9 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "6d6980d0efe46bc3a2e7f0c8bf4ca07db63f272b",
+    "commit": "459b48f23cdfb9572ed3995ddc7a310d372cab3d",
     "errors": 0,
-    "warnings": 59,
+    "warnings": 60,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -112,7 +112,7 @@
   "metagenomeassembly": {
     "full_name": "sanger-tol/metagenomeassembly",
     "html_url": "https://github.com/sanger-tol/metagenomeassembly",
-    "commit": "4a76beb7d867b1a59aa9ad01f22ad18681f988f7",
+    "commit": "662ddb0383c605cc97eb0c441cc272b6fe76a066",
     "errors": 0,
     "warnings": 62,
     "parse_error": false,

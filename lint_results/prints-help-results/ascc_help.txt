@@ -1,11 +1,11 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
-Nextflow 26.10.4 is available - Please consider updating your version to it
+Nextflow 26.10.5 is available - Please consider updating your version to it
 
  N E X T F L O W   ~  version 26.10.3
 
 Downloading plugin nf-schema@2.7.3
-Launching `./main.nf` [peaceful_pare] revision: 470364e1cd
+Launching `./main.nf` [focused_tuckerman] revision: 470364e1cd
 
 
 ------------------------------------------------------
@@ -28,80 +28,132 @@ or `--helpFull`.
 
 Input/output options
   --input                            [string]  Path to comma-separated file containing information about the samples in the experiment. 
-  --scientific_name                  [string]  Scientific name of sample according to NCBI 
-  --sample_id                        [string]  Sample ID 
-  --taxid                            [integer] TaxID according to NCBI 
-  --reads_path                       [array]   Array of files containing long read data in gzipped FASTA format. 
-  --reads_type                       [string]  Type of read (hifi)  (accepted: hifi, clr, ont, illumina) [default: hifi] 
+(This parameter has sub-parameters. Use '--help input' to see all sub-parameters) 
+  --scientific_name                  [string]  Scientific name of sample according to NCBI (This parameter has sub-parameters. Use '--help 
+scientific_name' to see all sub-parameters) 
+  --sample_id                        [string]  Sample ID (This parameter has sub-parameters. Use '--help sample_id' to see all 
+sub-parameters) 
+  --taxid                            [integer] TaxID according to NCBI (This parameter has sub-parameters. Use '--help taxid' to see all 
+sub-parameters) 
+  --reads_path                       [array]   Array of files containing long read data in gzipped FASTA format. (This parameter has 
+sub-parameters. Use '--help reads_path' to see all sub-parameters) 
+  --reads_type                       [string]  Type of read (hifi)  (accepted: hifi, clr, ont, illumina) [default: hifi] (This parameter 
+has sub-parameters. Use '--help reads_type' to see all sub-parameters) 
   --reads_layout                     [string]  Specify whether all reads are SINGLE or PAIRED end reads  (accepted: SINGLE, PAIRED) [default: 
-SINGLE]  
-  --pacbio_barcode_file              [string]  Fasta format file containing barcode data 
+SINGLE] (This parameter has sub-parameters. Use '--help reads_layout' to see all sub-parameters) 
+  --pacbio_barcode_file              [string]  Fasta format file containing barcode data (This parameter has sub-parameters. Use '--help 
+pacbio_barcode_file' to see all sub-parameters) 
   --pacbio_barcode_names             [string]  Comma-separated list of multiplexing barcodes used across the sequencing runs that generated the 
-assembly.  
-  --kmer_length                      [number]  Length of kmer to use in run [default: 7] 
-  --dimensionality_reduction_methods [array]   dimensionality_reduction_methods to use in runs 
-  --nt_database_path                 [string]  folder containing nt database 
-  --nt_database_prefix               [string]  Prefix of the NT database 
-  --nt_kraken_database_path          [string]  folder containing Kraken2 database 
-  --ncbi_taxonomy_path               [string]  folder containing dmp files 
-  --ncbi_ranked_lineage_path         [string]  Path to rankedlineage.dmp 
-  --busco_lineages_folder            [string]  BUSCO folder containing busco Lineages folder 
-  --busco_lineages                   [string]  CSV list of lineages to use in run 
-  --busco_lineage_mapping_file       [string]  Path to BUSCO lineage to taxid mapping file 
-  --fcs_gx_database_path             [string]  FCS_GX folder containing database 
-  --vecscreen_database_path          [string]  Vecscreen folder containing database 
-  --diamond_uniprot_database_path    [string]  Path to Uniprot Diamond DB 
-  --diamond_nr_database_path         [string]  Path to NR Diamond DB 
-  --seqkit_sliding                   [integer] Length of slide for Seqkit [default: 100000] 
-  --seqkit_window                    [integer] Length of the window for Seqkit [default: 6000] 
+assembly. (This parameter has sub-parameters. Use '--help pacbio_barcode_names' to see all 
+sub-parameters) 
+  --kmer_length                      [number]  Length of kmer to use in run [default: 7] (This parameter has sub-parameters. Use '--help 
+kmer_length' to see all sub-parameters) 
+  --dimensionality_reduction_methods [array]   dimensionality_reduction_methods to use in runs (This parameter has sub-parameters. Use 
+'--help dimensionality_reduction_methods' to see all sub-parameters) 
+  --nt_database_path                 [string]  folder containing nt database (This parameter has sub-parameters. Use '--help 
+nt_database_path' to see all sub-parameters) 
+  --nt_database_prefix               [string]  Prefix of the NT database (This parameter has sub-parameters. Use '--help 
+nt_database_prefix' to see all sub-parameters) 
+  --nt_kraken_database_path          [string]  folder containing Kraken2 database (This parameter has sub-parameters. Use '--help 
+nt_kraken_database_path' to see all sub-parameters) 
+  --ncbi_taxonomy_path               [string]  folder containing dmp files (This parameter has sub-parameters. Use '--help 
+ncbi_taxonomy_path' to see all sub-parameters) 
+  --ncbi_ranked_lineage_path         [string]  Path to rankedlineage.dmp (This parameter has sub-parameters. Use '--help 
+ncbi_ranked_lineage_path' to see all sub-parameters) 
+  --busco_lineages_folder            [string]  BUSCO folder containing busco Lineages folder (This parameter has sub-parameters. Use 
+'--help busco_lineages_folder' to see all sub-parameters) 
+  --busco_lineages                   [string]  CSV list of lineages to use in run (This parameter has sub-parameters. Use '--help 
+busco_lineages' to see all sub-parameters) 
+  --busco_lineage_mapping_file       [string]  Path to BUSCO lineage to taxid mapping file (This parameter has sub-parameters. Use '--help 
+busco_lineage_mapping_file' to see all sub-parameters) 
+  --fcs_gx_database_path             [string]  FCS_GX folder containing database (This parameter has sub-parameters. Use '--help 
+fcs_gx_database_path' to see all sub-parameters) 
+  --vecscreen_database_path          [string]  Vecscreen folder containing database (This parameter has sub-parameters. Use '--help 
+vecscreen_database_path' to see all sub-parameters) 
+  --diamond_uniprot_database_path    [string]  Path to Uniprot Diamond DB (This parameter has sub-parameters. Use '--help 
+diamond_uniprot_database_path' to see all sub-parameters) 
+  --diamond_nr_database_path         [string]  Path to NR Diamond DB (This parameter has sub-parameters. Use '--help 
+diamond_nr_database_path' to see all sub-parameters) 
+  --seqkit_sliding                   [integer] Length of slide for Seqkit [default: 100000] (This parameter has sub-parameters. Use '--help 
+seqkit_sliding' to see all sub-parameters) 
+  --seqkit_window                    [integer] Length of the window for Seqkit [default: 6000] (This parameter has sub-parameters. Use 
+'--help seqkit_window' to see all sub-parameters) 
   --n_neighbours                     [integer] Nearest Neighbour value - This is for the dimensional reduction of kmer counts (UMAP and t-SNE). 
-[default: 13]  
+[default: 13] (This parameter has sub-parameters. Use '--help n_neighbours' to see all 
+sub-parameters) 
   --filter_cutoff                    [integer] The length cutoff for the input fasta, scaffolds longer than this limit will be removed from 
-analysis. [default: 1900000000]  
-  --coverage_reads_per_chunk         [integer] Number of reads to map to a reference in a single chunk. [default: 1000000] 
-  --get_dictionary                   [boolean] Whether to get the samtools dictionary for the input FASTA file. [default: true] 
-  --replace_dots                     [boolean] Whether to replace dots in the input FASTA file with underscores. [default: false] 
+analysis. [default: 1900000000] (This parameter has sub-parameters. Use '--help 
+filter_cutoff' to see all sub-parameters) 
+  --coverage_reads_per_chunk         [integer] Number of reads to map to a reference in a single chunk. [default: 1000000] (This parameter 
+has sub-parameters. Use '--help coverage_reads_per_chunk' to see all sub-parameters) 
+  --get_dictionary                   [boolean] Whether to get the samtools dictionary for the input FASTA file. [default: true] (This 
+parameter has sub-parameters. Use '--help get_dictionary' to see all sub-parameters) 
+  --replace_dots                     [boolean] Whether to replace dots in the input FASTA file with underscores. [default: false] (This 
+parameter has sub-parameters. Use '--help replace_dots' to see all sub-parameters) 
   --outdir                           [string]  The output directory where the results will be saved. You have to use absolute paths to storage on 
-Cloud infrastructure.  
-  --email                            [string]  Email address for completion summary. 
-  --run_kmers                        [string]  Run kmer jobs on assemblies  (accepted: genomic, off) [default: genomic] 
+Cloud infrastructure. (This parameter has sub-parameters. Use '--help outdir' to see all 
+sub-parameters) 
+  --email                            [string]  Email address for completion summary. (This parameter has sub-parameters. Use '--help email' 
+to see all sub-parameters) 
+  --run_kmers                        [string]  Run kmer jobs on assemblies  (accepted: genomic, off) [default: genomic] (This parameter has 
+sub-parameters. Use '--help run_kmers' to see all sub-parameters) 
   --run_tiara                        [string]  Run tiara jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
+(This parameter has sub-parameters. Use '--help run_tiara' to see all sub-parameters) 
   --run_coverage                     [string]  Run coverage jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
+(This parameter has sub-parameters. Use '--help run_coverage' to see all sub-parameters) 
   --run_nt_blast                     [string]  Run nt_blast jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
+(This parameter has sub-parameters. Use '--help run_nt_blast' to see all sub-parameters) 
   --run_html_report                  [string]  Run HTML report generation on assemblies  (accepted: genomic, organellar, both, off) [default: 
-off]  
+off] (This parameter has sub-parameters. Use '--help run_html_report' to see all sub-parameters) 
   --run_nr_diamond                   [string]  Run nr_diamond jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
- 
+(This parameter has sub-parameters. Use '--help run_nr_diamond' to see all sub-parameters) 
   --run_uniprot_diamond              [string]  Run uniprot_diamond jobs on assemblies  (accepted: genomic, organellar, both, off) [default: 
-both]  
+both] (This parameter has sub-parameters. Use '--help run_uniprot_diamond' to see all 
+sub-parameters) 
   --run_kraken                       [string]  Run kraken jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
+(This parameter has sub-parameters. Use '--help run_kraken' to see all sub-parameters) 
   --run_fcsgx                        [string]  Run fcsgx jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
+(This parameter has sub-parameters. Use '--help run_fcsgx' to see all sub-parameters) 
   --run_fcs_adaptor                  [string]  Run fcs_adaptor jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
- 
+(This parameter has sub-parameters. Use '--help run_fcs_adaptor' to see all sub-parameters) 
   --run_vecscreen                    [string]  Run vecscreen jobs on assemblies  (accepted: genomic, organellar, both, off) [default: both] 
- 
-  --run_btk_busco                    [string]  Run btk_busco jobs on assemblies  (accepted: genomic, both, off) [default: genomic] 
+(This parameter has sub-parameters. Use '--help run_vecscreen' to see all sub-parameters) 
+  --run_btk_busco                    [string]  Run btk_busco jobs on assemblies  (accepted: genomic, both, off) [default: genomic] (This 
+parameter has sub-parameters. Use '--help run_btk_busco' to see all sub-parameters) 
   --run_pacbio_barcodes              [string]  Run pacbio_barcodes jobs on assemblies  (accepted: genomic, organellar, both, off) [default: 
-both]  
+both] (This parameter has sub-parameters. Use '--help run_pacbio_barcodes' to see all 
+sub-parameters) 
   --run_organellar_blast             [string]  Run organellar_blast jobs on assemblies  (accepted: genomic, both, off) [default: genomic] 
+(This parameter has sub-parameters. Use '--help run_organellar_blast' to see all sub-parameters) 
   --run_autofilter_assembly          [string]  Run autofilter_assembly jobs on assemblies  (accepted: genomic, both, off) [default: both] 
+(This parameter has sub-parameters. Use '--help run_autofilter_assembly' to see all 
+sub-parameters) 
   --run_create_btk_dataset           [string]  Run create_btk_dataset jobs on assemblies  (accepted: genomic, organellar, both, off) [default: 
-both]  
+both] (This parameter has sub-parameters. Use '--help run_create_btk_dataset' to see all 
+sub-parameters) 
   --run_merge_datasets               [string]  Run merge_datasets jobs on assemblies  (accepted: genomic, both, off) [default: genomic] 
+(This parameter has sub-parameters. Use '--help run_merge_datasets' to see all sub-parameters) 
   --run_decontaminate_fasta          [string]  Run decontaminate fasta, fasta will automatically be decontaminated if btk doesn't run  
-(accepted: genomic, both, off) [default: both]  
+(accepted: genomic, both, off) [default: both] (This parameter has sub-parameters. Use '--help 
+run_decontaminate_fasta' to see all sub-parameters) 
   --btk_busco_run_mode               [string]  Should btk be run as mandatory or conditional on levels of contamination.  (accepted: mandatory, 
-conditional) [default: conditional]  
-  --genomic_only                     [boolean] Switch off the organellar workflow 
-  --fcs_override                     [boolean] Use provided fcs sampleshet 
+conditional) [default: conditional] (This parameter has sub-parameters. Use '--help 
+btk_busco_run_mode' to see all sub-parameters) 
+  --genomic_only                     [boolean] Switch off the organellar workflow (This parameter has sub-parameters. Use '--help 
+genomic_only' to see all sub-parameters) 
+  --fcs_override                     [boolean] Use provided fcs sampleshet (This parameter has sub-parameters. Use '--help fcs_override' to 
+see all sub-parameters) 
   --fcs_override_samplesheet         [string]  Override the internal FCS and provide your own. READ THE DOCS TO MAKE SURE IT IS GENERATED 
-CORRECTLY.  
+CORRECTLY. (This parameter has sub-parameters. Use '--help fcs_override_samplesheet' to see 
+all sub-parameters) 
 
 Generic options
-  --help                             [boolean, string] Display the help message. 
-  --help_full                        [boolean]         Display the full detailed help message. 
+  --help                             [boolean, string] Display the help message. (This parameter has sub-parameters. Use '--help help' to see all 
+sub-parameters) 
+  --help_full                        [boolean]         Display the full detailed help message. (This parameter has sub-parameters. Use '--help 
+help_full' to see all sub-parameters) 
   --show_hidden                      [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
- 
+(This parameter has sub-parameters. Use '--help show_hidden' to see all sub-parameters) 
  !! Hiding 14 param(s), use the `--showHidden` parameter to show them !!
 ------------------------------------------------------
 
