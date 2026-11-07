@@ -72,12 +72,12 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "459b48f23cdfb9572ed3995ddc7a310d372cab3d",
+    "commit": "6b32f1d31e697a0ae2e1588645f011e93b18ca2c",
     "errors": 0,
     "warnings": 60,
     "parse_error": false,
     "prints_help": true,
-    "has_versions_mix": true
+    "has_versions_mix": false
   },
   "genomenote": {
     "full_name": "sanger-tol/genomenote",
