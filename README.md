@@ -12,12 +12,12 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-11-08 00:04:43 UTC
+- **Last updated:** 2026-11-09 00:04:40 UTC
 - **Nextflow version:** 26.10.3
 
 ## Pipelines
 
-- **Strict syntax:** 0 parse errors, 0 errors, 446 warnings across 21 pipelines
+- **Strict syntax:** 0 parse errors, 0 errors, 458 warnings across 21 pipelines
 - **Versions Mix:** 14/21 (66.7%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
 - **Zero issues:** 2 pipelines (9.5%)
 
@@ -43,9 +43,9 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :x: [genomenote](https://github.com/sanger-tol/genomenote)                                      |     No      |      0 |       39 |     Yes     | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/genomenote_lint.md)       |      [View](lint_results/prints-help-results/genomenote_help.txt)       |
 | :x: [blobtoolkit](https://github.com/sanger-tol/blobtoolkit)                                    |     No      |      0 |       35 |     Yes     | :negative_squared_cross_mark: |      [View](lint_results/pipeline-results/blobtoolkit_lint.md)      |      [View](lint_results/prints-help-results/blobtoolkit_help.txt)      |
 | :x: [genomeprofiling](https://github.com/sanger-tol/genomeprofiling)                            |     No      |      0 |       16 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/genomeprofiling_lint.md)    |    [View](lint_results/prints-help-results/genomeprofiling_help.txt)    |
+| :x: [variantcomposition](https://github.com/sanger-tol/variantcomposition)                      |     No      |      0 |       15 |     Yes     | :negative_squared_cross_mark: |  [View](lint_results/pipeline-results/variantcomposition_lint.md)   |  [View](lint_results/prints-help-results/variantcomposition_help.txt)   |
 | :x: [busco](https://github.com/sanger-tol/busco)                                                |     No      |      0 |        5 |     Yes     |      :white_check_mark:       |         [View](lint_results/pipeline-results/busco_lint.md)         |         [View](lint_results/prints-help-results/busco_help.txt)         |
 | :x: [purging](https://github.com/sanger-tol/purging)                                            |     No      |      0 |        5 |     No      |      :white_check_mark:       |        [View](lint_results/pipeline-results/purging_lint.md)        |        [View](lint_results/prints-help-results/purging_help.txt)        |
-| :x: [variantcomposition](https://github.com/sanger-tol/variantcomposition)                      |     No      |      0 |        3 |     Yes     | :negative_squared_cross_mark: |  [View](lint_results/pipeline-results/variantcomposition_lint.md)   |  [View](lint_results/prints-help-results/variantcomposition_help.txt)   |
 | :x: [curationpretext](https://github.com/sanger-tol/curationpretext)                            |     No      |      0 |        2 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/curationpretext_lint.md)    |    [View](lint_results/prints-help-results/curationpretext_help.txt)    |
 | :x: [tiara_fcsgx_analysis](https://github.com/sanger-tol/tiara_fcsgx_analysis)                  |     No      |      0 |        2 |     Yes     |      :white_check_mark:       | [View](lint_results/pipeline-results/tiara_fcsgx_analysis_lint.md)  | [View](lint_results/prints-help-results/tiara_fcsgx_analysis_help.txt)  |
 | :x: [tollongc](https://github.com/sanger-tol/tollongc)                                          |     No      |      0 |        2 |     Yes     |      :white_check_mark:       |       [View](lint_results/pipeline-results/tollongc_lint.md)        |       [View](lint_results/prints-help-results/tollongc_help.txt)        |

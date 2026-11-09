@@ -202,9 +202,9 @@
   "variantcomposition": {
     "full_name": "sanger-tol/variantcomposition",
     "html_url": "https://github.com/sanger-tol/variantcomposition",
-    "commit": "a54007d0a7eb31fcaf4b5162148d6dfb43ae86a3",
+    "commit": "94dc1c7c038424444dc58acb4f4236cccdb55317",
     "errors": 0,
-    "warnings": 3,
+    "warnings": 15,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
