@@ -1,9 +1,10 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
+Nextflow 26.10.5 is available - Please consider updating your version to it
 
- N E X T F L O W   ~  version 26.09.2-edge
+ N E X T F L O W   ~  version 26.10.3
 
-Launching `./main.nf` [small_legentil] revision: 3adc20c595
+Launching `./main.nf` [awesome_leakey] revision: 3adc20c595
 
 
 ------------------------------------------------------
@@ -15,7 +16,7 @@ Launching `./main.nf` [small_legentil] revision: 3adc20c595
  |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
                       __/ |
                      |___/
-  sanger-tol/variantcalling 2.1.0
+  sanger-tol/variantcalling 2.1.1
 ------------------------------------------------------
         Typical pipeline command:
 
@@ -50,9 +51,6 @@ Generic options
  
  !! Hiding 15 param(s), use the `--showHidden` parameter to show them !!
 ------------------------------------------------------
-
-* The pipeline
-    https://doi.org/10.5281/zenodo.7890527
 
 * The nf-core framework
     https://doi.org/10.1038/s41587-020-0439-x

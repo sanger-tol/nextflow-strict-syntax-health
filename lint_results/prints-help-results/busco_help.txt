@@ -1,10 +1,11 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
-Nextflow 26.10.4 is available - Please consider updating your version to it
+Nextflow 26.10.5 is available - Please consider updating your version to it
 
  N E X T F L O W   ~  version 26.10.3
 
-Launching `./main.nf` [angry_maxwell] revision: c92d491cbc
+Downloading plugin nf-schema@2.7.3
+Launching `./main.nf` [naughty_lalande] revision: c92d491cbc
 
 
 ------------------------------------------------------
@@ -16,7 +17,7 @@ Launching `./main.nf` [angry_maxwell] revision: c92d491cbc
  |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
                       __/ |
                      |___/
-  sanger-tol/busco 0.3.3
+  sanger-tol/busco 0.3.4
 ------------------------------------------------------
         Typical pipeline command:
 
@@ -33,6 +34,8 @@ Input/output options
   --mapping_directory           [string] Directory containing BUSCO taxid mapping files. 
   --busco_db                    [string] Local BUSCO database directory (optional). 
   --mode                        [string] Global lineage discovery mode(s): basal, latest, ancestral. 
+  --busco_gene_predictor        [string] Name of the gene predictor to run BUSCO on. By default, the pipeline will automatically select 
+miniprot for gene prediction.  (accepted: miniprot, metaeuk, augustus)  
   --odb_versions                [string] ODB version(s) to use. 
   --outdir                      [string] The output directory where the results will be saved. You have to use absolute paths to storage on 
 Cloud infrastructure.  

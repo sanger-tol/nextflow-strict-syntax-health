@@ -1,13 +1,11 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
+Nextflow 26.10.5 is available - Please consider updating your version to it
 
- N E X T F L O W   ~  version 26.10.2
+ N E X T F L O W   ~  version 26.10.3
 
-Downloading plugin nf-schema@2.5.1
-Launching `./main.nf` [romantic_bell] revision: 82d5822e41
+Launching `./main.nf` [fabulous_perlman] revision: a490457f30
 
-WARN: Unrecognized config option 'validation.defaultIgnoreParams'
-WARN: Unrecognized config option 'validation.monochromeLogs'
 
 ------------------------------------------------------
    _____                                _______    _
@@ -18,7 +16,7 @@ WARN: Unrecognized config option 'validation.monochromeLogs'
  |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
                       __/ |
                      |___/
-  sanger-tol/readmapping 2.1.0
+  sanger-tol/readmapping 2.1.1
 ------------------------------------------------------
         Typical pipeline command:
 
@@ -44,6 +42,7 @@ details: https://github.com/sanger-tol/hifi-trimmer [default:
 ${projectDir}/assets/HiFi_adapter.yaml]  
   --pacbio_uli_adapter          [string]  Path to FASTA file containing the PacBio ULI adapter sequence. 
   --email                       [string]  Email address for completion summary. 
+  --multiqc_title               [string]  MultiQC report title. Printed as page header, used for filename if not otherwise specified. 
 
 Reference genome options
   --fasta                       [string] Path to FASTA genome file. 
@@ -59,15 +58,12 @@ pipeline may output slightly different supplementary alignments in bwamem2 mode 
 effects. [default: 10000]  
 
 Generic options
-  --multiqc_title               [string]          MultiQC report title. Printed as page header, used for filename if not otherwise specified. 
-  --multiqc_logo                [string]          Custom logo file to supply to MultiQC. File name must also be set in the MultiQC config file 
- 
   --multiqc_methods_description [string]          Custom MultiQC yaml file containing HTML including a methods description. 
   --help                        [boolean, string] Display the help message. 
   --help_full                   [boolean]         Display the full detailed help message. 
   --show_hidden                 [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
  
- !! Hiding 16 param(s), use the `--showHidden` parameter to show them !!
+ !! Hiding 18 param(s), use the `--showHidden` parameter to show them !!
 ------------------------------------------------------
 
 * The pipeline

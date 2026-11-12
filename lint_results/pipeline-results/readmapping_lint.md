@@ -1,7 +1,7 @@
 # Nextflow lint results
 
-- Generated: 2026-10-20T00:08:26.167783532Z
-- Nextflow version: 26.10.2
+- Generated: 2026-11-12T00:06:42.737488117Z
+- Nextflow version: 26.10.3
 - Summary: 40 warnings
 
 ## :warning: Warnings
@@ -279,7 +279,7 @@
                                                                      ^^
   ```
 
-- Warning: `workflows/readmapping.nf:54:5`: Variable was declared but not used
+- Warning: `workflows/readmapping.nf:56:5`: Variable was declared but not used
 
   ```nextflow
       multiqc_report   = channel.empty()
