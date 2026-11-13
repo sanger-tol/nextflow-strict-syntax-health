@@ -12,9 +12,9 @@
   "blobtoolkit": {
     "full_name": "sanger-tol/blobtoolkit",
     "html_url": "https://github.com/sanger-tol/blobtoolkit",
-    "commit": "81c75c47b89c4b25a4f7e1085744c421e957c8b1",
+    "commit": "16a5161748751746411b8badb36ea9aa3cd339be",
     "errors": 0,
-    "warnings": 35,
+    "warnings": 37,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
@@ -72,7 +72,7 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "f747ac915a2f9a5507467ac248601e9226f1a0c0",
+    "commit": "7687dbf8789e931242c715cd692c79bc174d6f95",
     "errors": 0,
     "warnings": 60,
     "parse_error": false,

@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-10-23T00:08:51.113631998Z
+- Generated: 2026-11-13T00:06:37.156232283Z
 - Nextflow version: 26.10.3
-- Summary: 35 warnings
+- Summary: 37 warnings
 
 ## :warning: Warnings
 
@@ -66,6 +66,13 @@
 
   ```nextflow
       when:
+      ^^^^
+  ```
+
+- Warning: `modules/local/busco/prepare_precomputed.nf:13:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when: task.ext.when == null || task.ext.when
       ^^^^
   ```
 
@@ -249,4 +256,11 @@
   ```nextflow
       when:
       ^^^^
+  ```
+
+- Warning: `subworkflows/local/busco_diamond_blastp.nf:66:41`: Parameter was not used -- prefix with `_` to suppress warning
+
+  ```nextflow
+          .filter { _lineage, fasta_data, busco_data -> fasta_data != null }
+                                          ^^^^^^^^^^
   ```

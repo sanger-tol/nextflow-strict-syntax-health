@@ -26,7 +26,7 @@
   },
   "cram_map_illumina_hic": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/cram_map_illumina_hic",
-    "errors": 0,
+    "errors": 1,
     "warnings": 0,
     "parse_error": false
   },

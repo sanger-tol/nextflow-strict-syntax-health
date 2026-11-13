@@ -4,8 +4,7 @@ Nextflow 26.10.5 is available - Please consider updating your version to it
 
  N E X T F L O W   ~  version 26.10.3
 
-Downloading plugin nf-schema@2.7.3
-Launching `./main.nf` [pedantic_poincare] revision: 528aaa6053
+Launching `./main.nf` [goofy_franklin] revision: 528aaa6053
 
 
 ------------------------------------------------------
@@ -17,7 +16,7 @@ Launching `./main.nf` [pedantic_poincare] revision: 528aaa6053
  |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
                       __/ |
                      |___/
-  sanger-tol/genomeassembly 1.1.0
+  sanger-tol/genomeassembly 1.2.0dev
 ------------------------------------------------------
         Typical pipeline command:
 

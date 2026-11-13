@@ -1,10 +1,11 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
+Nextflow 26.10.5 is available - Please consider updating your version to it
 
  N E X T F L O W   ~  version 26.10.3
 
 Downloading plugin nf-schema@2.7.3
-Launching `./main.nf` [suspicious_fermat] revision: 9fa97b580d
+Launching `./main.nf` [distracted_monod] revision: 9fa97b580d
 
 
 ------------------------------------------------------
@@ -16,7 +17,7 @@ Launching `./main.nf` [suspicious_fermat] revision: 9fa97b580d
  |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
                       __/ |
                      |___/
-  sanger-tol/blobtoolkit 0.11.2
+  sanger-tol/blobtoolkit 0.11.3
 ------------------------------------------------------
         Typical pipeline command:
 
