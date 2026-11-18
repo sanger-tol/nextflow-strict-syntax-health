@@ -49,6 +49,16 @@
     "prints_help": false,
     "has_versions_mix": true
   },
+  "ensembldownload": {
+    "full_name": "sanger-tol/ensembldownload",
+    "html_url": "https://github.com/sanger-tol/ensembldownload",
+    "commit": "34d55dd41703ebb64cc8b5ec5f99cda081929e29",
+    "errors": 0,
+    "warnings": 2,
+    "parse_error": false,
+    "prints_help": true,
+    "has_versions_mix": false
+  },
   "ensemblgenedownload": {
     "full_name": "sanger-tol/ensemblgenedownload",
     "html_url": "https://github.com/sanger-tol/ensemblgenedownload",
@@ -132,12 +142,11 @@
   "purging": {
     "full_name": "sanger-tol/purging",
     "html_url": "https://github.com/sanger-tol/purging",
-    "commit": "4ffdef63cd21a0f63d3360d65b3f0152403c3bc1",
     "errors": 0,
-    "warnings": 5,
-    "parse_error": false,
-    "prints_help": false,
-    "has_versions_mix": false
+    "warnings": 0,
+    "parse_error": true,
+    "prints_help": null,
+    "has_versions_mix": null
   },
   "readmapping": {
     "full_name": "sanger-tol/readmapping",

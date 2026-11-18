@@ -1,0 +1,32 @@
+$ NXF_SYNTAX_PARSER=v2 nextflow run . --help
+
+/home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/nextflow-src/build/releases/nextflow: line 44: [[: 09: value too great for base (error token is "09")
+/home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/nextflow-src/build/releases/nextflow: line 45: [[: 09: value too great for base (error token is "09")
+Nextflow 26.09.2-edge is available - Please consider updating your version to it
+
+ N E X T F L O W   ~  version 26.11.0-edge
+
+Downloading plugin nf-schema@2.7.3
+Launching `./main.nf` [insane_murdock] revision: ba6d15c768
+
+Typical pipeline command:
+
+  nextflow run sanger-tol/ensembldownload -profile <docker/singularity/.../institute> --input samplesheet.csv --outdir <OUTDIR>
+
+help message of that parameter will be printed.  
+or `--helpFull`.  
+
+Input/output options
+  --input       [string] Path to comma-separated file containing information about the samples in the experiment. 
+  --outdir      [string] The output directory where the results will be saved. You have to use absolute paths to storage on 
+Cloud infrastructure.  
+  --email       [string] Email address for completion summary. 
+
+Generic options
+  --help        [boolean, string] Display the help message. 
+  --help_full   [boolean]         Display the full detailed help message. 
+  --show_hidden [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
+ 
+ !! Hiding 14 param(s), use the `--showHidden` parameter to show them !!
+------------------------------------------------------
+
