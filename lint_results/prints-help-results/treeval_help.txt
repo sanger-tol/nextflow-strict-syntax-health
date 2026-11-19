@@ -1,11 +1,9 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
-Nextflow 26.10.4 is available - Please consider updating your version to it
 
- N E X T F L O W   ~  version 26.10.3
+ N E X T F L O W   ~  version 26.11.0-edge
 
-Downloading plugin nf-schema@2.7.3
-Launching `./main.nf` [nostalgic_edison] revision: 64e0c938ae
+Launching `./main.nf` [distraught_tuckerman] revision: 5652d28926
 
 
 ------------------------------------------------------
@@ -27,25 +25,25 @@ help message of that parameter will be printed.
 or `--helpFull`.  
 
 Input/output options
-  --input          [string]  Path to YAML file describing the input data. 
-  --outdir         [string]  The output directory where the results will be saved. You have to use absolute paths to storage on 
+  --input                  [string]  Path to YAML file describing the input data. 
+  --outdir                 [string]  The output directory where the results will be saved. You have to use absolute paths to storage on 
 Cloud infrastructure.  
-  --juicer         [boolean] If false then turn off Juicer generation 
-  --binfile        [boolean] If false then turn off bin file generation 
-  --split_telomere [boolean] Split the telomere file into 5' and 3' files for seperate ingestion into the HiC maps [default: 
-false]  
-  --steps          [string]  A csv list of steps to skip 
-  --email          [string]  Email address for completion summary. 
-  --mode           [string]  Run mode specified (FULL, RAPID, RAPID_TOL, JBROWSE, FULL_COMBINED)  (accepted: FULL, RAPID, 
-RAPID_TOL, JBROWSE, FULL_COMBINED)  
-  --run_hires      [boolean] Run HiRes pretext maps 
-  --run_ultra      [boolean] Run UltraRes pretext maps 
-  --kmer_length    [integer] Length of kmer for FASTK analysis [default: 31] 
+  --juicer                 [boolean] If false then turn off Juicer generation 
+  --binfile                [boolean] If false then turn off bin file generation 
+  --split_telomere         [boolean] Split the telomere file into 5' and 3' files for seperate ingestion into the HiC maps 
+  --steps                  [string]  A csv list of steps to skip [default: NONE] 
+  --email                  [string]  Email address for completion summary. 
+  --mode                   [string]  Run mode specified (FULL, RAPID, RAPID_TOL, JBROWSE, FULL_COMBINED)  (accepted: FULL, RAPID, 
+RAPID_TOL, JBROWSE, FULL_COMBINED) [default: FULL]  
+  --run_hires              [boolean] Run HiRes pretext maps [default: true] 
+  --run_ultra              [boolean] Run UltraRes pretext maps 
+  --kmer_length            [integer] Length of kmer for FASTK analysis [default: 31] 
+  --hic_mapping_chunk_size [integer] Number of CRAM chunks to map in each Hi-C mapping job. [default: 10000] 
 
 Generic options
-  --help           [boolean, string] Display the help message. 
-  --help_full      [boolean]         Display the full detailed help message. 
-  --show_hidden    [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
+  --help                   [boolean, string] Display the help message. 
+  --help_full              [boolean]         Display the full detailed help message. 
+  --show_hidden            [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
  
  !! Hiding 14 param(s), use the `--showHidden` parameter to show them !!
 ------------------------------------------------------

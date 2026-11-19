@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-10-31T00:06:21.557202132Z
-- Nextflow version: 26.10.3
-- Summary: 61 warnings
+- Generated: 2026-11-19T00:06:22.998274996Z
+- Nextflow version: 26.11.0-edge
+- Summary: 68 warnings
 
 ## :warning: Warnings
 
@@ -314,7 +314,7 @@
       ^^^^
   ```
 
-- Warning: `modules/nf-core/samtools/markdup/main.nf:20:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+- Warning: `modules/nf-core/samtools/index/main.nf:17:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
@@ -322,6 +322,20 @@
   ```
 
 - Warning: `modules/nf-core/samtools/merge/main.nf:21:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/nf-core/samtools/merge/main.nf:54:9`: Variable was declared but not used
+
+  ```nextflow
+      def args = task.ext.args ?: ''
+          ^^^^
+  ```
+
+- Warning: `modules/nf-core/samtools/splitheader/main.nf:19:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:
@@ -392,6 +406,41 @@
   ```
 
 - Warning: `modules/nf-core/yahs/main.nf:23:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/sanger-tol/bedtools/bamtobedsort/main.nf:18:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/sanger-tol/cramalign/bwamem2alignhic/main.nf:20:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/sanger-tol/cramalign/gencramchunks/main.nf:14:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/sanger-tol/cramalign/minimap2alignhic/main.nf:22:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
+
+  ```nextflow
+      when:
+      ^^^^
+  ```
+
+- Warning: `modules/sanger-tol/samtools/mergedup/main.nf:21:5`: The `when` section is deprecated -- use conditional logic in the calling workflow, or the `process.when` config option to disable a process at runtime
 
   ```nextflow
       when:

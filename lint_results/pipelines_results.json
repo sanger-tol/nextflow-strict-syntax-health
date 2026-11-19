@@ -32,9 +32,9 @@
   "curationpretext": {
     "full_name": "sanger-tol/curationpretext",
     "html_url": "https://github.com/sanger-tol/curationpretext",
-    "commit": "43c4badbe4c786a4b2d83a3cc96bca8c080f9946",
+    "commit": "7d285752b3e59dc894491096a53af4c12b321bb6",
     "errors": 0,
-    "warnings": 2,
+    "warnings": 67,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -139,15 +139,6 @@
     "prints_help": true,
     "has_versions_mix": true
   },
-  "purging": {
-    "full_name": "sanger-tol/purging",
-    "html_url": "https://github.com/sanger-tol/purging",
-    "errors": 0,
-    "warnings": 0,
-    "parse_error": true,
-    "prints_help": null,
-    "has_versions_mix": null
-  },
   "readmapping": {
     "full_name": "sanger-tol/readmapping",
     "html_url": "https://github.com/sanger-tol/readmapping",
@@ -191,9 +182,9 @@
   "treeval": {
     "full_name": "sanger-tol/treeval",
     "html_url": "https://github.com/sanger-tol/treeval",
-    "commit": "4e361157e3e7dde81286444c5f17bff35008c77b",
+    "commit": "20763f54342a018262c3d8882f779dce8597781f",
     "errors": 0,
-    "warnings": 61,
+    "warnings": 68,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": true
