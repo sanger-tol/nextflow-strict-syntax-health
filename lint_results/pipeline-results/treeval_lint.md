@@ -1,8 +1,8 @@
 # Nextflow lint results
 
-- Generated: 2026-11-19T00:06:22.998274996Z
+- Generated: 2026-11-20T00:07:12.135637452Z
 - Nextflow version: 26.11.0-edge
-- Summary: 68 warnings
+- Summary: 67 warnings
 
 ## :warning: Warnings
 
@@ -473,11 +473,4 @@
   ```nextflow
       return ch_versions.unique().map { version -> processVersionsFromYAML(version) }.unique().mix(Channel.of(workflowVersionToYAML()))
                                                                                                    ^^^^^^^
-  ```
-
-- Warning: `workflows/treeval.nf:54:5`: Parameter was not used -- prefix with `_` to suppress warning
-
-  ```nextflow
-      map_order       // channel: hic mapping order (from yaml)
-      ^^^^^^^^^
   ```

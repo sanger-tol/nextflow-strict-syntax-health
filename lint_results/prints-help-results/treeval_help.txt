@@ -3,7 +3,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
  N E X T F L O W   ~  version 26.11.0-edge
 
-Launching `./main.nf` [distraught_tuckerman] revision: 5652d28926
+Launching `./main.nf` [golden_solvay] revision: 5652d28926
 
 
 ------------------------------------------------------
@@ -15,7 +15,7 @@ Launching `./main.nf` [distraught_tuckerman] revision: 5652d28926
  |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
                       __/ |
                      |___/
-  sanger-tol/treeval 1.4.8
+  sanger-tol/treeval 1.5.0
 ------------------------------------------------------
         Typical pipeline command:
 

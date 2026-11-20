@@ -12,12 +12,12 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-11-19 00:06:55 UTC
+- **Last updated:** 2026-11-20 00:08:01 UTC
 - **Nextflow version:** 26.11.0-edge
 
 ## Pipelines
 
-- **Strict syntax:** 0 parse errors, 0 errors, 576 warnings across 21 pipelines
+- **Strict syntax:** 0 parse errors, 0 errors, 575 warnings across 21 pipelines
 - **Versions Mix:** 14/21 (66.7%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
 - **Zero issues:** 0 pipelines (0.0%)
 
@@ -34,8 +34,8 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 
 | Pipeline                                                                         | Parse Error | Errors | Warnings | Prints Help |         Versions Mix          |                             Lint Output                             |                               Help Output                               |
 | -------------------------------------------------------------------------------- | :---------: | -----: | -------: | :---------: | :---------------------------: | :-----------------------------------------------------------------: | :---------------------------------------------------------------------: |
-| :x: [treeval](https://github.com/sanger-tol/treeval)                             |     No      |      0 |       68 |     Yes     | :negative_squared_cross_mark: |        [View](lint_results/pipeline-results/treeval_lint.md)        |        [View](lint_results/prints-help-results/treeval_help.txt)        |
 | :x: [curationpretext](https://github.com/sanger-tol/curationpretext)             |     No      |      0 |       67 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/curationpretext_lint.md)    |    [View](lint_results/prints-help-results/curationpretext_help.txt)    |
+| :x: [treeval](https://github.com/sanger-tol/treeval)                             |     No      |      0 |       67 |     Yes     | :negative_squared_cross_mark: |        [View](lint_results/pipeline-results/treeval_lint.md)        |        [View](lint_results/prints-help-results/treeval_help.txt)        |
 | :x: [metagenomeassembly](https://github.com/sanger-tol/metagenomeassembly)       |     No      |      0 |       62 |     Yes     |      :white_check_mark:       |  [View](lint_results/pipeline-results/metagenomeassembly_lint.md)   |  [View](lint_results/prints-help-results/metagenomeassembly_help.txt)   |
 | :x: [genomeassembly](https://github.com/sanger-tol/genomeassembly)               |     No      |      0 |       60 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/genomeassembly_lint.md)     |    [View](lint_results/prints-help-results/genomeassembly_help.txt)     |
 | :x: [ascc](https://github.com/sanger-tol/ascc)                                   |     No      |      0 |       57 |     Yes     | :negative_squared_cross_mark: |         [View](lint_results/pipeline-results/ascc_lint.md)          |         [View](lint_results/prints-help-results/ascc_help.txt)          |
