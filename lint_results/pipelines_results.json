@@ -52,9 +52,9 @@
   "ensembldownload": {
     "full_name": "sanger-tol/ensembldownload",
     "html_url": "https://github.com/sanger-tol/ensembldownload",
-    "commit": "34d55dd41703ebb64cc8b5ec5f99cda081929e29",
+    "commit": "3480e311c829610b19c3e661eff4dac888d01777",
     "errors": 0,
-    "warnings": 2,
+    "warnings": 4,
     "parse_error": false,
     "prints_help": true,
     "has_versions_mix": false
@@ -82,7 +82,7 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "226028d7e55219c0ec8389e4845f87c8b3fa26f0",
+    "commit": "1671094e1a3b50027e01d384e499bf0ad1667beb",
     "errors": 0,
     "warnings": 60,
     "parse_error": false,
@@ -182,7 +182,7 @@
   "treeval": {
     "full_name": "sanger-tol/treeval",
     "html_url": "https://github.com/sanger-tol/treeval",
-    "commit": "48b517378bd271654844083b63f00579c2dbbfe2",
+    "commit": "d7c7c1feb64f3e4ea16e3ed1f7b5c5d15967bbba",
     "errors": 0,
     "warnings": 67,
     "parse_error": false,

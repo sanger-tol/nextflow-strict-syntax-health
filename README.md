@@ -12,12 +12,12 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-11-20 00:08:01 UTC
+- **Last updated:** 2026-11-21 00:09:36 UTC
 - **Nextflow version:** 26.11.0-edge
 
 ## Pipelines
 
-- **Strict syntax:** 0 parse errors, 0 errors, 575 warnings across 21 pipelines
+- **Strict syntax:** 0 parse errors, 0 errors, 577 warnings across 21 pipelines
 - **Versions Mix:** 14/21 (66.7%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
 - **Zero issues:** 0 pipelines (0.0%)
 
@@ -51,7 +51,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :x: [ensemblrepeatdownload](https://github.com/sanger-tol/ensemblrepeatdownload) |     No      |      0 |        6 |     Yes     |      :white_check_mark:       | [View](lint_results/pipeline-results/ensemblrepeatdownload_lint.md) | [View](lint_results/prints-help-results/ensemblrepeatdownload_help.txt) |
 | :x: [busco](https://github.com/sanger-tol/busco)                                 |     No      |      0 |        5 |     Yes     |      :white_check_mark:       |         [View](lint_results/pipeline-results/busco_lint.md)         |         [View](lint_results/prints-help-results/busco_help.txt)         |
 | :x: [sequencecomposition](https://github.com/sanger-tol/sequencecomposition)     |     No      |      0 |        5 |     Yes     |      :white_check_mark:       |  [View](lint_results/pipeline-results/sequencecomposition_lint.md)  |  [View](lint_results/prints-help-results/sequencecomposition_help.txt)  |
-| :x: [ensembldownload](https://github.com/sanger-tol/ensembldownload)             |     No      |      0 |        2 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/ensembldownload_lint.md)    |    [View](lint_results/prints-help-results/ensembldownload_help.txt)    |
+| :x: [ensembldownload](https://github.com/sanger-tol/ensembldownload)             |     No      |      0 |        4 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/ensembldownload_lint.md)    |    [View](lint_results/prints-help-results/ensembldownload_help.txt)    |
 | :x: [tiara_fcsgx_analysis](https://github.com/sanger-tol/tiara_fcsgx_analysis)   |     No      |      0 |        2 |     Yes     |      :white_check_mark:       | [View](lint_results/pipeline-results/tiara_fcsgx_analysis_lint.md)  | [View](lint_results/prints-help-results/tiara_fcsgx_analysis_help.txt)  |
 | :x: [tollongc](https://github.com/sanger-tol/tollongc)                           |     No      |      0 |        2 |     Yes     |      :white_check_mark:       |       [View](lint_results/pipeline-results/tollongc_lint.md)        |       [View](lint_results/prints-help-results/tollongc_help.txt)        |
 | :x: [nfmicrofinder](https://github.com/sanger-tol/nfmicrofinder)                 |     No      |      0 |        1 |     Yes     | :negative_squared_cross_mark: |     [View](lint_results/pipeline-results/nfmicrofinder_lint.md)     |     [View](lint_results/prints-help-results/nfmicrofinder_help.txt)     |
@@ -128,9 +128,9 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 
 ## Subworkflows
 
-- **Strict syntax:** 0 parse errors, 1 errors, 0 warnings across 27 subworkflows
+- **Strict syntax:** 0 parse errors, 0 errors, 0 warnings across 27 subworkflows
 - **Versions channel:** 27/27 (100.0%) subworkflows do not emit a `versions` output channel
-- **Zero errors:** 26 subworkflows (96.3%)
+- **Zero errors:** 27 subworkflows (100.0%)
 
 |                     Errors                      |                      Warnings                       |
 | :---------------------------------------------: | :-------------------------------------------------: |
@@ -141,11 +141,11 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 
 | Subworkflow                                                                                                                                                                             | Parse Error | Errors | Warnings |  versions channel  |                                        Lint Output                                        |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: | -----: | -------: | :----------------: | :---------------------------------------------------------------------------------------: |
-| :x: [cram_map_illumina_hic](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/cram_map_illumina_hic)                                                      |     No      |      1 |        0 | :white_check_mark: |          [View](lint_results/subworkflow-results/cram_map_illumina_hic_lint.md)           |
 | :white_check_mark: [ancestral_annotation](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation)                                         |     No      |      0 |        0 | :white_check_mark: |           [View](lint_results/subworkflow-results/ancestral_annotation_lint.md)           |
 | :white_check_mark: [bam2cool](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/bam2cool)                                                                 |     No      |      0 |        0 | :white_check_mark: |                 [View](lint_results/subworkflow-results/bam2cool_lint.md)                 |
 | :white_check_mark: [bam_samtools_merge_markdup](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/bam_samtools_merge_markdup)                             |     No      |      0 |        0 | :white_check_mark: |        [View](lint_results/subworkflow-results/bam_samtools_merge_markdup_lint.md)        |
 | :white_check_mark: [busco_gene](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/busco_gene)                                                             |     No      |      0 |        0 | :white_check_mark: |                [View](lint_results/subworkflow-results/busco_gene_lint.md)                |
+| :white_check_mark: [cram_map_illumina_hic](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/cram_map_illumina_hic)                                       |     No      |      0 |        0 | :white_check_mark: |          [View](lint_results/subworkflow-results/cram_map_illumina_hic_lint.md)           |
 | :white_check_mark: [cram_map_long_reads](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/cram_map_long_reads)                                           |     No      |      0 |        0 | :white_check_mark: |           [View](lint_results/subworkflow-results/cram_map_long_reads_lint.md)            |
 | :white_check_mark: [fasta_10x_polishing_longranger_freebayes](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_10x_polishing_longranger_freebayes) |     No      |      0 |        0 | :white_check_mark: | [View](lint_results/subworkflow-results/fasta_10x_polishing_longranger_freebayes_lint.md) |
 | :white_check_mark: [fasta_bam_scaffolding_ragtag_yahs](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_bam_scaffolding_ragtag_yahs)               |     No      |      0 |        0 | :white_check_mark: |    [View](lint_results/subworkflow-results/fasta_bam_scaffolding_ragtag_yahs_lint.md)     |

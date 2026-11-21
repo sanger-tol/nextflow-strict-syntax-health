@@ -1,15 +1,24 @@
 $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
 
-/home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/nextflow-src/build/releases/nextflow: line 44: [[: 09: value too great for base (error token is "09")
-/home/runner/work/nextflow-strict-syntax-health/nextflow-strict-syntax-health/nextflow-src/build/releases/nextflow: line 45: [[: 09: value too great for base (error token is "09")
-Nextflow 26.09.2-edge is available - Please consider updating your version to it
 
  N E X T F L O W   ~  version 26.11.0-edge
 
 Downloading plugin nf-schema@2.7.3
-Launching `./main.nf` [insane_murdock] revision: ba6d15c768
+Launching `./main.nf` [stoic_einstein] revision: 5dec74c821
 
-Typical pipeline command:
+
+------------------------------------------------------
+   _____                                _______    _
+  / ____|                              |__   __|  | |
+ | (___   __ _ _ __   __ _  ___ _ __  ___ | | ___ | |
+  \___ \ / _` | '_ \ / _` |/ _ \ '__||___|| |/ _ \| |
+  ____) | (_| | | | | (_| |  __/ |        | | (_) | |____
+ |_____/ \__,_|_| |_|\__, |\___|_|        |_|\___/|______|
+                      __/ |
+                     |___/
+  sanger-tol/ensembldownload 3.0.0
+------------------------------------------------------
+        Typical pipeline command:
 
   nextflow run sanger-tol/ensembldownload -profile <docker/singularity/.../institute> --input samplesheet.csv --outdir <OUTDIR>
 
@@ -17,16 +26,29 @@ help message of that parameter will be printed.
 or `--helpFull`.  
 
 Input/output options
-  --input       [string] Path to comma-separated file containing information about the samples in the experiment. 
-  --outdir      [string] The output directory where the results will be saved. You have to use absolute paths to storage on 
-Cloud infrastructure.  
-  --email       [string] Email address for completion summary. 
+  --assembly_accession [string] Accession number of the assembly to download. Typically of the form `GCA_*.*` 
+  --annotation_method  [string] Method used to annotate the genome. Typically `ensembl`, `braker`, etc. 
+  --geneset_version    [string] Version of the geneset, usually in the form `YYYY_MM`. 
+  --outdir             [string] The output directory where the results will be saved. Not considered for sample-sheet entries that 
+have an absolute path. [default: results]  
+  --input              [string] Path to comma-separated file containing information about the genesets to download. Used for bulk 
+download of many genesets.  
+  --email              [string] Email address for completion summary. 
 
 Generic options
-  --help        [boolean, string] Display the help message. 
-  --help_full   [boolean]         Display the full detailed help message. 
-  --show_hidden [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
+  --help               [boolean, string] Display the help message. 
+  --help_full          [boolean]         Display the full detailed help message. 
+  --show_hidden        [boolean]         Display hidden parameters in the help message (only works when --help or --help_full are provided). 
  
- !! Hiding 14 param(s), use the `--showHidden` parameter to show them !!
+ !! Hiding 15 param(s), use the `--showHidden` parameter to show them !!
 ------------------------------------------------------
+
+* The pipeline
+    https://doi.org/10.5281/zenodo.7155206
+
+* The nf-core framework
+    https://doi.org/10.1038/s41587-020-0439-x
+
+* Software dependencies
+    https://github.com/sanger-tol/ensembldownload/blob/main/CITATIONS.md
 

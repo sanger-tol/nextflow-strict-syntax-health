@@ -1,14 +1,5 @@
 # Nextflow lint results
 
-- Generated: 2026-11-20T00:07:37.444345+00:00
+- Generated: 2026-11-21T00:08:23.386212+00:00
 - Nextflow version: 26.11.0-edge
-- Summary: 1 error
-
-## :x: Errors
-
-- Error: `subworkflows/sanger-tol/cram_map_illumina_hic/main.nf:108:9`: Incorrect number of call arguments, expected 2 but received 1
-
-  ```nextflow
-          BWAMEM2_INDEX(ch_assemblies)
-          ^^^^^^^^^^
-  ```
+- Summary: No issues found

@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "7c92d8d8743e516670f19aaff34654ed69968e62",
+  "_repo_commit": "2c98a02051a1c2255628c445a22fb08174053350",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -26,7 +26,7 @@
   },
   "cram_map_illumina_hic": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/cram_map_illumina_hic",
-    "errors": 1,
+    "errors": 0,
     "warnings": 0,
     "parse_error": false
   },
