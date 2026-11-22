@@ -59,26 +59,6 @@
     "prints_help": true,
     "has_versions_mix": false
   },
-  "ensemblgenedownload": {
-    "full_name": "sanger-tol/ensemblgenedownload",
-    "html_url": "https://github.com/sanger-tol/ensemblgenedownload",
-    "commit": "8d40b1d7857265a4b232eda465dbb27451460bc0",
-    "errors": 0,
-    "warnings": 6,
-    "parse_error": false,
-    "prints_help": true,
-    "has_versions_mix": false
-  },
-  "ensemblrepeatdownload": {
-    "full_name": "sanger-tol/ensemblrepeatdownload",
-    "html_url": "https://github.com/sanger-tol/ensemblrepeatdownload",
-    "commit": "c4314c2323e0c01817f8e1f2d799218f7752e7f9",
-    "errors": 0,
-    "warnings": 6,
-    "parse_error": false,
-    "prints_help": true,
-    "has_versions_mix": false
-  },
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
