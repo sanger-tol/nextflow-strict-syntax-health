@@ -4,7 +4,7 @@ $ NXF_SYNTAX_PARSER=v2 nextflow run . --help
  N E X T F L O W   ~  version 26.11.0-edge
 
 Downloading plugin nf-schema@2.7.3
-Launching `./main.nf` [stoic_einstein] revision: 5dec74c821
+Launching `./main.nf` [small_brattain] revision: 5dec74c821
 
 
 ------------------------------------------------------
@@ -44,7 +44,7 @@ Generic options
 ------------------------------------------------------
 
 * The pipeline
-    https://doi.org/10.5281/zenodo.7155206
+    https://doi.org/10.5281/zenodo.24464529
 
 * The nf-core framework
     https://doi.org/10.1038/s41587-020-0439-x

@@ -52,7 +52,7 @@
   "ensembldownload": {
     "full_name": "sanger-tol/ensembldownload",
     "html_url": "https://github.com/sanger-tol/ensembldownload",
-    "commit": "3480e311c829610b19c3e661eff4dac888d01777",
+    "commit": "f90cc50bad3246a805c86d6d76f2bffcbbdfee6b",
     "errors": 0,
     "warnings": 4,
     "parse_error": false,
@@ -62,7 +62,7 @@
   "genomeassembly": {
     "full_name": "sanger-tol/genomeassembly",
     "html_url": "https://github.com/sanger-tol/genomeassembly",
-    "commit": "1671094e1a3b50027e01d384e499bf0ad1667beb",
+    "commit": "2e12018257f3e479f554df53a1a596c549ff885a",
     "errors": 0,
     "warnings": 60,
     "parse_error": false,
