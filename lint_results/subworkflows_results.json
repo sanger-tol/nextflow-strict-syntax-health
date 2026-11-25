@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "2c98a02051a1c2255628c445a22fb08174053350",
+  "_repo_commit": "3a25c723488d777b1935241eee3a18eb9406a97c",
   "ancestral_annotation": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/ancestral_annotation",
     "errors": 0,
@@ -56,6 +56,12 @@
   },
   "fasta_compress_index": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_compress_index",
+    "errors": 0,
+    "warnings": 0,
+    "parse_error": false
+  },
+  "fasta_decontamination_syncon": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_decontamination_syncon",
     "errors": 0,
     "warnings": 0,
     "parse_error": false

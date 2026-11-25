@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "2c98a02051a1c2255628c445a22fb08174053350",
+  "_repo_commit": "3a25c723488d777b1935241eee3a18eb9406a97c",
   "ancestral_extract": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract",
     "errors": 0,
@@ -262,6 +262,12 @@
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/telomere/findtelomere",
     "errors": 0,
     "warnings": 1,
+    "parse_error": false
+  },
+  "trimgalore": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/trimgalore",
+    "errors": 0,
+    "warnings": 0,
     "parse_error": false
   },
   "yahs_makepairsfile": {

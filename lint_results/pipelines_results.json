@@ -22,7 +22,7 @@
   "busco": {
     "full_name": "sanger-tol/busco",
     "html_url": "https://github.com/sanger-tol/busco",
-    "commit": "d11874aacd364a26bc62eb6c741ad1be8c0e1f82",
+    "commit": "72ea5220c138f9287a9775550c7744c41a1d49ee",
     "errors": 0,
     "warnings": 5,
     "parse_error": false,
@@ -162,7 +162,7 @@
   "treeval": {
     "full_name": "sanger-tol/treeval",
     "html_url": "https://github.com/sanger-tol/treeval",
-    "commit": "d7c7c1feb64f3e4ea16e3ed1f7b5c5d15967bbba",
+    "commit": "40aaa04cf4eea398c445b98e768bfec1e53d390e",
     "errors": 0,
     "warnings": 67,
     "parse_error": false,

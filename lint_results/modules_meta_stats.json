@@ -1,9 +1,9 @@
 {
-  "total": 73,
-  "with_topic_versions": 46,
+  "total": 75,
+  "with_topic_versions": 47,
   "without_topic_versions": 0,
   "subworkflow_with_versions": 0,
-  "subworkflow_without_versions": 27,
+  "subworkflow_without_versions": 28,
   "details": [
     {
       "name": "ancestral_extract",
@@ -314,6 +314,13 @@
       "type": "module"
     },
     {
+      "name": "trimgalore",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/trimgalore/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
       "name": "yahs_makepairsfile",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/yahs/makepairsfile/meta.yml",
       "has_topics": true,
@@ -384,6 +391,12 @@
     {
       "name": "fasta_compress_index",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/fasta_compress_index/main.nf",
+      "has_versions": false,
+      "type": "subworkflow"
+    },
+    {
+      "name": "fasta_decontamination_syncon",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/subworkflows/sanger-tol/fasta_decontamination_syncon/main.nf",
       "has_versions": false,
       "type": "subworkflow"
     },

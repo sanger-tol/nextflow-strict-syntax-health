@@ -12,7 +12,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-11-24 00:05:14 UTC
+- **Last updated:** 2026-11-25 00:05:36 UTC
 - **Nextflow version:** 26.11.0-edge
 
 ## Pipelines
@@ -58,9 +58,9 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 
 ## Modules
 
-- **Strict syntax:** 0 parse errors, 0 errors, 39 warnings across 46 modules
-- **Topic + Version:** 46/46 (100.0%) modules have `topics:` and `versions:` in meta.yml
-- **Zero errors:** 46 modules (100.0%)
+- **Strict syntax:** 0 parse errors, 0 errors, 39 warnings across 47 modules
+- **Topic + Version:** 47/47 (100.0%) modules have `topics:` and `versions:` in meta.yml
+- **Zero errors:** 47 modules (100.0%)
 
 |                   Errors                   |                    Warnings                    |
 | :----------------------------------------: | :--------------------------------------------: |
@@ -71,7 +71,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | ![Topic Version Usage](lint_results/modules_topic_versions.png) |
 
 <details>
-<summary>Module Results (46 modules)</summary>
+<summary>Module Results (47 modules)</summary>
 
 | Module                                                                                                                                                                 | Parse Error | Errors | Warnings |     `topics:`      |    `versions:`     |                                  Lint Output                                   |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: | -----: | -------: | :----------------: | :----------------: | :----------------------------------------------------------------------------: |
@@ -121,21 +121,22 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :white_check_mark: [hifiasm](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/hifiasm)                                                       |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |              [View](lint_results/module-results/hifiasm_lint.md)               |
 | :white_check_mark: [pretextannotate](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/pretextannotate)                                       |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |          [View](lint_results/module-results/pretextannotate_lint.md)           |
 | :white_check_mark: [restructurebuscodir](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/restructurebuscodir)                               |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |        [View](lint_results/module-results/restructurebuscodir_lint.md)         |
+| :white_check_mark: [trimgalore](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/trimgalore)                                                 |     No      |      0 |        0 | :white_check_mark: | :white_check_mark: |             [View](lint_results/module-results/trimgalore_lint.md)             |
 
 </details>
 
 ## Subworkflows
 
-- **Strict syntax:** 0 parse errors, 0 errors, 0 warnings across 27 subworkflows
-- **Versions channel:** 27/27 (100.0%) subworkflows do not emit a `versions` output channel
-- **Zero errors:** 27 subworkflows (100.0%)
+- **Strict syntax:** 0 parse errors, 0 errors, 0 warnings across 28 subworkflows
+- **Versions channel:** 28/28 (100.0%) subworkflows do not emit a `versions` output channel
+- **Zero errors:** 28 subworkflows (100.0%)
 
 |                     Errors                      |                      Warnings                       |
 | :---------------------------------------------: | :-------------------------------------------------: |
 | ![Errors](lint_results/subworkflows_errors.png) | ![Warnings](lint_results/subworkflows_warnings.png) |
 
 <details>
-<summary>Subworkflow Results (27 subworkflows)</summary>
+<summary>Subworkflow Results (28 subworkflows)</summary>
 
 | Subworkflow                                                                                                                                                                             | Parse Error | Errors | Warnings |  versions channel  |                                        Lint Output                                        |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: | -----: | -------: | :----------------: | :---------------------------------------------------------------------------------------: |
@@ -149,6 +150,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :white_check_mark: [fasta_bam_scaffolding_ragtag_yahs](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_bam_scaffolding_ragtag_yahs)               |     No      |      0 |        0 | :white_check_mark: |    [View](lint_results/subworkflow-results/fasta_bam_scaffolding_ragtag_yahs_lint.md)     |
 | :white_check_mark: [fasta_bam_scaffolding_yahs](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_bam_scaffolding_yahs)                             |     No      |      0 |        0 | :white_check_mark: |        [View](lint_results/subworkflow-results/fasta_bam_scaffolding_yahs_lint.md)        |
 | :white_check_mark: [fasta_compress_index](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_compress_index)                                         |     No      |      0 |        0 | :white_check_mark: |           [View](lint_results/subworkflow-results/fasta_compress_index_lint.md)           |
+| :white_check_mark: [fasta_decontamination_syncon](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_decontamination_syncon)                         |     No      |      0 |        0 | :white_check_mark: |       [View](lint_results/subworkflow-results/fasta_decontamination_syncon_lint.md)       |
 | :white_check_mark: [fasta_purge_retained_haplotype](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fasta_purge_retained_haplotype)                     |     No      |      0 |        0 | :white_check_mark: |      [View](lint_results/subworkflow-results/fasta_purge_retained_haplotype_lint.md)      |
 | :white_check_mark: [fastx_map_long_reads](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fastx_map_long_reads)                                         |     No      |      0 |        0 | :white_check_mark: |           [View](lint_results/subworkflow-results/fastx_map_long_reads_lint.md)           |
 | :white_check_mark: [fcsgx_parsecsv](https://github.com/sanger-tol/nf-core-modules/tree/main/subworkflows/sanger-tol/fcsgx_parsecsv)                                                     |     No      |      0 |        0 | :white_check_mark: |              [View](lint_results/subworkflow-results/fcsgx_parsecsv_lint.md)              |
