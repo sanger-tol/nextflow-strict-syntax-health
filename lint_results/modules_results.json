@@ -1,5 +1,5 @@
 {
-  "_repo_commit": "3a25c723488d777b1935241eee3a18eb9406a97c",
+  "_repo_commit": "1c35a51c0c76b1a6af418ee4c61d9925270e0640",
   "ancestral_extract": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/ancestral/extract",
     "errors": 0,
@@ -116,6 +116,12 @@
   },
   "cramalign_minimap2alignhic": {
     "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/cramalign/minimap2alignhic",
+    "errors": 0,
+    "warnings": 1,
+    "parse_error": false
+  },
+  "cramalign_staralign": {
+    "html_url": "https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/cramalign/staralign",
     "errors": 0,
     "warnings": 1,
     "parse_error": false

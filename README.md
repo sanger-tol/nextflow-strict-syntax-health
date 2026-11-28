@@ -12,12 +12,12 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 > See the [nf-core blog post](https://nf-co.re/blog/2025/nextflow_syntax_nf-core_roadmap) for details on the migration timeline.
 > **Fixing all errors from `nextflow lint` will be a requirement by early spring 2026.**
 
-- **Last updated:** 2026-11-27 00:04:16 UTC
+- **Last updated:** 2026-11-28 00:05:01 UTC
 - **Nextflow version:** 26.11.0-edge
 
 ## Pipelines
 
-- **Strict syntax:** 0 parse errors, 0 errors, 565 warnings across 19 pipelines
+- **Strict syntax:** 0 parse errors, 0 errors, 568 warnings across 19 pipelines
 - **Versions Mix:** 12/19 (63.2%) pipelines do not use the `ch_versions += +ch_versions.mix` anti-pattern
 - **Zero issues:** 0 pipelines (0.0%)
 
@@ -36,8 +36,8 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | ------------------------------------------------------------------------------ | :---------: | -----: | -------: | :---------: | :---------------------------: | :----------------------------------------------------------------: | :--------------------------------------------------------------------: |
 | :x: [curationpretext](https://github.com/sanger-tol/curationpretext)           |     No      |      0 |       67 |     Yes     |      :white_check_mark:       |   [View](lint_results/pipeline-results/curationpretext_lint.md)    |   [View](lint_results/prints-help-results/curationpretext_help.txt)    |
 | :x: [treeval](https://github.com/sanger-tol/treeval)                           |     No      |      0 |       67 |     Yes     | :negative_squared_cross_mark: |       [View](lint_results/pipeline-results/treeval_lint.md)        |       [View](lint_results/prints-help-results/treeval_help.txt)        |
+| :x: [genomeassembly](https://github.com/sanger-tol/genomeassembly)             |     No      |      0 |       63 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/genomeassembly_lint.md)    |    [View](lint_results/prints-help-results/genomeassembly_help.txt)    |
 | :x: [metagenomeassembly](https://github.com/sanger-tol/metagenomeassembly)     |     No      |      0 |       62 |     Yes     |      :white_check_mark:       |  [View](lint_results/pipeline-results/metagenomeassembly_lint.md)  |  [View](lint_results/prints-help-results/metagenomeassembly_help.txt)  |
-| :x: [genomeassembly](https://github.com/sanger-tol/genomeassembly)             |     No      |      0 |       60 |     Yes     |      :white_check_mark:       |    [View](lint_results/pipeline-results/genomeassembly_lint.md)    |    [View](lint_results/prints-help-results/genomeassembly_help.txt)    |
 | :x: [ascc](https://github.com/sanger-tol/ascc)                                 |     No      |      0 |       57 |     Yes     | :negative_squared_cross_mark: |         [View](lint_results/pipeline-results/ascc_lint.md)         |         [View](lint_results/prints-help-results/ascc_help.txt)         |
 | :x: [ear](https://github.com/sanger-tol/ear)                                   |     No      |      0 |       52 |     No      | :negative_squared_cross_mark: |         [View](lint_results/pipeline-results/ear_lint.md)          |         [View](lint_results/prints-help-results/ear_help.txt)          |
 | :x: [readmapping](https://github.com/sanger-tol/readmapping)                   |     No      |      0 |       40 |     Yes     |      :white_check_mark:       |     [View](lint_results/pipeline-results/readmapping_lint.md)      |     [View](lint_results/prints-help-results/readmapping_help.txt)      |
@@ -58,9 +58,9 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 
 ## Modules
 
-- **Strict syntax:** 0 parse errors, 0 errors, 39 warnings across 47 modules
-- **Topic + Version:** 47/47 (100.0%) modules have `topics:` and `versions:` in meta.yml
-- **Zero errors:** 47 modules (100.0%)
+- **Strict syntax:** 0 parse errors, 0 errors, 40 warnings across 48 modules
+- **Topic + Version:** 48/48 (100.0%) modules have `topics:` and `versions:` in meta.yml
+- **Zero errors:** 48 modules (100.0%)
 
 |                   Errors                   |                    Warnings                    |
 | :----------------------------------------: | :--------------------------------------------: |
@@ -71,7 +71,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | ![Topic Version Usage](lint_results/modules_topic_versions.png) |
 
 <details>
-<summary>Module Results (47 modules)</summary>
+<summary>Module Results (48 modules)</summary>
 
 | Module                                                                                                                                                                 | Parse Error | Errors | Warnings |     `topics:`      |    `versions:`     |                                  Lint Output                                   |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: | -----: | -------: | :----------------: | :----------------: | :----------------------------------------------------------------------------: |
@@ -92,6 +92,7 @@ The goal is for all sanger-tol pipelines to run without errors using strict synt
 | :white_check_mark: [cramalign_gencramchunks](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/cramalign/gencramchunks)                       |     No      |      0 |        1 | :white_check_mark: | :white_check_mark: |      [View](lint_results/module-results/cramalign_gencramchunks_lint.md)       |
 | :white_check_mark: [cramalign_minimap2align](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/cramalign/minimap2align)                       |     No      |      0 |        1 | :white_check_mark: | :white_check_mark: |      [View](lint_results/module-results/cramalign_minimap2align_lint.md)       |
 | :white_check_mark: [cramalign_minimap2alignhic](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/cramalign/minimap2alignhic)                 |     No      |      0 |        1 | :white_check_mark: | :white_check_mark: |     [View](lint_results/module-results/cramalign_minimap2alignhic_lint.md)     |
+| :white_check_mark: [cramalign_staralign](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/cramalign/staralign)                               |     No      |      0 |        1 | :white_check_mark: | :white_check_mark: |        [View](lint_results/module-results/cramalign_staralign_lint.md)         |
 | :white_check_mark: [curationpretext_generateparamsfile](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/curationpretext/generateparamsfile) |     No      |      0 |        1 | :white_check_mark: | :white_check_mark: | [View](lint_results/module-results/curationpretext_generateparamsfile_lint.md) |
 | :white_check_mark: [fastxalign_minimap2align](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/fastxalign/minimap2align)                     |     No      |      0 |        1 | :white_check_mark: | :white_check_mark: |      [View](lint_results/module-results/fastxalign_minimap2align_lint.md)      |
 | :white_check_mark: [fastxalign_pyfastxindex](https://github.com/sanger-tol/nf-core-modules/tree/main/modules/sanger-tol/fastxalign/pyfastxindex)                       |     No      |      0 |        1 | :white_check_mark: | :white_check_mark: |      [View](lint_results/module-results/fastxalign_pyfastxindex_lint.md)       |

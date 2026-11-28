@@ -1,6 +1,6 @@
 {
-  "total": 75,
-  "with_topic_versions": 47,
+  "total": 76,
+  "with_topic_versions": 48,
   "without_topic_versions": 0,
   "subworkflow_with_versions": 0,
   "subworkflow_without_versions": 28,
@@ -141,6 +141,13 @@
     {
       "name": "cramalign_minimap2alignhic",
       "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/cramalign/minimap2alignhic/meta.yml",
+      "has_topics": true,
+      "has_versions": true,
+      "type": "module"
+    },
+    {
+      "name": "cramalign_staralign",
+      "html_url": "https://github.com/sanger-tol/nf-core-modules/blob/main/modules/sanger-tol/cramalign/staralign/meta.yml",
       "has_topics": true,
       "has_versions": true,
       "type": "module"

@@ -3725,5 +3725,18 @@
     "warnings_high": 0,
     "meta_with_topic_versions": 47,
     "meta_without_topic_versions": 0
+  },
+  {
+    "date": "2026-11-28",
+    "total": 48,
+    "parse_errors": 0,
+    "errors_zero": 48,
+    "errors_low": 0,
+    "errors_high": 0,
+    "warnings_zero": 8,
+    "warnings_low": 40,
+    "warnings_high": 0,
+    "meta_with_topic_versions": 48,
+    "meta_without_topic_versions": 0
   }
 ]
